@@ -1,0 +1,57 @@
+-------成员界面MemAddPage-------
+信息项：
+  成员编号(自动生成)
+  成员状态(Active, Review, Invalid)，成员类型(Normal, DivHead, Staff, Head)
+  姓名，性别，出生日期，Email，联系电话，微信号
+  所在国家，通讯地址1，通讯地址2，城市，邮编
+  学生编号，学术项目(UnderGrad,Grad,TransOut,Exchange,VisitingScholar)，结束日期，学位(Bachelor,Master,PhD,Post-PhD)，专业1，专业2
+  就业状态(GradProgram,Unemployed,Employed,StartBusiness)，公司，职位
+  搜索授权(Yes,No)
+Record记录：
+  新增记录-Record(Record.Id, StfId, MemId, Time, Action = "Add Member")
+功能：
+  确认，取消
+
+-------员工界面StfAddPage-------
+信息项：
+  成员编号(需验证)，成员姓名(需验证)
+  所在部门(General Administration, Information Technology Support, Career Development Support)
+  职位职务(Director, Manager, Staff)，权限等级(Level-1,...,Level-5)
+Record记录：
+  新增记录-Record(Record.Id, StfId, MemId, Time, Action = "Add Staff, Auth [Auth]")
+功能：
+  确认，取消，成员信息验证（编号or姓名）
+
+-------OPT界面OPTAddPage-------
+信息项：
+  OPT编号（自动生成），状态(Active,Invalid)
+  成员编号(需验证)，成员姓名(需验证)
+  员工编号（系统自带，无需验证）
+  开始日期，结束日期，头衔，职务（富文本）
+  EAD编号，EAD生效日期，EAD失效日期
+Record记录：
+  新增记录-Record(Record.Id, StfId, MemId, Time, Action = "Add OPT [MemId] Status [Status]")
+功能：
+  确认，取消，成员信息验证（编号or姓名）
+  
+-------财务界面TreAddPage-------
+信息项：
+  记录编号（自动生成）
+  登记时间
+  员工编号（系统自带，无需验证）
+  类型(Donation, Selling, Purchase, Other)，金额，备注（富文本）
+Record记录：
+  无
+功能：
+  确认，取消
+
+-------订单界面OrdInfoPage-------
+信息项：
+  订单编号，订单状态，提交时间
+  成员编号，成员姓名，Email，所在国家，地址1，地址2，城市，邮编
+  员工编号，员工姓名
+  商品编号，商品名称，商品数量(Orders.Amount)，商品金额(Orders.Price)，备注（富文本）
+数据区：
+  无
+功能：
+  编辑订单，删除订单

@@ -1,0 +1,29 @@
+L-1: System[F] Staff[PR] MyInfo[F] Treasury[PR/W]
+L-2: System[F] Member[PR] Staff[PR] MyInfo[F] Treasury[PR/W]
+L-3: System[F] Member[PR/W] Staff[PR] Orders[F] OPT[PR/W] MyInfo[F] Treasury[PR/W]
+L-4: System[F] Member[F] Staff[R] Record[R] Orders[F] OPT[F] MyInfo[F] Treasury[PR/W]
+L-5: System[F] Member[F] Staff[F] Record[F] Orders[F] OPT[F] MyInfo[F] Treasury[F]
+
+[F]
+  全部内容都可显示
+  全部功能都可使用
+
+[R] 全部内容都可显示
+
+[PR]  部分内容可以显示（如无以下限制，默认全部可见）
+----Member----以下内容不显示
+  L2: Gender, Birth, Phone, Wechat, Country, Address1, Address2, City, Postal, StdId
+  L3: Gender, Birth, Phone, Wechat, StdId
+  
+----Staff----以下内容不显示
+  L2: Gender, Birth, Phone, Wechat, Country, Address1, Address2, City, Postal, StdId
+  L3: Gender, Birth, Phone, Wechat, StdId
+
+----OPT----以下内容不显示
+  L3: CardNumber, CardStartDate, CardEndDate
+
+----Treasury----以下内容不显示
+  L1-4: 仅显示该StfId的相关记录
+
+[W]  全部功能都可使用
+  添加及更改

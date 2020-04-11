@@ -3,63 +3,189 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\System">
-      <UniqueIdentifier>{462ba6ea-1bc6-43b6-8c7d-9cd7ee491fc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Demo">
-      <UniqueIdentifier>{cee675bf-cdf9-448d-a29c-de5da689b047}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Database">
-      <UniqueIdentifier>{711efa7f-3803-4f78-9471-78e4bb396d23}</UniqueIdentifier>
+      <UniqueIdentifier>{ab191c3e-4a78-4970-840c-2e0e710e98c9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Database">
-      <UniqueIdentifier>{8d0dd403-d579-46aa-bbec-5a7ceb124f93}</UniqueIdentifier>
+      <UniqueIdentifier>{24f1ebc9-149a-4f60-81cd-3516a3911b8a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Demo">
-      <UniqueIdentifier>{70cc6ad4-6431-4238-84b0-2cbae4e94978}</UniqueIdentifier>
+    <Filter Include="Header Files\Member">
+      <UniqueIdentifier>{9ecdebee-63d1-4b1a-b8f1-0dafdc1e79fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Staff">
+      <UniqueIdentifier>{727f1343-3f26-40fc-99f0-5e8cf3819563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Record">
+      <UniqueIdentifier>{7dc108ee-2c56-428e-a98f-fc81a1b693aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Order">
+      <UniqueIdentifier>{309f2079-0eb3-4271-8503-a50e8857daca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OPT">
+      <UniqueIdentifier>{d6b2554a-616b-4ee4-8014-197af4e27512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Treasury">
+      <UniqueIdentifier>{616f1849-5035-4d60-bca1-47dd3b471693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System">
+      <UniqueIdentifier>{aef542dd-b73b-4c9d-b151-1236ec4bd7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Member">
+      <UniqueIdentifier>{292a81cd-594c-48be-8cce-22ec56d71336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System">
+      <UniqueIdentifier>{bf1f4f91-b30b-41fe-bcad-ce21d73abb2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Staff">
+      <UniqueIdentifier>{970663fb-3d63-4580-8901-4b605b268317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Treasury">
+      <UniqueIdentifier>{e84d0f79-c55d-4283-8438-677a1f0eeed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OPT">
+      <UniqueIdentifier>{23caa878-0938-44c5-a09c-9194ed06c05f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Order">
+      <UniqueIdentifier>{2b37c2b1-948e-4f59-85be-a91e5509a2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Record">
+      <UniqueIdentifier>{1964227c-4a20-47cf-87c8-ae1d4379e8a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="NewPage.cpp">
-      <Filter>Source Files\Demo</Filter>
-    </ClCompile>
-    <ClCompile Include="StarterPage.cpp">
-      <Filter>Source Files\Demo</Filter>
-    </ClCompile>
     <ClCompile Include="Database.cpp">
       <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="MemInfoPage.cpp">
+      <Filter>Source Files\Member</Filter>
+    </ClCompile>
+    <ClCompile Include="MemAddPage.cpp">
+      <Filter>Source Files\Member</Filter>
+    </ClCompile>
+    <ClCompile Include="OPTAddPage.cpp">
+      <Filter>Source Files\OPT</Filter>
+    </ClCompile>
+    <ClCompile Include="OPTInfoPage.cpp">
+      <Filter>Source Files\OPT</Filter>
+    </ClCompile>
+    <ClCompile Include="RecInfoPage.cpp">
+      <Filter>Source Files\Record</Filter>
+    </ClCompile>
+    <ClCompile Include="StfAddPage.cpp">
+      <Filter>Source Files\Staff</Filter>
+    </ClCompile>
+    <ClCompile Include="StfInfoPage.cpp">
+      <Filter>Source Files\Staff</Filter>
+    </ClCompile>
+    <ClCompile Include="TreAddPage.cpp">
+      <Filter>Source Files\Treasury</Filter>
+    </ClCompile>
+    <ClCompile Include="TreInfoPage.cpp">
+      <Filter>Source Files\Treasury</Filter>
+    </ClCompile>
+    <ClCompile Include="OrdInfoPage.cpp">
+      <Filter>Source Files\Order</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files\System</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseEncryptionAndDecryption.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
+    <ClCompile Include="SysChangeUserInfoPage.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SysInfoPage.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="StartPage2.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabasePrecheck.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabasePrecheckPrompt.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StarterPage.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="NewPage.h">
-      <Filter>Header Files\Demo</Filter>
-    </ClInclude>
-    <ClInclude Include="DatabaseParam.h">
-      <Filter>Header Files\Database</Filter>
-    </ClInclude>
     <ClInclude Include="Database.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseEncryptionAndDecryption.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseParam.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="MemInfoPage.h">
+      <Filter>Header Files\Member</Filter>
+    </ClInclude>
+    <ClInclude Include="MemAddPage.h">
+      <Filter>Header Files\Member</Filter>
+    </ClInclude>
+    <ClInclude Include="OPTAddPage.h">
+      <Filter>Header Files\OPT</Filter>
+    </ClInclude>
+    <ClInclude Include="OPTInfoPage.h">
+      <Filter>Header Files\OPT</Filter>
+    </ClInclude>
+    <ClInclude Include="RecInfoPage.h">
+      <Filter>Header Files\Record</Filter>
+    </ClInclude>
+    <ClInclude Include="StfAddPage.h">
+      <Filter>Header Files\Staff</Filter>
+    </ClInclude>
+    <ClInclude Include="StfInfoPage.h">
+      <Filter>Header Files\Staff</Filter>
+    </ClInclude>
+    <ClInclude Include="StartPage.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="TreAddPage.h">
+      <Filter>Header Files\Treasury</Filter>
+    </ClInclude>
+    <ClInclude Include="TreInfoPage.h">
+      <Filter>Header Files\Treasury</Filter>
+    </ClInclude>
+    <ClInclude Include="OrdInfoPage.h">
+      <Filter>Header Files\Order</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicUserInfo.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SysChangeUserInfoPage.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SysInfoPage.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="StartPage2.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SysForgotPassword.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabasePrecheck.h">
+      <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabasePrecheckPrompt.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
   </ItemGroup>

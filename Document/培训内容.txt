@@ -1,0 +1,95 @@
+培训内容：
+1. CAA基本介绍
+  PPT
+2. 项目介绍
+  C++/C#
+  Winform
+  分工合作
+    PM：协调进度、项目设计
+    Tech：审核代码、处理难题、设计框架
+    Developer：完成任务
+    Art：辅助设计
+3. 日程安排
+  定期汇报进度
+    Break：每天晚9点汇报进度
+  定期技术分享
+    Break：周三五晚8点
+  技术培训
+    第四项
+  开发进度（暂定）
+    3/23-3/29 Spring Break
+    3/30-6/5 Spring Quarter
+    3/23-5/10 Project
+      1 wk(0.5) 框架 + 培训
+      1 wk(0.5) 练习
+      6 wk(4.0) 开发
+      1 wk(0.5) Test
+4. 技术培训
+  环境设置
+    vs2019 (VS installer)
+    .NET Framework
+    SQLite
+  测试用例
+    Entry Point ： Main
+    System: Windows
+    按钮操作
+    label设定
+    页面切换
+    数据库连接
+    数据视窗
+  面向对象
+    encapsulation
+    inheritance
+      接口（纯虚类）
+      virtual
+    polymorphism
+      override
+      overload
+  类与类之间的关系
+    public/private/protected
+    跨类调用method
+  Keyword
+    namespace
+    typedef
+    define
+    auto
+    const
+    enum
+    switch-case-default
+    nullptr / NULL
+    this
+    struct
+  Exception
+    handle exception
+    try-catch-finally
+  内存泄漏
+    malloc/calloc - free
+    pointer - delete
+  Att
+    遍历用DataType dt : vectorInstance
+    结构体传参
+    Constructor/Destructor
+  分工合作
+    Documentation / Comment规范
+      文件题头说明：文件所属类，基础功能，目的，作者，日期
+      Method定义说明：名称（是否多态），参数@param type及格式，返回@return type及含义
+      行间注释说明：段落功能，动词开头，特殊逻辑
+    统一代码规范
+      .h书写规范（定义）预编译防止重复引用：#ifndef CAPITAL_NAME #define CAPITAL_NAME ... #endif
+      include引用规范（禁止循环向上索引，不引用不常用包）
+      命名规范：驼峰命名法，_identifier
+      {}书写规范（class/Constructor/Destructor/method/statement）
+      ()书写规范（parm/statement）
+      换行规范（不超过80字符）
+      if-else括号
+    Interface
+      基本都是composition
+  SQLite培训
+    数据库结构
+    SQL基本结构
+    SQL查询语句
+    SQL索引特性
+    SQL复杂语句建立
+  Git培训
+    Git合作基础（pull+merge+test+push）
+    pull request

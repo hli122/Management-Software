@@ -1,0 +1,39 @@
+--------测试结果---------
+
+> MemInfoPage
+  1. 自动显示Process Action（Record），无需手动点击
+  2. 双击Record，自动跳出对应RecInfoPage
+> MemAddPage
+  1. 相关数据应有下拉选项，且只能为限定选择
+> StfInfoPage
+  1. 更新信息时同时显示label Error和Update Successfully的提示
+  2. Add new record功能可取消
+  3. 删除信息后仍能正常打开页面浏览Data Area信息（应报错，并不予显示任何信息）
+     此时仍可点击按钮（应该锁死）
+  4. 双击Record，自动跳出对应RecInfoPage
+> StfInfoPage
+  1. 验证信息后应直接锁定MemberId及MemberName
+  2. 添加完成后应退出界面，显示语言应为Close而非Cancel
+> OPTInfoPage
+  1. 进入界面直接显示ERROR（因此人不存在）但仍显示部分信息，应锁定按钮并提示具体错误原因
+  2. 应把Delete功能和ChangeInfo并列
+  3. Change Info时如添加Member和Staff信息核实的功能
+> OPTAddPage
+  1. Verify的结果提示应该放在验证旁边
+  2. 验证成功后应锁定MemberId和Name
+  3. 显示添加成功后没有提供退出按钮
+  4. 【严重错误】无法成功添加（显示成功，但数据库没有相关数据）
+> OrdInfoPage
+  1. 【严重错误】无法正确显示，抛出异常
+> RecInfoPage
+  1. 错误信息写有用的错误信息，同时锁定所有按钮
+  2. 【严重错误】按钮逻辑错乱：点击DeleteId后如果点击Cancel，Confirm键会继续保留
+> TreInfoPage
+  1. 如果运行正常不需要提供提示
+  2. 如查询不存在的信息，Button应锁死
+  3. 需要重新调整UI，按钮和提示部分不在页面默认框体中
+  4. Constructor置入参数应为Int（统一规定）
+> TreAddPage
+  1. Time应自动调用系统时间，无需显示出来
+  2. 没有提供退出按钮
+  3. 无用变量：OrderId

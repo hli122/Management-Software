@@ -26,6 +26,18 @@ namespace WeAlumni {
             Treasury
         };
 
+        enum class DatabaseTable
+        {
+            Member,
+            Staff,
+            Record,
+            OPT,
+            Log,
+            Item,
+            Orders,
+            Treasury
+        };
+
         Database(void) {
 
         }
@@ -68,12 +80,16 @@ namespace WeAlumni {
         String^ GetDatabasePassword();
         String^ GetDatabaseName();
         String^ GetConnectionString();
+        String^ GetTableName(DatabaseTable tableType);
         void Initialize();
 
     public:
         void SetDatabaseType(DatabaseType type) { _databaseType = type; };
+        static void Log(int stfId, String^ action);
         bool CreateDatabaseFile();
         bool CheckDatabaseFileExistence();
+        int GetNextId(DatabaseTable tableName);
+        String^ GetSystemTime();
         int ReadData(String^ cmd);
         int ReadDataAdapter(String^ cmd);
         int InsertData(String^ cmd);

@@ -1,0 +1,14 @@
+StfInfoPage
+UpdateInfo()
+UpdateMemberDataGridView()
+GetXXX()
+SetXXX()
+btn_ChangeInfo
+btn_Close
+btn_Accpet
+btn_Cancle
+btn_Delete
+lbl_Prompt_Id
+lbl_Id
+txt_Id
+dgv_Member
