@@ -6,7 +6,7 @@
  * This file shows a Order Information page for a unique Order Id.
  *
  * @author: Haoran Li
- * Revised: 4/1/20
+ * Revised: 4/12/20
  *
  */
 
@@ -19,8 +19,9 @@ using namespace System;
  * @return None
  */
 Void WeAlumni::OrdInfoPage::UpdateInfo() {
-    String^ command = "SELECT Orders.Id, Orders.Status, Orders.Time, Orders.MemId, Member.Name, Member.Email, Member.Country, Member.Address1, Member.Address2, Member.City, Member.Postal, Orders.StfId, Orders.ItemId, Item.Name, Orders.Amount, Orders.Price, Orders.Comment, Item.Price FROM (Item Join (Orders, Member) ON Item.Id = Orders.ItemId AND Orders.MemId = Member.Id AND Orders.Id = " + ordId + ");";
+    String^ command = "SELECT Orders.Id, Orders.Status, Orders.Time, Orders.MemId, Member.Name, Member.Email, Member.Country, Member.Address1, Member.Address2, Member.City, Member.Postal, Orders.StfId, Orders.ItemId, Item.Name, Orders.Amount, Orders.Price, Orders.Comment, Item.Price FROM (Item Join (Orders, Member) ON Item.Id = Orders.ItemId AND Orders.MemId = Member.Id AND Orders.Id = " + _ordId + ");";
     int status = -1;
+    database->Log(_publicUserInfo->GetId(), "Operate on Order "+ _ordId +"");
 
     try {
         status = database->ReadData(command);
@@ -151,7 +152,7 @@ Void WeAlumni::OrdInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
                               "Amount = '" + txt_OdrAmt->Text + "', " +
                               "Comment = '" + rtxt_Content->Text + "', " +
                               "Price = '" + Convert::ToString(order_price) + "' " +
-                          "WHERE Id = " + ordId + ";";
+                          "WHERE Id = " + _ordId + ";";
     int status = -1;
 
     try {
@@ -207,7 +208,7 @@ Void WeAlumni::OrdInfoPage::btn_DelConfirm_Click(System::Object^ sender, System:
     btn_Confirm->Visible = false;
     btn_Cancel->Visible = false;
     btn_ChangeInfo->Visible = true;
-    String^ command = "DELETE FROM Orders WHERE Id =" + ordId + ";";
+    String^ command = "DELETE FROM Orders WHERE Id =" + _ordId + ";";
     int status = -1;
 
     try {

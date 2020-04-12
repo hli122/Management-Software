@@ -20,10 +20,10 @@ using namespace System;
  * @return None
  */
 Void WeAlumni::OrdAddPage::Initialize() {
-    lbl_OrdId->Text = Convert::ToString(database->GetNextId(WeAlumni::Database::DatabaseTable::Orders));
-    txt_SubmitTime->Text = Convert::ToString(database->GetSystemTime());
-    lbl_StfId->Text = Convert::ToString(_StfInfo->GetId());
-    lbl_StfName->Text = Convert::ToString(_StfInfo->GetName());
+    lbl_OrdId->Text = Convert::ToString(database->GetNextId(Database::DatabaseTable::Orders));
+    txt_SubmitTime->Text = database->GetSystemTime(); 
+    lbl_StfId->Text = Convert::ToString(_PublicUserInfo->GetId());
+    lbl_StfName->Text = _PublicUserInfo->GetName(); 
 }
 
 /*
