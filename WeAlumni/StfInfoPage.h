@@ -1,6 +1,7 @@
 #pragma once
 #include "Database.h"
 #include "RecInfoPage.h"
+#include "PublicUserInfo.h"
 
 /*
  * StfInfoPage.h
@@ -8,7 +9,7 @@
  * This file have basic Staff Information interaction actions.
  *
  * @author: Rui Jia
- * Revised: 4/4/20
+ * Revised: 4/12/20
  *
  */
 
@@ -30,6 +31,15 @@ namespace WeAlumni {
 		{
 			InitializeComponent();
 			_MemId = InputStfId;
+			_Auth = PublicUserInfo::Auth::Level_1;
+			Initialize();
+		}
+
+		StfInfoPage(int^ InputStfId, PublicUserInfo^ pui) {
+			InitializeComponent();
+			_StfId = pui->GetId();
+			_MemId = InputStfId;
+			_Auth = pui->GetAuth();
 			Initialize();
 		}
 
@@ -52,7 +62,6 @@ namespace WeAlumni {
 
 	private: System::Windows::Forms::DataGridView^ dgv_Staff;
 	private: System::Windows::Forms::Splitter^ splitter1;
-	private: System::Windows::Forms::Button^ btn_Record;
 	private: System::Windows::Forms::Label^ lbl_StfId;
 	private: System::Windows::Forms::Label^ lbl_Prompt_StfId;
 	private: System::Windows::Forms::ComboBox^ cmb_Auth;
@@ -87,7 +96,8 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Label^ lbl_Prompt_MemId;
 	private: System::Windows::Forms::Label^ lbl_Prompt_StfInfoPage;
 	private: System::Windows::Forms::Splitter^ splitter2;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ lbl_Prompt_DataArea;
+	private: System::Windows::Forms::Label^ lbl_Error_Data;
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -102,7 +112,6 @@ namespace WeAlumni {
 		{
 			this->dgv_Staff = (gcnew System::Windows::Forms::DataGridView());
 			this->splitter1 = (gcnew System::Windows::Forms::Splitter());
-			this->btn_Record = (gcnew System::Windows::Forms::Button());
 			this->lbl_StfId = (gcnew System::Windows::Forms::Label());
 			this->lbl_Prompt_StfId = (gcnew System::Windows::Forms::Label());
 			this->cmb_Auth = (gcnew System::Windows::Forms::ComboBox());
@@ -137,7 +146,8 @@ namespace WeAlumni {
 			this->lbl_Prompt_MemId = (gcnew System::Windows::Forms::Label());
 			this->lbl_Prompt_StfInfoPage = (gcnew System::Windows::Forms::Label());
 			this->splitter2 = (gcnew System::Windows::Forms::Splitter());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_DataArea = (gcnew System::Windows::Forms::Label());
+			this->lbl_Error_Data = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_Staff))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -151,6 +161,7 @@ namespace WeAlumni {
 			this->dgv_Staff->RowTemplate->Height = 27;
 			this->dgv_Staff->Size = System::Drawing::Size(1373, 253);
 			this->dgv_Staff->TabIndex = 71;
+			this->dgv_Staff->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StfInfoPage::dgv_Staff_CellContentClick);
 			// 
 			// splitter1
 			// 
@@ -163,19 +174,6 @@ namespace WeAlumni {
 			this->splitter1->TabIndex = 79;
 			this->splitter1->TabStop = false;
 			// 
-			// btn_Record
-			// 
-			this->btn_Record->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btn_Record->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(134)));
-			this->btn_Record->Location = System::Drawing::Point(995, 306);
-			this->btn_Record->Name = L"btn_Record";
-			this->btn_Record->Size = System::Drawing::Size(223, 64);
-			this->btn_Record->TabIndex = 113;
-			this->btn_Record->Text = L"Record";
-			this->btn_Record->UseVisualStyleBackColor = true;
-			this->btn_Record->Click += gcnew System::EventHandler(this, &StfInfoPage::RecordButton_Click);
-			// 
 			// lbl_StfId
 			// 
 			this->lbl_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
@@ -183,7 +181,7 @@ namespace WeAlumni {
 			this->lbl_StfId->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->lbl_StfId->Font = (gcnew System::Drawing::Font(L"SimSun", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_StfId->Location = System::Drawing::Point(293, 80);
+			this->lbl_StfId->Location = System::Drawing::Point(687, 78);
 			this->lbl_StfId->Name = L"lbl_StfId";
 			this->lbl_StfId->Size = System::Drawing::Size(23, 15);
 			this->lbl_StfId->TabIndex = 112;
@@ -196,7 +194,7 @@ namespace WeAlumni {
 			this->lbl_Prompt_StfId->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_Prompt_StfId->Location = System::Drawing::Point(173, 78);
+			this->lbl_Prompt_StfId->Location = System::Drawing::Point(570, 76);
 			this->lbl_Prompt_StfId->Name = L"lbl_Prompt_StfId";
 			this->lbl_Prompt_StfId->Size = System::Drawing::Size(97, 19);
 			this->lbl_Prompt_StfId->TabIndex = 111;
@@ -268,7 +266,7 @@ namespace WeAlumni {
 			this->btn_Close->Text = L"Close";
 			this->btn_Close->UseVisualStyleBackColor = true;
 			this->btn_Close->Visible = false;
-			this->btn_Close->Click += gcnew System::EventHandler(this, &StfInfoPage::DeleteCancelButton_Click);
+			this->btn_Close->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_Close_Click);
 			// 
 			// btn_Delete
 			// 
@@ -282,7 +280,7 @@ namespace WeAlumni {
 			this->btn_Delete->Text = L"Delete";
 			this->btn_Delete->UseVisualStyleBackColor = true;
 			this->btn_Delete->Visible = false;
-			this->btn_Delete->Click += gcnew System::EventHandler(this, &StfInfoPage::DeleteAcceptButton_Click);
+			this->btn_Delete->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_Delete_Click);
 			// 
 			// lbl_Auth
 			// 
@@ -394,7 +392,7 @@ namespace WeAlumni {
 			this->lbl_MemId->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->lbl_MemId->Font = (gcnew System::Drawing::Font(L"SimSun", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_MemId->Location = System::Drawing::Point(687, 80);
+			this->lbl_MemId->Location = System::Drawing::Point(293, 78);
 			this->lbl_MemId->Name = L"lbl_MemId";
 			this->lbl_MemId->Size = System::Drawing::Size(23, 15);
 			this->lbl_MemId->TabIndex = 95;
@@ -412,7 +410,7 @@ namespace WeAlumni {
 			this->btn_Cancle->Text = L"Cancle";
 			this->btn_Cancle->UseVisualStyleBackColor = true;
 			this->btn_Cancle->Visible = false;
-			this->btn_Cancle->Click += gcnew System::EventHandler(this, &StfInfoPage::CancelButton_Click);
+			this->btn_Cancle->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_Cancle_Click);
 			// 
 			// lbl_Prompt_Auth
 			// 
@@ -504,33 +502,33 @@ namespace WeAlumni {
 			this->btn_Accpet->Text = L"Accept";
 			this->btn_Accpet->UseVisualStyleBackColor = true;
 			this->btn_Accpet->Visible = false;
-			this->btn_Accpet->Click += gcnew System::EventHandler(this, &StfInfoPage::AcceptButton_Click);
+			this->btn_Accpet->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_Accpet_Click);
 			// 
 			// btn_DeleteInfo
 			// 
 			this->btn_DeleteInfo->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->btn_DeleteInfo->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->btn_DeleteInfo->Location = System::Drawing::Point(596, 306);
+			this->btn_DeleteInfo->Location = System::Drawing::Point(790, 306);
 			this->btn_DeleteInfo->Name = L"btn_DeleteInfo";
 			this->btn_DeleteInfo->Size = System::Drawing::Size(223, 64);
 			this->btn_DeleteInfo->TabIndex = 86;
 			this->btn_DeleteInfo->Text = L"Delete Information";
 			this->btn_DeleteInfo->UseVisualStyleBackColor = true;
-			this->btn_DeleteInfo->Click += gcnew System::EventHandler(this, &StfInfoPage::DeleteInfo_Click);
+			this->btn_DeleteInfo->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_DeleteInfo_Click);
 			// 
 			// btn_ChangeInfo
 			// 
 			this->btn_ChangeInfo->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->btn_ChangeInfo->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->btn_ChangeInfo->Location = System::Drawing::Point(210, 306);
+			this->btn_ChangeInfo->Location = System::Drawing::Point(444, 306);
 			this->btn_ChangeInfo->Name = L"btn_ChangeInfo";
 			this->btn_ChangeInfo->Size = System::Drawing::Size(223, 64);
 			this->btn_ChangeInfo->TabIndex = 85;
 			this->btn_ChangeInfo->Text = L"Edit Information";
 			this->btn_ChangeInfo->UseVisualStyleBackColor = true;
-			this->btn_ChangeInfo->Click += gcnew System::EventHandler(this, &StfInfoPage::ChangeInfo_Click);
+			this->btn_ChangeInfo->Click += gcnew System::EventHandler(this, &StfInfoPage::btn_ChangeInfo_Click);
 			// 
 			// lbl_Prompt_Email
 			// 
@@ -578,7 +576,7 @@ namespace WeAlumni {
 			this->lbl_Prompt_MemId->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->lbl_Prompt_MemId->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_Prompt_MemId->Location = System::Drawing::Point(559, 78);
+			this->lbl_Prompt_MemId->Location = System::Drawing::Point(162, 76);
 			this->lbl_Prompt_MemId->Name = L"lbl_Prompt_MemId";
 			this->lbl_Prompt_MemId->Size = System::Drawing::Size(108, 19);
 			this->lbl_Prompt_MemId->TabIndex = 81;
@@ -607,27 +605,42 @@ namespace WeAlumni {
 			this->splitter2->TabIndex = 114;
 			this->splitter2->TabStop = false;
 			// 
-			// label1
+			// lbl_Prompt_DataArea
 			// 
-			this->label1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			this->label1->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_DataArea->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_DataArea->AutoSize = true;
+			this->lbl_Prompt_DataArea->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->lbl_Prompt_DataArea->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->label1->Location = System::Drawing::Point(650, 529);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(108, 19);
-			this->label1->TabIndex = 115;
-			this->label1->Text = L"Data Area";
+			this->lbl_Prompt_DataArea->Location = System::Drawing::Point(650, 529);
+			this->lbl_Prompt_DataArea->Name = L"lbl_Prompt_DataArea";
+			this->lbl_Prompt_DataArea->Size = System::Drawing::Size(108, 19);
+			this->lbl_Prompt_DataArea->TabIndex = 115;
+			this->lbl_Prompt_DataArea->Text = L"Data Area";
+			// 
+			// lbl_Error_Data
+			// 
+			this->lbl_Error_Data->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Error_Data->AutoSize = true;
+			this->lbl_Error_Data->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->lbl_Error_Data->Font = (gcnew System::Drawing::Font(L"SimSun", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(134)));
+			this->lbl_Error_Data->ForeColor = System::Drawing::Color::Red;
+			this->lbl_Error_Data->Location = System::Drawing::Point(650, 606);
+			this->lbl_Error_Data->Name = L"lbl_Error_Data";
+			this->lbl_Error_Data->Size = System::Drawing::Size(101, 24);
+			this->lbl_Error_Data->TabIndex = 116;
+			this->lbl_Error_Data->Text = L"No Data";
+			this->lbl_Error_Data->Visible = false;
 			// 
 			// StfInfoPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1374, 824);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->lbl_Error_Data);
+			this->Controls->Add(this->lbl_Prompt_DataArea);
 			this->Controls->Add(this->splitter2);
-			this->Controls->Add(this->btn_Record);
 			this->Controls->Add(this->lbl_StfId);
 			this->Controls->Add(this->lbl_Prompt_StfId);
 			this->Controls->Add(this->cmb_Auth);
@@ -674,9 +687,11 @@ namespace WeAlumni {
 	private:
 		int^ _MemId;
 		int _StfId;
+		PublicUserInfo::Auth _Auth;
 		Database^ _database;
 
 	private:
+		Void CheckAuth();
 		Void UpdateInfo();
 		Void Initialize();
 		Void UpdateDataGridView();
@@ -684,12 +699,13 @@ namespace WeAlumni {
 		Void ChangeTxtInvisible();
 		Void ChangeLabelVisible();
 		Void ChangeLabelInvisible();
-		Void ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e);
-		Void AcceptButton_Click(System::Object^ sender, System::EventArgs^ e);
-		Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
-		Void DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e);
-		Void DeleteAcceptButton_Click(System::Object^ sender, System::EventArgs^ e);
-		Void DeleteCancelButton_Click(System::Object^ sender, System::EventArgs^ e);
-		Void RecordButton_Click(System::Object^ sender, System::EventArgs^ e);
+		Void AuthInvisible();
+		Void dgv_Staff_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+		Void btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Delete_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Close_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

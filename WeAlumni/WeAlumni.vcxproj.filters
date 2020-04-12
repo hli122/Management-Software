@@ -120,6 +120,9 @@
     <ClCompile Include="DatabasePrecheckPrompt.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
+    <ClCompile Include="LoginPage.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="DatabasePrecheckPrompt.h">
       <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPage.h">
+      <Filter>Header Files\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

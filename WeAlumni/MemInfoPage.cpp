@@ -6,7 +6,9 @@
  * This file implements all MemInfoPage interfaces.
  *
  * @author: Jiaying Hou
- * Revised: 4/4/20
+ * Revised: 4/1/20
+ *          4/4/20 UI and bug fixes
+ *          4/12/20 auth control added
  *
  */
 
@@ -21,7 +23,12 @@ using namespace System;
 */
 Void WeAlumni::MemInfoPage::Initialize() {
 	try {
-		database = gcnew Database(Database::DatabaseType::Data);
+		if (_auth == PublicUserInfo::Auth::Level_2) {
+			database = gcnew Database(Database::DatabaseType::Data, true);
+		}
+		else {
+			database = gcnew Database(Database::DatabaseType::Data);
+		}
 		UpdateInfo();
 		UpdateRecord();
 	}
@@ -105,6 +112,12 @@ Void WeAlumni::MemInfoPage::UpdateInfo() {
 		txt_Company->Text = database->dataReader[21]->ToString();
 		txt_Position->Text = database->dataReader[22]->ToString();
 		cmb_SearchAuth->Text = database->dataReader[23]->ToString();
+		if (_auth == PublicUserInfo::Auth::Level_2) {
+			Level2Display();
+		}
+		else if (_auth == PublicUserInfo::Auth::Level_3) {
+			Level3Display();
+		}
 	}
 	else {
 		lbl_error->Text = "Error occured";
@@ -118,32 +131,58 @@ Void WeAlumni::MemInfoPage::UpdateInfo() {
 * When click button "Change Info", multiple TextBoxes will be visible to collect changed information.
 */
 Void WeAlumni::MemInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
-	cmb_Status->Visible = true;
-	cmb_Type->Visible = true;
-	txt_Name->Visible = true;
-	txt_Gender->Visible = true;
-	txt_Birth->Visible = true;
-	txt_Email->Visible = true;
-	txt_Phone->Visible = true;
-	txt_Wechat->Visible = true;
-	txt_Country->Visible = true;
-	txt_Address1->Visible = true;
-	txt_Address2->Visible = true;
-	txt_City->Visible = true;
-	txt_Postal->Visible = true;
-	txt_StdId->Visible = true;
-	cmb_Program->Visible = true;
-	txt_EndDate->Visible = true;
-	cmb_Degree->Visible = true;
-	txt_Major1->Visible = true;
-	txt_Major2->Visible = true;
-	cmb_CareerStatus->Visible = true;
-	txt_Company->Visible = true;
-	txt_Position->Visible = true;
-	cmb_SearchAuth->Visible = true;
-	btn_ChangeInfoAccept->Visible = true;
-	btn_ChangeInfoCancel->Visible = true;
-	lbl_error->Visible = false;
+	if (_auth == PublicUserInfo::Auth::Level_3) {
+		Level3Display();
+		cmb_Status->Visible = true;
+		cmb_Type->Visible = true;
+		txt_Name->Visible = true;
+		txt_Email->Visible = true;
+		txt_Country->Visible = true;
+		txt_Address1->Visible = true;
+		txt_Address2->Visible = true;
+		txt_City->Visible = true;
+		txt_Postal->Visible = true;
+		cmb_Program->Visible = true;
+		txt_EndDate->Visible = true;
+		cmb_Degree->Visible = true;
+		txt_Major1->Visible = true;
+		txt_Major2->Visible = true;
+		cmb_CareerStatus->Visible = true;
+		txt_Company->Visible = true;
+		txt_Position->Visible = true;
+		cmb_SearchAuth->Visible = true;
+		btn_ChangeInfoAccept->Visible = true;
+		btn_ChangeInfoCancel->Visible = true;
+		lbl_error->Visible = false;
+	}
+	else {
+		cmb_Status->Visible = true;
+		cmb_Type->Visible = true;
+		txt_Name->Visible = true;
+		txt_Gender->Visible = true;
+		txt_Birth->Visible = true;
+		txt_Email->Visible = true;
+		txt_Phone->Visible = true;
+		txt_Wechat->Visible = true;
+		txt_Country->Visible = true;
+		txt_Address1->Visible = true;
+		txt_Address2->Visible = true;
+		txt_City->Visible = true;
+		txt_Postal->Visible = true;
+		txt_StdId->Visible = true;
+		cmb_Program->Visible = true;
+		txt_EndDate->Visible = true;
+		cmb_Degree->Visible = true;
+		txt_Major1->Visible = true;
+		txt_Major2->Visible = true;
+		cmb_CareerStatus->Visible = true;
+		txt_Company->Visible = true;
+		txt_Position->Visible = true;
+		cmb_SearchAuth->Visible = true;
+		btn_ChangeInfoAccept->Visible = true;
+		btn_ChangeInfoCancel->Visible = true;
+		lbl_error->Visible = false;
+	}
 }
 
 /*
@@ -421,3 +460,62 @@ Void WeAlumni::MemInfoPage::dataGridView1_CellDoubleClick(System::Object^ sender
 	recInfoPage->ShowDialog();
 }
 
+/*
+* Level2Display
+*
+* This method set labels and buttons visibility to false for auth control
+* @param none
+* @return none
+*/
+Void WeAlumni::MemInfoPage::Level2Display() {
+	lbl_Gender->Visible = false;
+	lbl_Birth->Visible = false;
+	lbl_Phone->Visible = false;
+	lbl_Wechat->Visible = false;
+	lbl_Country->Visible = false;
+	lbl_Address1->Visible = false;
+	lbl_Address2->Visible = false;
+	lbl_City->Visible = false;
+	lbl_Postal->Visible = false;
+	lbl_StdId->Visible = false;
+	
+	lbl_Prompt_Gender->Visible = false;
+	lbl_Prompt_Birth->Visible = false;
+	lbl_Prompt_Phone->Visible = false;
+	lbl_Prompt_Wechat->Visible = false;
+	lbl_Prompt_Country->Visible = false;
+	lbl_Prompt_Address1->Visible = false;
+	lbl_Prompt_Address2->Visible = false;
+	lbl_Prompt_City->Visible = false;
+	lbl_Prompt_Postal->Visible = false;
+	lbl_Prompt_StdId->Visible = false;
+	btn_ChangeInfo->Visible = false;
+	btn_Delete->Visible = false;
+}
+
+/*
+* Level3Display
+*
+* This method set labels, txt boxts visibility to false for auth control
+* @param none
+* @return none
+*/
+Void WeAlumni::MemInfoPage::Level3Display() {
+	lbl_Gender->Visible = false;
+	lbl_Birth->Visible = false;
+	lbl_Phone->Visible = false;
+	lbl_Wechat->Visible = false;
+	lbl_StdId->Visible = false;
+
+	lbl_Prompt_Gender->Visible = false;
+	lbl_Prompt_Birth->Visible = false;
+	lbl_Prompt_Phone->Visible = false;
+	lbl_Prompt_Wechat->Visible = false;
+	lbl_Prompt_StdId->Visible = false;
+
+	txt_Gender->Visible = false;
+	txt_Birth->Visible = false;
+	txt_Phone->Visible = false;
+	txt_Wechat->Visible = false;
+	txt_StdId->Visible = false;
+}

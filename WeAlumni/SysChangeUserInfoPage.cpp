@@ -6,7 +6,7 @@
  * This file implements all SysChangeUserInfoPage interfaces.
  *
  * @author: Rui Jia
- * Revised: 4/7/20
+ * Revised: 4/12/20
  *
  */
 
@@ -41,7 +41,7 @@ Void WeAlumni::SysChangeUserInfoPage::UpdateInfo() {
     lbl_Error->Visible = false;
 
     int status = -1;
-    String^ cmd = "SELECT * FROM Admin WHERE Username = '" + _UserName + "';";
+    String^ cmd = "SELECT * FROM Admin WHERE StfId = '" + _stfId + "';";
     try {
         status = _database->ReadData(cmd);
     }
@@ -70,9 +70,9 @@ Void WeAlumni::SysChangeUserInfoPage::UpdateInfo() {
 Void WeAlumni::SysChangeUserInfoPage::btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e) {
     int status = -1;
     String^ command = "UPDATE Admin " +
-        "SET    Username = '" + txt_changeUser->Text + "', " +
-        "Password = '" + txt_changePass->Text + "' " +
-        "WHERE  UserName = '" + _UserName + "';";
+                      "SET    Username = '" + txt_changeUser->Text + "', " +
+                             "Password = '" + txt_changePass->Text + "' " +
+                      "WHERE  StfId = '" + _stfId + "';";
     try {
         status = _database->UpdateData(command);
     }

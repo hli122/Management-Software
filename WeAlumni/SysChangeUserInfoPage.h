@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "PublicUserInfo.h"
 
 /*
  * SysChangeUserInfoPage.h
@@ -7,7 +8,7 @@
  * This file have basic username/password interaction actions.
  *
  * @author: Rui Jia
- * Revised: 4/7/20
+ * Revised: 4/12/20
  *
  */
 
@@ -26,14 +27,19 @@ namespace WeAlumni {
 	public ref class SysChangeUserInfoPage : public System::Windows::Forms::Form
 	{
 	public:
-		SysChangeUserInfoPage(String^ UserName)
+		SysChangeUserInfoPage(int stfId)
 		{
 			InitializeComponent();
-			_UserName = UserName;
+			_stfId = stfId;
 			Initialize();
 			//
 			//TODO: Add the constructor code here
 			//
+		}
+		SysChangeUserInfoPage(PublicUserInfo^ pui) {
+			InitializeComponent();
+			_stfId = pui->GetId();
+			Initialize();
 		}
 
 	protected:
@@ -193,7 +199,7 @@ namespace WeAlumni {
 			this->PerformLayout();
 		}
 	private:
-		String^ _UserName;
+		int _stfId;
 		Database^ _database;
 
 	private:

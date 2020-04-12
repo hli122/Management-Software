@@ -131,6 +131,7 @@
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="DatabaseEncryptionAndDecryption.cpp" />
     <ClCompile Include="DatabasePrecheck.cpp" />
+    <ClCompile Include="LoginPage.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MemAddPage.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="DatabasePrecheckPrompt.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="LoginPage.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>

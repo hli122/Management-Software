@@ -1,6 +1,8 @@
 #pragma once
 #include "Database.h"
 #include "RecInfoPage.h"
+#include "PublicUserInfo.h"
+#include "StartPage2.h"
 
 /*
  * MemInfoPage.h
@@ -8,7 +10,9 @@
  * This file have basic Member Information page interaction actions.
  *
  * @author: Jiaying Hou
- * Revised: 4/4/20
+ * Revised: 4/1/20
+ *          4/4/20 UI and bug fixes
+ *          4/12/20 auth control added
  *
  */
 
@@ -34,9 +38,19 @@ namespace WeAlumni {
 			//TODO: Add the constructor code here
 			//
 			_id = inputMemId;
+			_auth = PublicUserInfo::Auth::Level_1;
 			Initialize();
 		}
 
+		MemInfoPage(int inputMemId, PublicUserInfo^ pui) {
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+			_id = inputMemId;
+			_auth = pui->GetAuth();
+			Initialize();
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -1264,11 +1278,14 @@ private: System::Windows::Forms::ComboBox^ cmb_Status;
 	private:
 		int _id;
 		Database^ database;
+		PublicUserInfo::Auth _auth;
 		
 	private:
 		Void Initialize();
 		Void UpdateInfo();
 		Void UpdateRecord();
+		Void Level2Display();
+		Void Level3Display();
 		Void btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_Delete_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_ChangeInfoAccept_Click(System::Object^ sender, System::EventArgs^ e);

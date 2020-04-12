@@ -6,7 +6,7 @@
  * This file implements all StfInfoPage interfaces.
  *
  * @author: Rui Jia
- * Revised: 4/4/20
+ * Revised: 4/12/20
  *
  */
 
@@ -28,6 +28,47 @@ Void WeAlumni::StfInfoPage::Initialize() {
         return;
     }
     UpdateInfo();
+    CheckAuth();
+}
+
+/*
+ * CheckAuth()
+ * Check User Auth.
+ * Level 1 & Level 2: PR
+ * Level 3: PR/W
+ * Level 4 & Level 5: F
+ * @param None
+ * @return None
+ */
+Void WeAlumni::StfInfoPage::CheckAuth() {
+    if (_Auth == PublicUserInfo::Auth::Level_1 || _Auth == PublicUserInfo::Auth::Level_2 || _Auth == PublicUserInfo::Auth::Level_3) {
+        AuthInvisible();
+    }
+    if (_Auth == PublicUserInfo::Auth::Level_3) {
+        btn_ChangeInfo->Visible = true;
+        btn_DeleteInfo->Visible = true;
+    }
+}
+
+/*
+ * AuthInvisible()
+ * Set part of information invisible.
+ * @param None
+ * @return None
+ */
+Void WeAlumni::StfInfoPage::AuthInvisible() {
+    lbl_Prompt_Gender->Visible = false;
+    lbl_Gender->Visible = false;
+    lbl_Prompt_Birth->Visible = false;
+    lbl_Birth->Visible = false;
+    lbl_Prompt_Phone->Visible = false;
+    lbl_Phone->Visible = false;
+    lbl_Prompt_Wechat->Visible = false;
+    lbl_Wechat->Visible = false;
+    lbl_Prompt_StfId->Visible = false;
+    lbl_StfId->Visible = false;
+    btn_ChangeInfo->Visible = false;
+    btn_DeleteInfo->Visible = false;
 }
 
 /*
@@ -39,6 +80,7 @@ Void WeAlumni::StfInfoPage::Initialize() {
  */
 Void WeAlumni::StfInfoPage::UpdateInfo() {
     lbl_Error->Visible = false;
+    lbl_Error_Data->Visible = false;
 
     int status = -1;
     String^ cmd = "SELECT * FROM Staff WHERE MemId = '" + _MemId + "';";
@@ -67,7 +109,6 @@ Void WeAlumni::StfInfoPage::UpdateInfo() {
         lbl_Error->Visible = true;
         btn_ChangeInfo->Enabled = false;
         btn_DeleteInfo->Enabled = false;
-        btn_Record->Enabled = false;
     }
 
     int status2 = -1;
@@ -147,28 +188,29 @@ Void WeAlumni::StfInfoPage::ChangeLabelInvisible() {
 }
 
 /*
- * ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e)
  * When click button "Edit Information", multiple TextBoxes will be visible to collect changed info.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
     lbl_Error->Visible = false;
     ChangeTxtVisible();
     ChangeLabelInvisible();
     btn_Accpet->Visible = true;
     btn_Cancle->Visible = true;
+    btn_DeleteInfo->Enabled = false;
 }
 
 /*
- * AcceptButton_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e)
  * When click button "Accept", this method will trigger a Database update execution.
  * If exception occurs, an error message will be shown.
  * Then set all TextBoxes and two buttons to invisible.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::AcceptButton_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e) {
     int status = -1;
     String^ command = "UPDATE Staff " +
                       "SET    Dept = '" + cmb_Dept->Text + "', " +
@@ -193,6 +235,7 @@ Void WeAlumni::StfInfoPage::AcceptButton_Click(System::Object^ sender, System::E
         lbl_Error->Visible = true;
         btn_Accpet->Visible = false;
         btn_Cancle->Visible = false;
+        btn_DeleteInfo->Enabled = true;
     }
     else {
         lbl_Error->Text = "ERROR";
@@ -201,37 +244,39 @@ Void WeAlumni::StfInfoPage::AcceptButton_Click(System::Object^ sender, System::E
 }
 
 /*
- * CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e)
  * Reset the value of TextBoxes. Set all TextBoxes and two buttons to invisible.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::CancelButton_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e) {
     ChangeTxtInvisible();
     ChangeLabelVisible();
     btn_Accpet->Visible = false;
     btn_Cancle->Visible = false;
+    btn_DeleteInfo->Enabled = true;
 }
 
 /*
- * DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e)
  * When click button "Delete Information", two buttons will show up
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e) {
     lbl_Error->Visible = false;
     btn_Delete->Visible = true;
     btn_Close->Visible = true;
+    btn_ChangeInfo->Enabled = false;
 }
 
 /*
- * DeleteAcceptButton_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_Delete_Click(System::Object^ sender, System::EventArgs^ e)
  * When clike "Delete", the method will trigger a delete command.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::DeleteAcceptButton_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
     int status = -1;
     String^ command = "DELETE FROM Staff WHERE MemId = '" + _MemId + "';";
     try {
@@ -252,41 +297,31 @@ Void WeAlumni::StfInfoPage::DeleteAcceptButton_Click(System::Object^ sender, Sys
 }
 
 /*
- * DeleteCancelButton_Click(System::Object^ sender, System::EventArgs^ e)
+ * btn_Close_Click(System::Object^ sender, System::EventArgs^ e)
  * When click button "Cancle", two new buttons will be hiden.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
-Void WeAlumni::StfInfoPage::DeleteCancelButton_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_Close_Click(System::Object^ sender, System::EventArgs^ e) {
     btn_Delete->Visible = false;
     btn_Close->Visible = false;
+    btn_ChangeInfo->Enabled = true;
 }
 
 /*
- * RecordButton_Click(System::Object^ sender, System::EventArgs^ e)
- * Click "Record", jump to RecInfoPage page.
- * @param None
- * @return None
- */
-Void WeAlumni::StfInfoPage::RecordButton_Click(System::Object^ sender, System::EventArgs^ e) {
-    RecInfoPage^ page = gcnew RecInfoPage(_MemId);
-    page->Show();
-}
-
-/*
- * UpdateDataGridView
- * This method will update the info for the dgv_ShowPassword.
+ * UpdateDataGridView()
+ * This method will update the info for the dgv_Staff.
  * @param None
  * @return None
  */
 Void WeAlumni::StfInfoPage::UpdateDataGridView() {
     int status = -1;
-    String^ command = "SELECT R.Id      AS 'Recording ID', " +
-                             "R.Time    As 'Recording Time', " +
-                             "R.MemId   AS 'Member ID', " +
-                             "R.MemName AS 'Member Name', " +
-                             "R.Action  AS 'Action' " +
-                      "FROM   Record R";
+    String^ command = "SELECT Record.Id      AS 'Recording ID', " +
+                             "Record.Time    As 'Recording Time', " +
+                             "Record.MemId   AS 'Member ID', " +
+                             "Record.MemName AS 'Member Name', " +
+                             "Record.Action  AS 'Action' " +
+                      "FROM   Record WHERE Record.MemId = '" + _MemId + "' ORDER BY Record.Id ASC;";
     BindingSource^ bSource = gcnew BindingSource();
     try {
         status = _database->ReadDataAdapter(command);
@@ -302,9 +337,19 @@ Void WeAlumni::StfInfoPage::UpdateDataGridView() {
         dgv_Staff->DataSource = bSource;
     }
     else {
-        lbl_Error->Text = "NO DATA";
-        lbl_Error->Visible = true;
+        lbl_Error_Data->Visible = true;
     }
+}
+
+/*
+ * dgv_Staff_CellContentClick()
+ * by double clicking specific row of dgv_Staff, a corresponding Record Info page will show up.
+ * @param None
+ * @return None
+ */
+Void WeAlumni::StfInfoPage::dgv_Staff_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+    RecInfoPage^ recInfoPage = gcnew RecInfoPage(Convert::ToInt32(dgv_Staff->CurrentRow->Cells[0]->Value));
+    recInfoPage->ShowDialog();
 }
 
 

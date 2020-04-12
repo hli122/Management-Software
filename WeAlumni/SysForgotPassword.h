@@ -1,7 +1,7 @@
 #pragma once
 
 /*
- * ForgotPassword.h
+ * SysForgotPassword.h
  *
  * This file provide info about forgot password
  *
@@ -20,12 +20,12 @@ namespace WeAlumni {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for ForgotPassword
+	/// Summary for SysForgotPassword
 	/// </summary>
-	public ref class ForgotPassword : public System::Windows::Forms::Form
+	public ref class SysForgotPassword : public System::Windows::Forms::Form
 	{
 	public:
-		ForgotPassword(void)
+		SysForgotPassword(void)
 		{
 			InitializeComponent();
 			//
@@ -37,7 +37,7 @@ namespace WeAlumni {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~ForgotPassword()
+		~SysForgotPassword()
 		{
 			if (components)
 			{
@@ -75,16 +75,15 @@ namespace WeAlumni {
 			this->textBox1->Size = System::Drawing::Size(257, 130);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->Text = L"请联系开发者：袁航  \r\nWX：liehuozhizun \r\nE-MAIL：hyuan3@ucsc.edu";
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &ForgotPassword::textBox1_TextChanged);
 			// 
-			// ForgotPassword
+			// SysForgotPassword
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(363, 286);
 			this->Controls->Add(this->textBox1);
-			this->Name = L"ForgotPassword";
-			this->Text = L"ForgotPassword";
+			this->Name = L"SysForgotPassword";
+			this->Text = L"SysForgotPassword";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
