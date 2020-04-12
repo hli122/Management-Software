@@ -22,30 +22,8 @@ using namespace System;
 Void WeAlumni::OrdAddPage::Initialize() {
     lbl_OrdId->Text = Convert::ToString(database->GetNextId(WeAlumni::Database::DatabaseTable::Orders));
     txt_SubmitTime->Text = Convert::ToString(database->GetSystemTime());
-    lbl_StfId->Text = Convert::ToString(_StfInfo);
-    String^ command;
-    int status = -1;
-    command = "SELECT Name " +
-        "FROM Member " +
-        "WHERE Id = '" + lbl_StfId->Text + "';";
-    try {
-        status = database->ReadData(command);
-        lbl_StfName->Text = database->dataReader[0]->ToString();
-    }
-    catch (Exception^ exception) {
-        lbl_error->Visible = true;
-        lbl_error->Text = exception->Message;
-        return;
-    }
-    if (status == -1) {
-        lbl_error->Visible = true;
-        lbl_error->Text = "Error -1 ";
-    }
-    else if (status == 0) {
-        lbl_error->Visible = true;
-        lbl_error->Text = "nonexist Id or Name";
-    }
-
+    lbl_StfId->Text = Convert::ToString(_StfInfo->GetId());
+    lbl_StfName->Text = Convert::ToString(_StfInfo->GetName());
 }
 
 /*
