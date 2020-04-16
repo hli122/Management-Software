@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "PublicUserInfo.h"
 
 /*
  * StfAddPage.h
@@ -8,6 +9,7 @@
  *
  * @author: Rui Jia
  * Revised: 4/4/20
+ *          4/15/20 use PublicUserInfo
  *
  */
 
@@ -27,6 +29,11 @@ namespace WeAlumni {
 	public:
 		StfAddPage(void)
 		{
+			InitializeComponent();
+			Initialize();
+		}
+
+		StfAddPage(PublicUserInfo^ pui) {
 			InitializeComponent();
 			Initialize();
 		}

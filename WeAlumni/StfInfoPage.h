@@ -10,6 +10,7 @@
  *
  * @author: Rui Jia
  * Revised: 4/12/20
+ *          4/15/20 add AddNewRecord();
  *
  */
 
@@ -37,6 +38,7 @@ namespace WeAlumni {
 
 		StfInfoPage(int^ InputStfId, PublicUserInfo^ pui) {
 			InitializeComponent();
+			_pui = pui;
 			_StfId = pui->GetId();
 			_MemId = InputStfId;
 			_Auth = pui->GetAuth();
@@ -688,6 +690,7 @@ namespace WeAlumni {
 		int^ _MemId;
 		int _StfId;
 		PublicUserInfo::Auth _Auth;
+		PublicUserInfo^ _pui;
 		Database^ _database;
 
 	private:
@@ -700,6 +703,7 @@ namespace WeAlumni {
 		Void ChangeLabelVisible();
 		Void ChangeLabelInvisible();
 		Void AuthInvisible();
+		Void DeleteRecord();
 		Void dgv_Staff_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 		Void btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e);

@@ -7,7 +7,7 @@
  *
  * @author: Rui Jia
  * Revised: 4/4/20
- *
+ *          4/15/20 use PublicUserInfo
  */
 
 using namespace System;
@@ -134,9 +134,9 @@ Void WeAlumni::StfAddPage::Confirm_Click(System::Object^ sender, System::EventAr
     String^ Posi = cmb_Posi->Text;
     String^ Auth = cmb_Auth->Text;
     String^ command = "INSERT INTO Staff VALUES(" + MemId2 + ", '" +
-                                                    Dept + "', '" +
-                                                    Posi + "', '" +
-                                                    Auth + "');";
+        Dept + "', '" +
+        Posi + "', '" +
+        Auth + "');";
     try {
         status = _database->InsertData(command);
     }
@@ -185,11 +185,11 @@ Void WeAlumni::StfAddPage::AddNewRecord() {
     String^ time = _database->GetSystemTime();
     String^ action = "Add Staff, Auth " + cmb_Auth->Text;
     String^ command = "INSERT INTO Record VALUES(" + RecordId + "," +
-                                                     _StfId + "," +
-                                                     MemId + ", '" +
-                                                     Name + "', '" +
-                                                     time + "', '" +
-                                                     action + "');";
+        _StfId + "," +
+        MemId + ", '" +
+        Name + "', '" +
+        time + "', '" +
+        action + "');";
     try {
         status = _database->InsertData(command);
     }

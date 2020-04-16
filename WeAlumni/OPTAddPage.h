@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "PublicUserInfo.h"
 
 /*
  * OPTAddPage.h
@@ -34,6 +35,24 @@ namespace WeAlumni {
 			//TODO: Add the constructor code here
 			//
 			_StfId = input;
+			try {
+				database = gcnew Database(Database::DatabaseType::Data);
+				Initialize();
+			}
+			catch (Exception^ exception) {
+				lbl_error->Text = exception->Message;
+				lbl_error->ForeColor = Color::Red;
+				lbl_error->Visible = true;
+			}
+		}
+
+		OPTAddPage(PublicUserInfo^ pui)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+			_StfId = pui->GetId();
 			try {
 				database = gcnew Database(Database::DatabaseType::Data);
 				Initialize();
@@ -520,6 +539,7 @@ namespace WeAlumni {
 	private: 
 		System::Void Initialize();
 		System::Void SetBoxReadOnly();
+		System::Void InsertRecord();
 		System::Void btn_Verify_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e);

@@ -1,5 +1,6 @@
-#include "StartPage.h"
+
 #include "StartPage2.h"
+#include "LoginPage.h"
 
 /*
  * Main.cpp

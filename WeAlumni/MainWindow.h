@@ -4,6 +4,8 @@
 #include "MemAddPage.h"
 #include "StfInfoPage.h"
 #include "StfAddPage.h"
+#define MEM_SELECT_ALL "SELECT Member.Id AS 'MemberId', Member.Status AS 'MemberStatus', Member.Type AS 'MemberType', Member.Name AS 'MemberName', Member.Gender AS 'MemberGender', Member.Email AS 'MemberEmail' FROM Member ORDER BY Id ASC"
+#define STF_SELECT_ALL "SELECT Staff.MemId AS 'ID', Member.Name As 'Name', Member.Gender AS 'Gender', Member.Email AS 'Email', Staff.Dept As 'Department', Staff.Position As 'Position', Staff.Auth As 'Auth' FROM Member, Staff WHERE Staff.MemId = Member.Id ORDER BY Staff.MemId ASC"
 
 /*
  * MainWindow.h
@@ -14,10 +16,11 @@
  * Revised: 3/27/20
  *          4/8/20 add member MainWindow
  *          4/12/20 add staff MainWindow and auth control for staff and member
+ *          4/15/20 bug fix
  *
  */
 
-	namespace WeAlumni {
+namespace WeAlumni {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -106,8 +109,6 @@
 	private: System::Windows::Forms::ComboBox^ mem_cmb_CareerStatus;
 	private: System::Windows::Forms::Label^ mem_lbl_error;
 	private: System::Windows::Forms::Button^ stf_btn_Add;
-	private: System::Windows::Forms::DataGridView^ stf_dataGridView;
-	private: System::Windows::Forms::Button^ stf_btn_Import;
 	private: System::Windows::Forms::Button^ stf_btn_Clear;
 	private: System::Windows::Forms::Button^ stf_btn_Search;
 	private: System::Windows::Forms::TextBox^ stf_txt_Name;
@@ -119,6 +120,21 @@
 	private: System::Windows::Forms::ComboBox^ stf_cmb_Auth;
 	private: System::Windows::Forms::ComboBox^ stf_cmb_Dept;
 	private: System::Windows::Forms::Label^ stf_lbl_Error;
+	private: System::Windows::Forms::Label^ mem_Prompt_Result;
+	private: System::Windows::Forms::Label^ mem_Prompt_ViewInfo;
+	private: System::Windows::Forms::Label^ mem_Prompt_PgInfo;
+	private: System::Windows::Forms::Splitter^ mem_splitter2;
+	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Total;
+	private: System::Windows::Forms::Label^ stf_lbl_Count;
+	private: System::Windows::Forms::Label^ stf_lbl_Prompt_Count;
+	private: System::Windows::Forms::Splitter^ stf_splitter1;
+	private: System::Windows::Forms::DataGridView^ stf_dataGridView;
+	private: System::Windows::Forms::Label^ stf_lbl_Prompt_SearchResult;
+	private: System::Windows::Forms::Splitter^ stf_splitter3;
+	private: System::Windows::Forms::Splitter^ stf_splitter2;
+	private: System::Windows::Forms::Label^ label1;
+ private: System::Windows::Forms::Label^ mem_lbl_Count;
+
 	private: System::Windows::Forms::Panel^ pan_myInfo;
 
 #pragma region Windows Form Designer generated code
@@ -129,22 +145,11 @@
 		   void InitializeComponent(void)
 		   {
 			   this->toolStripContainer1 = (gcnew System::Windows::Forms::ToolStripContainer());
-			   this->pan_staff = (gcnew System::Windows::Forms::Panel());
-			   this->stf_lbl_Error = (gcnew System::Windows::Forms::Label());
-			   this->stf_cmb_Auth = (gcnew System::Windows::Forms::ComboBox());
-			   this->stf_cmb_Dept = (gcnew System::Windows::Forms::ComboBox());
-			   this->stf_dataGridView = (gcnew System::Windows::Forms::DataGridView());
-			   this->stf_btn_Import = (gcnew System::Windows::Forms::Button());
-			   this->stf_btn_Clear = (gcnew System::Windows::Forms::Button());
-			   this->stf_btn_Search = (gcnew System::Windows::Forms::Button());
-			   this->stf_txt_Name = (gcnew System::Windows::Forms::TextBox());
-			   this->stf_txt_Id = (gcnew System::Windows::Forms::TextBox());
-			   this->stf_lbl_Prompt_Auth = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Dept = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
-			   this->stf_btn_Add = (gcnew System::Windows::Forms::Button());
 			   this->pan_member = (gcnew System::Windows::Forms::Panel());
+			   this->mem_lbl_Prompt_Total = (gcnew System::Windows::Forms::Label());
+			   this->mem_Prompt_PgInfo = (gcnew System::Windows::Forms::Label());
+			   this->mem_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
+			   this->mem_Prompt_Result = (gcnew System::Windows::Forms::Label());
 			   this->mem_lbl_error = (gcnew System::Windows::Forms::Label());
 			   this->mem_btn_Import = (gcnew System::Windows::Forms::Button());
 			   this->mem_btn_Add = (gcnew System::Windows::Forms::Button());
@@ -167,6 +172,28 @@
 			   this->mem_lbl_Prompt_Type = (gcnew System::Windows::Forms::Label());
 			   this->mem_lbl_Prompt_Status = (gcnew System::Windows::Forms::Label());
 			   this->mem_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
+			   this->mem_splitter2 = (gcnew System::Windows::Forms::Splitter());
+			   this->pan_staff = (gcnew System::Windows::Forms::Panel());
+			   this->label1 = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_SearchResult = (gcnew System::Windows::Forms::Label());
+			   this->stf_splitter3 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_splitter2 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_dataGridView = (gcnew System::Windows::Forms::DataGridView());
+			   this->stf_splitter1 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_lbl_Count = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Count = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Error = (gcnew System::Windows::Forms::Label());
+			   this->stf_cmb_Auth = (gcnew System::Windows::Forms::ComboBox());
+			   this->stf_cmb_Dept = (gcnew System::Windows::Forms::ComboBox());
+			   this->stf_btn_Clear = (gcnew System::Windows::Forms::Button());
+			   this->stf_btn_Search = (gcnew System::Windows::Forms::Button());
+			   this->stf_txt_Name = (gcnew System::Windows::Forms::TextBox());
+			   this->stf_txt_Id = (gcnew System::Windows::Forms::TextBox());
+			   this->stf_lbl_Prompt_Auth = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Dept = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
+			   this->stf_btn_Add = (gcnew System::Windows::Forms::Button());
 			   this->pan_record = (gcnew System::Windows::Forms::Panel());
 			   this->pan_OPT = (gcnew System::Windows::Forms::Panel());
 			   this->pan_order = (gcnew System::Windows::Forms::Panel());
@@ -184,14 +211,15 @@
 			   this->tsm_system = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_database = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_help = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			   this->mem_lbl_Count = (gcnew System::Windows::Forms::Label());
 			   this->toolStripContainer1->ContentPanel->SuspendLayout();
 			   this->toolStripContainer1->LeftToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->SuspendLayout();
-			   this->pan_staff->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->BeginInit();
 			   this->pan_member->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->BeginInit();
+			   this->pan_staff->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->BeginInit();
 			   this->ms_panelOptions->SuspendLayout();
 			   this->ms_systemOptions->SuspendLayout();
 			   this->SuspendLayout();
@@ -202,12 +230,12 @@
 			   // toolStripContainer1.ContentPanel
 			   // 
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_member);
+			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_staff);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_record);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_OPT);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_order);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_treasury);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_myInfo);
-			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_staff);
 			   this->toolStripContainer1->ContentPanel->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size(982, 636);
 			   this->toolStripContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -226,181 +254,13 @@
 			   // 
 			   this->toolStripContainer1->TopToolStripPanel->Controls->Add(this->ms_systemOptions);
 			   // 
-			   // pan_staff
-			   // 
-			   this->pan_staff->Controls->Add(this->stf_lbl_Error);
-			   this->pan_staff->Controls->Add(this->stf_cmb_Auth);
-			   this->pan_staff->Controls->Add(this->stf_cmb_Dept);
-			   this->pan_staff->Controls->Add(this->stf_dataGridView);
-			   this->pan_staff->Controls->Add(this->stf_btn_Import);
-			   this->pan_staff->Controls->Add(this->stf_btn_Clear);
-			   this->pan_staff->Controls->Add(this->stf_btn_Search);
-			   this->pan_staff->Controls->Add(this->stf_txt_Name);
-			   this->pan_staff->Controls->Add(this->stf_txt_Id);
-			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Auth);
-			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Dept);
-			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Name);
-			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Id);
-			   this->pan_staff->Controls->Add(this->stf_btn_Add);
-			   this->pan_staff->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_staff->Location = System::Drawing::Point(0, 0);
-			   this->pan_staff->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_staff->Name = L"pan_staff";
-			   this->pan_staff->Size = System::Drawing::Size(982, 636);
-			   this->pan_staff->TabIndex = 5;
-			   // 
-			   // stf_lbl_Error
-			   // 
-			   this->stf_lbl_Error->AutoSize = true;
-			   this->stf_lbl_Error->ForeColor = System::Drawing::Color::Red;
-			   this->stf_lbl_Error->Location = System::Drawing::Point(463, 220);
-			   this->stf_lbl_Error->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->stf_lbl_Error->Name = L"stf_lbl_Error";
-			   this->stf_lbl_Error->Size = System::Drawing::Size(46, 13);
-			   this->stf_lbl_Error->TabIndex = 15;
-			   this->stf_lbl_Error->Text = L"ERROR";
-			   this->stf_lbl_Error->Visible = false;
-			   // 
-			   // stf_cmb_Auth
-			   // 
-			   this->stf_cmb_Auth->FormattingEnabled = true;
-			   this->stf_cmb_Auth->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				   L"Level-1", L"Level-2", L"Level-3", L"Level-4",
-					   L"Level-5"
-			   });
-			   this->stf_cmb_Auth->Location = System::Drawing::Point(590, 55);
-			   this->stf_cmb_Auth->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_cmb_Auth->Name = L"stf_cmb_Auth";
-			   this->stf_cmb_Auth->Size = System::Drawing::Size(113, 21);
-			   this->stf_cmb_Auth->TabIndex = 14;
-			   // 
-			   // stf_cmb_Dept
-			   // 
-			   this->stf_cmb_Dept->FormattingEnabled = true;
-			   this->stf_cmb_Dept->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				   L"General Administration", L"Information Technology Support",
-					   L"Career Development Support"
-			   });
-			   this->stf_cmb_Dept->Location = System::Drawing::Point(332, 55);
-			   this->stf_cmb_Dept->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_cmb_Dept->Name = L"stf_cmb_Dept";
-			   this->stf_cmb_Dept->Size = System::Drawing::Size(210, 21);
-			   this->stf_cmb_Dept->TabIndex = 13;
-			   // 
-			   // stf_dataGridView
-			   // 
-			   this->stf_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->stf_dataGridView->Location = System::Drawing::Point(0, 267);
-			   this->stf_dataGridView->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_dataGridView->Name = L"stf_dataGridView";
-			   this->stf_dataGridView->RowHeadersWidth = 51;
-			   this->stf_dataGridView->RowTemplate->Height = 27;
-			   this->stf_dataGridView->Size = System::Drawing::Size(979, 317);
-			   this->stf_dataGridView->TabIndex = 12;
-			   this->stf_dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::stf_dataGridView_CellContentClick);
-			   // 
-			   // stf_btn_Import
-			   // 
-			   this->stf_btn_Import->Location = System::Drawing::Point(793, 220);
-			   this->stf_btn_Import->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_btn_Import->Name = L"stf_btn_Import";
-			   this->stf_btn_Import->Size = System::Drawing::Size(70, 28);
-			   this->stf_btn_Import->TabIndex = 11;
-			   this->stf_btn_Import->Text = L"Import";
-			   this->stf_btn_Import->UseVisualStyleBackColor = true;
-			   this->stf_btn_Import->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Import_Click);
-			   // 
-			   // stf_btn_Clear
-			   // 
-			   this->stf_btn_Clear->Location = System::Drawing::Point(793, 101);
-			   this->stf_btn_Clear->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_btn_Clear->Name = L"stf_btn_Clear";
-			   this->stf_btn_Clear->Size = System::Drawing::Size(70, 28);
-			   this->stf_btn_Clear->TabIndex = 10;
-			   this->stf_btn_Clear->Text = L"Clear";
-			   this->stf_btn_Clear->UseVisualStyleBackColor = true;
-			   this->stf_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Clear_Click);
-			   // 
-			   // stf_btn_Search
-			   // 
-			   this->stf_btn_Search->Location = System::Drawing::Point(793, 42);
-			   this->stf_btn_Search->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_btn_Search->Name = L"stf_btn_Search";
-			   this->stf_btn_Search->Size = System::Drawing::Size(70, 28);
-			   this->stf_btn_Search->TabIndex = 9;
-			   this->stf_btn_Search->Text = L"Search";
-			   this->stf_btn_Search->UseVisualStyleBackColor = true;
-			   this->stf_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Search_Click);
-			   // 
-			   // stf_txt_Name
-			   // 
-			   this->stf_txt_Name->Location = System::Drawing::Point(178, 55);
-			   this->stf_txt_Name->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_txt_Name->Name = L"stf_txt_Name";
-			   this->stf_txt_Name->Size = System::Drawing::Size(76, 20);
-			   this->stf_txt_Name->TabIndex = 6;
-			   // 
-			   // stf_txt_Id
-			   // 
-			   this->stf_txt_Id->Location = System::Drawing::Point(64, 55);
-			   this->stf_txt_Id->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_txt_Id->Name = L"stf_txt_Id";
-			   this->stf_txt_Id->Size = System::Drawing::Size(76, 20);
-			   this->stf_txt_Id->TabIndex = 5;
-			   // 
-			   // stf_lbl_Prompt_Auth
-			   // 
-			   this->stf_lbl_Prompt_Auth->AutoSize = true;
-			   this->stf_lbl_Prompt_Auth->Location = System::Drawing::Point(545, 58);
-			   this->stf_lbl_Prompt_Auth->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->stf_lbl_Prompt_Auth->Name = L"stf_lbl_Prompt_Auth";
-			   this->stf_lbl_Prompt_Auth->Size = System::Drawing::Size(29, 13);
-			   this->stf_lbl_Prompt_Auth->TabIndex = 4;
-			   this->stf_lbl_Prompt_Auth->Text = L"Auth";
-			   // 
-			   // stf_lbl_Prompt_Dept
-			   // 
-			   this->stf_lbl_Prompt_Dept->AutoSize = true;
-			   this->stf_lbl_Prompt_Dept->Location = System::Drawing::Point(262, 58);
-			   this->stf_lbl_Prompt_Dept->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->stf_lbl_Prompt_Dept->Name = L"stf_lbl_Prompt_Dept";
-			   this->stf_lbl_Prompt_Dept->Size = System::Drawing::Size(62, 13);
-			   this->stf_lbl_Prompt_Dept->TabIndex = 3;
-			   this->stf_lbl_Prompt_Dept->Text = L"Department";
-			   // 
-			   // stf_lbl_Prompt_Name
-			   // 
-			   this->stf_lbl_Prompt_Name->AutoSize = true;
-			   this->stf_lbl_Prompt_Name->Location = System::Drawing::Point(145, 57);
-			   this->stf_lbl_Prompt_Name->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->stf_lbl_Prompt_Name->Name = L"stf_lbl_Prompt_Name";
-			   this->stf_lbl_Prompt_Name->Size = System::Drawing::Size(35, 13);
-			   this->stf_lbl_Prompt_Name->TabIndex = 2;
-			   this->stf_lbl_Prompt_Name->Text = L"Name";
-			   // 
-			   // stf_lbl_Prompt_Id
-			   // 
-			   this->stf_lbl_Prompt_Id->AutoSize = true;
-			   this->stf_lbl_Prompt_Id->Location = System::Drawing::Point(46, 57);
-			   this->stf_lbl_Prompt_Id->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->stf_lbl_Prompt_Id->Name = L"stf_lbl_Prompt_Id";
-			   this->stf_lbl_Prompt_Id->Size = System::Drawing::Size(16, 13);
-			   this->stf_lbl_Prompt_Id->TabIndex = 1;
-			   this->stf_lbl_Prompt_Id->Text = L"Id";
-			   // 
-			   // stf_btn_Add
-			   // 
-			   this->stf_btn_Add->Location = System::Drawing::Point(793, 162);
-			   this->stf_btn_Add->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->stf_btn_Add->Name = L"stf_btn_Add";
-			   this->stf_btn_Add->Size = System::Drawing::Size(70, 28);
-			   this->stf_btn_Add->TabIndex = 0;
-			   this->stf_btn_Add->Text = L"Add";
-			   this->stf_btn_Add->UseVisualStyleBackColor = true;
-			   this->stf_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Add_Click);
-			   // 
 			   // pan_member
 			   // 
+			   this->pan_member->Controls->Add(this->mem_lbl_Count);
+			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Total);
+			   this->pan_member->Controls->Add(this->mem_Prompt_PgInfo);
+			   this->pan_member->Controls->Add(this->mem_Prompt_ViewInfo);
+			   this->pan_member->Controls->Add(this->mem_Prompt_Result);
 			   this->pan_member->Controls->Add(this->mem_lbl_error);
 			   this->pan_member->Controls->Add(this->mem_btn_Import);
 			   this->pan_member->Controls->Add(this->mem_btn_Add);
@@ -423,6 +283,7 @@
 			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Type);
 			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Status);
 			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Id);
+			   this->pan_member->Controls->Add(this->mem_splitter2);
 			   this->pan_member->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->pan_member->Location = System::Drawing::Point(0, 0);
 			   this->pan_member->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
@@ -430,11 +291,52 @@
 			   this->pan_member->Size = System::Drawing::Size(982, 636);
 			   this->pan_member->TabIndex = 6;
 			   // 
+			   // mem_lbl_Prompt_Total
+			   // 
+			   this->mem_lbl_Prompt_Total->AccessibleDescription = L"";
+			   this->mem_lbl_Prompt_Total->AutoSize = true;
+			   this->mem_lbl_Prompt_Total->Location = System::Drawing::Point(46, 282);
+			   this->mem_lbl_Prompt_Total->Name = L"mem_lbl_Prompt_Total";
+			   this->mem_lbl_Prompt_Total->Size = System::Drawing::Size(34, 13);
+			   this->mem_lbl_Prompt_Total->TabIndex = 69;
+			   this->mem_lbl_Prompt_Total->Text = L"Total:";
+			   // 
+			   // mem_Prompt_PgInfo
+			   // 
+			   this->mem_Prompt_PgInfo->AccessibleDescription = L"";
+			   this->mem_Prompt_PgInfo->AutoSize = true;
+			   this->mem_Prompt_PgInfo->Location = System::Drawing::Point(30, 201);
+			   this->mem_Prompt_PgInfo->Name = L"mem_Prompt_PgInfo";
+			   this->mem_Prompt_PgInfo->Size = System::Drawing::Size(540, 13);
+			   this->mem_Prompt_PgInfo->TabIndex = 67;
+			   this->mem_Prompt_PgInfo->Text = L"The data is accurately queried and there are no necessary items. Please provide a"
+				   L"s much information as possible.";
+			   // 
+			   // mem_Prompt_ViewInfo
+			   // 
+			   this->mem_Prompt_ViewInfo->AutoSize = true;
+			   this->mem_Prompt_ViewInfo->Location = System::Drawing::Point(652, 289);
+			   this->mem_Prompt_ViewInfo->Name = L"mem_Prompt_ViewInfo";
+			   this->mem_Prompt_ViewInfo->Size = System::Drawing::Size(193, 13);
+			   this->mem_Prompt_ViewInfo->TabIndex = 24;
+			   this->mem_Prompt_ViewInfo->Text = L"All member info will be shown by default";
+			   // 
+			   // mem_Prompt_Result
+			   // 
+			   this->mem_Prompt_Result->AutoSize = true;
+			   this->mem_Prompt_Result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->mem_Prompt_Result->Location = System::Drawing::Point(445, 282);
+			   this->mem_Prompt_Result->Name = L"mem_Prompt_Result";
+			   this->mem_Prompt_Result->Size = System::Drawing::Size(123, 20);
+			   this->mem_Prompt_Result->TabIndex = 23;
+			   this->mem_Prompt_Result->Text = L"Search Result";
+			   // 
 			   // mem_lbl_error
 			   // 
 			   this->mem_lbl_error->AutoSize = true;
 			   this->mem_lbl_error->ForeColor = System::Drawing::Color::Red;
-			   this->mem_lbl_error->Location = System::Drawing::Point(46, 251);
+			   this->mem_lbl_error->Location = System::Drawing::Point(480, 465);
 			   this->mem_lbl_error->Name = L"mem_lbl_error";
 			   this->mem_lbl_error->Size = System::Drawing::Size(29, 13);
 			   this->mem_lbl_error->TabIndex = 22;
@@ -496,11 +398,11 @@
 			   // mem_dataGridView1
 			   // 
 			   this->mem_dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->mem_dataGridView1->Location = System::Drawing::Point(0, 267);
+			   this->mem_dataGridView1->Location = System::Drawing::Point(0, 305);
 			   this->mem_dataGridView1->Name = L"mem_dataGridView1";
 			   this->mem_dataGridView1->RowHeadersWidth = 51;
 			   this->mem_dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			   this->mem_dataGridView1->Size = System::Drawing::Size(979, 317);
+			   this->mem_dataGridView1->Size = System::Drawing::Size(982, 331);
 			   this->mem_dataGridView1->TabIndex = 16;
 			   this->mem_dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::mem_dataGridView1_CellContentClick);
 			   // 
@@ -631,6 +533,283 @@
 			   this->mem_lbl_Prompt_Id->TabIndex = 0;
 			   this->mem_lbl_Prompt_Id->Text = L"Id";
 			   // 
+			   // mem_splitter2
+			   // 
+			   this->mem_splitter2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			   this->mem_splitter2->Cursor = System::Windows::Forms::Cursors::HSplit;
+			   this->mem_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->mem_splitter2->Enabled = false;
+			   this->mem_splitter2->Location = System::Drawing::Point(0, 254);
+			   this->mem_splitter2->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->mem_splitter2->MinimumSize = System::Drawing::Size(0, 43);
+			   this->mem_splitter2->Name = L"mem_splitter2";
+			   this->mem_splitter2->Size = System::Drawing::Size(982, 382);
+			   this->mem_splitter2->TabIndex = 66;
+			   this->mem_splitter2->TabStop = false;
+			   // 
+			   // pan_staff
+			   // 
+			   this->pan_staff->Controls->Add(this->label1);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_SearchResult);
+			   this->pan_staff->Controls->Add(this->stf_splitter3);
+			   this->pan_staff->Controls->Add(this->stf_splitter2);
+			   this->pan_staff->Controls->Add(this->stf_dataGridView);
+			   this->pan_staff->Controls->Add(this->stf_splitter1);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Count);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Count);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Error);
+			   this->pan_staff->Controls->Add(this->stf_cmb_Auth);
+			   this->pan_staff->Controls->Add(this->stf_cmb_Dept);
+			   this->pan_staff->Controls->Add(this->stf_btn_Clear);
+			   this->pan_staff->Controls->Add(this->stf_btn_Search);
+			   this->pan_staff->Controls->Add(this->stf_txt_Name);
+			   this->pan_staff->Controls->Add(this->stf_txt_Id);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Auth);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Dept);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Name);
+			   this->pan_staff->Controls->Add(this->stf_lbl_Prompt_Id);
+			   this->pan_staff->Controls->Add(this->stf_btn_Add);
+			   this->pan_staff->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->pan_staff->Location = System::Drawing::Point(0, 0);
+			   this->pan_staff->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->pan_staff->Name = L"pan_staff";
+			   this->pan_staff->Size = System::Drawing::Size(982, 636);
+			   this->pan_staff->TabIndex = 5;
+			   // 
+			   // label1
+			   // 
+			   this->label1->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->label1->AutoSize = true;
+			   this->label1->BackColor = System::Drawing::SystemColors::Control;
+			   this->label1->Font = (gcnew System::Drawing::Font(L"SimSun", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(134)));
+			   this->label1->Location = System::Drawing::Point(699, 269);
+			   this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->label1->Name = L"label1";
+			   this->label1->Size = System::Drawing::Size(245, 12);
+			   this->label1->TabIndex = 23;
+			   this->label1->Text = L"All member info will be shown by default";
+			   // 
+			   // stf_lbl_Prompt_SearchResult
+			   // 
+			   this->stf_lbl_Prompt_SearchResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_SearchResult->AutoSize = true;
+			   this->stf_lbl_Prompt_SearchResult->BackColor = System::Drawing::SystemColors::Control;
+			   this->stf_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"SimSun", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(134)));
+			   this->stf_lbl_Prompt_SearchResult->Location = System::Drawing::Point(444, 264);
+			   this->stf_lbl_Prompt_SearchResult->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_SearchResult->Name = L"stf_lbl_Prompt_SearchResult";
+			   this->stf_lbl_Prompt_SearchResult->Size = System::Drawing::Size(125, 16);
+			   this->stf_lbl_Prompt_SearchResult->TabIndex = 22;
+			   this->stf_lbl_Prompt_SearchResult->Text = L"Search Result";
+			   // 
+			   // stf_splitter3
+			   // 
+			   this->stf_splitter3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			   this->stf_splitter3->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->stf_splitter3->Location = System::Drawing::Point(0, 222);
+			   this->stf_splitter3->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_splitter3->Name = L"stf_splitter3";
+			   this->stf_splitter3->Size = System::Drawing::Size(982, 30);
+			   this->stf_splitter3->TabIndex = 21;
+			   this->stf_splitter3->TabStop = false;
+			   // 
+			   // stf_splitter2
+			   // 
+			   this->stf_splitter2->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			   this->stf_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->stf_splitter2->Location = System::Drawing::Point(0, 252);
+			   this->stf_splitter2->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_splitter2->Name = L"stf_splitter2";
+			   this->stf_splitter2->Size = System::Drawing::Size(982, 36);
+			   this->stf_splitter2->TabIndex = 20;
+			   this->stf_splitter2->TabStop = false;
+			   // 
+			   // stf_dataGridView
+			   // 
+			   this->stf_dataGridView->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			   this->stf_dataGridView->Location = System::Drawing::Point(-16, 289);
+			   this->stf_dataGridView->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_dataGridView->Name = L"stf_dataGridView";
+			   this->stf_dataGridView->RowHeadersWidth = 51;
+			   this->stf_dataGridView->RowTemplate->Height = 27;
+			   this->stf_dataGridView->Size = System::Drawing::Size(960, 299);
+			   this->stf_dataGridView->TabIndex = 19;
+			   this->stf_dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::stf_dataGridView_CellContentClick);
+			   // 
+			   // stf_splitter1
+			   // 
+			   this->stf_splitter1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			   this->stf_splitter1->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->stf_splitter1->Location = System::Drawing::Point(0, 288);
+			   this->stf_splitter1->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_splitter1->Name = L"stf_splitter1";
+			   this->stf_splitter1->Size = System::Drawing::Size(982, 348);
+			   this->stf_splitter1->TabIndex = 18;
+			   this->stf_splitter1->TabStop = false;
+			   // 
+			   // stf_lbl_Count
+			   // 
+			   this->stf_lbl_Count->AutoSize = true;
+			   this->stf_lbl_Count->Location = System::Drawing::Point(94, 101);
+			   this->stf_lbl_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Count->Name = L"stf_lbl_Count";
+			   this->stf_lbl_Count->Size = System::Drawing::Size(0, 13);
+			   this->stf_lbl_Count->TabIndex = 17;
+			   // 
+			   // stf_lbl_Prompt_Count
+			   // 
+			   this->stf_lbl_Prompt_Count->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_Count->AutoSize = true;
+			   this->stf_lbl_Prompt_Count->Location = System::Drawing::Point(28, 103);
+			   this->stf_lbl_Prompt_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_Count->Name = L"stf_lbl_Prompt_Count";
+			   this->stf_lbl_Prompt_Count->Size = System::Drawing::Size(31, 13);
+			   this->stf_lbl_Prompt_Count->TabIndex = 16;
+			   this->stf_lbl_Prompt_Count->Text = L"Total";
+			   // 
+			   // stf_lbl_Error
+			   // 
+			   this->stf_lbl_Error->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Error->AutoSize = true;
+			   this->stf_lbl_Error->ForeColor = System::Drawing::Color::Red;
+			   this->stf_lbl_Error->Location = System::Drawing::Point(445, 177);
+			   this->stf_lbl_Error->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Error->Name = L"stf_lbl_Error";
+			   this->stf_lbl_Error->Size = System::Drawing::Size(46, 13);
+			   this->stf_lbl_Error->TabIndex = 15;
+			   this->stf_lbl_Error->Text = L"ERROR";
+			   this->stf_lbl_Error->Visible = false;
+			   // 
+			   // stf_cmb_Auth
+			   // 
+			   this->stf_cmb_Auth->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_cmb_Auth->FormattingEnabled = true;
+			   this->stf_cmb_Auth->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+				   L"Level-1", L"Level-2", L"Level-3", L"Level-4",
+					   L"Level-5"
+			   });
+			   this->stf_cmb_Auth->Location = System::Drawing::Point(572, 55);
+			   this->stf_cmb_Auth->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_cmb_Auth->Name = L"stf_cmb_Auth";
+			   this->stf_cmb_Auth->Size = System::Drawing::Size(113, 21);
+			   this->stf_cmb_Auth->TabIndex = 14;
+			   // 
+			   // stf_cmb_Dept
+			   // 
+			   this->stf_cmb_Dept->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_cmb_Dept->FormattingEnabled = true;
+			   this->stf_cmb_Dept->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				   L"General Administration", L"Information Technology Support",
+					   L"Career Development Support"
+			   });
+			   this->stf_cmb_Dept->Location = System::Drawing::Point(314, 55);
+			   this->stf_cmb_Dept->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_cmb_Dept->Name = L"stf_cmb_Dept";
+			   this->stf_cmb_Dept->Size = System::Drawing::Size(210, 21);
+			   this->stf_cmb_Dept->TabIndex = 13;
+			   // 
+			   // stf_btn_Clear
+			   // 
+			   this->stf_btn_Clear->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_btn_Clear->Location = System::Drawing::Point(775, 101);
+			   this->stf_btn_Clear->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_btn_Clear->Name = L"stf_btn_Clear";
+			   this->stf_btn_Clear->Size = System::Drawing::Size(70, 28);
+			   this->stf_btn_Clear->TabIndex = 10;
+			   this->stf_btn_Clear->Text = L"Clear";
+			   this->stf_btn_Clear->UseVisualStyleBackColor = true;
+			   this->stf_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Clear_Click);
+			   // 
+			   // stf_btn_Search
+			   // 
+			   this->stf_btn_Search->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_btn_Search->Location = System::Drawing::Point(775, 42);
+			   this->stf_btn_Search->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_btn_Search->Name = L"stf_btn_Search";
+			   this->stf_btn_Search->Size = System::Drawing::Size(70, 28);
+			   this->stf_btn_Search->TabIndex = 9;
+			   this->stf_btn_Search->Text = L"Search";
+			   this->stf_btn_Search->UseVisualStyleBackColor = true;
+			   this->stf_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Search_Click);
+			   // 
+			   // stf_txt_Name
+			   // 
+			   this->stf_txt_Name->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_txt_Name->Location = System::Drawing::Point(160, 55);
+			   this->stf_txt_Name->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_txt_Name->Name = L"stf_txt_Name";
+			   this->stf_txt_Name->Size = System::Drawing::Size(76, 20);
+			   this->stf_txt_Name->TabIndex = 6;
+			   // 
+			   // stf_txt_Id
+			   // 
+			   this->stf_txt_Id->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_txt_Id->Location = System::Drawing::Point(46, 55);
+			   this->stf_txt_Id->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_txt_Id->Name = L"stf_txt_Id";
+			   this->stf_txt_Id->Size = System::Drawing::Size(76, 20);
+			   this->stf_txt_Id->TabIndex = 5;
+			   // 
+			   // stf_lbl_Prompt_Auth
+			   // 
+			   this->stf_lbl_Prompt_Auth->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_Auth->AutoSize = true;
+			   this->stf_lbl_Prompt_Auth->Location = System::Drawing::Point(527, 58);
+			   this->stf_lbl_Prompt_Auth->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_Auth->Name = L"stf_lbl_Prompt_Auth";
+			   this->stf_lbl_Prompt_Auth->Size = System::Drawing::Size(29, 13);
+			   this->stf_lbl_Prompt_Auth->TabIndex = 4;
+			   this->stf_lbl_Prompt_Auth->Text = L"Auth";
+			   // 
+			   // stf_lbl_Prompt_Dept
+			   // 
+			   this->stf_lbl_Prompt_Dept->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_Dept->AutoSize = true;
+			   this->stf_lbl_Prompt_Dept->Location = System::Drawing::Point(244, 58);
+			   this->stf_lbl_Prompt_Dept->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_Dept->Name = L"stf_lbl_Prompt_Dept";
+			   this->stf_lbl_Prompt_Dept->Size = System::Drawing::Size(62, 13);
+			   this->stf_lbl_Prompt_Dept->TabIndex = 3;
+			   this->stf_lbl_Prompt_Dept->Text = L"Department";
+			   // 
+			   // stf_lbl_Prompt_Name
+			   // 
+			   this->stf_lbl_Prompt_Name->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_Name->AutoSize = true;
+			   this->stf_lbl_Prompt_Name->Location = System::Drawing::Point(127, 57);
+			   this->stf_lbl_Prompt_Name->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_Name->Name = L"stf_lbl_Prompt_Name";
+			   this->stf_lbl_Prompt_Name->Size = System::Drawing::Size(35, 13);
+			   this->stf_lbl_Prompt_Name->TabIndex = 2;
+			   this->stf_lbl_Prompt_Name->Text = L"Name";
+			   // 
+			   // stf_lbl_Prompt_Id
+			   // 
+			   this->stf_lbl_Prompt_Id->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_lbl_Prompt_Id->AutoSize = true;
+			   this->stf_lbl_Prompt_Id->Location = System::Drawing::Point(28, 57);
+			   this->stf_lbl_Prompt_Id->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->stf_lbl_Prompt_Id->Name = L"stf_lbl_Prompt_Id";
+			   this->stf_lbl_Prompt_Id->Size = System::Drawing::Size(16, 13);
+			   this->stf_lbl_Prompt_Id->TabIndex = 1;
+			   this->stf_lbl_Prompt_Id->Text = L"Id";
+			   // 
+			   // stf_btn_Add
+			   // 
+			   this->stf_btn_Add->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->stf_btn_Add->Location = System::Drawing::Point(775, 162);
+			   this->stf_btn_Add->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->stf_btn_Add->Name = L"stf_btn_Add";
+			   this->stf_btn_Add->Size = System::Drawing::Size(70, 28);
+			   this->stf_btn_Add->TabIndex = 0;
+			   this->stf_btn_Add->Text = L"Add";
+			   this->stf_btn_Add->UseVisualStyleBackColor = true;
+			   this->stf_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Add_Click);
+			   // 
 			   // pan_record
 			   // 
 			   this->pan_record->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -748,6 +927,7 @@
 			   // 
 			   // ms_systemOptions
 			   // 
+			   this->ms_systemOptions->BackColor = System::Drawing::SystemColors::Control;
 			   this->ms_systemOptions->Dock = System::Windows::Forms::DockStyle::None;
 			   this->ms_systemOptions->ImageScalingSize = System::Drawing::Size(20, 20);
 			   this->ms_systemOptions->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
@@ -781,6 +961,16 @@
 			   this->tsm_help->Size = System::Drawing::Size(86, 20);
 			   this->tsm_help->Text = L"Help";
 			   // 
+			   // mem_lbl_Count
+			   // 
+			   this->mem_lbl_Count->AccessibleDescription = L"";
+			   this->mem_lbl_Count->AutoSize = true;
+			   this->mem_lbl_Count->Location = System::Drawing::Point(86, 282);
+			   this->mem_lbl_Count->Name = L"mem_lbl_Count";
+			   this->mem_lbl_Count->Size = System::Drawing::Size(13, 13);
+			   this->mem_lbl_Count->TabIndex = 70;
+			   this->mem_lbl_Count->Text = L"0";
+			   // 
 			   // MainWindow
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -789,7 +979,7 @@
 			   this->Controls->Add(this->toolStripContainer1);
 			   this->MainMenuStrip = this->ms_systemOptions;
 			   this->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->MinimumSize = System::Drawing::Size(1128, 698);
+			   this->MinimumSize = System::Drawing::Size(1128, 697);
 			   this->Name = L"MainWindow";
 			   this->Text = L"MainWindow";
 			   this->toolStripContainer1->ContentPanel->ResumeLayout(false);
@@ -799,12 +989,12 @@
 			   this->toolStripContainer1->TopToolStripPanel->PerformLayout();
 			   this->toolStripContainer1->ResumeLayout(false);
 			   this->toolStripContainer1->PerformLayout();
-			   this->pan_staff->ResumeLayout(false);
-			   this->pan_staff->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->EndInit();
 			   this->pan_member->ResumeLayout(false);
 			   this->pan_member->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->EndInit();
+			   this->pan_staff->ResumeLayout(false);
+			   this->pan_staff->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->EndInit();
 			   this->ms_panelOptions->ResumeLayout(false);
 			   this->ms_panelOptions->PerformLayout();
 			   this->ms_systemOptions->ResumeLayout(false);
@@ -844,17 +1034,19 @@
 		}
 		void SetAllPanelInvisible();
 
-		/*
-			MemberMainWindow
-		*/
 	private:
 		Database^ database;
 		PublicUserInfo^ _pui;
 		PublicUserInfo::Auth _Auth;
 
+		/*
+			MemberMainWindow
+		*/
 	private:
 		Void Initialize();
 		Void mem_CheckAuth();
+		Void mem_UpdateDataGridView(String^ command);
+		Void mem_GeneralInformation();
 		Void mem_btn_Search_Click(System::Object^ sender, System::EventArgs^ e);
 		Void mem_btn_Clear_Click(System::Object^ sender, System::EventArgs^ e);
 		Void mem_btn_Add_Click(System::Object^ sender, System::EventArgs^ e);
@@ -866,10 +1058,11 @@
 		*/
 	private:
 		Void stf_CheckAuth();
+		Void stf_UpdateDataGridView(String^ command);
+		Void stf_GeneralInformation();
 		Void stf_btn_Add_Click(System::Object^ sender, System::EventArgs^ e);
 		Void stf_btn_Search_Click(System::Object^ sender, System::EventArgs^ e);
 		Void stf_btn_Clear_Click(System::Object^ sender, System::EventArgs^ e);
 		Void stf_dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
-		Void stf_btn_Import_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

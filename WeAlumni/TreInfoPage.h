@@ -1,5 +1,7 @@
 #pragma once
 #include "Database.h"
+#include "DatabasePrecheck.h"
+#include "PublicUserInfo.h"
 
 /*
  * StarterPage.h
@@ -10,6 +12,7 @@
  * @author: Yiyun Zheng
  * Revised: 3/28/20
  *          4/04/20 Change input to int, lock the size of window and lock the position of infos
+ *         4/12/20 Add tre DB check, authority and public user info
  *
  */
 
@@ -28,11 +31,13 @@ namespace WeAlumni {
 	public ref class TreInfoPage : public System::Windows::Forms::Form
 	{
 	public:
-		TreInfoPage(Int32 OId)
+		TreInfoPage(PublicUserInfo^ User, Int32 OId)
 		{
 			InitializeComponent();
 			OrderId = Convert::ToString(OId);
-			UpdateInfo(OrderId);
+			UserInfo = User;
+			Authority = UserInfo->GetAuth();
+			CheckDB(OrderId);
 		}
 		
 	protected:
@@ -600,11 +605,15 @@ namespace WeAlumni {
 	private: 
 		Void UpdateInfo(String^ OrderId);
 		int UpdateOutsideInfo(String^);
+		void CheckDB(String^);
+		//void TreDBCheck();
 	
 	// Constant Data and DB
 	private: 
 		String^ OrderId;
-		Database^ _TreDB = gcnew Database(Database::DatabaseType::Treasury);
+		PublicUserInfo^ UserInfo;
+		PublicUserInfo::Auth^ Authority;
+		Database^ _TreDB ;
 		Database^ _DataDB = gcnew Database(Database::DatabaseType::Data);
 
 	// Btn click function
@@ -617,9 +626,11 @@ namespace WeAlumni {
 	// Other help functions
 	private: 
 		System::Void WeAlumni::TreInfoPage::SetShowLabelStatus(bool);
+		System::Void WeAlumni::TreInfoPage::SetPrivateLabelStatus(bool);
 		System::Void WeAlumni::TreInfoPage::SetTextStatus(bool);
 		System::Void WeAlumni::TreInfoPage::SetShowToText(bool);
 		System::Void WeAlumni::TreInfoPage::SetButtonStatus(bool);
 		System::Void WeAlumni::TreInfoPage::UnableAllBtn();
+
 	};
 }

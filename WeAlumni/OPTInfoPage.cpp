@@ -97,15 +97,21 @@ Void WeAlumni::OPTInfoPage::SetBoxVisible() {
  * @return None
  */
 Void WeAlumni::OPTInfoPage::Initialize() {
+    try {
+        database = gcnew Database(Database::DatabaseType::Data);
+        UpdateInfo();
+    }
+    catch (Exception^ exception) {
+        lbl_error->Text = exception->Message;
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
     if (lbl_MemId->Text == "N/A") {
         btn_ChangeInfo->Enabled = false;
         btn_DeleteAll->Enabled = false;
         lbl_error->Text = "Invalid Member ID";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
-    }
-    else {
-        UpdateInfo();
     }
 }
 
@@ -116,7 +122,7 @@ Void WeAlumni::OPTInfoPage::Initialize() {
  * @return None
  */
 Void WeAlumni::OPTInfoPage::UpdateInfo() {
-    String^ command_OPT = "SELECT * FROM OPT WHERE Id = " + _id + ";";
+    String^ command_OPT = "SELECT * FROM OPT WHERE Id = " + _OPTId + ";";
     String^ command_Member = "SELECT Name, " +
                                     "Gender, " +
                                     "Email, " +
@@ -124,12 +130,12 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
                                     "Wechat " +
                              "FROM Member INNER JOIN OPT " +
                              "WHERE Member.Id = OPT.MemId AND " + 
-                                   "OPT.Id = " + _id + ";";
+                                   "OPT.Id = " + _OPTId + ";";
     String^ command_Staff = "SELECT Name From Member INNER JOIN Staff " + 
                                                     "INNER JOIN OPT " + 
                             "WHERE Member.Id = Staff.MemId AND " + 
                                   "Staff.MemId = OPT.StfId AND " + 
-                                  "OPT.Id = " + _id + ";";
+                                  "OPT.Id = " + _OPTId + ";";
     int status = -1;
     //read data from OPT
     try
@@ -143,6 +149,7 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         return;
     }
     if (status == 1) {
+        
         lbl_OPTID->Text = database->dataReader[0]->ToString();
         lbl_Status->Text = database->dataReader[1]->ToString();
         txt_Status->Text = lbl_Status->Text;
@@ -164,6 +171,20 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         txt_CardStartDate->Text = lbl_CardStartDate->Text;
         lbl_CardEndDate->Text = database->dataReader[10]->ToString();
         txt_CardEndDate->Text = lbl_CardEndDate->Text;
+        if (_auth == PublicUserInfo::Auth::Level_3) {
+            lbl_CardNumber->Visible = false;
+            lbl_CardStartDate->Visible = false;
+            lbl_CardEndDate->Visible = false;
+            lbl_Prompt_CardNumber->Visible = false;
+            lbl_Prompt_CardStartDate->Visible = false;
+            lbl_Prompt_CardEndDate->Visible = false;
+        }
+    }
+    else {
+        lbl_error->Text = "Unable to read from OPT table";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+        return;
     }
     //read data from Member
     try 
@@ -183,6 +204,12 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         lbl_Phone->Text = database->dataReader[3]->ToString();
         lbl_WeChat->Text = database->dataReader[4]->ToString();
     }
+    else {
+        lbl_error->Text = "Unable to read from Member table";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+        return;
+    }
     //read data from Staff
     try 
     {
@@ -197,6 +224,12 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
     if (status == 1) {
         lbl_StfName->Text = database->dataReader[0]->ToString();
     }
+    else {
+        lbl_error->Text = "Unable to read from Staff table";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+        return;
+    }
 }
 
 /*
@@ -208,8 +241,21 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
 Void WeAlumni::OPTInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
     SetLableInvisible();
     SetBoxVisible();
+    if (_auth == PublicUserInfo::Auth::Level_3) {
+        lbl_CardNumber->Visible = false;
+        lbl_CardStartDate->Visible = false;
+        lbl_CardEndDate->Visible = false;
+        txt_CardNumber->Visible = false;
+        txt_CardStartDate->Visible = false;
+        txt_CardEndDate->Visible = false;
+        lbl_Prompt_CardNumber->Visible = false;
+        lbl_Prompt_CardStartDate->Visible = false;
+        lbl_Prompt_CardEndDate->Visible = false;
+    }
     lbl_error->Visible = false;
+    btn_ChangeInfo->Visible = false;
     btn_DeleteAll->Visible = false;
+    btn_Exit->Visible = false;
     btn_Verify->Visible = true;
     btn_ChangeConfirm->Visible = true;
     btn_ChangeCancel->Visible = true;
@@ -237,7 +283,7 @@ Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, Syst
             "CardNumber = '" + txt_CardNumber->Text + "', " +
             "CardStartDate = '" + txt_CardStartDate->Text + "', " +
             "CardEndDate = '" + txt_CardEndDate->Text + "' " +
-            "WHERE Id = " + _id + ";";
+            "WHERE Id = " + _OPTId + ";";
         int status = -1;
         try {
             status = database->UpdateData(command);
@@ -250,13 +296,27 @@ Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, Syst
         }
 
         if (status == 1) {
+            String^ action = "Changed OPT " + _OPTId;
+            Database::Log(_pui->GetId(), action);
             lbl_error->Text = "Update Success";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             UpdateInfo();
             SetBoxInvisible();
             SetLableVisible();
+            if (_auth == PublicUserInfo::Auth::Level_3) {
+                lbl_CardNumber->Visible = false;
+                lbl_CardStartDate->Visible = false;
+                lbl_CardEndDate->Visible = false;
+                txt_CardNumber->Visible = false;
+                txt_CardStartDate->Visible = false;
+                txt_CardEndDate->Visible = false;
+                lbl_Prompt_CardNumber->Visible = false;
+                lbl_Prompt_CardStartDate->Visible = false;
+                lbl_Prompt_CardEndDate->Visible = false;
+            }
             btn_DeleteAll->Visible = true;
+            btn_ChangeInfo->Visible = true;
             btn_ChangeConfirm->Visible = false;
             btn_ChangeCancel->Visible = false;
             btn_Verify->Visible = false;
@@ -284,12 +344,25 @@ Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, Syst
 Void WeAlumni::OPTInfoPage::btn_ChangeCancel_Click(System::Object^ sender, System::EventArgs^ e) {
     UpdateInfo();
     btn_DeleteAll->Visible = true;
+    btn_ChangeInfo->Visible = true;
+    btn_Exit->Visible = true;
     btn_ChangeConfirm->Visible = false;
     btn_ChangeCancel->Visible = false;
     btn_Verify->Visible = false;
     lbl_Verify->Visible = false;
     SetBoxInvisible();
     SetLableVisible();
+    if (_auth == PublicUserInfo::Auth::Level_3) {
+        lbl_CardNumber->Visible = false;
+        lbl_CardStartDate->Visible = false;
+        lbl_CardEndDate->Visible = false;
+        txt_CardNumber->Visible = false;
+        txt_CardStartDate->Visible = false;
+        txt_CardEndDate->Visible = false;
+        lbl_Prompt_CardNumber->Visible = false;
+        lbl_Prompt_CardStartDate->Visible = false;
+        lbl_Prompt_CardEndDate->Visible = false;
+    }
 }
 
 /*
@@ -300,10 +373,23 @@ Void WeAlumni::OPTInfoPage::btn_ChangeCancel_Click(System::Object^ sender, Syste
  */
 Void WeAlumni::OPTInfoPage::btn_DeleteAllButton_Click(System::Object^ sender, System::EventArgs^ e) {
     btn_DeleteAll->Visible = false;
+    btn_ChangeInfo->Visible = false;
+    btn_Exit->Visible = false;
     btn_DeleteConfirm->Visible = true;
     btn_DeleteCancel->Visible = true;
     SetBoxInvisible();
     SetLableVisible();
+    if (_auth == PublicUserInfo::Auth::Level_3) {
+        lbl_CardNumber->Visible = false;
+        lbl_CardStartDate->Visible = false;
+        lbl_CardEndDate->Visible = false;
+        txt_CardNumber->Visible = false;
+        txt_CardStartDate->Visible = false;
+        txt_CardEndDate->Visible = false;
+        lbl_Prompt_CardNumber->Visible = false;
+        lbl_Prompt_CardStartDate->Visible = false;
+        lbl_Prompt_CardEndDate->Visible = false;
+    }
 }
 
 /*
@@ -313,7 +399,7 @@ Void WeAlumni::OPTInfoPage::btn_DeleteAllButton_Click(System::Object^ sender, Sy
  * @return None
  */
 Void WeAlumni::OPTInfoPage::btn_DeleteConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ command = "DELETE FROM OPT WHERE Id = " + _id + ";";
+    String^ command = "DELETE FROM OPT WHERE Id = " + _OPTId + ";";
     int status = -1;
     try {
         status = database->DeleteData(command);
@@ -342,10 +428,23 @@ Void WeAlumni::OPTInfoPage::btn_DeleteConfirm_Click(System::Object^ sender, Syst
  */
 Void WeAlumni::OPTInfoPage::btn_DeleteCancel_Click(System::Object^ sender, System::EventArgs^ e) {
     btn_DeleteAll->Visible = true;
+    btn_ChangeInfo->Visible = true;
+    btn_Exit->Visible = true;
     btn_DeleteConfirm->Visible = false;
     btn_DeleteCancel->Visible = false;
     SetBoxVisible();
     SetLableInvisible();
+    if (_auth == PublicUserInfo::Auth::Level_3) {
+        lbl_CardNumber->Visible = false;
+        lbl_CardStartDate->Visible = false;
+        lbl_CardEndDate->Visible = false;
+        txt_CardNumber->Visible = false;
+        txt_CardStartDate->Visible = false;
+        txt_CardEndDate->Visible = false;
+        lbl_Prompt_CardNumber->Visible = false;
+        lbl_Prompt_CardStartDate->Visible = false;
+        lbl_Prompt_CardEndDate->Visible = false;
+    }
 }
 
 /*
@@ -360,7 +459,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
     try {
         status = database->ReadData(command);
     }
-    catch (Exception^ exception) {
+    catch (Exception^) {
         lbl_error->Text = "Unable to read name from Member";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
@@ -380,7 +479,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
     try {
         status = database->ReadData(command);
     }
-    catch (Exception^ exception) {
+    catch (Exception^ ) {
         lbl_error->Text = "Unable to read name from Staff";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
@@ -404,7 +503,6 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
  * @return None
  */
 Void WeAlumni::OPTInfoPage::btn_Verify_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ command;
     int nextId = database->GetNextId(Database::DatabaseTable::Member);
     lbl_MemName->Text = "N/A";
     lbl_StfId->Text = "N/A";
@@ -436,5 +534,15 @@ Void WeAlumni::OPTInfoPage::btn_Verify_Click(System::Object^ sender, System::Eve
         lbl_MemId->Visible = true;
         lbl_StfId->Visible = true;
     }
+}
+
+/*
+ * btn_Exit_Click
+ * Close page
+ * @param None
+ * @return None
+ */
+Void WeAlumni::OPTInfoPage::btn_Exit_Click(System::Object^ sender, System::EventArgs^ e) {
+    this->Close();
 }
 

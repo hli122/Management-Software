@@ -19,7 +19,7 @@ using namespace System;
   * @return None
   */
 Void WeAlumni::LoginPage::Initialize() {
-    DatabasePrecheck::StartPrecheck();
+    DatabasePrecheck::loginPrecheck();
     try {
         _database = gcnew Database(Database::DatabaseType::Admin);
         ShowDefault();
@@ -35,7 +35,8 @@ Void WeAlumni::LoginPage::Initialize() {
   * this method logs in an user when username and password matches
   */
 Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ command = "Select Username , Password From Admin Where Username = '" + txt_Username->Text + "';";
+
+    String^ command = "Select * From Admin Where Username = '" + txt_Username->Text + "';";
     int status = -1;
     
     try {
@@ -68,17 +69,17 @@ Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^
 }
 
 /*
-  * Remember_Click
+  * Check_Remember
   * this method remembers username and password
   */
-Void WeAlumni::LoginPage::Remember_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ command = "Update Admin SET Username  = '" + txt_Username->Text+ "' ,Password = '" + txt_Password->Text + "'Where IsDefault = 1" ";";
-    int status = -1;
+Void WeAlumni::LoginPage::Check_Remember() {
+    String^ command = "Update Admin SET IsDefault = 0 Where IsDefault = 1;";
+    String^ command1 = "Update Admin SET IsDefault = 1 Where Username  = '" + txt_Username->Text + "';";
+    int status1 = -1;
 
     try {
-        status = _database->UpdateData(command);
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Ur username and Password is remembered";
+        _database->UpdateData(command);
+        status1 = _database->UpdateData(command1);
     }
     catch (Exception^ exception) {
         lbl_DBError->Visible = true;
@@ -86,7 +87,7 @@ Void WeAlumni::LoginPage::Remember_Click(System::Object^ sender, System::EventAr
         return;
     }
 
-    if (status == -1) {
+    if (status1 == -1) {
         lbl_DBError->Visible = true;
         lbl_DBError->Text = "remember Error -1 ";
     }
@@ -99,7 +100,7 @@ Void WeAlumni::LoginPage::Remember_Click(System::Object^ sender, System::EventAr
   * @return None
   */
 Void WeAlumni::LoginPage::ShowDefault() {
-    String^ command = "Select Username , Password From Admin Where IsDefault == 1;";
+    String^ command = "Select Username , Password From Admin Where IsDefault = 1;";
     int status = -1;
 
     try {
@@ -113,7 +114,7 @@ Void WeAlumni::LoginPage::ShowDefault() {
     
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "defaut fail Error -1 ";
+        lbl_DBError->Text = "found no defaut";
         return;
     }
     else if (status == 0) {
@@ -122,11 +123,8 @@ Void WeAlumni::LoginPage::ShowDefault() {
         txt_Password->Text = "";
         return;
     }
-
     txt_Username->Text = _database->dataReader[0]->ToString();
     txt_Password->Text = _database->dataReader[1]->ToString();
-    txt_Password->Visible = false;
-    lbl_PasswordStars->Visible = true;
 }
 
 /*
@@ -136,19 +134,26 @@ Void WeAlumni::LoginPage::ShowDefault() {
   * @return None
   */
 Void WeAlumni::LoginPage::JumpToMain() {
-    MainWindow^ mw = gcnew MainWindow(_publicUserInfo);
-    mw->Show();
-}
+    String^ command = "Select Name From Member Where Id = " +  _database->dataReader[2]->ToString() + ";";
+    Database^ _databaseData;
 
-/*
-  * Clear_Click
-  * this method clears all userinput
-  */
-Void WeAlumni::LoginPage::Clear_Click(System::Object^ sender, System::EventArgs^ e) {
-    txt_Username->Text = "";
-    txt_Password->Text = "";
-    txt_Password->Visible = true;
-    lbl_PasswordStars->Visible = false;
+    try {
+        _databaseData = gcnew Database(Database::DatabaseType::Data,true);
+        _databaseData->ReadData(command);
+    }
+    catch (System::Exception^ exception) {
+        lbl_DBError->Text = exception->Message;
+        lbl_DBError->Visible = true;
+    }
+
+    PublicUserInfo^ pui = gcnew PublicUserInfo(Convert::ToInt32(_database->dataReader[2]->ToString()), 
+                                               _databaseData->dataReader[0]->ToString(),
+                                               PublicUserInfo::Auth(Convert::ToInt32(_database->dataReader[3]->ToString())));
+   if (cbox_Remember->Checked) {
+        Check_Remember();
+   }
+    MainWindow^ mw = gcnew MainWindow(pui);
+    mw->Show();
 }
 
 /*

@@ -263,9 +263,9 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 			  "Address2 = '" + txt_Address2->Text + "', " +
 			  "City = '" + txt_City->Text + "', " +
 			  "Postal = '" + txt_Postal->Text + "', " +
-		      	  "StdId = '" + txt_StdId->Text + "', " +
+		      "StdId = '" + txt_StdId->Text + "', " +
 			  "Program = '" + cmb_Program->Text + "', " +
-		      	  "EndDate = '" + txt_EndDate->Text + "', " +
+		      "EndDate = '" + txt_EndDate->Text + "', " +
 			  "Degree = '" + cmb_Degree->Text + "', " +
 			  "Major1 = '" + txt_Major1->Text + "', " +
 			  "Major2 = '" + txt_Major2->Text + "', " +
@@ -276,7 +276,7 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 		      "WHERE Id = " + _id;
 	
 	int status = -1;
-
+	String^ logParam = "Changed Member " + _id.ToString() + " info:";
 	try {
 		status = database->UpdateData(cmd);
 	}
@@ -286,31 +286,145 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 		lbl_error->Visible = true;
 		return;
 	}
-	
+	int first = 1;
 	if (status > 0) {
-		lbl_Status->Text = cmb_Status->Text;
-		lbl_Type->Text = cmb_Type->Text;
-		lbl_Name->Text = txt_Name->Text;
-		lbl_Gender->Text = txt_Gender->Text;
-		lbl_Birth->Text = txt_Birth->Text;
-		lbl_Email->Text = txt_Email->Text;
-		lbl_Phone->Text = txt_Phone->Text;
-		lbl_Wechat->Text = txt_Wechat->Text;
-		lbl_Country->Text = txt_Country->Text;
-		lbl_Address1->Text = txt_Address1->Text;
-		lbl_Address2->Text = txt_Address2->Text;
-		lbl_City->Text = txt_City->Text;
-		lbl_Postal->Text = txt_Postal->Text;
-		lbl_StdId->Text = txt_StdId->Text;
-		lbl_Program->Text = cmb_Program->Text;
-		lbl_EndDate->Text = txt_EndDate->Text;
-		lbl_Degree->Text = cmb_Degree->Text;
-		lbl_Major1->Text = txt_Major1->Text;
-		lbl_Major2->Text = txt_Major2->Text;
-		lbl_CareerStatus->Text = cmb_CareerStatus->Text;
-		lbl_Company->Text = txt_Company->Text;
-		lbl_Position->Text = txt_Position->Text;
-		lbl_SearchAuth->Text = cmb_SearchAuth->Text;
+		if (lbl_Status->Text != cmb_Status->Text) {
+			lbl_Status->Text = cmb_Status->Text;
+			logParam += " Status";
+			first = 0;
+		}
+		if (lbl_Type->Text != cmb_Type->Text) {
+			lbl_Type->Text = cmb_Type->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Type";
+		}
+		if (lbl_Name->Text != txt_Name->Text) {
+			lbl_Name->Text = txt_Name->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Name";
+		}
+		if (lbl_Gender->Text != txt_Gender->Text) {
+			lbl_Gender->Text = txt_Gender->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Gender";
+		}
+		if (lbl_Birth->Text != txt_Birth->Text) {
+			lbl_Birth->Text = txt_Birth->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Birth";
+		}
+		if (lbl_Email->Text != txt_Email->Text) {
+			lbl_Email->Text = txt_Email->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Email";
+		}
+		if (lbl_Phone->Text != txt_Phone->Text) {
+			lbl_Phone->Text = txt_Phone->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Phone";
+		}
+		if (lbl_Wechat->Text != txt_Wechat->Text) {
+			lbl_Wechat->Text = txt_Wechat->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Wechat,";
+		}
+		if (lbl_Country->Text != txt_Country->Text) {
+			lbl_Country->Text = txt_Country->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Country";
+		}
+		if (lbl_Address1->Text != txt_Address1->Text) {
+			lbl_Address1->Text = txt_Address1->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Address1";
+		}
+		if (lbl_Address2->Text != txt_Address2->Text) {
+			lbl_Address2->Text = txt_Address2->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Address2";
+		}
+		if (lbl_City->Text != txt_City->Text) {
+			lbl_City->Text = txt_City->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " City";
+		}
+		if (lbl_Postal->Text != txt_Postal->Text) {
+			lbl_Postal->Text = txt_Postal->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Postal";
+		}
+		if (lbl_StdId->Text != txt_StdId->Text) {
+			lbl_StdId->Text = txt_StdId->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " StdId";
+		}
+		if (lbl_Program->Text != cmb_Program->Text) {
+			lbl_Program->Text = cmb_Program->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Program";
+		}
+		if (lbl_EndDate->Text != txt_EndDate->Text) {
+			lbl_EndDate->Text = txt_EndDate->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " EndDate";
+		}
+		if (lbl_Degree->Text != cmb_Degree->Text) {
+			lbl_Degree->Text = cmb_Degree->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Degree";
+		}
+		if (lbl_Major1->Text != txt_Major1->Text) {
+			lbl_Major1->Text = txt_Major1->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Major1";
+		}
+		if (lbl_Major2->Text != txt_Major2->Text) {
+			lbl_Major2->Text = txt_Major2->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Major2";
+		}
+		if (lbl_CareerStatus->Text != cmb_CareerStatus->Text) {
+			lbl_CareerStatus->Text = cmb_CareerStatus->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " CareerStatus";
+		}
+		if (lbl_Company->Text != txt_Company->Text) {
+			lbl_Company->Text = txt_Company->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Company";
+		}
+		if (lbl_Position->Text != txt_Position->Text) {
+			lbl_Position->Text = txt_Position->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " Position";
+		}
+		if (lbl_SearchAuth->Text != cmb_SearchAuth->Text) {
+			lbl_SearchAuth->Text = cmb_SearchAuth->Text;
+			if (first = 0) logParam += ",";
+			first = 0;
+			logParam += " SearchAuth";
+		}
 
 		cmb_Status->Visible = false;
 		cmb_Type->Visible = false;
@@ -340,6 +454,9 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 		lbl_error->Text = "Changes saved";
 		lbl_error->ForeColor = System::Drawing::Color::Green;
 		lbl_error->Visible = true;
+		if (first != 0) {
+			WeAlumni::Database::Log(_stfId, logParam);
+		}
 	}
 	else {
 		lbl_error->ForeColor = System::Drawing::Color::Red;
@@ -430,6 +547,8 @@ Void WeAlumni::MemInfoPage::btn_DeleteAccept_Click(System::Object^ sender, Syste
 	}
 	
 	if (status > 0) {
+		DeleteRecord();
+		WeAlumni::Database::Log(_stfId, "Deleted Member");
 		this->Close();
 	}	
 	else {
@@ -438,6 +557,28 @@ Void WeAlumni::MemInfoPage::btn_DeleteAccept_Click(System::Object^ sender, Syste
 		lbl_error->Visible = true;
 		lbl_error->ForeColor = System::Drawing::Color::Red;
 		lbl_error->Text = "Error occured";
+	}
+}
+
+/*
+* DeleteRecord
+*
+* This method delete the corresponding record when a member is being deleted. 
+* @param none
+* @return none
+*/
+Void WeAlumni::MemInfoPage::DeleteRecord() {
+	int status = -1;
+	String^ cmd = "DELETE FROM RECORD WHERE MemId = " + _id;
+
+	try {
+		status = database->DeleteData(cmd);
+	}
+	catch (Exception^ exception) {
+		lbl_error->ForeColor = System::Drawing::Color::Red;
+		lbl_error->Text = exception->Message;
+		lbl_error->Visible = true;
+		return;
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "Database.h"
 #include "TreInfoPage.h"
+#include "PublicUserInfo.h"
 
 /*
  * TreAddPage.h
@@ -10,6 +11,7 @@
  * @author: Yiyun Zheng
  * Revised: 4/1/20
  *          4/4/20 Change input to int, lock the size of window and lock the position of infos
+  *         4/12/20 Add public user info as input
  *
  */
 
@@ -24,10 +26,11 @@ namespace WeAlumni {
 	public ref class TreAddPage : public System::Windows::Forms::Form
 	{
 	public:
-		TreAddPage(Int32 SId)
+		TreAddPage(PublicUserInfo^ UI)
 		{
 			InitializeComponent();
-			StaffId = Convert::ToString(SId);
+			UserInfo = UI;
+			StaffId = Convert::ToString(UserInfo->GetId());
 			UpdateInfo(StaffId);
 		}
 
@@ -328,6 +331,7 @@ namespace WeAlumni {
 	// Constant data and DB
 	private:
 		String^ StaffId;
+		PublicUserInfo^ UserInfo;
 		Database^ _TreDB = gcnew Database(Database::DatabaseType::Treasury);
 
 	// Btn Click function

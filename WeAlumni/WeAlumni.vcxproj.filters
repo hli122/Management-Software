@@ -114,14 +114,14 @@
     <ClCompile Include="StartPage2.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
+    <ClCompile Include="LoginPage.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
     <ClCompile Include="DatabasePrecheck.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
-    <ClCompile Include="DatabasePrecheckPrompt.cpp">
+    <ClCompile Include="DBImportExport.cpp">
       <Filter>Source Files\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginPage.cpp">
-      <Filter>Source Files\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,14 +185,14 @@
     <ClInclude Include="SysForgotPassword.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
+    <ClInclude Include="LoginPage.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
     <ClInclude Include="DatabasePrecheck.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
-    <ClInclude Include="DatabasePrecheckPrompt.h">
+    <ClInclude Include="DBImportExport.h">
       <Filter>Header Files\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginPage.h">
-      <Filter>Header Files\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

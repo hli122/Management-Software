@@ -8,6 +8,7 @@
  * @author: Yiyun Zheng
  * Revised: 3/28/20
  *          4/4/20 Lock btn when record not found. No message if show data successfully
+ *          4/12/20 Add tre DB check, authority and public user info
  *
  */
 
@@ -22,13 +23,13 @@ System::Void WeAlumni::TreInfoPage::UpdateInfo(String^ Record_Id) {
     String^ StaffId;
     int Status = -1;
     String^ cmd = "SELECT StfId, Time, Type, Amount, Comment "
-                  "FROM Treasury "
-                  "WHERE Id = " + Record_Id + "; ";
+        "FROM Treasury "
+        "WHERE Id = " + Record_Id + "; ";
 
     try {
         Status = _TreDB->ReadData(cmd);
     }
-    catch (Exception^ exception){
+    catch (Exception^ exception) {
         lbl_Error->Text = exception->Message;
         lbl_Error->ForeColor = System::Drawing::Color::Red;
         UnableAllBtn();
@@ -36,18 +37,26 @@ System::Void WeAlumni::TreInfoPage::UpdateInfo(String^ Record_Id) {
     }
     if (Status == 1) {
         StaffId = _TreDB->dataReader[0]->ToString();
-        lbl_StfId->Text = StaffId;
-        lbl_Time->Text = _TreDB->dataReader[1]->ToString();
-        lbl_Type->Text = _TreDB->dataReader[2]->ToString();
-        lbl_Amount->Text = _TreDB->dataReader[3]->ToString();
-        lbl_Comment->Text = _TreDB->dataReader[4]->ToString();
-        UpdateOutsideInfo(StaffId);
+        if (StaffId->Equals(Convert::ToString(UserInfo->GetId()))||Authority->Equals(PublicUserInfo::Auth::Level_5)) {
+            lbl_StfId->Text = StaffId;
+            lbl_Time->Text = _TreDB->dataReader[1]->ToString();
+            lbl_Type->Text = _TreDB->dataReader[2]->ToString();
+            lbl_Amount->Text = _TreDB->dataReader[3]->ToString();
+            lbl_Comment->Text = _TreDB->dataReader[4]->ToString();
+            UpdateOutsideInfo(StaffId);
+        }
+        else {
+            lbl_Error->Text = "No Authority to view that page.";
+            lbl_Error->ForeColor = System::Drawing::Color::Red;
+            UnableAllBtn();
+        }
     }
     else {
         lbl_Error->Text = "Error: Unable to find Treasury Info Page.";
         lbl_Error->ForeColor = System::Drawing::Color::Red;
         UnableAllBtn();
     }
+
 }
 
 /*
@@ -112,6 +121,13 @@ System::Void WeAlumni::TreInfoPage::SetShowLabelStatus(bool NewStatus) {
     lbl_Amount->Visible = NewStatus;
     lbl_Comment->Visible = NewStatus;
 }
+
+System::Void WeAlumni::TreInfoPage::SetPrivateLabelStatus(bool NewStatus) {
+    lbl_StfName->Visible = NewStatus;
+    lbl_Position->Visible = NewStatus;
+    lbl_Dept->Visible = NewStatus;
+}
+
 
 /*
  * SetTextStatus
@@ -268,3 +284,21 @@ System::Void WeAlumni::TreInfoPage::UnableAllBtn() {
     btn_ChangeInfo->Enabled = false;
     btn_Delete->Enabled = false;
 }
+
+/*
+ * CheckDB
+ * Check threasury Data base
+ * @param String^ OrderId
+ * @return None
+ */
+void WeAlumni::TreInfoPage::CheckDB(String^ OrderId) {
+    if (DatabasePrecheck::TrePrecheck()) {
+        _TreDB = gcnew Database(Database::DatabaseType::Treasury);
+        UpdateInfo(OrderId);
+    }
+    else {
+        lbl_Error->Text = "Unable to read treasury DB, Exit or Try again.";
+        UnableAllBtn();
+    }
+}
+

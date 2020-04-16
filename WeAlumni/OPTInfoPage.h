@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "PublicUserInfo.h"
 
 /*
  * OPTInfoPage.h
@@ -34,7 +35,7 @@ namespace WeAlumni {
 			//
 			//TODO: Add the constructor code here
 			//
-			_id = InputId;
+			_OPTId = InputId;
 			try {
 				database = gcnew Database(Database::DatabaseType::Data);
 				Initialize();
@@ -44,6 +45,18 @@ namespace WeAlumni {
 				lbl_error->ForeColor = Color::Red;
 				lbl_error->Visible = true;
 			}
+		}
+
+		OPTInfoPage(int^ InputId, PublicUserInfo^ pui)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+			_auth = _pui->GetAuth();
+			_OPTId = InputId;
+			_pui = pui;
+			Initialize();
 		}
 
 	protected:
@@ -115,6 +128,7 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Label^ lbl_CardEndDate;
 	private: System::Windows::Forms::Button^ btn_Verify;
 	private: System::Windows::Forms::Label^ lbl_Verify;
+	private: System::Windows::Forms::Button^ btn_Exit;
 
 	private:
 		/// <summary>
@@ -183,6 +197,7 @@ namespace WeAlumni {
 			this->lbl_CardEndDate = (gcnew System::Windows::Forms::Label());
 			this->btn_Verify = (gcnew System::Windows::Forms::Button());
 			this->lbl_Verify = (gcnew System::Windows::Forms::Label());
+			this->btn_Exit = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lbl_Prompt_OPTID
@@ -783,11 +798,23 @@ namespace WeAlumni {
 			this->lbl_Verify->Text = L"Invalid";
 			this->lbl_Verify->Visible = false;
 			// 
+			// btn_Exit
+			// 
+			this->btn_Exit->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_Exit->Location = System::Drawing::Point(410, 434);
+			this->btn_Exit->Name = L"btn_Exit";
+			this->btn_Exit->Size = System::Drawing::Size(118, 48);
+			this->btn_Exit->TabIndex = 61;
+			this->btn_Exit->Text = L"Exit";
+			this->btn_Exit->UseVisualStyleBackColor = true;
+			this->btn_Exit->Click += gcnew System::EventHandler(this, &OPTInfoPage::btn_Exit_Click);
+			// 
 			// OPTInfoPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(798, 594);
+			this->Controls->Add(this->btn_Exit);
 			this->Controls->Add(this->lbl_Verify);
 			this->Controls->Add(this->btn_Verify);
 			this->Controls->Add(this->lbl_error);
@@ -844,7 +871,6 @@ namespace WeAlumni {
 			this->Controls->Add(this->txt_Status);
 			this->Name = L"OPTInfoPage";
 			this->Text = L"OPT Info Page";
-			this->Load += gcnew System::EventHandler(this, &OPTInfoPage::OPTInfoPage_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -852,7 +878,9 @@ namespace WeAlumni {
 #pragma endregion
 	private:
 		Database^ database;
-		int^ _id;
+		int^ _OPTId;
+		PublicUserInfo^ _pui;
+		PublicUserInfo::Auth _auth;
 		
 	private:
 		Void Initialize();
@@ -869,7 +897,6 @@ namespace WeAlumni {
 		Void btn_DeleteCancel_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_DeleteAllButton_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_Verify_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void OPTInfoPage_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-};
+		Void btn_Exit_Click(System::Object^ sender, System::EventArgs^ e);
+	};
 }

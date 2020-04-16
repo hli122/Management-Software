@@ -49,6 +49,7 @@ namespace WeAlumni {
 			//
 			_id = inputMemId;
 			_auth = pui->GetAuth();
+			_stfId = pui->GetId();
 			Initialize();
 		}
 	protected:
@@ -1279,6 +1280,7 @@ private: System::Windows::Forms::ComboBox^ cmb_Status;
 		int _id;
 		Database^ database;
 		PublicUserInfo::Auth _auth;
+		int _stfId;
 		
 	private:
 		Void Initialize();
@@ -1286,6 +1288,7 @@ private: System::Windows::Forms::ComboBox^ cmb_Status;
 		Void UpdateRecord();
 		Void Level2Display();
 		Void Level3Display();
+		Void DeleteRecord();
 		Void btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_Delete_Click(System::Object^ sender, System::EventArgs^ e);
 		Void btn_ChangeInfoAccept_Click(System::Object^ sender, System::EventArgs^ e);

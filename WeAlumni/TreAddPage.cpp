@@ -8,6 +8,7 @@
  * @author: Yiyun Zheng
  * Revised: 4/1/20
  *          4/4/20 Time textbox show current date and time.Provide exit btn after add new info
+ *          4/12/20 Add public user info as input
  *
  */
 

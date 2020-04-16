@@ -1,5 +1,6 @@
 #pragma once
 #include "Database.h"
+#include "PublicUserInfo.h"
 
 /*
  * MemAddPage.h
@@ -8,6 +9,7 @@
  *
  * @author: Jiaying Hou
  * Revised: 4/4/20
+ *          4/15/20 added PublicUserInfo
  *
  */
 
@@ -34,7 +36,11 @@ namespace WeAlumni {
 			//
 			Initialize();
 		}
-
+		MemAddPage(PublicUserInfo^ pui) {
+			InitializeComponent();
+			_stfId = pui->GetId();
+			Initialize();
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -103,6 +109,7 @@ namespace WeAlumni {
 	private: System::Windows::Forms::ComboBox^ cmb_Degree;
 	private: System::Windows::Forms::ComboBox^ cmb_CareerStatus;
 	private: System::Windows::Forms::ComboBox^ cmb_SearchAuth;
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -788,7 +795,7 @@ namespace WeAlumni {
 #pragma endregion
 	private:
 		int _id;
-		int _stfId = 0;//temporary
+		int _stfId;
 		Database^ database;
 	
 	private: 

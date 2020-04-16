@@ -7,7 +7,7 @@
  *
  * @author: Jiaying Hou
  * Revised: 4/4/20
- *
+ *          4/15/20 added PublicUserInfo
  */
 
 using namespace System;
@@ -53,7 +53,8 @@ Void WeAlumni::MemAddPage::btn_accept_Click(System::Object^ sender, System::Even
 		                              "EndDate, Degree, Major1, Major2, CareerStatus, " +
 		                              "Company, Position, SearchAuth) " + "VALUES (" +
 		                               _id + ", '" + cmb_Status->Text + "', '" +
-									   cmb_Type->Text + "', '" + txt_Name->Text + "', '" +
+					
+		cmb_Type->Text + "', '" + txt_Name->Text + "', '" +
 		                               txt_Gender->Text + "', '" + txt_Birth->Text + "', '" +
 		                               txt_Email->Text + "', '" + txt_Phone->Text + "', '" +
 		                               txt_Wechat + "', '" + txt_Country->Text + "', '" +
@@ -87,9 +88,9 @@ Void WeAlumni::MemAddPage::btn_accept_Click(System::Object^ sender, System::Even
 		lbl_error->Text = exception->Message;
 		lbl_error->Visible = true;
 		return;
-	}
-
-	if (status > 0 && status1 >0) {
+	} 
+	
+	if (status > 0 && status1 > 0) {
 		this->Close();
 	}
 }

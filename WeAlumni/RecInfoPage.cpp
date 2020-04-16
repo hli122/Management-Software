@@ -1,4 +1,4 @@
-﻿#include "RecInfoPage.h"
+#include "RecInfoPage.h"
 
 /*
  * RecInfoPage.cpp

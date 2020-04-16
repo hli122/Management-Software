@@ -8,6 +8,7 @@
  * @author: Xiangdong Che
  * Revised:  4/04/20  Fixed insert fail bug and added Exit button
  *           4/01/20  
+ *           4/14/20  Added PublicUserInfo
  *          
  *
  */
@@ -42,6 +43,36 @@ Void WeAlumni::OPTAddPage::SetBoxReadOnly() {
     txt_CardNumber->Enabled = false;
     txt_CardStartDate->Enabled = false;
     txt_CardEndDate->Enabled = false;
+}
+
+/*
+ * InsertRecord
+ * Insert a new item in record after add new OPT
+ * @param None
+ * @return None
+ */
+Void WeAlumni::OPTAddPage::InsertRecord() {
+    int recId = database->GetNextId(WeAlumni::Database::DatabaseTable::Record);
+    String^ currTime = database->GetSystemTime();
+    String^ cmd = "INSERT INTO Record (Id, StfId, MemId, Time, Action)" +
+        "VALUES (" + recId + "," + 
+                    _StfId + "," + 
+                    Convert::ToInt32(txt_MemId->Text) + "," + 
+                "'" + currTime + "'," + 
+                "'Add OPT '" + 
+                "'" + txt_MemId->Text + "'" +  
+                "'Status '" + 
+                "'" + cmb_Status->Text + "'" + ");";
+    int status = -1;
+
+    try {
+        status = database->InsertData(cmd);
+    }
+    catch (Exception^ exception) {
+        lbl_error->ForeColor = System::Drawing::Color::Red;
+        lbl_error->Text = exception->Message;
+        lbl_error->Visible = true;
+    }
 }
 
 /*
@@ -208,6 +239,7 @@ Void WeAlumni::OPTAddPage::btn_Confirm_Click(System::Object^ sender, System::Eve
     }
 
     if (finish == true) {
+        InsertRecord();
         btn_Confirm->Visible = false;
         btn_Cancel->Visible = false;
         btn_Exit->Visible = true;

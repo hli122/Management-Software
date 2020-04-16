@@ -7,6 +7,7 @@
  *
  * @author: Rui Jia
  * Revised: 4/12/20
+ *          4/15/20 add DeleteRecord();
  *
  */
 
@@ -213,10 +214,10 @@ Void WeAlumni::StfInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System:
 Void WeAlumni::StfInfoPage::btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e) {
     int status = -1;
     String^ command = "UPDATE Staff " +
-                      "SET    Dept = '" + cmb_Dept->Text + "', " +
-                             "Position = '" + cmb_Posi->Text + "', " +
-                             "Auth = '" + cmb_Auth->Text + "' " +
-                      "WHERE  MemId = '" + _MemId + "';";
+        "SET    Dept = '" + cmb_Dept->Text + "', " +
+        "Position = '" + cmb_Posi->Text + "', " +
+        "Auth = '" + cmb_Auth->Text + "' " +
+        "WHERE  MemId = '" + _MemId + "';";
     try {
         status = _database->UpdateData(command);
     }
@@ -226,16 +227,42 @@ Void WeAlumni::StfInfoPage::btn_Accpet_Click(System::Object^ sender, System::Eve
         return;
     }
 
+    int status2 = 0;
+    int MemId = Int32::Parse(lbl_MemId->Text);
+    String^ action = " changed Member " + MemId + " information: ";
     if (status > 0) {
+        if (lbl_Dept->Text != cmb_Dept->Text) {
+            status2++;
+            action += "Department";
+        }
+        if (lbl_Posi->Text != cmb_Posi->Text) {
+            if (status2 != 0) {
+                action += ", ";
+            }
+            action += "Position";
+            status2++;
+        }
+        if (lbl_Auth->Text != cmb_Auth->Text) {
+            if (status2 != 0) {
+                action += ", ";
+            }
+            action += "Auth";
+            status2++;
+        }
+
         UpdateInfo();
         ChangeTxtInvisible();
         ChangeLabelVisible();
+        UpdateDataGridView();
         lbl_Error->Text = "Updata Successful!";
         lbl_Error->ForeColor = Color::Green;
         lbl_Error->Visible = true;
         btn_Accpet->Visible = false;
         btn_Cancle->Visible = false;
         btn_DeleteInfo->Enabled = true;
+        if (status2 != 0) {
+            WeAlumni::Database::Log(_StfId, action);
+        }
     }
     else {
         lbl_Error->Text = "ERROR";
@@ -288,6 +315,8 @@ Void WeAlumni::StfInfoPage::btn_Delete_Click(System::Object^ sender, System::Eve
     }
 
     if (status > 0) {
+        DeleteRecord();
+        WeAlumni::Database::Log(_StfId, "Deleted Member");
         this->Close();
     }
     else {
@@ -317,11 +346,11 @@ Void WeAlumni::StfInfoPage::btn_Close_Click(System::Object^ sender, System::Even
 Void WeAlumni::StfInfoPage::UpdateDataGridView() {
     int status = -1;
     String^ command = "SELECT Record.Id      AS 'Recording ID', " +
-                             "Record.Time    As 'Recording Time', " +
-                             "Record.MemId   AS 'Member ID', " +
-                             "Record.MemName AS 'Member Name', " +
-                             "Record.Action  AS 'Action' " +
-                      "FROM   Record WHERE Record.MemId = '" + _MemId + "' ORDER BY Record.Id ASC;";
+        "Record.Time    As 'Recording Time', " +
+        "Record.MemId   AS 'Member ID', " +
+        "Record.MemName AS 'Member Name', " +
+        "Record.Action  AS 'Action' " +
+        "FROM   Record WHERE Record.MemId = '" + _MemId + "' ORDER BY Record.Id ASC;";
     BindingSource^ bSource = gcnew BindingSource();
     try {
         status = _database->ReadDataAdapter(command);
@@ -338,6 +367,27 @@ Void WeAlumni::StfInfoPage::UpdateDataGridView() {
     }
     else {
         lbl_Error_Data->Visible = true;
+    }
+}
+
+/*
+ * DeleteRecord()
+ * This method will delete the info of record table.
+ * @param None
+ * @return None
+ */
+Void WeAlumni::StfInfoPage::DeleteRecord() {
+    int status = -1;
+    String^ cmd = "DELETE FROM RECORD WHERE MemId = " + _MemId;
+
+    try {
+        status = _database->DeleteData(cmd);
+    }
+    catch (Exception^ exception) {
+        lbl_Error->ForeColor = System::Drawing::Color::Red;
+        lbl_Error->Text = exception->Message;
+        lbl_Error->Visible = true;
+        return;
     }
 }
 
