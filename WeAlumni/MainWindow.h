@@ -1254,7 +1254,7 @@ namespace WeAlumni {
 			   this->tsm_order->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
 			   this->tsm_order->Size = System::Drawing::Size(143, 74);
 			   this->tsm_order->Text = L"Order";
-			   this->tsm_order->Click += gcnew System::EventHandler(this, &MainWindow::tsm_myInfo_Click);
+			   this->tsm_order->Click += gcnew System::EventHandler(this, &MainWindow::tsm_order_Click);
 			   // 
 			   // tsm_treasury
 			   // 

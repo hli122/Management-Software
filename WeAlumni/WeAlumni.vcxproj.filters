@@ -123,6 +123,9 @@
     <ClCompile Include="DBImportExport.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
+    <ClCompile Include="OrdAddPage.cpp">
+      <Filter>Source Files\Order</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="DBImportExport.h">
       <Filter>Header Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="OrdAddPage.h">
+      <Filter>Header Files\Order</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
