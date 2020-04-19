@@ -446,7 +446,6 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(236, 38);
 			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
 			   this->ord_lbl_Prompt_SearchResult->Text = L"Search Result";
-			   this->ord_lbl_Prompt_SearchResult->Click += gcnew System::EventHandler(this, &MainWindow::ord_lbl_Prompt_SearchResult_Click);
 			   // 
 			   // ord_dataGridView
 			   // 
@@ -476,7 +475,6 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(115, 25);
 			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
 			   this->ord_lbl_Prompt_itmName->Text = L"Item Name";
-			   this->ord_lbl_Prompt_itmName->Click += gcnew System::EventHandler(this, &MainWindow::ord_lbl_Prompt_itmName_Click);
 			   // 
 			   // ord_txt_itmId
 			   // 
@@ -1414,9 +1412,5 @@ namespace WeAlumni {
 		Void ord_btn_Clear_Click(System::Object^ sender, System::EventArgs^ e);
 		Void ord_btn_Add_Click(System::Object^ sender, System::EventArgs^ e);
 		Void ord_dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
-private: System::Void ord_lbl_Prompt_itmName_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void ord_lbl_Prompt_SearchResult_Click(System::Object^ sender, System::EventArgs^ e) {
-}
 };
 }
