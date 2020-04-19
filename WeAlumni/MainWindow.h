@@ -172,7 +172,6 @@ namespace WeAlumni {
 		   {
 			   this->toolStripContainer1 = (gcnew System::Windows::Forms::ToolStripContainer());
 			   this->pan_order = (gcnew System::Windows::Forms::Panel());
-			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->ord_lbl_Error = (gcnew System::Windows::Forms::Label());
 			   this->ord_splitter_Error = (gcnew System::Windows::Forms::Splitter());
 			   this->ord_btn_Add = (gcnew System::Windows::Forms::Button());
@@ -261,6 +260,7 @@ namespace WeAlumni {
 			   this->tsm_system = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_database = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_help = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->toolStripContainer1->ContentPanel->SuspendLayout();
 			   this->toolStripContainer1->LeftToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
