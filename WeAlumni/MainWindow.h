@@ -172,6 +172,7 @@ namespace WeAlumni {
 		   {
 			   this->toolStripContainer1 = (gcnew System::Windows::Forms::ToolStripContainer());
 			   this->pan_order = (gcnew System::Windows::Forms::Panel());
+			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->ord_lbl_Error = (gcnew System::Windows::Forms::Label());
 			   this->ord_splitter_Error = (gcnew System::Windows::Forms::Splitter());
 			   this->ord_btn_Add = (gcnew System::Windows::Forms::Button());
@@ -260,7 +261,6 @@ namespace WeAlumni {
 			   this->tsm_system = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_database = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_help = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->toolStripContainer1->ContentPanel->SuspendLayout();
 			   this->toolStripContainer1->LeftToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
@@ -288,7 +288,7 @@ namespace WeAlumni {
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_treasury);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_myInfo);
 			   this->toolStripContainer1->ContentPanel->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			   this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size(1359, 782);
+			   this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size(1359, 784);
 			   this->toolStripContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   // 
 			   // toolStripContainer1.LeftToolStripPanel
@@ -335,8 +335,20 @@ namespace WeAlumni {
 			   this->pan_order->Location = System::Drawing::Point(0, 0);
 			   this->pan_order->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_order->Name = L"pan_order";
-			   this->pan_order->Size = System::Drawing::Size(1359, 782);
+			   this->pan_order->Size = System::Drawing::Size(1359, 784);
 			   this->pan_order->TabIndex = 2;
+			   // 
+			   // ord_lbl_Prompt_ViewInfo
+			   // 
+			   this->ord_lbl_Prompt_ViewInfo->AutoSize = true;
+			   this->ord_lbl_Prompt_ViewInfo->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Prompt_ViewInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(1002, 483);
+			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
+			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(211, 25);
+			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
+			   this->ord_lbl_Prompt_ViewInfo->Text = L"Show default order info";
 			   // 
 			   // ord_lbl_Error
 			   // 
@@ -347,9 +359,9 @@ namespace WeAlumni {
 			   this->ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
 			   this->ord_lbl_Error->Location = System::Drawing::Point(638, 385);
 			   this->ord_lbl_Error->Name = L"ord_lbl_Error";
-			   this->ord_lbl_Error->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Error->Size = System::Drawing::Size(153, 25);
 			   this->ord_lbl_Error->TabIndex = 21;
-			   this->ord_lbl_Error->Text = L"此处报错";
+			   this->ord_lbl_Error->Text = L"Error Message";
 			   // 
 			   // ord_splitter_Error
 			   // 
@@ -357,7 +369,7 @@ namespace WeAlumni {
 			   this->ord_splitter_Error->Cursor = System::Windows::Forms::Cursors::HSplit;
 			   this->ord_splitter_Error->Dock = System::Windows::Forms::DockStyle::Bottom;
 			   this->ord_splitter_Error->Enabled = false;
-			   this->ord_splitter_Error->Location = System::Drawing::Point(0, 345);
+			   this->ord_splitter_Error->Location = System::Drawing::Point(0, 347);
 			   this->ord_splitter_Error->Name = L"ord_splitter_Error";
 			   this->ord_splitter_Error->Size = System::Drawing::Size(1359, 91);
 			   this->ord_splitter_Error->TabIndex = 20;
@@ -371,7 +383,7 @@ namespace WeAlumni {
 			   this->ord_btn_Add->Name = L"ord_btn_Add";
 			   this->ord_btn_Add->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Add->TabIndex = 19;
-			   this->ord_btn_Add->Text = L"添加";
+			   this->ord_btn_Add->Text = L"Add";
 			   this->ord_btn_Add->UseVisualStyleBackColor = true;
 			   this->ord_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Add_Click);
 			   // 
@@ -383,7 +395,7 @@ namespace WeAlumni {
 			   this->ord_btn_Clear->Name = L"ord_btn_Clear";
 			   this->ord_btn_Clear->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Clear->TabIndex = 18;
-			   this->ord_btn_Clear->Text = L"清空";
+			   this->ord_btn_Clear->Text = L"Clear";
 			   this->ord_btn_Clear->UseVisualStyleBackColor = true;
 			   this->ord_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Clear_Click);
 			   // 
@@ -395,7 +407,7 @@ namespace WeAlumni {
 			   this->ord_btn_Search->Name = L"ord_btn_Search";
 			   this->ord_btn_Search->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Search->TabIndex = 17;
-			   this->ord_btn_Search->Text = L"查询";
+			   this->ord_btn_Search->Text = L"Search";
 			   this->ord_btn_Search->UseVisualStyleBackColor = true;
 			   this->ord_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Search_Click);
 			   // 
@@ -419,9 +431,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_Count->Location = System::Drawing::Point(81, 483);
 			   this->ord_lbl_Prompt_Count->Name = L"ord_lbl_Prompt_Count";
-			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(75, 25);
+			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(82, 25);
 			   this->ord_lbl_Prompt_Count->TabIndex = 15;
-			   this->ord_lbl_Prompt_Count->Text = L"总计：";
+			   this->ord_lbl_Prompt_Count->Text = L"Total：";
 			   // 
 			   // ord_lbl_Prompt_SearchResult
 			   // 
@@ -429,11 +441,12 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_SearchResult->BackColor = System::Drawing::SystemColors::Control;
 			   this->ord_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold,
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(614, 469);
+			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(593, 470);
 			   this->ord_lbl_Prompt_SearchResult->Name = L"ord_lbl_Prompt_SearchResult";
-			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(153, 38);
+			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(236, 38);
 			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
-			   this->ord_lbl_Prompt_SearchResult->Text = L"搜索结果";
+			   this->ord_lbl_Prompt_SearchResult->Text = L"Search Result";
+			   this->ord_lbl_Prompt_SearchResult->Click += gcnew System::EventHandler(this, &MainWindow::ord_lbl_Prompt_SearchResult_Click);
 			   // 
 			   // ord_dataGridView
 			   // 
@@ -448,7 +461,7 @@ namespace WeAlumni {
 			   // 
 			   // ord_txt_itmName
 			   // 
-			   this->ord_txt_itmName->Location = System::Drawing::Point(536, 214);
+			   this->ord_txt_itmName->Location = System::Drawing::Point(555, 215);
 			   this->ord_txt_itmName->Name = L"ord_txt_itmName";
 			   this->ord_txt_itmName->Size = System::Drawing::Size(121, 22);
 			   this->ord_txt_itmName->TabIndex = 11;
@@ -460,9 +473,10 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(393, 211);
 			   this->ord_lbl_Prompt_itmName->Name = L"ord_lbl_Prompt_itmName";
-			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(115, 25);
 			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
-			   this->ord_lbl_Prompt_itmName->Text = L"商品名称";
+			   this->ord_lbl_Prompt_itmName->Text = L"Item Name";
+			   this->ord_lbl_Prompt_itmName->Click += gcnew System::EventHandler(this, &MainWindow::ord_lbl_Prompt_itmName_Click);
 			   // 
 			   // ord_txt_itmId
 			   // 
@@ -478,13 +492,13 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_itmId->Location = System::Drawing::Point(89, 210);
 			   this->ord_lbl_Prompt_itmId->Name = L"ord_lbl_Prompt_itmId";
-			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(77, 25);
 			   this->ord_lbl_Prompt_itmId->TabIndex = 8;
-			   this->ord_lbl_Prompt_itmId->Text = L"商品编号";
+			   this->ord_lbl_Prompt_itmId->Text = L"Item Id";
 			   // 
 			   // ord_txt_memName
 			   // 
-			   this->ord_txt_memName->Location = System::Drawing::Point(536, 147);
+			   this->ord_txt_memName->Location = System::Drawing::Point(555, 148);
 			   this->ord_txt_memName->Name = L"ord_txt_memName";
 			   this->ord_txt_memName->Size = System::Drawing::Size(121, 22);
 			   this->ord_txt_memName->TabIndex = 7;
@@ -496,9 +510,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(393, 144);
 			   this->ord_lbl_Prompt_memName->Name = L"ord_lbl_Prompt_memName";
-			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(152, 25);
 			   this->ord_lbl_Prompt_memName->TabIndex = 6;
-			   this->ord_lbl_Prompt_memName->Text = L"成员姓名";
+			   this->ord_lbl_Prompt_memName->Text = L"Member Name";
 			   // 
 			   // ord_txt_memId
 			   // 
@@ -514,15 +528,15 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_memId->Location = System::Drawing::Point(89, 141);
 			   this->ord_lbl_Prompt_memId->Name = L"ord_lbl_Prompt_memId";
-			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(114, 25);
 			   this->ord_lbl_Prompt_memId->TabIndex = 4;
-			   this->ord_lbl_Prompt_memId->Text = L"成员编号";
+			   this->ord_lbl_Prompt_memId->Text = L"Member Id";
 			   // 
 			   // ord_cmb_Status
 			   // 
 			   this->ord_cmb_Status->FormattingEnabled = true;
 			   this->ord_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"InvalidComplete", L"In process" });
-			   this->ord_cmb_Status->Location = System::Drawing::Point(536, 77);
+			   this->ord_cmb_Status->Location = System::Drawing::Point(555, 77);
 			   this->ord_cmb_Status->Name = L"ord_cmb_Status";
 			   this->ord_cmb_Status->Size = System::Drawing::Size(121, 24);
 			   this->ord_cmb_Status->TabIndex = 3;
@@ -534,9 +548,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(393, 77);
 			   this->ord_lbl_Prompt_Status->Name = L"ord_lbl_Prompt_Status";
-			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(135, 25);
 			   this->ord_lbl_Prompt_Status->TabIndex = 2;
-			   this->ord_lbl_Prompt_Status->Text = L"订单状态";
+			   this->ord_lbl_Prompt_Status->Text = L"Order Status";
 			   // 
 			   // ord_txt_ordId
 			   // 
@@ -552,9 +566,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_ordId->Location = System::Drawing::Point(90, 77);
 			   this->ord_lbl_Prompt_ordId->Name = L"ord_lbl_Prompt_ordId";
-			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(96, 25);
+			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(91, 25);
 			   this->ord_lbl_Prompt_ordId->TabIndex = 0;
-			   this->ord_lbl_Prompt_ordId->Text = L"订单编号";
+			   this->ord_lbl_Prompt_ordId->Text = L"Order Id";
 			   // 
 			   // ord_splitter
 			   // 
@@ -562,7 +576,7 @@ namespace WeAlumni {
 			   this->ord_splitter->Cursor = System::Windows::Forms::Cursors::HSplit;
 			   this->ord_splitter->Dock = System::Windows::Forms::DockStyle::Bottom;
 			   this->ord_splitter->Enabled = false;
-			   this->ord_splitter->Location = System::Drawing::Point(0, 436);
+			   this->ord_splitter->Location = System::Drawing::Point(0, 438);
 			   this->ord_splitter->Name = L"ord_splitter";
 			   this->ord_splitter->Size = System::Drawing::Size(1359, 346);
 			   this->ord_splitter->TabIndex = 13;
@@ -602,7 +616,7 @@ namespace WeAlumni {
 			   this->pan_member->Location = System::Drawing::Point(0, 0);
 			   this->pan_member->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_member->Name = L"pan_member";
-			   this->pan_member->Size = System::Drawing::Size(1359, 782);
+			   this->pan_member->Size = System::Drawing::Size(1359, 784);
 			   this->pan_member->TabIndex = 6;
 			   // 
 			   // mem_lbl_Count
@@ -890,7 +904,7 @@ namespace WeAlumni {
 			   this->mem_splitter2->Cursor = System::Windows::Forms::Cursors::HSplit;
 			   this->mem_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
 			   this->mem_splitter2->Enabled = false;
-			   this->mem_splitter2->Location = System::Drawing::Point(0, 312);
+			   this->mem_splitter2->Location = System::Drawing::Point(0, 314);
 			   this->mem_splitter2->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->mem_splitter2->MinimumSize = System::Drawing::Size(0, 53);
 			   this->mem_splitter2->Name = L"mem_splitter2";
@@ -924,7 +938,7 @@ namespace WeAlumni {
 			   this->pan_staff->Location = System::Drawing::Point(0, 0);
 			   this->pan_staff->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_staff->Name = L"pan_staff";
-			   this->pan_staff->Size = System::Drawing::Size(1359, 782);
+			   this->pan_staff->Size = System::Drawing::Size(1359, 784);
 			   this->pan_staff->TabIndex = 5;
 			   // 
 			   // label1
@@ -958,7 +972,7 @@ namespace WeAlumni {
 			   this->stf_splitter3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			   this->stf_splitter3->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter3->Location = System::Drawing::Point(0, 273);
+			   this->stf_splitter3->Location = System::Drawing::Point(0, 275);
 			   this->stf_splitter3->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->stf_splitter3->Name = L"stf_splitter3";
 			   this->stf_splitter3->Size = System::Drawing::Size(1359, 37);
@@ -969,7 +983,7 @@ namespace WeAlumni {
 			   // 
 			   this->stf_splitter2->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			   this->stf_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter2->Location = System::Drawing::Point(0, 310);
+			   this->stf_splitter2->Location = System::Drawing::Point(0, 312);
 			   this->stf_splitter2->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->stf_splitter2->Name = L"stf_splitter2";
 			   this->stf_splitter2->Size = System::Drawing::Size(1359, 44);
@@ -993,7 +1007,7 @@ namespace WeAlumni {
 			   // 
 			   this->stf_splitter1->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			   this->stf_splitter1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter1->Location = System::Drawing::Point(0, 354);
+			   this->stf_splitter1->Location = System::Drawing::Point(0, 356);
 			   this->stf_splitter1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->stf_splitter1->Name = L"stf_splitter1";
 			   this->stf_splitter1->Size = System::Drawing::Size(1359, 428);
@@ -1158,7 +1172,7 @@ namespace WeAlumni {
 			   this->pan_record->Location = System::Drawing::Point(0, 0);
 			   this->pan_record->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_record->Name = L"pan_record";
-			   this->pan_record->Size = System::Drawing::Size(1359, 782);
+			   this->pan_record->Size = System::Drawing::Size(1359, 784);
 			   this->pan_record->TabIndex = 4;
 			   // 
 			   // pan_OPT
@@ -1167,7 +1181,7 @@ namespace WeAlumni {
 			   this->pan_OPT->Location = System::Drawing::Point(0, 0);
 			   this->pan_OPT->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_OPT->Name = L"pan_OPT";
-			   this->pan_OPT->Size = System::Drawing::Size(1359, 782);
+			   this->pan_OPT->Size = System::Drawing::Size(1359, 784);
 			   this->pan_OPT->TabIndex = 3;
 			   // 
 			   // pan_treasury
@@ -1176,7 +1190,7 @@ namespace WeAlumni {
 			   this->pan_treasury->Location = System::Drawing::Point(0, 0);
 			   this->pan_treasury->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_treasury->Name = L"pan_treasury";
-			   this->pan_treasury->Size = System::Drawing::Size(1359, 782);
+			   this->pan_treasury->Size = System::Drawing::Size(1359, 784);
 			   this->pan_treasury->TabIndex = 1;
 			   // 
 			   // pan_myInfo
@@ -1185,7 +1199,7 @@ namespace WeAlumni {
 			   this->pan_myInfo->Location = System::Drawing::Point(0, 0);
 			   this->pan_myInfo->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_myInfo->Name = L"pan_myInfo";
-			   this->pan_myInfo->Size = System::Drawing::Size(1359, 782);
+			   this->pan_myInfo->Size = System::Drawing::Size(1359, 784);
 			   this->pan_myInfo->TabIndex = 0;
 			   // 
 			   // ms_panelOptions
@@ -1200,7 +1214,7 @@ namespace WeAlumni {
 			   this->ms_panelOptions->Margin = System::Windows::Forms::Padding(50, 0, 50, 0);
 			   this->ms_panelOptions->MinimumSize = System::Drawing::Size(150, 0);
 			   this->ms_panelOptions->Name = L"ms_panelOptions";
-			   this->ms_panelOptions->Size = System::Drawing::Size(150, 782);
+			   this->ms_panelOptions->Size = System::Drawing::Size(150, 784);
 			   this->ms_panelOptions->TabIndex = 0;
 			   this->ms_panelOptions->Text = L"ms_leftBar";
 			   // 
@@ -1208,7 +1222,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_member->Name = L"tsm_member";
 			   this->tsm_member->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_member->Size = System::Drawing::Size(141, 74);
+			   this->tsm_member->Size = System::Drawing::Size(143, 74);
 			   this->tsm_member->Text = L"Member";
 			   this->tsm_member->Click += gcnew System::EventHandler(this, &MainWindow::tsm_member_Click);
 			   // 
@@ -1216,7 +1230,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_staff->Name = L"tsm_staff";
 			   this->tsm_staff->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_staff->Size = System::Drawing::Size(141, 74);
+			   this->tsm_staff->Size = System::Drawing::Size(143, 74);
 			   this->tsm_staff->Text = L"Staff";
 			   this->tsm_staff->Click += gcnew System::EventHandler(this, &MainWindow::tsm_staff_Click);
 			   // 
@@ -1224,7 +1238,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_record->Name = L"tsm_record";
 			   this->tsm_record->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_record->Size = System::Drawing::Size(141, 74);
+			   this->tsm_record->Size = System::Drawing::Size(143, 74);
 			   this->tsm_record->Text = L"Record";
 			   this->tsm_record->Click += gcnew System::EventHandler(this, &MainWindow::tsm_record_Click);
 			   // 
@@ -1232,7 +1246,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_OPT->Name = L"tsm_OPT";
 			   this->tsm_OPT->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_OPT->Size = System::Drawing::Size(141, 74);
+			   this->tsm_OPT->Size = System::Drawing::Size(143, 74);
 			   this->tsm_OPT->Text = L"OPT";
 			   this->tsm_OPT->Click += gcnew System::EventHandler(this, &MainWindow::tsm_OPT_Click);
 			   // 
@@ -1240,7 +1254,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_order->Name = L"tsm_order";
 			   this->tsm_order->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_order->Size = System::Drawing::Size(141, 74);
+			   this->tsm_order->Size = System::Drawing::Size(143, 74);
 			   this->tsm_order->Text = L"Order";
 			   this->tsm_order->Click += gcnew System::EventHandler(this, &MainWindow::tsm_myInfo_Click);
 			   // 
@@ -1248,14 +1262,14 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_treasury->Name = L"tsm_treasury";
 			   this->tsm_treasury->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_treasury->Size = System::Drawing::Size(141, 74);
+			   this->tsm_treasury->Size = System::Drawing::Size(143, 74);
 			   this->tsm_treasury->Text = L"Treasury";
 			   // 
 			   // tsm_myInfo
 			   // 
 			   this->tsm_myInfo->Name = L"tsm_myInfo";
 			   this->tsm_myInfo->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_myInfo->Size = System::Drawing::Size(141, 74);
+			   this->tsm_myInfo->Size = System::Drawing::Size(143, 74);
 			   this->tsm_myInfo->Text = L"My Info";
 			   // 
 			   // ms_systemOptions
@@ -1269,7 +1283,7 @@ namespace WeAlumni {
 			   });
 			   this->ms_systemOptions->Location = System::Drawing::Point(0, 0);
 			   this->ms_systemOptions->Name = L"ms_systemOptions";
-			   this->ms_systemOptions->Size = System::Drawing::Size(1509, 30);
+			   this->ms_systemOptions->Size = System::Drawing::Size(1509, 28);
 			   this->ms_systemOptions->TabIndex = 0;
 			   this->ms_systemOptions->Text = L"menuStrip1";
 			   // 
@@ -1277,34 +1291,22 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_system->Name = L"tsm_system";
 			   this->tsm_system->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_system->Size = System::Drawing::Size(110, 26);
+			   this->tsm_system->Size = System::Drawing::Size(110, 24);
 			   this->tsm_system->Text = L"System";
 			   // 
 			   // tsm_database
 			   // 
 			   this->tsm_database->Name = L"tsm_database";
 			   this->tsm_database->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_database->Size = System::Drawing::Size(126, 26);
+			   this->tsm_database->Size = System::Drawing::Size(126, 24);
 			   this->tsm_database->Text = L"Database";
 			   // 
 			   // tsm_help
 			   // 
 			   this->tsm_help->Name = L"tsm_help";
 			   this->tsm_help->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_help->Size = System::Drawing::Size(95, 26);
+			   this->tsm_help->Size = System::Drawing::Size(95, 24);
 			   this->tsm_help->Text = L"Help";
-			   // 
-			   // ord_lbl_Prompt_ViewInfo
-			   // 
-			   this->ord_lbl_Prompt_ViewInfo->AutoSize = true;
-			   this->ord_lbl_Prompt_ViewInfo->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Prompt_ViewInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(1002, 483);
-			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
-			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(172, 25);
-			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
-			   this->ord_lbl_Prompt_ViewInfo->Text = L"显示默认订单信息";
 			   // 
 			   // MainWindow
 			   // 
@@ -1412,5 +1414,9 @@ namespace WeAlumni {
 		Void ord_btn_Clear_Click(System::Object^ sender, System::EventArgs^ e);
 		Void ord_btn_Add_Click(System::Object^ sender, System::EventArgs^ e);
 		Void ord_dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+private: System::Void ord_lbl_Prompt_itmName_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ord_lbl_Prompt_SearchResult_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
