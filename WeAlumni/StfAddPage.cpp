@@ -8,6 +8,7 @@
  * @author: Rui Jia
  * Revised: 4/4/20
  *          4/15/20 use PublicUserInfo
+ *          4/18/20 change English text to Chinese
  */
 
 using namespace System;
@@ -72,14 +73,14 @@ Void WeAlumni::StfAddPage::Verify_Click(System::Object^ sender, System::EventArg
 
     if (status > 0 && Name == "") {
         lbl_Error->ForeColor = Color::Green;
-        lbl_Error->Text = "Verified";
+        lbl_Error->Text = "验证成功";
         lbl_Error->Visible = true;
         txt_Name->Text = _database->dataReader->GetString(3);
         InsertStaff();
     }
     else if (MemId == "" && status2 > 0) {
         lbl_Error->ForeColor = Color::Green;
-        lbl_Error->Text = "Verified";
+        lbl_Error->Text = "验证成功";
         lbl_Error->Visible = true;
         txt_MemId->Text = _database->dataReader->GetInt32(0).ToString();
         InsertStaff();
@@ -87,17 +88,17 @@ Void WeAlumni::StfAddPage::Verify_Click(System::Object^ sender, System::EventArg
     else if (status > 0 && status2 > 0) {
         if (txt_Name->Text == Name_test) {
             lbl_Error->ForeColor = Color::Green;
-            lbl_Error->Text = "Verified";
+            lbl_Error->Text = "验证成功";
             lbl_Error->Visible = true;
             InsertStaff();
         }
         else {
-            lbl_Error->Text = "Member ID and Name are not match";
+            lbl_Error->Text = "成员编号和姓名不匹配";
             lbl_Error->Visible = true;
         }
     }
     else {
-        lbl_Error->Text = "Invalid Member ID / Name";
+        lbl_Error->Text = "无效的成员编号/姓名";
         lbl_Error->Visible = true;
     }
 }
@@ -147,16 +148,17 @@ Void WeAlumni::StfAddPage::Confirm_Click(System::Object^ sender, System::EventAr
     }
 
     if (status > 0) {
-        lbl_Error->Text = "Insert success";
+        lbl_Error->Text = "添加成功";
         cmb_Auth->Enabled = false;
         cmb_Dept->Enabled = false;
         cmb_Posi->Enabled = false;
         btn_Confirm->Visible = false;
         AddNewRecord();
-        btn_Cancel->Text = "Close";
+        Database::Log(_StfId, "添加新员工");
+        btn_Cancel->Text = "关闭";
     }
     else {
-        lbl_Error->Text = "ERRPR";
+        lbl_Error->Text = "错误，添加失败";
         lbl_Error->ForeColor = Color::Red;
     }
 }
@@ -199,10 +201,10 @@ Void WeAlumni::StfAddPage::AddNewRecord() {
     }
 
     if (status > 0) {
-        lbl_Error->Text = "Update success";
+        lbl_Error->Text = "更新成功";
     }
     else {
-        lbl_Error->Text = "ERRPR";
+        lbl_Error->Text = "错误，更新失败";
         lbl_Error->ForeColor = Color::Red;
     }
 }

@@ -10,6 +10,7 @@
  * @author: Rui Jia
  * Revised: 4/4/20
  *          4/15/20 use PublicUserInfo
+ *			4/18/20 change English text to Chinese
  *
  */
 
@@ -34,6 +35,7 @@ namespace WeAlumni {
 		}
 
 		StfAddPage(PublicUserInfo^ pui) {
+			_StfId = pui->GetId();
 			InitializeComponent();
 			Initialize();
 		}
@@ -105,9 +107,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(134)));
 			this->lbl_Prompt_StfAddPage->Location = System::Drawing::Point(377, 54);
 			this->lbl_Prompt_StfAddPage->Name = L"lbl_Prompt_StfAddPage";
-			this->lbl_Prompt_StfAddPage->Size = System::Drawing::Size(208, 25);
+			this->lbl_Prompt_StfAddPage->Size = System::Drawing::Size(116, 25);
 			this->lbl_Prompt_StfAddPage->TabIndex = 0;
-			this->lbl_Prompt_StfAddPage->Text = L"Staff Add Page";
+			this->lbl_Prompt_StfAddPage->Text = L"成员添加";
 			// 
 			// txt_MemId
 			// 
@@ -125,9 +127,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(134)));
 			this->lbl_Prompt_MemId->Location = System::Drawing::Point(120, 121);
 			this->lbl_Prompt_MemId->Name = L"lbl_Prompt_MemId";
-			this->lbl_Prompt_MemId->Size = System::Drawing::Size(108, 19);
+			this->lbl_Prompt_MemId->Size = System::Drawing::Size(89, 19);
 			this->lbl_Prompt_MemId->TabIndex = 3;
-			this->lbl_Prompt_MemId->Text = L"Member ID";
+			this->lbl_Prompt_MemId->Text = L"成员编号";
 			// 
 			// lbl_Prompt_Name
 			// 
@@ -137,9 +139,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(134)));
 			this->lbl_Prompt_Name->Location = System::Drawing::Point(394, 121);
 			this->lbl_Prompt_Name->Name = L"lbl_Prompt_Name";
-			this->lbl_Prompt_Name->Size = System::Drawing::Size(130, 19);
+			this->lbl_Prompt_Name->Size = System::Drawing::Size(89, 19);
 			this->lbl_Prompt_Name->TabIndex = 4;
-			this->lbl_Prompt_Name->Text = L"Member Name";
+			this->lbl_Prompt_Name->Text = L"成员姓名";
 			// 
 			// txt_Name
 			// 
@@ -155,11 +157,11 @@ namespace WeAlumni {
 			this->lbl_Prompt_Dept->AutoSize = true;
 			this->lbl_Prompt_Dept->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_Prompt_Dept->Location = System::Drawing::Point(109, 174);
+			this->lbl_Prompt_Dept->Location = System::Drawing::Point(120, 174);
 			this->lbl_Prompt_Dept->Name = L"lbl_Prompt_Dept";
-			this->lbl_Prompt_Dept->Size = System::Drawing::Size(119, 19);
+			this->lbl_Prompt_Dept->Size = System::Drawing::Size(89, 19);
 			this->lbl_Prompt_Dept->TabIndex = 6;
-			this->lbl_Prompt_Dept->Text = L"Department";
+			this->lbl_Prompt_Dept->Text = L"所在部门";
 			// 
 			// lbl_Prompt_Posi
 			// 
@@ -167,11 +169,11 @@ namespace WeAlumni {
 			this->lbl_Prompt_Posi->AutoSize = true;
 			this->lbl_Prompt_Posi->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_Prompt_Posi->Location = System::Drawing::Point(131, 228);
+			this->lbl_Prompt_Posi->Location = System::Drawing::Point(120, 228);
 			this->lbl_Prompt_Posi->Name = L"lbl_Prompt_Posi";
-			this->lbl_Prompt_Posi->Size = System::Drawing::Size(97, 19);
+			this->lbl_Prompt_Posi->Size = System::Drawing::Size(89, 19);
 			this->lbl_Prompt_Posi->TabIndex = 7;
-			this->lbl_Prompt_Posi->Text = L"Position";
+			this->lbl_Prompt_Posi->Text = L"职位职务";
 			// 
 			// lbl_Prompt_Auth
 			// 
@@ -179,11 +181,11 @@ namespace WeAlumni {
 			this->lbl_Prompt_Auth->AutoSize = true;
 			this->lbl_Prompt_Auth->Font = (gcnew System::Drawing::Font(L"SimSun", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->lbl_Prompt_Auth->Location = System::Drawing::Point(109, 279);
+			this->lbl_Prompt_Auth->Location = System::Drawing::Point(120, 282);
 			this->lbl_Prompt_Auth->Name = L"lbl_Prompt_Auth";
-			this->lbl_Prompt_Auth->Size = System::Drawing::Size(119, 19);
+			this->lbl_Prompt_Auth->Size = System::Drawing::Size(89, 19);
 			this->lbl_Prompt_Auth->TabIndex = 8;
-			this->lbl_Prompt_Auth->Text = L"Auth Level";
+			this->lbl_Prompt_Auth->Text = L"权限等级";
 			// 
 			// cmb_Dept
 			// 
@@ -233,7 +235,7 @@ namespace WeAlumni {
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(223, 64);
 			this->btn_Confirm->TabIndex = 12;
-			this->btn_Confirm->Text = L"Confirm";
+			this->btn_Confirm->Text = L"确认";
 			this->btn_Confirm->UseVisualStyleBackColor = true;
 			this->btn_Confirm->Visible = false;
 			this->btn_Confirm->Click += gcnew System::EventHandler(this, &StfAddPage::Confirm_Click);
@@ -247,7 +249,7 @@ namespace WeAlumni {
 			this->btn_Cancel->Name = L"btn_Cancel";
 			this->btn_Cancel->Size = System::Drawing::Size(223, 64);
 			this->btn_Cancel->TabIndex = 13;
-			this->btn_Cancel->Text = L"Cancel";
+			this->btn_Cancel->Text = L"取消";
 			this->btn_Cancel->UseVisualStyleBackColor = true;
 			this->btn_Cancel->Visible = false;
 			this->btn_Cancel->Click += gcnew System::EventHandler(this, &StfAddPage::Cancel_Click);
@@ -261,7 +263,7 @@ namespace WeAlumni {
 			this->btn_Verify->Name = L"btn_Verify";
 			this->btn_Verify->Size = System::Drawing::Size(223, 64);
 			this->btn_Verify->TabIndex = 14;
-			this->btn_Verify->Text = L"Verify Information";
+			this->btn_Verify->Text = L"核实信息";
 			this->btn_Verify->UseVisualStyleBackColor = true;
 			this->btn_Verify->Click += gcnew System::EventHandler(this, &StfAddPage::Verify_Click);
 			// 
@@ -303,6 +305,7 @@ namespace WeAlumni {
 			this->Text = L"StfAddPage";
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 	private:

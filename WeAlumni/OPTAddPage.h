@@ -53,15 +53,7 @@ namespace WeAlumni {
 			//TODO: Add the constructor code here
 			//
 			_StfId = pui->GetId();
-			try {
-				database = gcnew Database(Database::DatabaseType::Data);
-				Initialize();
-			}
-			catch (Exception^ exception) {
-				lbl_error->Text = exception->Message;
-				lbl_error->ForeColor = Color::Red;
-				lbl_error->Visible = true;
-			}
+			Initialize();
 		}
 
 	protected:
@@ -111,6 +103,7 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Label^ lbl_Verify;
 	private: System::Windows::Forms::Button^ btn_Exit;
 	private: System::ComponentModel::IContainer^ components;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -164,9 +157,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_PageName->Location = System::Drawing::Point(328, 9);
 			this->lbl_PageName->Name = L"lbl_PageName";
-			this->lbl_PageName->Size = System::Drawing::Size(153, 25);
+			this->lbl_PageName->Size = System::Drawing::Size(146, 25);
 			this->lbl_PageName->TabIndex = 0;
-			this->lbl_PageName->Text = L"OPTAddPage";
+			this->lbl_PageName->Text = L"新建OPT记录";
 			// 
 			// lbl_Promt_OPTID
 			// 
@@ -176,9 +169,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Promt_OPTID->Location = System::Drawing::Point(43, 62);
 			this->lbl_Promt_OPTID->Name = L"lbl_Promt_OPTID";
-			this->lbl_Promt_OPTID->Size = System::Drawing::Size(21, 15);
+			this->lbl_Promt_OPTID->Size = System::Drawing::Size(60, 15);
 			this->lbl_Promt_OPTID->TabIndex = 1;
-			this->lbl_Promt_OPTID->Text = L"ID";
+			this->lbl_Promt_OPTID->Text = L"OPT编号";
 			// 
 			// lbl_OPTID
 			// 
@@ -208,9 +201,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Status->Location = System::Drawing::Point(228, 62);
 			this->lbl_Prompt_Status->Name = L"lbl_Prompt_Status";
-			this->lbl_Prompt_Status->Size = System::Drawing::Size(47, 15);
+			this->lbl_Prompt_Status->Size = System::Drawing::Size(33, 15);
 			this->lbl_Prompt_Status->TabIndex = 5;
-			this->lbl_Prompt_Status->Text = L"Status";
+			this->lbl_Prompt_Status->Text = L"状态";
 			// 
 			// lbl_MemId
 			// 
@@ -220,9 +213,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_MemId->Location = System::Drawing::Point(43, 115);
 			this->lbl_MemId->Name = L"lbl_MemId";
-			this->lbl_MemId->Size = System::Drawing::Size(78, 15);
+			this->lbl_MemId->Size = System::Drawing::Size(59, 15);
 			this->lbl_MemId->TabIndex = 6;
-			this->lbl_MemId->Text = L"Member ID";
+			this->lbl_MemId->Text = L"成员编号";
 			// 
 			// txt_MemId
 			// 
@@ -240,9 +233,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_MemName->Location = System::Drawing::Point(269, 115);
 			this->lbl_MemName->Name = L"lbl_MemName";
-			this->lbl_MemName->Size = System::Drawing::Size(102, 15);
+			this->lbl_MemName->Size = System::Drawing::Size(59, 15);
 			this->lbl_MemName->TabIndex = 8;
-			this->lbl_MemName->Text = L"Member Name";
+			this->lbl_MemName->Text = L"成员姓名";
 			// 
 			// txt_MemName
 			// 
@@ -259,7 +252,7 @@ namespace WeAlumni {
 			this->btn_Verify->Name = L"btn_Verify";
 			this->btn_Verify->Size = System::Drawing::Size(103, 38);
 			this->btn_Verify->TabIndex = 10;
-			this->btn_Verify->Text = L"Verify";
+			this->btn_Verify->Text = L"验证";
 			this->btn_Verify->UseVisualStyleBackColor = true;
 			this->btn_Verify->Click += gcnew System::EventHandler(this, &OPTAddPage::btn_Verify_Click);
 			// 
@@ -271,9 +264,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_StfId->Location = System::Drawing::Point(451, 62);
 			this->lbl_Prompt_StfId->Name = L"lbl_Prompt_StfId";
-			this->lbl_Prompt_StfId->Size = System::Drawing::Size(54, 15);
+			this->lbl_Prompt_StfId->Size = System::Drawing::Size(59, 15);
 			this->lbl_Prompt_StfId->TabIndex = 11;
-			this->lbl_Prompt_StfId->Text = L"Staff ID";
+			this->lbl_Prompt_StfId->Text = L"员工编号";
 			// 
 			// lbl_StartDate
 			// 
@@ -283,9 +276,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_StartDate->Location = System::Drawing::Point(43, 176);
 			this->lbl_StartDate->Name = L"lbl_StartDate";
-			this->lbl_StartDate->Size = System::Drawing::Size(71, 15);
+			this->lbl_StartDate->Size = System::Drawing::Size(59, 15);
 			this->lbl_StartDate->TabIndex = 12;
-			this->lbl_StartDate->Text = L"Start Date";
+			this->lbl_StartDate->Text = L"开始日期";
 			// 
 			// txt_StartDate
 			// 
@@ -311,9 +304,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_EndDate->Location = System::Drawing::Point(269, 176);
 			this->lbl_EndDate->Name = L"lbl_EndDate";
-			this->lbl_EndDate->Size = System::Drawing::Size(66, 15);
+			this->lbl_EndDate->Size = System::Drawing::Size(59, 15);
 			this->lbl_EndDate->TabIndex = 14;
-			this->lbl_EndDate->Text = L"End Date";
+			this->lbl_EndDate->Text = L"结束日期";
 			// 
 			// txt_Title
 			// 
@@ -331,9 +324,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Title->Location = System::Drawing::Point(43, 238);
 			this->lbl_Title->Name = L"lbl_Title";
-			this->lbl_Title->Size = System::Drawing::Size(35, 15);
+			this->lbl_Title->Size = System::Drawing::Size(33, 15);
 			this->lbl_Title->TabIndex = 16;
-			this->lbl_Title->Text = L"Title";
+			this->lbl_Title->Text = L"头衔";
 			// 
 			// lbl_Position
 			// 
@@ -343,9 +336,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Position->Location = System::Drawing::Point(269, 238);
 			this->lbl_Position->Name = L"lbl_Position";
-			this->lbl_Position->Size = System::Drawing::Size(59, 15);
+			this->lbl_Position->Size = System::Drawing::Size(33, 15);
 			this->lbl_Position->TabIndex = 18;
-			this->lbl_Position->Text = L"Position";
+			this->lbl_Position->Text = L"职位";
 			// 
 			// txt_Position
 			// 
@@ -372,9 +365,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_CardNumber->Location = System::Drawing::Point(43, 303);
 			this->lbl_CardNumber->Name = L"lbl_CardNumber";
-			this->lbl_CardNumber->Size = System::Drawing::Size(92, 15);
+			this->lbl_CardNumber->Size = System::Drawing::Size(60, 15);
 			this->lbl_CardNumber->TabIndex = 20;
-			this->lbl_CardNumber->Text = L"Card Number";
+			this->lbl_CardNumber->Text = L"CAD编号";
 			// 
 			// txt_CardStartDate
 			// 
@@ -392,9 +385,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_CardStartDate->Location = System::Drawing::Point(269, 303);
 			this->lbl_CardStartDate->Name = L"lbl_CardStartDate";
-			this->lbl_CardStartDate->Size = System::Drawing::Size(101, 15);
+			this->lbl_CardStartDate->Size = System::Drawing::Size(86, 15);
 			this->lbl_CardStartDate->TabIndex = 22;
-			this->lbl_CardStartDate->Text = L"Card StartDate";
+			this->lbl_CardStartDate->Text = L"CAD生效日期";
 			// 
 			// txt_CardEndDate
 			// 
@@ -412,9 +405,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_CardEndDate->Location = System::Drawing::Point(510, 303);
 			this->lbl_CardEndDate->Name = L"lbl_CardEndDate";
-			this->lbl_CardEndDate->Size = System::Drawing::Size(96, 15);
+			this->lbl_CardEndDate->Size = System::Drawing::Size(86, 15);
 			this->lbl_CardEndDate->TabIndex = 24;
-			this->lbl_CardEndDate->Text = L"Card EndDate";
+			this->lbl_CardEndDate->Text = L"CAD失效日期";
 			// 
 			// btn_Cancel
 			// 
@@ -423,7 +416,7 @@ namespace WeAlumni {
 			this->btn_Cancel->Name = L"btn_Cancel";
 			this->btn_Cancel->Size = System::Drawing::Size(109, 66);
 			this->btn_Cancel->TabIndex = 27;
-			this->btn_Cancel->Text = L"Cancel";
+			this->btn_Cancel->Text = L"取消";
 			this->btn_Cancel->UseVisualStyleBackColor = true;
 			this->btn_Cancel->Click += gcnew System::EventHandler(this, &OPTAddPage::btn_Cancel_Click);
 			// 
@@ -434,7 +427,7 @@ namespace WeAlumni {
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(109, 66);
 			this->btn_Confirm->TabIndex = 28;
-			this->btn_Confirm->Text = L"Confirm";
+			this->btn_Confirm->Text = L"确认";
 			this->btn_Confirm->UseVisualStyleBackColor = true;
 			this->btn_Confirm->Click += gcnew System::EventHandler(this, &OPTAddPage::btn_Confirm_Click);
 			// 
@@ -471,9 +464,9 @@ namespace WeAlumni {
 			this->lbl_Verify->ForeColor = System::Drawing::Color::Red;
 			this->lbl_Verify->Location = System::Drawing::Point(501, 166);
 			this->lbl_Verify->Name = L"lbl_Verify";
-			this->lbl_Verify->Size = System::Drawing::Size(74, 25);
+			this->lbl_Verify->Size = System::Drawing::Size(54, 25);
 			this->lbl_Verify->TabIndex = 31;
-			this->lbl_Verify->Text = L"Invalid";
+			this->lbl_Verify->Text = L"无效";
 			this->lbl_Verify->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->lbl_Verify->Visible = false;
 			// 
@@ -484,7 +477,7 @@ namespace WeAlumni {
 			this->btn_Exit->Name = L"btn_Exit";
 			this->btn_Exit->Size = System::Drawing::Size(109, 66);
 			this->btn_Exit->TabIndex = 32;
-			this->btn_Exit->Text = L"Exit";
+			this->btn_Exit->Text = L"退出";
 			this->btn_Exit->UseVisualStyleBackColor = true;
 			this->btn_Exit->Visible = false;
 			this->btn_Exit->Click += gcnew System::EventHandler(this, &OPTAddPage::btn_Exit_Click);
@@ -526,7 +519,7 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_Promt_OPTID);
 			this->Controls->Add(this->lbl_PageName);
 			this->Name = L"OPTAddPage";
-			this->Text = L"OPTAddPage";
+			this->Text = L"新建OPT记录";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

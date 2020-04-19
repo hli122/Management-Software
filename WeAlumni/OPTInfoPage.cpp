@@ -59,7 +59,7 @@ Void WeAlumni::OPTInfoPage::SetLableVisible() {
  * @return None
  */
 Void WeAlumni::OPTInfoPage::SetBoxInvisible() {
-    txt_Status->Visible = false;
+    cbm_Status->Visible = false;
     txt_MemId->Visible = false;
     txt_StfId->Visible = false;
     txt_StartDate->Visible = false;
@@ -78,7 +78,7 @@ Void WeAlumni::OPTInfoPage::SetBoxInvisible() {
  * @return None
  */
 Void WeAlumni::OPTInfoPage::SetBoxVisible() {
-    txt_Status->Visible = true;
+    cbm_Status->Visible = true;
     txt_MemId->Visible = true;
     txt_StfId->Visible = true;
     txt_StartDate->Visible = true;
@@ -109,7 +109,7 @@ Void WeAlumni::OPTInfoPage::Initialize() {
     if (lbl_MemId->Text == "N/A") {
         btn_ChangeInfo->Enabled = false;
         btn_DeleteAll->Enabled = false;
-        lbl_error->Text = "Invalid Member ID";
+        lbl_error->Text = "无效的成员编号";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -152,7 +152,7 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         
         lbl_OPTID->Text = database->dataReader[0]->ToString();
         lbl_Status->Text = database->dataReader[1]->ToString();
-        txt_Status->Text = lbl_Status->Text;
+        cbm_Status->Text = lbl_Status->Text;
         lbl_MemId->Text = database->dataReader[2]->ToString();
         txt_MemId->Text = lbl_MemId->Text;
         lbl_StfId->Text = database->dataReader[3]->ToString();
@@ -181,7 +181,7 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         }
     }
     else {
-        lbl_error->Text = "Unable to read from OPT table";
+        lbl_error->Text = "OPT信息读取失败";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
         return;
@@ -205,7 +205,7 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         lbl_WeChat->Text = database->dataReader[4]->ToString();
     }
     else {
-        lbl_error->Text = "Unable to read from Member table";
+        lbl_error->Text = "成员信息读取失败";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
         return;
@@ -225,7 +225,7 @@ Void WeAlumni::OPTInfoPage::UpdateInfo() {
         lbl_StfName->Text = database->dataReader[0]->ToString();
     }
     else {
-        lbl_error->Text = "Unable to read from Staff table";
+        lbl_error->Text = "员工信息读取失败";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
         return;
@@ -273,7 +273,7 @@ Void WeAlumni::OPTInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System:
 Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
     if (btn_Verify->Enabled == false) {
         String^ command = "UPDATE OPT " +
-            "SET Status = '" + txt_Status->Text + "', " +
+            "SET Status = '" + cbm_Status->Text + "', " +
             "MemId = '" + txt_MemId->Text + "', "
             "StfId = '" + txt_StfId->Text + "', "
             "StartDate = '" + txt_StartDate->Text + "', " +
@@ -298,7 +298,7 @@ Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, Syst
         if (status == 1) {
             String^ action = "Changed OPT " + _OPTId;
             Database::Log(_pui->GetId(), action);
-            lbl_error->Text = "Update Success";
+            lbl_error->Text = "更改成功";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             UpdateInfo();
@@ -323,13 +323,13 @@ Void WeAlumni::OPTInfoPage::btn_ChangeConfirm_Click(System::Object^ sender, Syst
             lbl_Verify->Visible = false;
         }
         else {
-            lbl_error->Text = "Update Fail";
+            lbl_error->Text = "更改失败";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
     }
     else {
-        lbl_error->Text = "Need verification first";
+        lbl_error->Text = "需要验证";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -350,6 +350,7 @@ Void WeAlumni::OPTInfoPage::btn_ChangeCancel_Click(System::Object^ sender, Syste
     btn_ChangeCancel->Visible = false;
     btn_Verify->Visible = false;
     lbl_Verify->Visible = false;
+    lbl_error->Visible = false;
     SetBoxInvisible();
     SetLableVisible();
     if (_auth == PublicUserInfo::Auth::Level_3) {
@@ -377,6 +378,7 @@ Void WeAlumni::OPTInfoPage::btn_DeleteAllButton_Click(System::Object^ sender, Sy
     btn_Exit->Visible = false;
     btn_DeleteConfirm->Visible = true;
     btn_DeleteCancel->Visible = true;
+    lbl_error->Visible = false;
     SetBoxInvisible();
     SetLableVisible();
     if (_auth == PublicUserInfo::Auth::Level_3) {
@@ -414,7 +416,7 @@ Void WeAlumni::OPTInfoPage::btn_DeleteConfirm_Click(System::Object^ sender, Syst
         this->Close();
     }
     else {
-        lbl_error->Text = "ERROR";
+        lbl_error->Text = "删除失败";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -460,7 +462,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
         status = database->ReadData(command);
     }
     catch (Exception^) {
-        lbl_error->Text = "Unable to read name from Member";
+        lbl_error->Text = "无匹配姓名";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -470,7 +472,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
         lbl_MemName->Text = database->dataReader[0]->ToString();
     }
     else {
-        lbl_error->Text = "Trying to read name from empty ID";
+        lbl_error->Text = "编号为空";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -480,7 +482,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
         status = database->ReadData(command);
     }
     catch (Exception^ ) {
-        lbl_error->Text = "Unable to read name from Staff";
+        lbl_error->Text = "无法读取员工信息";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -490,7 +492,7 @@ Void WeAlumni::OPTInfoPage::VerifyUpdate(int^ MemId, int^ StfId) {
         lbl_StfName->Text = database->dataReader[0]->ToString();
     }
     else {
-        lbl_error->Text = "Trying to read name from empty ID";
+        lbl_error->Text = "编号为空";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -507,22 +509,22 @@ Void WeAlumni::OPTInfoPage::btn_Verify_Click(System::Object^ sender, System::Eve
     lbl_MemName->Text = "N/A";
     lbl_StfId->Text = "N/A";
     if (txt_MemId->Text == "" || txt_StfId->Text == "") {
-        lbl_Verify->Text = "Both Member ID and Staff ID are required";
+        lbl_Verify->Text = "成员编号和员工编号不能为空";
         lbl_Verify->ForeColor = Color::Red;
         lbl_Verify->Visible = true;
     }
     else if (Convert::ToInt32(txt_MemId->Text) >= nextId) {
-        lbl_Verify->Text = "Invalid Member ID";
+        lbl_Verify->Text = "无效的成员编号";
         lbl_Verify->ForeColor = Color::Red;
         lbl_Verify->Visible = true;
     }
     else if(Convert::ToInt32(txt_StfId->Text) >= nextId){
-        lbl_Verify->Text = "Invalid Staff ID";
+        lbl_Verify->Text = "无效的员工编号";
         lbl_Verify->ForeColor = Color::Red;
         lbl_Verify->Visible = true;
     }
     else {
-        lbl_Verify->Text = "Verified";
+        lbl_Verify->Text = "验证成功";
         lbl_Verify->ForeColor = Color::Green;
         lbl_Verify->Visible = true;
         int^ MemId = Convert::ToInt32(txt_MemId->Text);

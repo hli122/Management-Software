@@ -8,6 +8,7 @@
  * @author: Rui Jia
  * Revised: 4/12/20
  *          4/15/20 add DeleteRecord();
+ *          4/18/20 change English text to Chinese; change some buttons
  *
  */
 
@@ -58,16 +59,10 @@ Void WeAlumni::StfInfoPage::CheckAuth() {
  * @return None
  */
 Void WeAlumni::StfInfoPage::AuthInvisible() {
-    lbl_Prompt_Gender->Visible = false;
     lbl_Gender->Visible = false;
-    lbl_Prompt_Birth->Visible = false;
     lbl_Birth->Visible = false;
-    lbl_Prompt_Phone->Visible = false;
     lbl_Phone->Visible = false;
-    lbl_Prompt_Wechat->Visible = false;
     lbl_Wechat->Visible = false;
-    lbl_Prompt_StfId->Visible = false;
-    lbl_StfId->Visible = false;
     btn_ChangeInfo->Visible = false;
     btn_DeleteInfo->Visible = false;
 }
@@ -95,7 +90,6 @@ Void WeAlumni::StfInfoPage::UpdateInfo() {
     }
 
     if (status > 0) {
-        lbl_StfId->Text = _StfId.ToString();
         lbl_MemId->Text = _database->dataReader->GetInt32(0).ToString();
         lbl_Dept->Text = _database->dataReader->GetString(1);
         lbl_Posi->Text = _database->dataReader->GetString(2);
@@ -106,7 +100,7 @@ Void WeAlumni::StfInfoPage::UpdateInfo() {
         cmb_Auth->Text = lbl_Auth->Text;
     }
     else {
-        lbl_Error->Text = "Can't find the data";
+        lbl_Error->Text = "无数据";
         lbl_Error->Visible = true;
         btn_ChangeInfo->Enabled = false;
         btn_DeleteInfo->Enabled = false;
@@ -133,7 +127,7 @@ Void WeAlumni::StfInfoPage::UpdateInfo() {
         UpdateDataGridView();
     }
     else {
-        lbl_Error->Text = "Can't find the data";
+        lbl_Error->Text = "无数据";
         lbl_Error->Visible = true;
         btn_ChangeInfo->Enabled = false;
         btn_DeleteInfo->Enabled = false;
@@ -190,28 +184,37 @@ Void WeAlumni::StfInfoPage::ChangeLabelInvisible() {
 
 /*
  * btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e)
- * When click button "Edit Information", multiple TextBoxes will be visible to collect changed info.
+ * When click button "编辑信息", multiple TextBoxes will be visible to collect changed info.
+ * When click button "保存更改", go to btn_Accept_Click() to update database.
+ * When click button "确认删除", go to btn_DeleteInfo_Click() to delete information.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
 Void WeAlumni::StfInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
     lbl_Error->Visible = false;
-    ChangeTxtVisible();
-    ChangeLabelInvisible();
-    btn_Accpet->Visible = true;
-    btn_Cancle->Visible = true;
-    btn_DeleteInfo->Enabled = false;
+    if (btn_ChangeInfo->Text == "编辑信息") {
+        ChangeTxtVisible();
+        ChangeLabelInvisible();
+        btn_ChangeInfo->Text = "保存更改";
+        btn_DeleteInfo->Text = "取消";
+    }
+    else if (btn_ChangeInfo->Text == "保存更改") {
+        btn_Accept_Click();
+        btn_ChangeInfo->Text = "编辑信息";
+        btn_DeleteInfo->Text = "删除信息";
+    }
+    else {
+        btn_DeleteInfo_Click();
+    }
 }
 
 /*
- * btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e)
- * When click button "Accept", this method will trigger a Database update execution.
- * If exception occurs, an error message will be shown.
- * Then set all TextBoxes and two buttons to invisible.
- * @param System::Object^ sender, System::EventArgs^ e
+ * btn_Accpet_Click()
+ * This method will trigger a Database update execution.
+ * @param None
  * @return None
  */
-Void WeAlumni::StfInfoPage::btn_Accpet_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_Accept_Click() {
     int status = -1;
     String^ command = "UPDATE Staff " +
         "SET    Dept = '" + cmb_Dept->Text + "', " +
@@ -229,81 +232,74 @@ Void WeAlumni::StfInfoPage::btn_Accpet_Click(System::Object^ sender, System::Eve
 
     int status2 = 0;
     int MemId = Int32::Parse(lbl_MemId->Text);
-    String^ action = " changed Member " + MemId + " information: ";
+    String^ action = " 修改成员 " + MemId + " 信息: ";
     if (status > 0) {
         if (lbl_Dept->Text != cmb_Dept->Text) {
             status2++;
-            action += "Department";
+            action += "所在部门";
         }
         if (lbl_Posi->Text != cmb_Posi->Text) {
             if (status2 != 0) {
                 action += ", ";
             }
-            action += "Position";
+            action += "职务职位";
             status2++;
         }
         if (lbl_Auth->Text != cmb_Auth->Text) {
             if (status2 != 0) {
                 action += ", ";
             }
-            action += "Auth";
-            status2++;
+            action += "权限等级";
         }
 
         UpdateInfo();
         ChangeTxtInvisible();
         ChangeLabelVisible();
         UpdateDataGridView();
-        lbl_Error->Text = "Updata Successful!";
+        lbl_Error->Text = "更新成功！";
         lbl_Error->ForeColor = Color::Green;
         lbl_Error->Visible = true;
-        btn_Accpet->Visible = false;
-        btn_Cancle->Visible = false;
-        btn_DeleteInfo->Enabled = true;
+
         if (status2 != 0) {
             WeAlumni::Database::Log(_StfId, action);
         }
     }
     else {
-        lbl_Error->Text = "ERROR";
+        lbl_Error->Text = "错误，更新失败";
         lbl_Error->Visible = true;
     }
-}
 
-/*
- * btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e)
- * Reset the value of TextBoxes. Set all TextBoxes and two buttons to invisible.
- * @param System::Object^ sender, System::EventArgs^ e
- * @return None
- */
-Void WeAlumni::StfInfoPage::btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e) {
-    ChangeTxtInvisible();
-    ChangeLabelVisible();
-    btn_Accpet->Visible = false;
-    btn_Cancle->Visible = false;
-    btn_DeleteInfo->Enabled = true;
 }
 
 /*
  * btn_DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e)
- * When click button "Delete Information", two buttons will show up
+ * When click button "删除信息", then two buttons show up.
+ * When click button "取消", reset the value of TextBoxes.
  * @param System::Object^ sender, System::EventArgs^ e
  * @return None
  */
 Void WeAlumni::StfInfoPage::btn_DeleteInfo_Click(System::Object^ sender, System::EventArgs^ e) {
     lbl_Error->Visible = false;
-    btn_Delete->Visible = true;
-    btn_Close->Visible = true;
-    btn_ChangeInfo->Enabled = false;
+
+    if (btn_DeleteInfo->Text == "删除信息") {
+        btn_ChangeInfo->Text = "确认删除";
+        btn_DeleteInfo->Text = "取消";
+    }
+    else {
+        btn_ChangeInfo->Text = "编辑信息";
+        btn_DeleteInfo->Text = "删除信息";
+        ChangeTxtInvisible();
+        ChangeLabelVisible();
+    }
 }
 
 /*
- * btn_Delete_Click(System::Object^ sender, System::EventArgs^ e)
- * When clike "Delete", the method will trigger a delete command.
- * @param System::Object^ sender, System::EventArgs^ e
+ * btn_Delete_Click()
+ * This method will trigger a delete command.
+ * @param None
  * @return None
  */
-Void WeAlumni::StfInfoPage::btn_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
+Void WeAlumni::StfInfoPage::btn_DeleteInfo_Click() {
     int status = -1;
     String^ command = "DELETE FROM Staff WHERE MemId = '" + _MemId + "';";
     try {
@@ -315,26 +311,13 @@ Void WeAlumni::StfInfoPage::btn_Delete_Click(System::Object^ sender, System::Eve
     }
 
     if (status > 0) {
-        DeleteRecord();
         WeAlumni::Database::Log(_StfId, "Deleted Member");
         this->Close();
     }
     else {
-        lbl_Error->Text = "ERROR";
+        lbl_Error->Text = "错误，删除失败";
         lbl_Error->Visible = true;
     }
-}
-
-/*
- * btn_Close_Click(System::Object^ sender, System::EventArgs^ e)
- * When click button "Cancle", two new buttons will be hiden.
- * @param System::Object^ sender, System::EventArgs^ e
- * @return None
- */
-Void WeAlumni::StfInfoPage::btn_Close_Click(System::Object^ sender, System::EventArgs^ e) {
-    btn_Delete->Visible = false;
-    btn_Close->Visible = false;
-    btn_ChangeInfo->Enabled = true;
 }
 
 /*
@@ -345,11 +328,11 @@ Void WeAlumni::StfInfoPage::btn_Close_Click(System::Object^ sender, System::Even
  */
 Void WeAlumni::StfInfoPage::UpdateDataGridView() {
     int status = -1;
-    String^ command = "SELECT Record.Id      AS 'Recording ID', " +
-        "Record.Time    As 'Recording Time', " +
-        "Record.MemId   AS 'Member ID', " +
-        "Record.MemName AS 'Member Name', " +
-        "Record.Action  AS 'Action' " +
+    String^ command = "SELECT Record.Id      AS '记录编号', " +
+        "Record.Time    As '登记时间', " +
+        "Record.MemId   AS '成员编号', " +
+        "Record.MemName AS '成员姓名', " +
+        "Record.Action  AS '操作内容' " +
         "FROM   Record WHERE Record.MemId = '" + _MemId + "' ORDER BY Record.Id ASC;";
     BindingSource^ bSource = gcnew BindingSource();
     try {
@@ -367,27 +350,6 @@ Void WeAlumni::StfInfoPage::UpdateDataGridView() {
     }
     else {
         lbl_Error_Data->Visible = true;
-    }
-}
-
-/*
- * DeleteRecord()
- * This method will delete the info of record table.
- * @param None
- * @return None
- */
-Void WeAlumni::StfInfoPage::DeleteRecord() {
-    int status = -1;
-    String^ cmd = "DELETE FROM RECORD WHERE MemId = " + _MemId;
-
-    try {
-        status = _database->DeleteData(cmd);
-    }
-    catch (Exception^ exception) {
-        lbl_Error->ForeColor = System::Drawing::Color::Red;
-        lbl_Error->Text = exception->Message;
-        lbl_Error->Visible = true;
-        return;
     }
 }
 
