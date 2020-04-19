@@ -51,6 +51,8 @@ Void WeAlumni::MainWindow::Initialize() {
     stf_GeneralInformation();
     stf_UpdateDataGridView(STF_SELECT_ALL);
     stf_CheckAuth();
+    ord_UpdateDataGridView(ORD_SELECT_ALL);
+    ord_GeneralInformation();
 }
 
 /*
@@ -407,4 +409,164 @@ Void WeAlumni::MainWindow::stf_UpdateDataGridView(String^ command) {
         stf_lbl_Error->ForeColor = System::Drawing::Color::Red;
         stf_lbl_Error->Text = "CANNOT FIND STAFF";
     }
+}
+
+/*
+ *  Order
+ */
+ /*
+ * ord_btn_Search_Click
+ *
+ * This method will try to search from Record table for the record of this order
+ * and related info from member and item.
+ * Then update record to ord_DataGridView
+ */
+Void WeAlumni::MainWindow::ord_btn_Search_Click(System::Object^ sender, System::EventArgs^ e) {
+    String^ o_id = ord_txt_ordId->Text;
+    String^ status = ord_cmb_Status->Text;
+    String^ m_id = ord_txt_memId->Text;
+    String^ m_name = ord_txt_memName->Text;
+    String^ i_id = ord_txt_itmId->Text;
+    String^ i_name = ord_txt_itmName->Text;
+    String^ cmd = "SELECT Orders.Id AS 'OrderId', Orders.Status AS 'Status'," +
+        " Orders.Time AS 'Time'," + " Member.Name AS 'MemName'," +
+        " Member.Email AS 'Email'," + "Item.Name AS 'ItmName'," +
+        " Orders.Amount AS 'Amount'," + "Item.Price AS 'ItmPrice'," +
+        " Orders.Comment AS 'Comment'" +
+        "FROM Orders, Member, Item WHERE ";
+    String^ cmd2 = "";
+
+    std::vector<int> vec;
+    if (o_id->Length)           vec.push_back(0);
+    if (status->Length)       vec.push_back(1);
+    if (m_id->Length)         vec.push_back(2);
+    if (m_name->Length)         vec.push_back(3);
+    if (i_id->Length)       vec.push_back(4);
+    if (i_name->Length) vec.push_back(5);
+    if (vec.size() == 0) {
+        ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
+        ord_lbl_Error->Text = "CANNOT FIND ORDER";
+        ord_lbl_Error->Visible = true;
+        ord_dataGridView->DataSource = nullptr;
+        return;
+    }
+
+    bool flag = false;
+    for (auto i : vec) {
+        if (vec.size() != 1 && flag) cmd2 += " AND ";
+        switch (i) {
+        case 0: cmd2 += "Orders.Id = " + Convert::ToInt32(o_id); break;
+        case 1: cmd2 += "Orders.Status = '" + status + "' "; break;
+        case 2: cmd2 += "Member.Id = " + Convert::ToInt32(m_id); break;
+        case 3: cmd2 += "Member.Name = '" + m_name + "' "; break;
+        case 4: cmd2 += "Item.Id = " + Convert::ToInt32(i_id); break;
+        case 5: cmd2 += "Item.Name = '" + i_name + "' "; break;
+        }
+        flag = true;
+    }
+    cmd += cmd2 + " ORDER BY Member.Id ASC;";
+    ord_UpdateDataGridView(cmd);
+    ord_GeneralInformation();
+}
+
+/*
+* ord_btn_Clear_Click
+*
+* When click button "Clear", this method clear up every TextBox or ComboBox of the search engine and UpdateDataGridView.
+*/
+Void WeAlumni::MainWindow::ord_btn_Clear_Click(System::Object^ sender, System::EventArgs^ e) {
+    ord_txt_ordId->Text = "";
+    ord_cmb_Status->Text = "";
+    ord_txt_memId->Text = "";
+    ord_txt_memName->Text = "";
+    ord_txt_itmId->Text = "";
+    ord_txt_itmName->Text = "";
+    ord_lbl_Error->Visible = false;
+    ord_UpdateDataGridView(ORD_SELECT_ALL);
+    ord_GeneralInformation();
+}
+
+/*
+* ord_btn_Add_Click
+*
+* When click button "Add", a new window OrdAddPage will be called up.
+*/
+Void WeAlumni::MainWindow::ord_btn_Add_Click(System::Object^ sender, System::EventArgs^ e) {
+    OrdAddPage^ oap = gcnew OrdAddPage(_pui);
+    oap->ShowDialog();
+    ord_UpdateDataGridView(ORD_SELECT_ALL);
+    ord_GeneralInformation();
+}
+
+/*
+ * ord_dataGridView_CellDoubleClick
+ * by double clicking specific row of ord_dataGridView, a corresponding OrdInfoPage will show up.
+ */
+Void WeAlumni::MainWindow::ord_dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+    OrdInfoPage^ oip = gcnew OrdInfoPage(_pui, Convert::ToInt32(ord_dataGridView->CurrentRow->Cells[0]->Value));
+    oip->ShowDialog();
+    ord_UpdateDataGridView(ORD_SELECT_ALL);
+    ord_GeneralInformation();
+}
+
+/*
+ * ord_UpdateDataGridView(String^ command)
+ * update order data grid view.
+ * @param String^ command
+ * @return None
+ */
+Void WeAlumni::MainWindow::ord_UpdateDataGridView(String^ command) {
+    BindingSource^ bSource = gcnew BindingSource();
+    int status = -1;
+
+    try {
+        status = database->ReadDataAdapter(command);
+    }
+    catch (Exception^ exception) {
+        ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
+        ord_lbl_Error->Text = exception->Message;
+        ord_lbl_Error->Visible = true;
+        return;
+    }
+
+    if (status > 0) {
+        ord_lbl_Error->Visible = false;
+        bSource->DataSource = database->dataTable;
+        ord_dataGridView->DataSource = bSource;
+    }
+    else {
+        ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
+        ord_lbl_Error->Text = "CANNOT FIND ORDER";
+        ord_lbl_Error->Visible = true;
+        ord_dataGridView->DataSource = nullptr;
+    }
+}
+
+/*
+ * ord_GeneralInformation()
+ * Show general information of order
+ * @param None
+ * @return None
+ */
+Void WeAlumni::MainWindow::ord_GeneralInformation() {
+    int status = -1;
+    String^ cmd = "SELECT COUNT(Id) FROM Orders;";
+
+    try {
+        status = database->ReadData(cmd);
+    }
+    catch (Exception^ exception) {
+        ord_lbl_Error->Text = exception->Message;
+        ord_lbl_Error->Visible = true;
+        return;
+    }
+
+    if (status > 0) {
+        ord_lbl_Count->Text = database->dataReader->GetInt32(0).ToString();
+    }
+    else {
+        ord_lbl_Error->Text = "Can't find data";
+        ord_lbl_Error->Visible = true;
+    }
+    database->dataReader->Close();
 }
