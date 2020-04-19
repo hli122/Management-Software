@@ -172,6 +172,7 @@ namespace WeAlumni {
 		   {
 			   this->toolStripContainer1 = (gcnew System::Windows::Forms::ToolStripContainer());
 			   this->pan_order = (gcnew System::Windows::Forms::Panel());
+			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->ord_lbl_Error = (gcnew System::Windows::Forms::Label());
 			   this->ord_splitter_Error = (gcnew System::Windows::Forms::Splitter());
 			   this->ord_btn_Add = (gcnew System::Windows::Forms::Button());
@@ -260,7 +261,6 @@ namespace WeAlumni {
 			   this->tsm_system = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_database = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_help = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			   this->ord_lbl_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
 			   this->toolStripContainer1->ContentPanel->SuspendLayout();
 			   this->toolStripContainer1->LeftToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
@@ -346,9 +346,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(1002, 483);
 			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
-			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(211, 25);
+			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(172, 25);
 			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
-			   this->ord_lbl_Prompt_ViewInfo->Text = L"Show default order info";
+			   this->ord_lbl_Prompt_ViewInfo->Text = L"ÏÔÊ¾¶©µ¥Ä¬ÈÏÐÅÏ¢";
 			   // 
 			   // ord_lbl_Error
 			   // 
@@ -359,9 +359,9 @@ namespace WeAlumni {
 			   this->ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
 			   this->ord_lbl_Error->Location = System::Drawing::Point(638, 385);
 			   this->ord_lbl_Error->Name = L"ord_lbl_Error";
-			   this->ord_lbl_Error->Size = System::Drawing::Size(153, 25);
+			   this->ord_lbl_Error->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Error->TabIndex = 21;
-			   this->ord_lbl_Error->Text = L"Error Message";
+			   this->ord_lbl_Error->Text = L"´Ë´¦±¨´í";
 			   // 
 			   // ord_splitter_Error
 			   // 
@@ -383,7 +383,7 @@ namespace WeAlumni {
 			   this->ord_btn_Add->Name = L"ord_btn_Add";
 			   this->ord_btn_Add->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Add->TabIndex = 19;
-			   this->ord_btn_Add->Text = L"Add";
+			   this->ord_btn_Add->Text = L"Ìí¼Ó";
 			   this->ord_btn_Add->UseVisualStyleBackColor = true;
 			   this->ord_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Add_Click);
 			   // 
@@ -395,7 +395,7 @@ namespace WeAlumni {
 			   this->ord_btn_Clear->Name = L"ord_btn_Clear";
 			   this->ord_btn_Clear->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Clear->TabIndex = 18;
-			   this->ord_btn_Clear->Text = L"Clear";
+			   this->ord_btn_Clear->Text = L"Çå¿Õ";
 			   this->ord_btn_Clear->UseVisualStyleBackColor = true;
 			   this->ord_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Clear_Click);
 			   // 
@@ -407,7 +407,7 @@ namespace WeAlumni {
 			   this->ord_btn_Search->Name = L"ord_btn_Search";
 			   this->ord_btn_Search->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Search->TabIndex = 17;
-			   this->ord_btn_Search->Text = L"Search";
+			   this->ord_btn_Search->Text = L"²éÑ¯";
 			   this->ord_btn_Search->UseVisualStyleBackColor = true;
 			   this->ord_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Search_Click);
 			   // 
@@ -431,9 +431,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_Count->Location = System::Drawing::Point(81, 483);
 			   this->ord_lbl_Prompt_Count->Name = L"ord_lbl_Prompt_Count";
-			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(82, 25);
+			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(75, 25);
 			   this->ord_lbl_Prompt_Count->TabIndex = 15;
-			   this->ord_lbl_Prompt_Count->Text = L"Totalï¼š";
+			   this->ord_lbl_Prompt_Count->Text = L"×Ü¼Æ£º";
 			   // 
 			   // ord_lbl_Prompt_SearchResult
 			   // 
@@ -443,9 +443,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(593, 470);
 			   this->ord_lbl_Prompt_SearchResult->Name = L"ord_lbl_Prompt_SearchResult";
-			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(236, 38);
+			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(153, 38);
 			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
-			   this->ord_lbl_Prompt_SearchResult->Text = L"Search Result";
+			   this->ord_lbl_Prompt_SearchResult->Text = L"ËÑË÷½á¹û";
 			   // 
 			   // ord_dataGridView
 			   // 
@@ -472,9 +472,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(393, 211);
 			   this->ord_lbl_Prompt_itmName->Name = L"ord_lbl_Prompt_itmName";
-			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(115, 25);
+			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
-			   this->ord_lbl_Prompt_itmName->Text = L"Item Name";
+			   this->ord_lbl_Prompt_itmName->Text = L"ÉÌÆ·Ãû³Æ";
 			   // 
 			   // ord_txt_itmId
 			   // 
@@ -490,9 +490,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_itmId->Location = System::Drawing::Point(89, 210);
 			   this->ord_lbl_Prompt_itmId->Name = L"ord_lbl_Prompt_itmId";
-			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(77, 25);
+			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_itmId->TabIndex = 8;
-			   this->ord_lbl_Prompt_itmId->Text = L"Item Id";
+			   this->ord_lbl_Prompt_itmId->Text = L"ÉÌÆ·±àºÅ";
 			   // 
 			   // ord_txt_memName
 			   // 
@@ -508,9 +508,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(393, 144);
 			   this->ord_lbl_Prompt_memName->Name = L"ord_lbl_Prompt_memName";
-			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(152, 25);
+			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_memName->TabIndex = 6;
-			   this->ord_lbl_Prompt_memName->Text = L"Member Name";
+			   this->ord_lbl_Prompt_memName->Text = L"³ÉÔ±ÐÕÃû";
 			   // 
 			   // ord_txt_memId
 			   // 
@@ -526,9 +526,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_memId->Location = System::Drawing::Point(89, 141);
 			   this->ord_lbl_Prompt_memId->Name = L"ord_lbl_Prompt_memId";
-			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(114, 25);
+			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_memId->TabIndex = 4;
-			   this->ord_lbl_Prompt_memId->Text = L"Member Id";
+			   this->ord_lbl_Prompt_memId->Text = L"³ÉÔ±±àºÅ";
 			   // 
 			   // ord_cmb_Status
 			   // 
@@ -546,9 +546,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(393, 77);
 			   this->ord_lbl_Prompt_Status->Name = L"ord_lbl_Prompt_Status";
-			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(135, 25);
+			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_Status->TabIndex = 2;
-			   this->ord_lbl_Prompt_Status->Text = L"Order Status";
+			   this->ord_lbl_Prompt_Status->Text = L"¶©µ¥×´Ì¬";
 			   // 
 			   // ord_txt_ordId
 			   // 
@@ -564,9 +564,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_ordId->Location = System::Drawing::Point(90, 77);
 			   this->ord_lbl_Prompt_ordId->Name = L"ord_lbl_Prompt_ordId";
-			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(91, 25);
+			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_ordId->TabIndex = 0;
-			   this->ord_lbl_Prompt_ordId->Text = L"Order Id";
+			   this->ord_lbl_Prompt_ordId->Text = L"¶©µ¥±àºÅ";
 			   // 
 			   // ord_splitter
 			   // 
