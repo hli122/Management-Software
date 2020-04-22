@@ -22,7 +22,7 @@ namespace WeAlumni {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// OrdAddPage æ‘˜è¦
+	/// OrdAddPage ÕªÒª
 	/// </summary>
 	public ref class OrdAddPage : public System::Windows::Forms::Form
 	{
@@ -31,7 +31,7 @@ namespace WeAlumni {
 		{
 			InitializeComponent();
 			//
-			//TODO:  åœ¨æ­¤å¤„æ·»åŠ æ„é€ å‡½æ•°ä»£ç 
+			//TODO:  ÔÚ´Ë´¦Ìí¼Ó¹¹Ôìº¯Êı´úÂë
 			//
 			_PublicUserInfo = input;
 			try {
@@ -47,7 +47,7 @@ namespace WeAlumni {
 
 	protected:
 		/// <summary>
-		/// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+		/// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
 		/// </summary>
 		~OrdAddPage()
 		{
@@ -95,14 +95,14 @@ namespace WeAlumni {
 
 	private:
 		/// <summary>
-		/// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+		/// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦ä¿®æ”¹
-		/// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+		/// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»ÒªĞŞ¸Ä
+		/// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -185,9 +185,9 @@ namespace WeAlumni {
 			this->lbl_Prompt_OrdStat->Location = System::Drawing::Point(160, 67);
 			this->lbl_Prompt_OrdStat->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbl_Prompt_OrdStat->Name = L"lbl_Prompt_OrdStat";
-			this->lbl_Prompt_OrdStat->Size = System::Drawing::Size(60, 24);
+			this->lbl_Prompt_OrdStat->Size = System::Drawing::Size(86, 24);
 			this->lbl_Prompt_OrdStat->TabIndex = 3;
-			this->lbl_Prompt_OrdStat->Text = L"Status";
+			this->lbl_Prompt_OrdStat->Text = L"¶©µ¥×´Ì¬";
 			// 
 			// cmb_OrdStat
 			// 
@@ -514,5 +514,5 @@ namespace WeAlumni {
 		System::Void btn_VerifyItm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e);
-};
+	};
 }
