@@ -1,4 +1,4 @@
-#include "MemInfoPage.h"
+﻿#include "MemInfoPage.h"
 
 /*
  * MemInfoPage.cpp
@@ -64,54 +64,54 @@ Void WeAlumni::MemInfoPage::UpdateInfo() {
 	
 	if (status > 0) {
 		lbl_error->Visible = false;
-		lbl_Id->Text = _id.ToString();
-		lbl_Status->Text = database->dataReader[1]->ToString();
-		lbl_Type->Text = database->dataReader[2]->ToString();
-		lbl_Name->Text = database->dataReader[3]->ToString();
-		lbl_Gender->Text = database->dataReader[4]->ToString();
-		lbl_Birth->Text = database->dataReader[5]->ToString();
+		lbl_成员编号->Text = _id.ToString();
+		lbl_成员状态->Text = database->dataReader[1]->ToString();
+		lbl_成员类型->Text = database->dataReader[2]->ToString();
+		lbl_姓名->Text = database->dataReader[3]->ToString();
+		lbl_性别->Text = database->dataReader[4]->ToString();
+		lbl_出生日期->Text = database->dataReader[5]->ToString();
 		lbl_Email->Text = database->dataReader[6]->ToString();
-		lbl_Phone->Text = database->dataReader[7]->ToString();
-		lbl_Wechat->Text = database->dataReader[8]->ToString();
-		lbl_Country->Text = database->dataReader[9]->ToString();
-		lbl_Address1->Text = database->dataReader[10]->ToString();
-		lbl_Address2->Text = database->dataReader[11]->ToString();
-		lbl_City->Text = database->dataReader[12]->ToString();
-		lbl_Postal->Text = database->dataReader[13]->ToString();
-		lbl_StdId->Text = database->dataReader[14]->ToString();
-		lbl_Program->Text = database->dataReader[15]->ToString();
-		lbl_EndDate->Text = database->dataReader[16]->ToString();
-		lbl_Degree->Text = database->dataReader[17]->ToString();
-		lbl_Major1->Text = database->dataReader[18]->ToString();
-		lbl_Major2->Text = database->dataReader[19]->ToString();
-		lbl_CareerStatus->Text = database->dataReader[20]->ToString();
-		lbl_Company->Text = database->dataReader[21]->ToString();
-		lbl_Position->Text = database->dataReader[22]->ToString();
-		lbl_SearchAuth->Text = database->dataReader[23]->ToString();
+		lbl_联系电话->Text = database->dataReader[7]->ToString();
+		lbl_微信号->Text = database->dataReader[8]->ToString();
+		lbl_所在国家->Text = database->dataReader[9]->ToString();
+		lbl_地址第一行->Text = database->dataReader[10]->ToString();
+		lbl_地址第二行->Text = database->dataReader[11]->ToString();
+		lbl_城市->Text = database->dataReader[12]->ToString();
+		lbl_邮编->Text = database->dataReader[13]->ToString();
+		lbl_学生编号->Text = database->dataReader[14]->ToString();
+		lbl_学术项目->Text = database->dataReader[15]->ToString();
+		lbl_结束日期->Text = database->dataReader[16]->ToString();
+		lbl_学位->Text = database->dataReader[17]->ToString();
+		lbl_专业一->Text = database->dataReader[18]->ToString();
+		lbl_专业二->Text = database->dataReader[19]->ToString();
+		lbl_就业状态->Text = database->dataReader[20]->ToString();
+		lbl_公司->Text = database->dataReader[21]->ToString();
+		lbl_职位->Text = database->dataReader[22]->ToString();
+		lbl_搜索授权->Text = database->dataReader[23]->ToString();
 
-		cmb_Status->Text = database->dataReader[1]->ToString();
-		cmb_Type->Text = database->dataReader[2]->ToString();
-		txt_Name->Text = database->dataReader[3]->ToString();
-		txt_Gender->Text = database->dataReader[4]->ToString();
-		txt_Birth->Text = database->dataReader[5]->ToString();
+		cmb_成员状态->Text = database->dataReader[1]->ToString();
+		cmb_成员类型->Text = database->dataReader[2]->ToString();
+		txt_姓名->Text = database->dataReader[3]->ToString();
+		txt_性别->Text = database->dataReader[4]->ToString();
+		txt_出生日期->Text = database->dataReader[5]->ToString();
 		txt_Email->Text = database->dataReader[6]->ToString();
-		txt_Phone->Text = database->dataReader[7]->ToString();
-		txt_Wechat->Text = database->dataReader[8]->ToString();
-		txt_Country->Text = database->dataReader[9]->ToString();
-		txt_Address1->Text = database->dataReader[10]->ToString();
-		txt_Address2->Text = database->dataReader[11]->ToString();
-		txt_City->Text = database->dataReader[12]->ToString();
-		txt_Postal->Text = database->dataReader[13]->ToString();
-		txt_StdId->Text = database->dataReader[14]->ToString();
-		cmb_Program->Text = database->dataReader[15]->ToString();
-		txt_EndDate->Text = database->dataReader[16]->ToString();
-		cmb_Degree->Text = database->dataReader[17]->ToString();
-		txt_Major1->Text = database->dataReader[18]->ToString();
-		txt_Major2->Text = database->dataReader[19]->ToString();
-		cmb_CareerStatus->Text = database->dataReader[20]->ToString();
-		txt_Company->Text = database->dataReader[21]->ToString();
-		txt_Position->Text = database->dataReader[22]->ToString();
-		cmb_SearchAuth->Text = database->dataReader[23]->ToString();
+		txt_联系电话->Text = database->dataReader[7]->ToString();
+		txt_微信号->Text = database->dataReader[8]->ToString();
+		txt_所在国家->Text = database->dataReader[9]->ToString();
+		txt_地址第一行->Text = database->dataReader[10]->ToString();
+		txt_地址第二行->Text = database->dataReader[11]->ToString();
+		txt_城市->Text = database->dataReader[12]->ToString();
+		txt_邮编->Text = database->dataReader[13]->ToString();
+		txt_学生编号->Text = database->dataReader[14]->ToString();
+		cmb_学术项目->Text = database->dataReader[15]->ToString();
+		txt_结束日期->Text = database->dataReader[16]->ToString();
+		cmb_学位->Text = database->dataReader[17]->ToString();
+		txt_专业一->Text = database->dataReader[18]->ToString();
+		txt_专业二->Text = database->dataReader[19]->ToString();
+		cmb_就业状态->Text = database->dataReader[20]->ToString();
+		txt_公司->Text = database->dataReader[21]->ToString();
+		txt_职位->Text = database->dataReader[22]->ToString();
+		cmb_搜索授权->Text = database->dataReader[23]->ToString();
 		if (_auth == PublicUserInfo::Auth::Level_2) {
 			Level2Display();
 		}
@@ -133,66 +133,66 @@ Void WeAlumni::MemInfoPage::UpdateInfo() {
 Void WeAlumni::MemInfoPage::btn_ChangeInfo_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (_auth == PublicUserInfo::Auth::Level_3) {
 		Level3Display();
-		cmb_Status->Visible = true;
-		cmb_Type->Visible = true;
-		txt_Name->Visible = true;
+		cmb_成员状态->Visible = true;
+		cmb_成员类型->Visible = true;
+		txt_姓名->Visible = true;
 		txt_Email->Visible = true;
-		txt_Country->Visible = true;
-		txt_Address1->Visible = true;
-		txt_Address2->Visible = true;
-		txt_City->Visible = true;
-		txt_Postal->Visible = true;
-		cmb_Program->Visible = true;
-		txt_EndDate->Visible = true;
-		cmb_Degree->Visible = true;
-		txt_Major1->Visible = true;
-		txt_Major2->Visible = true;
-		cmb_CareerStatus->Visible = true;
-		txt_Company->Visible = true;
-		txt_Position->Visible = true;
-		cmb_SearchAuth->Visible = true;
-		btn_ChangeInfoAccept->Visible = true;
-		btn_ChangeInfoCancel->Visible = true;
+		txt_所在国家->Visible = true;
+		txt_地址第一行->Visible = true;
+		txt_地址第二行->Visible = true;
+		txt_城市->Visible = true;
+		txt_邮编->Visible = true;
+		cmb_学术项目->Visible = true;
+		txt_结束日期->Visible = true;
+		cmb_学位->Visible = true;
+		txt_专业一->Visible = true;
+		txt_专业二->Visible = true;
+		cmb_就业状态->Visible = true;
+		txt_公司->Visible = true;
+		txt_职位->Visible = true;
+		cmb_搜索授权->Visible = true;
+		btn_确认编辑->Visible = true;
+		btn_取消编辑->Visible = true;
 		lbl_error->Visible = false;
 	}
 	else {
-		cmb_Status->Visible = true;
-		cmb_Type->Visible = true;
-		txt_Name->Visible = true;
-		txt_Gender->Visible = true;
-		txt_Birth->Visible = true;
+		cmb_成员状态->Visible = true;
+		cmb_成员类型->Visible = true;
+		txt_姓名->Visible = true;
+		txt_性别->Visible = true;
+		txt_出生日期->Visible = true;
 		txt_Email->Visible = true;
-		txt_Phone->Visible = true;
-		txt_Wechat->Visible = true;
-		txt_Country->Visible = true;
-		txt_Address1->Visible = true;
-		txt_Address2->Visible = true;
-		txt_City->Visible = true;
-		txt_Postal->Visible = true;
-		txt_StdId->Visible = true;
-		cmb_Program->Visible = true;
-		txt_EndDate->Visible = true;
-		cmb_Degree->Visible = true;
-		txt_Major1->Visible = true;
-		txt_Major2->Visible = true;
-		cmb_CareerStatus->Visible = true;
-		txt_Company->Visible = true;
-		txt_Position->Visible = true;
-		cmb_SearchAuth->Visible = true;
-		btn_ChangeInfoAccept->Visible = true;
-		btn_ChangeInfoCancel->Visible = true;
+		txt_联系电话->Visible = true;
+		txt_微信号->Visible = true;
+		txt_所在国家->Visible = true;
+		txt_地址第一行->Visible = true;
+		txt_地址第二行->Visible = true;
+		txt_城市->Visible = true;
+		txt_邮编->Visible = true;
+		txt_学生编号->Visible = true;
+		cmb_学术项目->Visible = true;
+		txt_结束日期->Visible = true;
+		cmb_学位->Visible = true;
+		txt_专业一->Visible = true;
+		txt_专业二->Visible = true;
+		cmb_就业状态->Visible = true;
+		txt_公司->Visible = true;
+		txt_职位->Visible = true;
+		cmb_搜索授权->Visible = true;
+		btn_确认编辑->Visible = true;
+		btn_取消编辑->Visible = true;
 		lbl_error->Visible = false;
 	}
 }
 
 /*
 * btn_Delete_Click
-* When click button "Delete Member", two buttons will show up
+* When click button "删除信息", two buttons will show up
 */
 Void WeAlumni::MemInfoPage::btn_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
 	lbl_error->Visible = false;
-	btn_DeleteAccept->Visible = true;
-	btn_DeleteCancel->Visible = true;
+	btn_取消删除->Visible = true;
+	btn_确认删除->Visible = true;
 }
 
 /*
@@ -205,17 +205,16 @@ Void WeAlumni::MemInfoPage::btn_Delete_Click(System::Object^ sender, System::Eve
 */
 Void WeAlumni::MemInfoPage::UpdateRecord() {
 	BindingSource^ bSource = gcnew BindingSource();
-	String^ command = "SELECT Record.Id AS 'Record Id', " + 
-				 "Record.Time AS 'Action Time', " + 
-				 "Record.StfId AS 'Staff Id', " + 
-				 "Member.Name AS 'Staff Name', " + 
-				 "Staff.Dept AS 'Staff Department', " +
-				 "Staff.Position AS 'Staff Position', " +
-				 "Record.Action AS 'Action' " +
-			  "FROM Record, Member, Staff " +
-			  "WHERE Record.StfId = Staff.MemId AND " + 
-				"Member.Id = Staff.MemId AND " + 
-				"Record.MemId = " + _id + " ORDER BY Record.Id ASC;";
+	String^ command = "SELECT Record.Id AS '记录编号', " +
+		"Record.Time AS '登记时间', " +
+		"Staff.Position AS '职位职务', " +
+		"Record.StfId AS '员工编号', " +
+		"Record.Action AS '操作内容', " +
+		"Member.Name AS '员工姓名', " +
+		"Staff.Dept AS '所在部门' " +
+		"FROM Record, Member, Staff " +
+		"WHERE Record.MemId = " + _id +
+		" AND Record.StfId = Staff.MemId AND Member.Id = Staff.MemId;";
 
 	int status = -1;
 
@@ -250,33 +249,33 @@ Void WeAlumni::MemInfoPage::UpdateRecord() {
 */
 Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ cmd = "UPDATE Member " +
-		      "SET Status = '" + cmb_Status->Text + "', " +
-			  "Type = '" + cmb_Type->Text + "', " +
-			  "Name = '" + txt_Name->Text + "', " +
-			  "Gender = '" + txt_Gender->Text + "', " +
-			  "Birth = '" + txt_Birth->Text + "', " +
+		      "SET Status = '" + cmb_成员状态->Text + "', " +
+			  "Type = '" + cmb_成员类型->Text + "', " +
+			  "Name = '" + txt_姓名->Text + "', " +
+			  "Gender = '" + txt_性别->Text + "', " +
+			  "Birth = '" + txt_出生日期->Text + "', " +
 			  "Email = '" + txt_Email->Text + "', " +
-			  "Phone = '" + txt_Phone->Text + "', " +
-			  "Wechat = '" + txt_Wechat->Text + "', " +
-			  "Country = '" + txt_Country->Text + "', " +
-			  "Address1 = '" + txt_Address1->Text + "', " +
-			  "Address2 = '" + txt_Address2->Text + "', " +
-			  "City = '" + txt_City->Text + "', " +
-			  "Postal = '" + txt_Postal->Text + "', " +
-		      "StdId = '" + txt_StdId->Text + "', " +
-			  "Program = '" + cmb_Program->Text + "', " +
-		      "EndDate = '" + txt_EndDate->Text + "', " +
-			  "Degree = '" + cmb_Degree->Text + "', " +
-			  "Major1 = '" + txt_Major1->Text + "', " +
-			  "Major2 = '" + txt_Major2->Text + "', " +
-			  "CareerStatus = '" + cmb_CareerStatus->Text + "', " +
-			  "Company = '" + txt_Company->Text + "', " +
-			  "Position = '" + txt_Position->Text + "', " +
-			  "SearchAuth = '" + cmb_SearchAuth->Text + "' " +
+			  "Phone = '" + txt_联系电话->Text + "', " +
+			  "Wechat = '" + txt_微信号->Text + "', " +
+			  "Country = '" + txt_所在国家->Text + "', " +
+			  "Address1 = '" + txt_地址第一行->Text + "', " +
+			  "Address2 = '" + txt_地址第二行->Text + "', " +
+			  "City = '" + txt_城市->Text + "', " +
+			  "Postal = '" + txt_邮编->Text + "', " +
+		      "StdId = '" + txt_学生编号->Text + "', " +
+			  "Program = '" + cmb_学术项目->Text + "', " +
+		      "EndDate = '" + txt_结束日期->Text + "', " +
+			  "Degree = '" + cmb_学位->Text + "', " +
+			  "Major1 = '" + txt_专业一->Text + "', " +
+			  "Major2 = '" + txt_专业二->Text + "', " +
+			  "CareerStatus = '" + cmb_就业状态->Text + "', " +
+			  "Company = '" + txt_公司->Text + "', " +
+			  "Position = '" + txt_职位->Text + "', " +
+			  "SearchAuth = '" + cmb_搜索授权->Text + "' " +
 		      "WHERE Id = " + _id;
 	
 	int status = -1;
-	String^ logParam = "Changed Member " + _id.ToString() + " info:";
+	String^ logParam = _stfId.ToString() + " 编辑成员 " + _id.ToString() + " 信息:";
 	try {
 		status = database->UpdateData(cmd);
 	}
@@ -288,174 +287,176 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 	}
 	int first = 1;
 	if (status > 0) {
-		if (lbl_Status->Text != cmb_Status->Text) {
-			lbl_Status->Text = cmb_Status->Text;
-			logParam += " Status";
+		if (lbl_成员状态->Text != cmb_成员状态->Text) {
+			lbl_成员状态->Text = cmb_成员状态->Text;
+			logParam = logParam + " 成员状态";
 			first = 0;
 		}
-		if (lbl_Type->Text != cmb_Type->Text) {
-			lbl_Type->Text = cmb_Type->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_成员类型->Text != cmb_成员类型->Text) {
+			lbl_成员类型->Text = cmb_成员类型->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Type";
+			logParam = logParam + " 成员类型";
 		}
-		if (lbl_Name->Text != txt_Name->Text) {
-			lbl_Name->Text = txt_Name->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_姓名->Text != txt_姓名->Text) {
+			lbl_姓名->Text = txt_姓名->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Name";
+			logParam = logParam + " 姓名";
 		}
-		if (lbl_Gender->Text != txt_Gender->Text) {
-			lbl_Gender->Text = txt_Gender->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_性别->Text != txt_性别->Text) {
+			lbl_性别->Text = txt_性别->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Gender";
+			logParam = logParam + " 性别";
 		}
-		if (lbl_Birth->Text != txt_Birth->Text) {
-			lbl_Birth->Text = txt_Birth->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_出生日期->Text != txt_出生日期->Text) {
+			lbl_出生日期->Text = txt_出生日期->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Birth";
+			logParam = logParam + " 出生日期";
 		}
 		if (lbl_Email->Text != txt_Email->Text) {
 			lbl_Email->Text = txt_Email->Text;
-			if (first = 0) logParam += ",";
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Email";
+			logParam = logParam + " Email";
 		}
-		if (lbl_Phone->Text != txt_Phone->Text) {
-			lbl_Phone->Text = txt_Phone->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_联系电话->Text != txt_联系电话->Text) {
+			lbl_联系电话->Text = txt_联系电话->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Phone";
+			logParam = logParam + " 联系电话";
 		}
-		if (lbl_Wechat->Text != txt_Wechat->Text) {
-			lbl_Wechat->Text = txt_Wechat->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_微信号->Text != txt_微信号->Text) {
+			lbl_微信号->Text = txt_微信号->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Wechat,";
+			logParam = logParam + " 微信号";
 		}
-		if (lbl_Country->Text != txt_Country->Text) {
-			lbl_Country->Text = txt_Country->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_所在国家->Text != txt_所在国家->Text) {
+			lbl_所在国家->Text = txt_所在国家->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Country";
+			logParam = logParam + " 所在国家";
 		}
-		if (lbl_Address1->Text != txt_Address1->Text) {
-			lbl_Address1->Text = txt_Address1->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_地址第一行->Text != txt_地址第一行->Text) {
+			lbl_地址第一行->Text = txt_地址第一行->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Address1";
+			logParam = logParam + "地址第一行";
 		}
-		if (lbl_Address2->Text != txt_Address2->Text) {
-			lbl_Address2->Text = txt_Address2->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_地址第二行->Text != txt_地址第二行->Text) {
+			lbl_地址第二行->Text = txt_地址第二行->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Address2";
+			logParam = logParam + " 地址第二行";
 		}
-		if (lbl_City->Text != txt_City->Text) {
-			lbl_City->Text = txt_City->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_城市->Text != txt_城市->Text) {
+			lbl_城市->Text = txt_城市->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " City";
+			logParam = logParam + " 城市";
 		}
-		if (lbl_Postal->Text != txt_Postal->Text) {
-			lbl_Postal->Text = txt_Postal->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_邮编->Text != txt_邮编->Text) {
+			lbl_邮编->Text = txt_邮编->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Postal";
+			logParam = logParam + " 邮编";
 		}
-		if (lbl_StdId->Text != txt_StdId->Text) {
-			lbl_StdId->Text = txt_StdId->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_学生编号->Text != txt_学生编号->Text) {
+			lbl_学生编号->Text = txt_学生编号->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " StdId";
+			logParam = logParam + " 学生编号";
 		}
-		if (lbl_Program->Text != cmb_Program->Text) {
-			lbl_Program->Text = cmb_Program->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_学术项目->Text != cmb_学术项目->Text) {
+			lbl_学术项目->Text = cmb_学术项目->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Program";
+			logParam = logParam + " 学术项目";
 		}
-		if (lbl_EndDate->Text != txt_EndDate->Text) {
-			lbl_EndDate->Text = txt_EndDate->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_结束日期->Text != txt_结束日期->Text) {
+			lbl_结束日期->Text = txt_结束日期->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " EndDate";
+			logParam = logParam + " 结束日期";
 		}
-		if (lbl_Degree->Text != cmb_Degree->Text) {
-			lbl_Degree->Text = cmb_Degree->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_学位->Text != cmb_学位->Text) {
+			lbl_学位->Text = cmb_学位->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Degree";
+			logParam = logParam + " 学位";
 		}
-		if (lbl_Major1->Text != txt_Major1->Text) {
-			lbl_Major1->Text = txt_Major1->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_专业一->Text != txt_专业一->Text) {
+			lbl_专业一->Text = txt_专业一->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Major1";
+			logParam = logParam +  " 专业一";
 		}
-		if (lbl_Major2->Text != txt_Major2->Text) {
-			lbl_Major2->Text = txt_Major2->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_专业二->Text != txt_专业二->Text) {
+			lbl_专业二->Text = txt_专业二->Text;
+			if (first = 0)logParam = logParam + ",";
 			first = 0;
-			logParam += " Major2";
+			logParam = logParam + " 专业二";
 		}
-		if (lbl_CareerStatus->Text != cmb_CareerStatus->Text) {
-			lbl_CareerStatus->Text = cmb_CareerStatus->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_就业状态->Text != cmb_就业状态->Text) {
+			lbl_就业状态->Text = cmb_就业状态->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " CareerStatus";
+			logParam = logParam + " 就业状态";
 		}
-		if (lbl_Company->Text != txt_Company->Text) {
-			lbl_Company->Text = txt_Company->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_公司->Text != txt_公司->Text) {
+			lbl_公司->Text = txt_公司->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Company";
+			logParam = logParam + " 公司";
 		}
-		if (lbl_Position->Text != txt_Position->Text) {
-			lbl_Position->Text = txt_Position->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_职位->Text != txt_职位->Text) {
+			lbl_职位->Text = txt_职位->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " Position";
+			logParam = logParam + " 职位";
 		}
-		if (lbl_SearchAuth->Text != cmb_SearchAuth->Text) {
-			lbl_SearchAuth->Text = cmb_SearchAuth->Text;
-			if (first = 0) logParam += ",";
+		if (lbl_搜索授权->Text != cmb_搜索授权->Text) {
+			lbl_搜索授权->Text = cmb_搜索授权->Text;
+			if (first = 0) logParam = logParam + ",";
 			first = 0;
-			logParam += " SearchAuth";
+			logParam = logParam + " 搜索授权";
 		}
 
-		cmb_Status->Visible = false;
-		cmb_Type->Visible = false;
-		txt_Name->Visible = false;
-		txt_Gender->Visible = false;
-		txt_Birth->Visible = false;
+		cmb_成员状态->Visible = false;
+		cmb_成员类型->Visible = false;
+		txt_姓名->Visible = false;
+		txt_性别->Visible = false;
+		txt_出生日期->Visible = false;
 		txt_Email->Visible = false;
-		txt_Phone->Visible = false;
-		txt_Wechat->Visible = false;
-		txt_Country->Visible = false;
-		txt_Address1->Visible = false;
-		txt_Address2->Visible = false;
-		txt_City->Visible = false;
-		txt_Postal->Visible = false;
-		txt_StdId->Visible = false;
-		cmb_Program->Visible = false;
-		txt_EndDate->Visible = false;
-		cmb_Degree->Visible = false;
-		txt_Major1->Visible = false;
-		txt_Major2->Visible = false;
-		cmb_CareerStatus->Visible = false;
-		txt_Company->Visible = false;
-		txt_Position->Visible = false;
-		cmb_SearchAuth->Visible = false;
-		btn_ChangeInfoAccept->Visible = false;
-		btn_ChangeInfoCancel->Visible = false;
+		txt_联系电话->Visible = false;
+		txt_微信号->Visible = false;
+		txt_所在国家->Visible = false;
+		txt_地址第一行->Visible = false;
+		txt_地址第二行->Visible = false;
+		txt_城市->Visible = false;
+		txt_邮编->Visible = false;
+		txt_学生编号->Visible = false;
+		cmb_学术项目->Visible = false;
+		txt_结束日期->Visible = false;
+		cmb_学位->Visible = false;
+		txt_专业一->Visible = false;
+		txt_专业二->Visible = false;
+		cmb_就业状态->Visible = false;
+		txt_公司->Visible = false;
+		txt_职位->Visible = false;
+		cmb_搜索授权->Visible = false;
+		btn_确认编辑->Visible = false;
+		btn_取消编辑->Visible = false;
 		lbl_error->Text = "Changes saved";
 		lbl_error->ForeColor = System::Drawing::Color::Green;
 		lbl_error->Visible = true;
-		if (first != 0) {
+		if (first == 0) {
 			WeAlumni::Database::Log(_stfId, logParam);
+			InsertRecord(logParam);
+			UpdateRecord();
 		}
 	}
 	else {
@@ -466,66 +467,92 @@ Void WeAlumni::MemInfoPage::btn_ChangeInfoAccept_Click(System::Object^ sender, S
 }
 
 /*
+* insertRecord
+* This method will try to insert data into Record table.
+* @param String^ action
+* @return None
+*/
+Void WeAlumni::MemInfoPage::InsertRecord(String^ action) {
+	int recId = database->GetNextId(WeAlumni::Database::DatabaseTable::Record);
+	String^ currTime = database->GetSystemTime();
+	String^ cmd = "INSERT INTO Record (Id, StfId, MemId, Time, Action) " +
+		"VALUES (" + recId + ", " + _stfId + ", " + _id +
+		", '" + currTime + "', '" + action + "');";
+
+	int status = -1;
+
+	try {
+		status = database->InsertData(cmd);
+	}
+	catch (Exception^ exception) {
+		lbl_error->ForeColor = System::Drawing::Color::Red;
+		lbl_error->Text = exception->Message;
+		lbl_error->Visible = true;
+		return;
+	}
+}
+
+/*
 * btn_ChangeInfoCancelButton_Click
 * When click button "Cancel", go back to previous MemInfoPage, nothing changes
 */
 Void WeAlumni::MemInfoPage::btn_ChangeInfoCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	lbl_error->Visible = false;
-	cmb_Status->Visible = false;
-	cmb_Type->Visible = false;
-	txt_Name->Visible = false;
-	txt_Gender->Visible = false;
-	txt_Birth->Visible = false;
+	cmb_成员状态->Visible = false;
+	cmb_成员类型->Visible = false;
+	txt_姓名->Visible = false;
+	txt_性别->Visible = false;
+	txt_出生日期->Visible = false;
 	txt_Email->Visible = false;
-	txt_Phone->Visible = false;
-	txt_Wechat->Visible = false;
-	txt_Country->Visible = false;
-	txt_Address1->Visible = false;
-	txt_Address2->Visible = false;
-	txt_City->Visible = false;
-	txt_Postal->Visible = false;
-	txt_StdId->Visible = false;
-	cmb_Program->Visible = false;
-	txt_EndDate->Visible = false;
-	cmb_Degree->Visible = false;
-	txt_Major1->Visible = false;
-	txt_Major2->Visible = false;
-	cmb_CareerStatus->Visible = false;
-	txt_Company->Visible = false;
-	txt_Position->Visible = false;
-	cmb_SearchAuth->Visible = false;
-	btn_ChangeInfoAccept->Visible = false;
-	btn_ChangeInfoCancel->Visible = false;
+	txt_联系电话->Visible = false;
+	txt_微信号->Visible = false;
+	txt_所在国家->Visible = false;
+	txt_地址第一行->Visible = false;
+	txt_地址第二行->Visible = false;
+	txt_城市->Visible = false;
+	txt_邮编->Visible = false;
+	txt_学生编号->Visible = false;
+	cmb_学术项目->Visible = false;
+	txt_结束日期->Visible = false;
+	cmb_学位->Visible = false;
+	txt_专业一->Visible = false;
+	txt_专业二->Visible = false;
+	cmb_就业状态->Visible = false;
+	txt_公司->Visible = false;
+	txt_职位->Visible = false;
+	cmb_搜索授权->Visible = false;
+	btn_确认编辑->Visible = false;
+	btn_取消编辑->Visible = false;
 
-	cmb_Status->Text = lbl_Status->Text;
-	cmb_Type->Text = lbl_Type->Text;
-	txt_Name->Text = lbl_Name->Text;
-	txt_Gender->Text = lbl_Gender->Text;
-	txt_Birth->Text = lbl_Birth->Text;
+	cmb_成员状态->Text = lbl_成员状态->Text;
+	cmb_成员类型->Text = lbl_成员类型->Text;
+	txt_姓名->Text = lbl_姓名->Text;
+	txt_性别->Text = lbl_性别->Text;
+	txt_出生日期->Text = lbl_出生日期->Text;
 	txt_Email->Text = lbl_Email->Text;
-	txt_Phone->Text = lbl_Phone->Text;
-	txt_Wechat->Text = lbl_Wechat->Text;
-	txt_Country->Text = lbl_Country->Text;
-	txt_Address1->Text = lbl_Address1->Text;
-	txt_Address2->Text = lbl_Address2->Text;
-	txt_City->Text = lbl_City->Text;
-	txt_Postal->Text = lbl_Postal->Text;
-	txt_StdId->Text = lbl_StdId->Text;
-	cmb_Program->Text = lbl_Program->Text;
-	txt_EndDate->Text = lbl_EndDate->Text;
-	cmb_Degree->Text = lbl_Degree->Text;
-	txt_Major1->Text = lbl_Major1->Text;
-	txt_Major2->Text = lbl_Major2->Text;
-	cmb_CareerStatus->Text = lbl_CareerStatus->Text;
-	txt_Company->Text = lbl_Company->Text;
-	txt_Position->Text = lbl_Position->Text;
-	cmb_SearchAuth->Text = lbl_SearchAuth->Text;
+	txt_联系电话->Text = lbl_联系电话->Text;
+	txt_微信号->Text = lbl_微信号->Text;
+	txt_所在国家->Text = lbl_所在国家->Text;
+	txt_地址第一行->Text = lbl_地址第一行->Text;
+	txt_地址第二行->Text = lbl_地址第二行->Text;
+	txt_城市->Text = lbl_城市->Text;
+	txt_邮编->Text = lbl_邮编->Text;
+	txt_学生编号->Text = lbl_学生编号->Text;
+	cmb_学术项目->Text = lbl_学术项目->Text;
+	txt_结束日期->Text = lbl_结束日期->Text;
+	cmb_学位->Text = lbl_学位->Text;
+	txt_专业一->Text = lbl_专业一->Text;
+	txt_专业二->Text = lbl_专业二->Text;
+	cmb_就业状态->Text = lbl_就业状态->Text;
+	txt_公司->Text = lbl_公司->Text;
+	txt_职位->Text = lbl_职位->Text;
+	cmb_搜索授权->Text = lbl_搜索授权->Text;
 }
 
 /*
 * btn_DeleteAccept_Click
 *
-* When click button "Affirm:, the method will trigger a delete command.
+* When click button "确认:, the method will trigger a delete command.
 * If an exception occurs, the error message will be shown
 */
 Void WeAlumni::MemInfoPage::btn_DeleteAccept_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -538,8 +565,8 @@ Void WeAlumni::MemInfoPage::btn_DeleteAccept_Click(System::Object^ sender, Syste
 		status = database->DeleteData(cmd);
 	}
 	catch (Exception^ exception) {
-		btn_DeleteAccept->Visible = false;
-		btn_DeleteCancel->Visible = false;
+		btn_确认删除->Visible = false;
+		btn_取消删除->Visible = false;
 		lbl_error->ForeColor = System::Drawing::Color::Red;
 		lbl_error->Text = exception->Message;
 		lbl_error->Visible = true;
@@ -548,12 +575,12 @@ Void WeAlumni::MemInfoPage::btn_DeleteAccept_Click(System::Object^ sender, Syste
 	
 	if (status > 0) {
 		DeleteRecord();
-		WeAlumni::Database::Log(_stfId, "Deleted Member");
+		WeAlumni::Database::Log(_stfId, "删除成员");
 		this->Close();
 	}	
 	else {
-		btn_DeleteAccept->Visible = false;
-		btn_DeleteCancel->Visible = false;
+		btn_确认删除->Visible = false;
+		btn_取消删除->Visible = false;
 		lbl_error->Visible = true;
 		lbl_error->ForeColor = System::Drawing::Color::Red;
 		lbl_error->Text = "Error occured";
@@ -588,8 +615,8 @@ Void WeAlumni::MemInfoPage::DeleteRecord() {
 */
 Void WeAlumni::MemInfoPage::btn_DeleteCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	lbl_error->Visible = false;
-	btn_DeleteAccept->Visible = false;
-	btn_DeleteCancel->Visible = false;
+	btn_确认删除->Visible = false;
+	btn_取消删除->Visible = false;
 }
 
 /*
@@ -609,29 +636,29 @@ Void WeAlumni::MemInfoPage::dataGridView1_CellDoubleClick(System::Object^ sender
 * @return none
 */
 Void WeAlumni::MemInfoPage::Level2Display() {
-	lbl_Gender->Visible = false;
-	lbl_Birth->Visible = false;
-	lbl_Phone->Visible = false;
-	lbl_Wechat->Visible = false;
-	lbl_Country->Visible = false;
-	lbl_Address1->Visible = false;
-	lbl_Address2->Visible = false;
-	lbl_City->Visible = false;
-	lbl_Postal->Visible = false;
-	lbl_StdId->Visible = false;
+	lbl_性别->Visible = false;
+	lbl_出生日期->Visible = false;
+	lbl_联系电话->Visible = false;
+	lbl_微信号->Visible = false;
+	lbl_所在国家->Visible = false;
+	lbl_地址第一行->Visible = false;
+	lbl_地址第二行->Visible = false;
+	lbl_城市->Visible = false;
+	lbl_邮编->Visible = false;
+	lbl_学生编号->Visible = false;
 	
-	lbl_Prompt_Gender->Visible = false;
-	lbl_Prompt_Birth->Visible = false;
-	lbl_Prompt_Phone->Visible = false;
-	lbl_Prompt_Wechat->Visible = false;
-	lbl_Prompt_Country->Visible = false;
-	lbl_Prompt_Address1->Visible = false;
-	lbl_Prompt_Address2->Visible = false;
-	lbl_Prompt_City->Visible = false;
-	lbl_Prompt_Postal->Visible = false;
-	lbl_Prompt_StdId->Visible = false;
-	btn_ChangeInfo->Visible = false;
-	btn_Delete->Visible = false;
+	lbl_Prompt_性别->Visible = false;
+	lbl_Prompt_出生日期->Visible = false;
+	lbl_Prompt_联系电话->Visible = false;
+	lbl_Prompt_微信号->Visible = false;
+	lbl_Prompt_所在国家->Visible = false;
+	lbl_Prompt_地址第一行->Visible = false;
+	lbl_Prompt_地址第二行->Visible = false;
+	lbl_Prompt_城市->Visible = false;
+	lbl_Prompt_邮编->Visible = false;
+	lbl_Prompt_学生编号->Visible = false;
+	btn_编辑信息->Visible = false;
+	btn_删除信息->Visible = false;
 }
 
 /*
@@ -642,21 +669,21 @@ Void WeAlumni::MemInfoPage::Level2Display() {
 * @return none
 */
 Void WeAlumni::MemInfoPage::Level3Display() {
-	lbl_Gender->Visible = false;
-	lbl_Birth->Visible = false;
-	lbl_Phone->Visible = false;
-	lbl_Wechat->Visible = false;
-	lbl_StdId->Visible = false;
+	lbl_性别->Visible = false;
+	lbl_出生日期->Visible = false;
+	lbl_联系电话->Visible = false;
+	lbl_微信号->Visible = false;
+	lbl_学生编号->Visible = false;
 
-	lbl_Prompt_Gender->Visible = false;
-	lbl_Prompt_Birth->Visible = false;
-	lbl_Prompt_Phone->Visible = false;
-	lbl_Prompt_Wechat->Visible = false;
-	lbl_Prompt_StdId->Visible = false;
+	lbl_Prompt_性别->Visible = false;
+	lbl_Prompt_出生日期->Visible = false;
+	lbl_Prompt_联系电话->Visible = false;
+	lbl_Prompt_微信号->Visible = false;
+	lbl_Prompt_学生编号->Visible = false;
 
-	txt_Gender->Visible = false;
-	txt_Birth->Visible = false;
-	txt_Phone->Visible = false;
-	txt_Wechat->Visible = false;
-	txt_StdId->Visible = false;
+	txt_性别->Visible = false;
+	txt_出生日期->Visible = false;
+	txt_联系电话->Visible = false;
+	txt_微信号->Visible = false;
+	txt_学生编号->Visible = false;
 }

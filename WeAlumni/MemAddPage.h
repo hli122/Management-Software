@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Database.h"
 #include "PublicUserInfo.h"
 
@@ -56,59 +56,112 @@ namespace WeAlumni {
 				delete database;
 			}
 		}
-	private: System::Windows::Forms::Label^ lbl_Prompt_AddMemberPage;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Id;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Status;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Type;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Birth;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Gender;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Name;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Address2;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Address1;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Country;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Wechat;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Phone;
+	private: System::Windows::Forms::Label^ lbl_Prompt_添加成员;
+	private: System::Windows::Forms::Label^ lbl_Prompt_成员编号;
+	private: System::Windows::Forms::Label^ lbl_Prompt_成员状态;
+	private: System::Windows::Forms::Label^ lbl_Prompt_成员类型;
+	private: System::Windows::Forms::Label^ lbl_Prompt_出生日期;
+	protected:
+
+
+
+
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_性别;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_姓名;
+	private: System::Windows::Forms::Label^ lbl_Prompt_地址第二行;
+
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_地址第一行;
+
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_所在国家;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_微信号;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_联系电话;
+
 	private: System::Windows::Forms::Label^ lbl_Prompt_Email;
-	private: System::Windows::Forms::Label^ lbl_Prompt_SearchAuth;
-	private: System::Windows::Forms::Label^ lbl_Prompt_CareerStatus;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Program;
-	private: System::Windows::Forms::Label^ lbl_Prompt_StdIl;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Postal;
-	private: System::Windows::Forms::Label^ lbl_Prompt_City;
-	private: System::Windows::Forms::Label^ lbl_Id;
+	private: System::Windows::Forms::Label^ lbl_Prompt_搜索授权;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_就业状态;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_学术项目;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_学生编号;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_邮编;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_城市;
+
+	private: System::Windows::Forms::Label^ lbl_成员编号;
+
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
-	private: System::Windows::Forms::TextBox^ txt_Name;
-	private: System::Windows::Forms::TextBox^ txt_Birth;
+	private: System::Windows::Forms::TextBox^ txt_姓名;
+
+	private: System::Windows::Forms::TextBox^ txt_出生日期;
+
 	private: System::Windows::Forms::TextBox^ txt_Email;
-	private: System::Windows::Forms::TextBox^ txt_Phone;
-	private: System::Windows::Forms::TextBox^ txt_Wechat;
-	private: System::Windows::Forms::TextBox^ txt_Country;
-	private: System::Windows::Forms::TextBox^ txt_Address1;
-	private: System::Windows::Forms::TextBox^ txt_Address2;
-	private: System::Windows::Forms::TextBox^ txt_City;
-	private: System::Windows::Forms::TextBox^ txt_Postal;
-	private: System::Windows::Forms::TextBox^ txt_StdId;
-	private: System::Windows::Forms::Button^ btn_accept;
-	private: System::Windows::Forms::Button^ btn_Cancel;
+	private: System::Windows::Forms::TextBox^ txt_联系电话;
+	private: System::Windows::Forms::TextBox^ txt_微信号;
+	private: System::Windows::Forms::TextBox^ txt_所在国家;
+	private: System::Windows::Forms::TextBox^ txt_地址第一行;
+	private: System::Windows::Forms::TextBox^ txt_地址第二行;
+	private: System::Windows::Forms::TextBox^ txt_城市;
+	private: System::Windows::Forms::TextBox^ txt_邮编;
+	private: System::Windows::Forms::TextBox^ txt_学生编号;
+	private: System::Windows::Forms::Button^ btn_确认;
+	private: System::Windows::Forms::Button^ btn_取消;
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^ lbl_error;
-	private: System::Windows::Forms::Label^ lbl_Prompt_EndDate;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Degree;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Major1;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Major2;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Company;
-	private: System::Windows::Forms::TextBox^ txt_EndDate;
-	private: System::Windows::Forms::TextBox^ txt_Major1;
-	private: System::Windows::Forms::TextBox^ txt_Major2;
-	private: System::Windows::Forms::TextBox^ txt_Company;
-	private: System::Windows::Forms::Label^ lbl_Prompt_Position;
-	private: System::Windows::Forms::TextBox^ txt_Position;
-	private: System::Windows::Forms::ComboBox^ cmb_Status;
-	private: System::Windows::Forms::ComboBox^ cmb_Type;
-	private: System::Windows::Forms::ComboBox^ cmb_Program;
-	private: System::Windows::Forms::TextBox^ txt_Gender;
-	private: System::Windows::Forms::ComboBox^ cmb_Degree;
-	private: System::Windows::Forms::ComboBox^ cmb_CareerStatus;
-	private: System::Windows::Forms::ComboBox^ cmb_SearchAuth;
+	private: System::Windows::Forms::Label^ lbl_Prompt_结束日期;
+
+	private: System::Windows::Forms::Label^ lbl_Prompt_学位;
+	private: System::Windows::Forms::Label^ lbl_Prompt_专业一;
+	private: System::Windows::Forms::Label^ lbl_Prompt_专业二;
+	private: System::Windows::Forms::Label^ lbl_Prompt_公司;
+private: System::Windows::Forms::TextBox^ txt_结束日期;
+
+
+
+
+
+
+private: System::Windows::Forms::TextBox^ txt_专业一;
+private: System::Windows::Forms::TextBox^ txt_专业二;
+private: System::Windows::Forms::TextBox^ txt_公司;
+private: System::Windows::Forms::Label^ lbl_Prompt_职位;
+private: System::Windows::Forms::TextBox^ txt_职位;
+
+
+
+
+
+
+	private: System::Windows::Forms::ComboBox^ cmb_成员状态;
+	private: System::Windows::Forms::ComboBox^ cmb_成员类型;
+private: System::Windows::Forms::ComboBox^ cmb_学术项目;
+
+
+
+	private: System::Windows::Forms::TextBox^ txt_性别;
+private: System::Windows::Forms::ComboBox^ cmb_学位;
+private: System::Windows::Forms::ComboBox^ cmb_就业状态;
+private: System::Windows::Forms::ComboBox^ cmb_搜索授权;
+
+
+
+
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -125,202 +178,204 @@ namespace WeAlumni {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			this->lbl_Prompt_AddMemberPage = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Status = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Type = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Birth = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Gender = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Address2 = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Address1 = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Country = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Wechat = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Phone = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_添加成员 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_成员编号 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_成员状态 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_成员类型 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_出生日期 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_性别 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_姓名 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_地址第二行 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_地址第一行 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_所在国家 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_微信号 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_联系电话 = (gcnew System::Windows::Forms::Label());
 			this->lbl_Prompt_Email = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_SearchAuth = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_CareerStatus = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Program = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_StdIl = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Postal = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_City = (gcnew System::Windows::Forms::Label());
-			this->lbl_Id = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_搜索授权 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_就业状态 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_学术项目 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_学生编号 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_邮编 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_城市 = (gcnew System::Windows::Forms::Label());
+			this->lbl_成员编号 = (gcnew System::Windows::Forms::Label());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->txt_Name = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Birth = (gcnew System::Windows::Forms::TextBox());
+			this->txt_姓名 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_出生日期 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_Email = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Phone = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Wechat = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Country = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Address1 = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Address2 = (gcnew System::Windows::Forms::TextBox());
-			this->txt_City = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Postal = (gcnew System::Windows::Forms::TextBox());
-			this->txt_StdId = (gcnew System::Windows::Forms::TextBox());
-			this->btn_accept = (gcnew System::Windows::Forms::Button());
-			this->btn_Cancel = (gcnew System::Windows::Forms::Button());
+			this->txt_联系电话 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_微信号 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_所在国家 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_地址第一行 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_地址第二行 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_城市 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_邮编 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_学生编号 = (gcnew System::Windows::Forms::TextBox());
+			this->btn_确认 = (gcnew System::Windows::Forms::Button());
+			this->btn_取消 = (gcnew System::Windows::Forms::Button());
 			this->lbl_error = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_EndDate = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Degree = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Major1 = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Major2 = (gcnew System::Windows::Forms::Label());
-			this->lbl_Prompt_Company = (gcnew System::Windows::Forms::Label());
-			this->txt_EndDate = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Major1 = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Major2 = (gcnew System::Windows::Forms::TextBox());
-			this->txt_Company = (gcnew System::Windows::Forms::TextBox());
-			this->lbl_Prompt_Position = (gcnew System::Windows::Forms::Label());
-			this->txt_Position = (gcnew System::Windows::Forms::TextBox());
-			this->cmb_Status = (gcnew System::Windows::Forms::ComboBox());
-			this->cmb_Type = (gcnew System::Windows::Forms::ComboBox());
-			this->cmb_Program = (gcnew System::Windows::Forms::ComboBox());
-			this->txt_Gender = (gcnew System::Windows::Forms::TextBox());
-			this->cmb_Degree = (gcnew System::Windows::Forms::ComboBox());
-			this->cmb_CareerStatus = (gcnew System::Windows::Forms::ComboBox());
-			this->cmb_SearchAuth = (gcnew System::Windows::Forms::ComboBox());
+			this->lbl_Prompt_结束日期 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_学位 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_专业一 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_专业二 = (gcnew System::Windows::Forms::Label());
+			this->lbl_Prompt_公司 = (gcnew System::Windows::Forms::Label());
+			this->txt_结束日期 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_专业一 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_专业二 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_公司 = (gcnew System::Windows::Forms::TextBox());
+			this->lbl_Prompt_职位 = (gcnew System::Windows::Forms::Label());
+			this->txt_职位 = (gcnew System::Windows::Forms::TextBox());
+			this->cmb_成员状态 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmb_成员类型 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmb_学术项目 = (gcnew System::Windows::Forms::ComboBox());
+			this->txt_性别 = (gcnew System::Windows::Forms::TextBox());
+			this->cmb_学位 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmb_就业状态 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmb_搜索授权 = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
-			// lbl_Prompt_AddMemberPage
+			// lbl_Prompt_添加成员
 			// 
-			this->lbl_Prompt_AddMemberPage->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_AddMemberPage->AutoSize = true;
-			this->lbl_Prompt_AddMemberPage->Location = System::Drawing::Point(290, 9);
-			this->lbl_Prompt_AddMemberPage->Name = L"lbl_Prompt_AddMemberPage";
-			this->lbl_Prompt_AddMemberPage->Size = System::Drawing::Size(95, 13);
-			this->lbl_Prompt_AddMemberPage->TabIndex = 0;
-			this->lbl_Prompt_AddMemberPage->Text = L"Add Member Page";
-			// 
-			// lbl_Prompt_Id
-			// 
-			this->lbl_Prompt_Id->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Id->AutoSize = true;
-			this->lbl_Prompt_Id->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_添加成员->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_添加成员->AutoSize = true;
+			this->lbl_Prompt_添加成员->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Id->Location = System::Drawing::Point(31, 56);
-			this->lbl_Prompt_Id->Name = L"lbl_Prompt_Id";
-			this->lbl_Prompt_Id->Size = System::Drawing::Size(18, 13);
-			this->lbl_Prompt_Id->TabIndex = 1;
-			this->lbl_Prompt_Id->Text = L"Id";
+			this->lbl_Prompt_添加成员->Location = System::Drawing::Point(290, 9);
+			this->lbl_Prompt_添加成员->Name = L"lbl_Prompt_添加成员";
+			this->lbl_Prompt_添加成员->Size = System::Drawing::Size(72, 18);
+			this->lbl_Prompt_添加成员->TabIndex = 0;
+			this->lbl_Prompt_添加成员->Text = L"添加成员";
 			// 
-			// lbl_Prompt_Status
+			// lbl_Prompt_成员编号
 			// 
-			this->lbl_Prompt_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Status->AutoSize = true;
-			this->lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_成员编号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_成员编号->AutoSize = true;
+			this->lbl_Prompt_成员编号->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Status->Location = System::Drawing::Point(80, 55);
-			this->lbl_Prompt_Status->Name = L"lbl_Prompt_Status";
-			this->lbl_Prompt_Status->Size = System::Drawing::Size(43, 13);
-			this->lbl_Prompt_Status->TabIndex = 2;
-			this->lbl_Prompt_Status->Text = L"Status";
+			this->lbl_Prompt_成员编号->Location = System::Drawing::Point(46, 62);
+			this->lbl_Prompt_成员编号->Name = L"lbl_Prompt_成员编号";
+			this->lbl_Prompt_成员编号->Size = System::Drawing::Size(66, 13);
+			this->lbl_Prompt_成员编号->TabIndex = 1;
+			this->lbl_Prompt_成员编号->Text = L"成员编号：";
 			// 
-			// lbl_Prompt_Type
+			// lbl_Prompt_成员状态
 			// 
-			this->lbl_Prompt_Type->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Type->AutoSize = true;
-			this->lbl_Prompt_Type->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_成员状态->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_成员状态->AutoSize = true;
+			this->lbl_Prompt_成员状态->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Type->Location = System::Drawing::Point(202, 55);
-			this->lbl_Prompt_Type->Name = L"lbl_Prompt_Type";
-			this->lbl_Prompt_Type->Size = System::Drawing::Size(35, 13);
-			this->lbl_Prompt_Type->TabIndex = 3;
-			this->lbl_Prompt_Type->Text = L"Type";
+			this->lbl_Prompt_成员状态->Location = System::Drawing::Point(286, 62);
+			this->lbl_Prompt_成员状态->Name = L"lbl_Prompt_成员状态";
+			this->lbl_Prompt_成员状态->Size = System::Drawing::Size(66, 13);
+			this->lbl_Prompt_成员状态->TabIndex = 2;
+			this->lbl_Prompt_成员状态->Text = L"成员状态：";
 			// 
-			// lbl_Prompt_Birth
+			// lbl_Prompt_成员类型
 			// 
-			this->lbl_Prompt_Birth->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Birth->AutoSize = true;
-			this->lbl_Prompt_Birth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_成员类型->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_成员类型->AutoSize = true;
+			this->lbl_Prompt_成员类型->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Birth->Location = System::Drawing::Point(562, 59);
-			this->lbl_Prompt_Birth->Name = L"lbl_Prompt_Birth";
-			this->lbl_Prompt_Birth->Size = System::Drawing::Size(33, 13);
-			this->lbl_Prompt_Birth->TabIndex = 6;
-			this->lbl_Prompt_Birth->Text = L"Birth";
+			this->lbl_Prompt_成员类型->Location = System::Drawing::Point(484, 62);
+			this->lbl_Prompt_成员类型->Name = L"lbl_Prompt_成员类型";
+			this->lbl_Prompt_成员类型->Size = System::Drawing::Size(63, 13);
+			this->lbl_Prompt_成员类型->TabIndex = 3;
+			this->lbl_Prompt_成员类型->Text = L"成员类型：";
 			// 
-			// lbl_Prompt_Gender
+			// lbl_Prompt_出生日期
 			// 
-			this->lbl_Prompt_Gender->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Gender->AutoSize = true;
-			this->lbl_Prompt_Gender->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_出生日期->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_出生日期->AutoSize = true;
+			this->lbl_Prompt_出生日期->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Gender->Location = System::Drawing::Point(424, 59);
-			this->lbl_Prompt_Gender->Name = L"lbl_Prompt_Gender";
-			this->lbl_Prompt_Gender->Size = System::Drawing::Size(48, 13);
-			this->lbl_Prompt_Gender->TabIndex = 5;
-			this->lbl_Prompt_Gender->Text = L"Gender";
+			this->lbl_Prompt_出生日期->Location = System::Drawing::Point(46, 124);
+			this->lbl_Prompt_出生日期->Name = L"lbl_Prompt_出生日期";
+			this->lbl_Prompt_出生日期->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_出生日期->TabIndex = 6;
+			this->lbl_Prompt_出生日期->Text = L"出生日期";
 			// 
-			// lbl_Prompt_Name
+			// lbl_Prompt_性别
 			// 
-			this->lbl_Prompt_Name->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Name->AutoSize = true;
-			this->lbl_Prompt_Name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_性别->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_性别->AutoSize = true;
+			this->lbl_Prompt_性别->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Name->Location = System::Drawing::Point(318, 56);
-			this->lbl_Prompt_Name->Name = L"lbl_Prompt_Name";
-			this->lbl_Prompt_Name->Size = System::Drawing::Size(39, 13);
-			this->lbl_Prompt_Name->TabIndex = 4;
-			this->lbl_Prompt_Name->Text = L"Name";
+			this->lbl_Prompt_性别->Location = System::Drawing::Point(436, 98);
+			this->lbl_Prompt_性别->Name = L"lbl_Prompt_性别";
+			this->lbl_Prompt_性别->Size = System::Drawing::Size(30, 13);
+			this->lbl_Prompt_性别->TabIndex = 5;
+			this->lbl_Prompt_性别->Text = L"性别";
 			// 
-			// lbl_Prompt_Address2
+			// lbl_Prompt_姓名
 			// 
-			this->lbl_Prompt_Address2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Address2->AutoSize = true;
-			this->lbl_Prompt_Address2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Address2->Location = System::Drawing::Point(26, 139);
-			this->lbl_Prompt_Address2->Name = L"lbl_Prompt_Address2";
-			this->lbl_Prompt_Address2->Size = System::Drawing::Size(59, 13);
-			this->lbl_Prompt_Address2->TabIndex = 12;
-			this->lbl_Prompt_Address2->Text = L"Address2";
-			// 
-			// lbl_Prompt_Address1
-			// 
-			this->lbl_Prompt_Address1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Address1->AutoSize = true;
-			this->lbl_Prompt_Address1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Address1->Location = System::Drawing::Point(492, 97);
-			this->lbl_Prompt_Address1->Name = L"lbl_Prompt_Address1";
-			this->lbl_Prompt_Address1->Size = System::Drawing::Size(59, 13);
-			this->lbl_Prompt_Address1->TabIndex = 11;
-			this->lbl_Prompt_Address1->Text = L"Address1";
-			// 
-			// lbl_Prompt_Country
-			// 
-			this->lbl_Prompt_Country->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Country->AutoSize = true;
-			this->lbl_Prompt_Country->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_姓名->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_姓名->AutoSize = true;
+			this->lbl_Prompt_姓名->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Country->Location = System::Drawing::Point(368, 98);
-			this->lbl_Prompt_Country->Name = L"lbl_Prompt_Country";
-			this->lbl_Prompt_Country->Size = System::Drawing::Size(50, 13);
-			this->lbl_Prompt_Country->TabIndex = 10;
-			this->lbl_Prompt_Country->Text = L"Country";
+			this->lbl_Prompt_姓名->Location = System::Drawing::Point(70, 99);
+			this->lbl_Prompt_姓名->Name = L"lbl_Prompt_姓名";
+			this->lbl_Prompt_姓名->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_姓名->TabIndex = 4;
+			this->lbl_Prompt_姓名->Text = L"姓名";
 			// 
-			// lbl_Prompt_Wechat
+			// lbl_Prompt_地址第二行
 			// 
-			this->lbl_Prompt_Wechat->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Wechat->AutoSize = true;
-			this->lbl_Prompt_Wechat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_地址第二行->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_地址第二行->AutoSize = true;
+			this->lbl_Prompt_地址第二行->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Wechat->Location = System::Drawing::Point(239, 98);
-			this->lbl_Prompt_Wechat->Name = L"lbl_Prompt_Wechat";
-			this->lbl_Prompt_Wechat->Size = System::Drawing::Size(51, 13);
-			this->lbl_Prompt_Wechat->TabIndex = 9;
-			this->lbl_Prompt_Wechat->Text = L"Wechat";
+			this->lbl_Prompt_地址第二行->Location = System::Drawing::Point(30, 378);
+			this->lbl_Prompt_地址第二行->Name = L"lbl_Prompt_地址第二行";
+			this->lbl_Prompt_地址第二行->Size = System::Drawing::Size(72, 13);
+			this->lbl_Prompt_地址第二行->TabIndex = 12;
+			this->lbl_Prompt_地址第二行->Text = L"地址第二行";
 			// 
-			// lbl_Prompt_Phone
+			// lbl_Prompt_地址第一行
 			// 
-			this->lbl_Prompt_Phone->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Phone->AutoSize = true;
-			this->lbl_Prompt_Phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_地址第一行->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_地址第一行->AutoSize = true;
+			this->lbl_Prompt_地址第一行->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Phone->Location = System::Drawing::Point(130, 98);
-			this->lbl_Prompt_Phone->Name = L"lbl_Prompt_Phone";
-			this->lbl_Prompt_Phone->Size = System::Drawing::Size(43, 13);
-			this->lbl_Prompt_Phone->TabIndex = 8;
-			this->lbl_Prompt_Phone->Text = L"Phone";
+			this->lbl_Prompt_地址第一行->Location = System::Drawing::Point(30, 351);
+			this->lbl_Prompt_地址第一行->Name = L"lbl_Prompt_地址第一行";
+			this->lbl_Prompt_地址第一行->Size = System::Drawing::Size(72, 13);
+			this->lbl_Prompt_地址第一行->TabIndex = 11;
+			this->lbl_Prompt_地址第一行->Text = L"地址第一行";
+			// 
+			// lbl_Prompt_所在国家
+			// 
+			this->lbl_Prompt_所在国家->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_所在国家->AutoSize = true;
+			this->lbl_Prompt_所在国家->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_所在国家->Location = System::Drawing::Point(43, 325);
+			this->lbl_Prompt_所在国家->Name = L"lbl_Prompt_所在国家";
+			this->lbl_Prompt_所在国家->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_所在国家->TabIndex = 10;
+			this->lbl_Prompt_所在国家->Text = L"所在国家";
+			// 
+			// lbl_Prompt_微信号
+			// 
+			this->lbl_Prompt_微信号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_微信号->AutoSize = true;
+			this->lbl_Prompt_微信号->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_微信号->Location = System::Drawing::Point(420, 150);
+			this->lbl_Prompt_微信号->Name = L"lbl_Prompt_微信号";
+			this->lbl_Prompt_微信号->Size = System::Drawing::Size(46, 13);
+			this->lbl_Prompt_微信号->TabIndex = 9;
+			this->lbl_Prompt_微信号->Text = L"微信号";
+			// 
+			// lbl_Prompt_联系电话
+			// 
+			this->lbl_Prompt_联系电话->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_联系电话->AutoSize = true;
+			this->lbl_Prompt_联系电话->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_联系电话->Location = System::Drawing::Point(46, 150);
+			this->lbl_Prompt_联系电话->Name = L"lbl_Prompt_联系电话";
+			this->lbl_Prompt_联系电话->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_联系电话->TabIndex = 8;
+			this->lbl_Prompt_联系电话->Text = L"联系电话";
 			// 
 			// lbl_Prompt_Email
 			// 
@@ -328,466 +383,463 @@ namespace WeAlumni {
 			this->lbl_Prompt_Email->AutoSize = true;
 			this->lbl_Prompt_Email->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Email->Location = System::Drawing::Point(12, 98);
+			this->lbl_Prompt_Email->Location = System::Drawing::Point(427, 124);
 			this->lbl_Prompt_Email->Name = L"lbl_Prompt_Email";
 			this->lbl_Prompt_Email->Size = System::Drawing::Size(37, 13);
 			this->lbl_Prompt_Email->TabIndex = 7;
 			this->lbl_Prompt_Email->Text = L"Email";
 			// 
-			// lbl_Prompt_SearchAuth
+			// lbl_Prompt_搜索授权
 			// 
-			this->lbl_Prompt_SearchAuth->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_SearchAuth->AutoSize = true;
-			this->lbl_Prompt_SearchAuth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_SearchAuth->Location = System::Drawing::Point(290, 222);
-			this->lbl_Prompt_SearchAuth->Name = L"lbl_Prompt_SearchAuth";
-			this->lbl_Prompt_SearchAuth->Size = System::Drawing::Size(73, 13);
-			this->lbl_Prompt_SearchAuth->TabIndex = 18;
-			this->lbl_Prompt_SearchAuth->Text = L"SearchAuth";
-			// 
-			// lbl_Prompt_CareerStatus
-			// 
-			this->lbl_Prompt_CareerStatus->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_CareerStatus->AutoSize = true;
-			this->lbl_Prompt_CareerStatus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_CareerStatus->Location = System::Drawing::Point(480, 187);
-			this->lbl_Prompt_CareerStatus->Name = L"lbl_Prompt_CareerStatus";
-			this->lbl_Prompt_CareerStatus->Size = System::Drawing::Size(84, 13);
-			this->lbl_Prompt_CareerStatus->TabIndex = 17;
-			this->lbl_Prompt_CareerStatus->Text = L"Career Status";
-			// 
-			// lbl_Prompt_Program
-			// 
-			this->lbl_Prompt_Program->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Program->AutoSize = true;
-			this->lbl_Prompt_Program->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_搜索授权->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_搜索授权->AutoSize = true;
+			this->lbl_Prompt_搜索授权->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Program->Location = System::Drawing::Point(551, 139);
-			this->lbl_Prompt_Program->Name = L"lbl_Prompt_Program";
-			this->lbl_Prompt_Program->Size = System::Drawing::Size(53, 13);
-			this->lbl_Prompt_Program->TabIndex = 16;
-			this->lbl_Prompt_Program->Text = L"Program";
+			this->lbl_Prompt_搜索授权->Location = System::Drawing::Point(49, 12);
+			this->lbl_Prompt_搜索授权->Name = L"lbl_Prompt_搜索授权";
+			this->lbl_Prompt_搜索授权->Size = System::Drawing::Size(56, 13);
+			this->lbl_Prompt_搜索授权->TabIndex = 18;
+			this->lbl_Prompt_搜索授权->Text = L"搜索授权";
 			// 
-			// lbl_Prompt_StdIl
+			// lbl_Prompt_就业状态
 			// 
-			this->lbl_Prompt_StdIl->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_StdIl->AutoSize = true;
-			this->lbl_Prompt_StdIl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_就业状态->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_就业状态->AutoSize = true;
+			this->lbl_Prompt_就业状态->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_StdIl->Location = System::Drawing::Point(442, 139);
-			this->lbl_Prompt_StdIl->Name = L"lbl_Prompt_StdIl";
-			this->lbl_Prompt_StdIl->Size = System::Drawing::Size(37, 13);
-			this->lbl_Prompt_StdIl->TabIndex = 15;
-			this->lbl_Prompt_StdIl->Text = L"StdId";
+			this->lbl_Prompt_就业状态->Location = System::Drawing::Point(43, 433);
+			this->lbl_Prompt_就业状态->Name = L"lbl_Prompt_就业状态";
+			this->lbl_Prompt_就业状态->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_就业状态->TabIndex = 17;
+			this->lbl_Prompt_就业状态->Text = L"就业状态";
 			// 
-			// lbl_Prompt_Postal
+			// lbl_Prompt_学术项目
 			// 
-			this->lbl_Prompt_Postal->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Postal->AutoSize = true;
-			this->lbl_Prompt_Postal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_学术项目->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_学术项目->AutoSize = true;
+			this->lbl_Prompt_学术项目->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Postal->Location = System::Drawing::Point(333, 139);
-			this->lbl_Prompt_Postal->Name = L"lbl_Prompt_Postal";
-			this->lbl_Prompt_Postal->Size = System::Drawing::Size(42, 13);
-			this->lbl_Prompt_Postal->TabIndex = 14;
-			this->lbl_Prompt_Postal->Text = L"Postal";
+			this->lbl_Prompt_学术项目->Location = System::Drawing::Point(46, 224);
+			this->lbl_Prompt_学术项目->Name = L"lbl_Prompt_学术项目";
+			this->lbl_Prompt_学术项目->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_学术项目->TabIndex = 16;
+			this->lbl_Prompt_学术项目->Text = L"学术项目";
 			// 
-			// lbl_Prompt_City
+			// lbl_Prompt_学生编号
 			// 
-			this->lbl_Prompt_City->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_City->AutoSize = true;
-			this->lbl_Prompt_City->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_学生编号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_学生编号->AutoSize = true;
+			this->lbl_Prompt_学生编号->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_City->Location = System::Drawing::Point(227, 139);
-			this->lbl_Prompt_City->Name = L"lbl_Prompt_City";
-			this->lbl_Prompt_City->Size = System::Drawing::Size(28, 13);
-			this->lbl_Prompt_City->TabIndex = 13;
-			this->lbl_Prompt_City->Text = L"City";
+			this->lbl_Prompt_学生编号->Location = System::Drawing::Point(46, 204);
+			this->lbl_Prompt_学生编号->Name = L"lbl_Prompt_学生编号";
+			this->lbl_Prompt_学生编号->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_学生编号->TabIndex = 15;
+			this->lbl_Prompt_学生编号->Text = L"学生编号";
 			// 
-			// lbl_Id
+			// lbl_Prompt_邮编
 			// 
-			this->lbl_Id->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Id->AutoSize = true;
-			this->lbl_Id->Location = System::Drawing::Point(46, 55);
-			this->lbl_Id->Name = L"lbl_Id";
-			this->lbl_Id->Size = System::Drawing::Size(10, 13);
-			this->lbl_Id->TabIndex = 19;
-			this->lbl_Id->Text = L"-";
+			this->lbl_Prompt_邮编->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_邮编->AutoSize = true;
+			this->lbl_Prompt_邮编->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_邮编->Location = System::Drawing::Point(507, 325);
+			this->lbl_Prompt_邮编->Name = L"lbl_Prompt_邮编";
+			this->lbl_Prompt_邮编->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_邮编->TabIndex = 14;
+			this->lbl_Prompt_邮编->Text = L"邮编";
+			// 
+			// lbl_Prompt_城市
+			// 
+			this->lbl_Prompt_城市->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_城市->AutoSize = true;
+			this->lbl_Prompt_城市->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_城市->Location = System::Drawing::Point(308, 325);
+			this->lbl_Prompt_城市->Name = L"lbl_Prompt_城市";
+			this->lbl_Prompt_城市->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_城市->TabIndex = 13;
+			this->lbl_Prompt_城市->Text = L"城市";
+			// 
+			// lbl_成员编号
+			// 
+			this->lbl_成员编号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_成员编号->AutoSize = true;
+			this->lbl_成员编号->Location = System::Drawing::Point(115, 59);
+			this->lbl_成员编号->Name = L"lbl_成员编号";
+			this->lbl_成员编号->Size = System::Drawing::Size(10, 13);
+			this->lbl_成员编号->TabIndex = 19;
+			this->lbl_成员编号->Text = L"-";
 			// 
 			// contextMenuStrip1
 			// 
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// txt_Name
+			// txt_姓名
 			// 
-			this->txt_Name->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Name->Location = System::Drawing::Point(356, 52);
-			this->txt_Name->Name = L"txt_Name";
-			this->txt_Name->Size = System::Drawing::Size(62, 20);
-			this->txt_Name->TabIndex = 23;
+			this->txt_姓名->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_姓名->Location = System::Drawing::Point(108, 95);
+			this->txt_姓名->Name = L"txt_姓名";
+			this->txt_姓名->Size = System::Drawing::Size(148, 20);
+			this->txt_姓名->TabIndex = 23;
 			// 
-			// txt_Birth
+			// txt_出生日期
 			// 
-			this->txt_Birth->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Birth->Location = System::Drawing::Point(596, 53);
-			this->txt_Birth->Name = L"txt_Birth";
-			this->txt_Birth->Size = System::Drawing::Size(62, 20);
-			this->txt_Birth->TabIndex = 27;
+			this->txt_出生日期->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_出生日期->Location = System::Drawing::Point(108, 121);
+			this->txt_出生日期->Name = L"txt_出生日期";
+			this->txt_出生日期->Size = System::Drawing::Size(148, 20);
+			this->txt_出生日期->TabIndex = 27;
 			// 
 			// txt_Email
 			// 
 			this->txt_Email->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Email->Location = System::Drawing::Point(57, 95);
+			this->txt_Email->Location = System::Drawing::Point(472, 121);
 			this->txt_Email->Name = L"txt_Email";
-			this->txt_Email->Size = System::Drawing::Size(62, 20);
+			this->txt_Email->Size = System::Drawing::Size(144, 20);
 			this->txt_Email->TabIndex = 26;
 			// 
-			// txt_Phone
+			// txt_联系电话
 			// 
-			this->txt_Phone->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Phone->Location = System::Drawing::Point(171, 95);
-			this->txt_Phone->Name = L"txt_Phone";
-			this->txt_Phone->Size = System::Drawing::Size(62, 20);
-			this->txt_Phone->TabIndex = 25;
+			this->txt_联系电话->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_联系电话->Location = System::Drawing::Point(108, 147);
+			this->txt_联系电话->Name = L"txt_联系电话";
+			this->txt_联系电话->Size = System::Drawing::Size(148, 20);
+			this->txt_联系电话->TabIndex = 25;
 			// 
-			// txt_Wechat
+			// txt_微信号
 			// 
-			this->txt_Wechat->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Wechat->Location = System::Drawing::Point(291, 94);
-			this->txt_Wechat->Name = L"txt_Wechat";
-			this->txt_Wechat->Size = System::Drawing::Size(62, 20);
-			this->txt_Wechat->TabIndex = 30;
+			this->txt_微信号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_微信号->Location = System::Drawing::Point(472, 147);
+			this->txt_微信号->Name = L"txt_微信号";
+			this->txt_微信号->Size = System::Drawing::Size(144, 20);
+			this->txt_微信号->TabIndex = 30;
 			// 
-			// txt_Country
+			// txt_所在国家
 			// 
-			this->txt_Country->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Country->Location = System::Drawing::Point(412, 95);
-			this->txt_Country->Name = L"txt_Country";
-			this->txt_Country->Size = System::Drawing::Size(62, 20);
-			this->txt_Country->TabIndex = 29;
+			this->txt_所在国家->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_所在国家->Location = System::Drawing::Point(108, 322);
+			this->txt_所在国家->Name = L"txt_所在国家";
+			this->txt_所在国家->Size = System::Drawing::Size(148, 20);
+			this->txt_所在国家->TabIndex = 29;
 			// 
-			// txt_Address1
+			// txt_地址第一行
 			// 
-			this->txt_Address1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Address1->Location = System::Drawing::Point(549, 94);
-			this->txt_Address1->Name = L"txt_Address1";
-			this->txt_Address1->Size = System::Drawing::Size(127, 20);
-			this->txt_Address1->TabIndex = 28;
+			this->txt_地址第一行->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_地址第一行->Location = System::Drawing::Point(108, 348);
+			this->txt_地址第一行->Name = L"txt_地址第一行";
+			this->txt_地址第一行->Size = System::Drawing::Size(508, 20);
+			this->txt_地址第一行->TabIndex = 28;
 			// 
-			// txt_Address2
+			// txt_地址第二行
 			// 
-			this->txt_Address2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Address2->Location = System::Drawing::Point(83, 136);
-			this->txt_Address2->Name = L"txt_Address2";
-			this->txt_Address2->Size = System::Drawing::Size(125, 20);
-			this->txt_Address2->TabIndex = 33;
+			this->txt_地址第二行->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_地址第二行->Location = System::Drawing::Point(108, 375);
+			this->txt_地址第二行->Name = L"txt_地址第二行";
+			this->txt_地址第二行->Size = System::Drawing::Size(508, 20);
+			this->txt_地址第二行->TabIndex = 33;
 			// 
-			// txt_City
+			// txt_城市
 			// 
-			this->txt_City->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_City->Location = System::Drawing::Point(265, 136);
-			this->txt_City->Name = L"txt_City";
-			this->txt_City->Size = System::Drawing::Size(62, 20);
-			this->txt_City->TabIndex = 32;
+			this->txt_城市->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_城市->Location = System::Drawing::Point(347, 322);
+			this->txt_城市->Name = L"txt_城市";
+			this->txt_城市->Size = System::Drawing::Size(119, 20);
+			this->txt_城市->TabIndex = 32;
 			// 
-			// txt_Postal
+			// txt_邮编
 			// 
-			this->txt_Postal->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Postal->Location = System::Drawing::Point(375, 136);
-			this->txt_Postal->Name = L"txt_Postal";
-			this->txt_Postal->Size = System::Drawing::Size(62, 20);
-			this->txt_Postal->TabIndex = 31;
+			this->txt_邮编->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_邮编->Location = System::Drawing::Point(546, 322);
+			this->txt_邮编->Name = L"txt_邮编";
+			this->txt_邮编->Size = System::Drawing::Size(70, 20);
+			this->txt_邮编->TabIndex = 31;
 			// 
-			// txt_StdId
+			// txt_学生编号
 			// 
-			this->txt_StdId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_StdId->Location = System::Drawing::Point(483, 136);
-			this->txt_StdId->Name = L"txt_StdId";
-			this->txt_StdId->Size = System::Drawing::Size(62, 20);
-			this->txt_StdId->TabIndex = 36;
+			this->txt_学生编号->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_学生编号->Location = System::Drawing::Point(108, 197);
+			this->txt_学生编号->Name = L"txt_学生编号";
+			this->txt_学生编号->Size = System::Drawing::Size(148, 20);
+			this->txt_学生编号->TabIndex = 36;
 			// 
-			// btn_accept
+			// btn_确认
 			// 
-			this->btn_accept->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btn_accept->Location = System::Drawing::Point(308, 255);
-			this->btn_accept->Name = L"btn_accept";
-			this->btn_accept->Size = System::Drawing::Size(61, 20);
-			this->btn_accept->TabIndex = 40;
-			this->btn_accept->Text = L"accept";
-			this->btn_accept->UseVisualStyleBackColor = true;
-			this->btn_accept->Click += gcnew System::EventHandler(this, &MemAddPage::btn_accept_Click);
+			this->btn_确认->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_确认->Location = System::Drawing::Point(510, 504);
+			this->btn_确认->Name = L"btn_确认";
+			this->btn_确认->Size = System::Drawing::Size(61, 20);
+			this->btn_确认->TabIndex = 40;
+			this->btn_确认->Text = L"确认";
+			this->btn_确认->UseVisualStyleBackColor = true;
+			this->btn_确认->Click += gcnew System::EventHandler(this, &MemAddPage::btn_accept_Click);
 			// 
-			// btn_Cancel
+			// btn_取消
 			// 
-			this->btn_Cancel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btn_Cancel->Location = System::Drawing::Point(308, 281);
-			this->btn_Cancel->Name = L"btn_Cancel";
-			this->btn_Cancel->Size = System::Drawing::Size(61, 20);
-			this->btn_Cancel->TabIndex = 41;
-			this->btn_Cancel->Text = L"cancel";
-			this->btn_Cancel->UseVisualStyleBackColor = true;
-			this->btn_Cancel->Click += gcnew System::EventHandler(this, &MemAddPage::btn_Cancel_Click);
+			this->btn_取消->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_取消->Location = System::Drawing::Point(587, 504);
+			this->btn_取消->Name = L"btn_取消";
+			this->btn_取消->Size = System::Drawing::Size(61, 20);
+			this->btn_取消->TabIndex = 41;
+			this->btn_取消->Text = L"取消";
+			this->btn_取消->UseVisualStyleBackColor = true;
+			this->btn_取消->Click += gcnew System::EventHandler(this, &MemAddPage::btn_Cancel_Click);
 			// 
 			// lbl_error
 			// 
 			this->lbl_error->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_error->AutoSize = true;
 			this->lbl_error->ForeColor = System::Drawing::Color::Red;
-			this->lbl_error->Location = System::Drawing::Point(546, 242);
+			this->lbl_error->Location = System::Drawing::Point(21, 513);
 			this->lbl_error->Name = L"lbl_error";
 			this->lbl_error->Size = System::Drawing::Size(44, 13);
 			this->lbl_error->TabIndex = 44;
 			this->lbl_error->Text = L"warning";
 			this->lbl_error->Visible = false;
 			// 
-			// lbl_Prompt_EndDate
+			// lbl_Prompt_结束日期
 			// 
-			this->lbl_Prompt_EndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_EndDate->AutoSize = true;
-			this->lbl_Prompt_EndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_结束日期->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_结束日期->AutoSize = true;
+			this->lbl_Prompt_结束日期->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_EndDate->Location = System::Drawing::Point(14, 186);
-			this->lbl_Prompt_EndDate->Name = L"lbl_Prompt_EndDate";
-			this->lbl_Prompt_EndDate->Size = System::Drawing::Size(60, 13);
-			this->lbl_Prompt_EndDate->TabIndex = 45;
-			this->lbl_Prompt_EndDate->Text = L"End Date";
+			this->lbl_Prompt_结束日期->Location = System::Drawing::Point(407, 224);
+			this->lbl_Prompt_结束日期->Name = L"lbl_Prompt_结束日期";
+			this->lbl_Prompt_结束日期->Size = System::Drawing::Size(59, 13);
+			this->lbl_Prompt_结束日期->TabIndex = 45;
+			this->lbl_Prompt_结束日期->Text = L"结束日期";
 			// 
-			// lbl_Prompt_Degree
+			// lbl_Prompt_学位
 			// 
-			this->lbl_Prompt_Degree->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Degree->AutoSize = true;
-			this->lbl_Prompt_Degree->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_学位->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_学位->AutoSize = true;
+			this->lbl_Prompt_学位->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Degree->Location = System::Drawing::Point(140, 186);
-			this->lbl_Prompt_Degree->Name = L"lbl_Prompt_Degree";
-			this->lbl_Prompt_Degree->Size = System::Drawing::Size(48, 13);
-			this->lbl_Prompt_Degree->TabIndex = 46;
-			this->lbl_Prompt_Degree->Text = L"Degree";
+			this->lbl_Prompt_学位->Location = System::Drawing::Point(433, 197);
+			this->lbl_Prompt_学位->Name = L"lbl_Prompt_学位";
+			this->lbl_Prompt_学位->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_学位->TabIndex = 46;
+			this->lbl_Prompt_学位->Text = L"学位";
 			// 
-			// lbl_Prompt_Major1
+			// lbl_Prompt_专业一
 			// 
-			this->lbl_Prompt_Major1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Major1->AutoSize = true;
-			this->lbl_Prompt_Major1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_专业一->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_专业一->AutoSize = true;
+			this->lbl_Prompt_专业一->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Major1->Location = System::Drawing::Point(253, 186);
-			this->lbl_Prompt_Major1->Name = L"lbl_Prompt_Major1";
-			this->lbl_Prompt_Major1->Size = System::Drawing::Size(45, 13);
-			this->lbl_Prompt_Major1->TabIndex = 47;
-			this->lbl_Prompt_Major1->Text = L"Major1";
+			this->lbl_Prompt_专业一->Location = System::Drawing::Point(56, 251);
+			this->lbl_Prompt_专业一->Name = L"lbl_Prompt_专业一";
+			this->lbl_Prompt_专业一->Size = System::Drawing::Size(46, 13);
+			this->lbl_Prompt_专业一->TabIndex = 47;
+			this->lbl_Prompt_专业一->Text = L"专业一";
 			// 
-			// lbl_Prompt_Major2
+			// lbl_Prompt_专业二
 			// 
-			this->lbl_Prompt_Major2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Major2->AutoSize = true;
-			this->lbl_Prompt_Major2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_专业二->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_专业二->AutoSize = true;
+			this->lbl_Prompt_专业二->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Major2->Location = System::Drawing::Point(372, 186);
-			this->lbl_Prompt_Major2->Name = L"lbl_Prompt_Major2";
-			this->lbl_Prompt_Major2->Size = System::Drawing::Size(45, 13);
-			this->lbl_Prompt_Major2->TabIndex = 48;
-			this->lbl_Prompt_Major2->Text = L"Major2";
+			this->lbl_Prompt_专业二->Location = System::Drawing::Point(56, 277);
+			this->lbl_Prompt_专业二->Name = L"lbl_Prompt_专业二";
+			this->lbl_Prompt_专业二->Size = System::Drawing::Size(46, 13);
+			this->lbl_Prompt_专业二->TabIndex = 48;
+			this->lbl_Prompt_专业二->Text = L"专业二";
 			// 
-			// lbl_Prompt_Company
+			// lbl_Prompt_公司
 			// 
-			this->lbl_Prompt_Company->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Company->AutoSize = true;
-			this->lbl_Prompt_Company->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_公司->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_公司->AutoSize = true;
+			this->lbl_Prompt_公司->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Company->Location = System::Drawing::Point(15, 222);
-			this->lbl_Prompt_Company->Name = L"lbl_Prompt_Company";
-			this->lbl_Prompt_Company->Size = System::Drawing::Size(58, 13);
-			this->lbl_Prompt_Company->TabIndex = 49;
-			this->lbl_Prompt_Company->Text = L"Company";
+			this->lbl_Prompt_公司->Location = System::Drawing::Point(433, 433);
+			this->lbl_Prompt_公司->Name = L"lbl_Prompt_公司";
+			this->lbl_Prompt_公司->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_公司->TabIndex = 49;
+			this->lbl_Prompt_公司->Text = L"公司";
 			// 
-			// txt_EndDate
+			// txt_结束日期
 			// 
-			this->txt_EndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_EndDate->Location = System::Drawing::Point(72, 183);
-			this->txt_EndDate->Name = L"txt_EndDate";
-			this->txt_EndDate->Size = System::Drawing::Size(62, 20);
-			this->txt_EndDate->TabIndex = 50;
+			this->txt_结束日期->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_结束日期->Location = System::Drawing::Point(472, 221);
+			this->txt_结束日期->Name = L"txt_结束日期";
+			this->txt_结束日期->Size = System::Drawing::Size(144, 20);
+			this->txt_结束日期->TabIndex = 50;
 			// 
-			// txt_Major1
+			// txt_专业一
 			// 
-			this->txt_Major1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Major1->Location = System::Drawing::Point(295, 183);
-			this->txt_Major1->Name = L"txt_Major1";
-			this->txt_Major1->Size = System::Drawing::Size(62, 20);
-			this->txt_Major1->TabIndex = 52;
+			this->txt_专业一->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_专业一->Location = System::Drawing::Point(108, 248);
+			this->txt_专业一->Name = L"txt_专业一";
+			this->txt_专业一->Size = System::Drawing::Size(508, 20);
+			this->txt_专业一->TabIndex = 52;
 			// 
-			// txt_Major2
+			// txt_专业二
 			// 
-			this->txt_Major2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Major2->Location = System::Drawing::Point(417, 180);
-			this->txt_Major2->Name = L"txt_Major2";
-			this->txt_Major2->Size = System::Drawing::Size(62, 20);
-			this->txt_Major2->TabIndex = 53;
+			this->txt_专业二->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_专业二->Location = System::Drawing::Point(108, 274);
+			this->txt_专业二->Name = L"txt_专业二";
+			this->txt_专业二->Size = System::Drawing::Size(508, 20);
+			this->txt_专业二->TabIndex = 53;
 			// 
-			// txt_Company
+			// txt_公司
 			// 
-			this->txt_Company->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Company->Location = System::Drawing::Point(72, 219);
-			this->txt_Company->Name = L"txt_Company";
-			this->txt_Company->Size = System::Drawing::Size(62, 20);
-			this->txt_Company->TabIndex = 54;
+			this->txt_公司->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_公司->Location = System::Drawing::Point(472, 430);
+			this->txt_公司->Name = L"txt_公司";
+			this->txt_公司->Size = System::Drawing::Size(144, 20);
+			this->txt_公司->TabIndex = 54;
 			// 
-			// lbl_Prompt_Position
+			// lbl_Prompt_职位
 			// 
-			this->lbl_Prompt_Position->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->lbl_Prompt_Position->AutoSize = true;
-			this->lbl_Prompt_Position->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Position->Location = System::Drawing::Point(151, 222);
-			this->lbl_Prompt_Position->Name = L"lbl_Prompt_Position";
-			this->lbl_Prompt_Position->Size = System::Drawing::Size(52, 13);
-			this->lbl_Prompt_Position->TabIndex = 55;
-			this->lbl_Prompt_Position->Text = L"Position";
+			this->lbl_Prompt_职位->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->lbl_Prompt_职位->AutoSize = true;
+			this->lbl_Prompt_职位->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_职位->Location = System::Drawing::Point(69, 459);
+			this->lbl_Prompt_职位->Name = L"lbl_Prompt_职位";
+			this->lbl_Prompt_职位->Size = System::Drawing::Size(33, 13);
+			this->lbl_Prompt_职位->TabIndex = 55;
+			this->lbl_Prompt_职位->Text = L"职位";
 			// 
-			// txt_Position
+			// txt_职位
 			// 
-			this->txt_Position->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Position->Location = System::Drawing::Point(205, 219);
-			this->txt_Position->Name = L"txt_Position";
-			this->txt_Position->Size = System::Drawing::Size(62, 20);
-			this->txt_Position->TabIndex = 56;
+			this->txt_职位->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_职位->Location = System::Drawing::Point(108, 456);
+			this->txt_职位->Name = L"txt_职位";
+			this->txt_职位->Size = System::Drawing::Size(148, 20);
+			this->txt_职位->TabIndex = 56;
 			// 
-			// cmb_Status
+			// cmb_成员状态
 			// 
-			this->cmb_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_Status->FormattingEnabled = true;
-			this->cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"Review", L"Invalid" });
-			this->cmb_Status->Location = System::Drawing::Point(126, 53);
-			this->cmb_Status->Name = L"cmb_Status";
-			this->cmb_Status->Size = System::Drawing::Size(70, 21);
-			this->cmb_Status->TabIndex = 57;
+			this->cmb_成员状态->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_成员状态->FormattingEnabled = true;
+			this->cmb_成员状态->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"Review", L"Invalid" });
+			this->cmb_成员状态->Location = System::Drawing::Point(347, 59);
+			this->cmb_成员状态->Name = L"cmb_成员状态";
+			this->cmb_成员状态->Size = System::Drawing::Size(119, 21);
+			this->cmb_成员状态->TabIndex = 57;
 			// 
-			// cmb_Type
+			// cmb_成员类型
 			// 
-			this->cmb_Type->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_Type->FormattingEnabled = true;
-			this->cmb_Type->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Normal", L"DivHead", L"Staff", L"Head" });
-			this->cmb_Type->Location = System::Drawing::Point(242, 53);
-			this->cmb_Type->Name = L"cmb_Type";
-			this->cmb_Type->Size = System::Drawing::Size(70, 21);
-			this->cmb_Type->TabIndex = 58;
+			this->cmb_成员类型->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_成员类型->FormattingEnabled = true;
+			this->cmb_成员类型->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Normal", L"DivHead", L"Staff", L"Head" });
+			this->cmb_成员类型->Location = System::Drawing::Point(546, 59);
+			this->cmb_成员类型->Name = L"cmb_成员类型";
+			this->cmb_成员类型->Size = System::Drawing::Size(70, 21);
+			this->cmb_成员类型->TabIndex = 58;
 			// 
-			// cmb_Program
+			// cmb_学术项目
 			// 
-			this->cmb_Program->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_Program->FormattingEnabled = true;
-			this->cmb_Program->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+			this->cmb_学术项目->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_学术项目->FormattingEnabled = true;
+			this->cmb_学术项目->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"UnderGrad", L"Grad", L"TransOus", L"Exchange",
 					L"VisitingScholar"
 			});
-			this->cmb_Program->Location = System::Drawing::Point(606, 136);
-			this->cmb_Program->Name = L"cmb_Program";
-			this->cmb_Program->Size = System::Drawing::Size(70, 21);
-			this->cmb_Program->TabIndex = 59;
+			this->cmb_学术项目->Location = System::Drawing::Point(108, 221);
+			this->cmb_学术项目->Name = L"cmb_学术项目";
+			this->cmb_学术项目->Size = System::Drawing::Size(148, 21);
+			this->cmb_学术项目->TabIndex = 59;
 			// 
-			// txt_Gender
+			// txt_性别
 			// 
-			this->txt_Gender->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_Gender->Location = System::Drawing::Point(472, 52);
-			this->txt_Gender->Name = L"txt_Gender";
-			this->txt_Gender->Size = System::Drawing::Size(62, 20);
-			this->txt_Gender->TabIndex = 22;
+			this->txt_性别->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_性别->Location = System::Drawing::Point(472, 95);
+			this->txt_性别->Name = L"txt_性别";
+			this->txt_性别->Size = System::Drawing::Size(144, 20);
+			this->txt_性别->TabIndex = 22;
 			// 
-			// cmb_Degree
+			// cmb_学位
 			// 
-			this->cmb_Degree->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_Degree->FormattingEnabled = true;
-			this->cmb_Degree->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Bachelor", L"Master", L"PhD", L"Post-PhD" });
-			this->cmb_Degree->Location = System::Drawing::Point(185, 183);
-			this->cmb_Degree->Name = L"cmb_Degree";
-			this->cmb_Degree->Size = System::Drawing::Size(70, 21);
-			this->cmb_Degree->TabIndex = 60;
+			this->cmb_学位->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_学位->FormattingEnabled = true;
+			this->cmb_学位->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Bachelor", L"Master", L"PhD", L"Post-PhD" });
+			this->cmb_学位->Location = System::Drawing::Point(472, 194);
+			this->cmb_学位->Name = L"cmb_学位";
+			this->cmb_学位->Size = System::Drawing::Size(144, 21);
+			this->cmb_学位->TabIndex = 60;
 			// 
-			// cmb_CareerStatus
+			// cmb_就业状态
 			// 
-			this->cmb_CareerStatus->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_CareerStatus->FormattingEnabled = true;
-			this->cmb_CareerStatus->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"GradProgram", L"Unemployed", L"Employed",
-					L"StartBusiness"
-			});
-			this->cmb_CareerStatus->Location = System::Drawing::Point(565, 180);
-			this->cmb_CareerStatus->Name = L"cmb_CareerStatus";
-			this->cmb_CareerStatus->Size = System::Drawing::Size(70, 21);
-			this->cmb_CareerStatus->TabIndex = 61;
+			this->cmb_就业状态->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_就业状态->FormattingEnabled = true;
+			this->cmb_就业状态->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"GradProgram", L"Unemployed", L"Employed", L"StartBusiness" });
+			this->cmb_就业状态->Location = System::Drawing::Point(108, 430);
+			this->cmb_就业状态->Name = L"cmb_就业状态";
+			this->cmb_就业状态->Size = System::Drawing::Size(148, 21);
+			this->cmb_就业状态->TabIndex = 61;
 			// 
-			// cmb_SearchAuth
+			// cmb_搜索授权
 			// 
-			this->cmb_SearchAuth->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->cmb_SearchAuth->FormattingEnabled = true;
-			this->cmb_SearchAuth->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Yes", L"No" });
-			this->cmb_SearchAuth->Location = System::Drawing::Point(369, 219);
-			this->cmb_SearchAuth->Name = L"cmb_SearchAuth";
-			this->cmb_SearchAuth->Size = System::Drawing::Size(70, 21);
-			this->cmb_SearchAuth->TabIndex = 62;
+			this->cmb_搜索授权->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_搜索授权->FormattingEnabled = true;
+			this->cmb_搜索授权->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Yes", L"No" });
+			this->cmb_搜索授权->Location = System::Drawing::Point(108, 6);
+			this->cmb_搜索授权->Name = L"cmb_搜索授权";
+			this->cmb_搜索授权->Size = System::Drawing::Size(148, 21);
+			this->cmb_搜索授权->TabIndex = 62;
 			// 
 			// MemAddPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(686, 331);
-			this->Controls->Add(this->cmb_SearchAuth);
-			this->Controls->Add(this->cmb_CareerStatus);
-			this->Controls->Add(this->cmb_Degree);
-			this->Controls->Add(this->cmb_Program);
-			this->Controls->Add(this->cmb_Type);
-			this->Controls->Add(this->cmb_Status);
-			this->Controls->Add(this->txt_Position);
-			this->Controls->Add(this->lbl_Prompt_Position);
-			this->Controls->Add(this->txt_Company);
-			this->Controls->Add(this->txt_Major2);
-			this->Controls->Add(this->txt_Major1);
-			this->Controls->Add(this->txt_EndDate);
-			this->Controls->Add(this->lbl_Prompt_Company);
-			this->Controls->Add(this->lbl_Prompt_Major2);
-			this->Controls->Add(this->lbl_Prompt_Major1);
-			this->Controls->Add(this->lbl_Prompt_Degree);
-			this->Controls->Add(this->lbl_Prompt_EndDate);
+			this->ClientSize = System::Drawing::Size(686, 536);
+			this->Controls->Add(this->cmb_搜索授权);
+			this->Controls->Add(this->cmb_就业状态);
+			this->Controls->Add(this->cmb_学位);
+			this->Controls->Add(this->cmb_学术项目);
+			this->Controls->Add(this->cmb_成员类型);
+			this->Controls->Add(this->cmb_成员状态);
+			this->Controls->Add(this->txt_职位);
+			this->Controls->Add(this->lbl_Prompt_职位);
+			this->Controls->Add(this->txt_公司);
+			this->Controls->Add(this->txt_专业二);
+			this->Controls->Add(this->txt_专业一);
+			this->Controls->Add(this->txt_结束日期);
+			this->Controls->Add(this->lbl_Prompt_公司);
+			this->Controls->Add(this->lbl_Prompt_专业二);
+			this->Controls->Add(this->lbl_Prompt_专业一);
+			this->Controls->Add(this->lbl_Prompt_学位);
+			this->Controls->Add(this->lbl_Prompt_结束日期);
 			this->Controls->Add(this->lbl_error);
-			this->Controls->Add(this->btn_Cancel);
-			this->Controls->Add(this->btn_accept);
-			this->Controls->Add(this->txt_StdId);
-			this->Controls->Add(this->txt_Address2);
-			this->Controls->Add(this->txt_City);
-			this->Controls->Add(this->txt_Postal);
-			this->Controls->Add(this->txt_Wechat);
-			this->Controls->Add(this->txt_Country);
-			this->Controls->Add(this->txt_Address1);
-			this->Controls->Add(this->txt_Birth);
+			this->Controls->Add(this->btn_取消);
+			this->Controls->Add(this->btn_确认);
+			this->Controls->Add(this->txt_学生编号);
+			this->Controls->Add(this->txt_地址第二行);
+			this->Controls->Add(this->txt_城市);
+			this->Controls->Add(this->txt_邮编);
+			this->Controls->Add(this->txt_微信号);
+			this->Controls->Add(this->txt_所在国家);
+			this->Controls->Add(this->txt_地址第一行);
+			this->Controls->Add(this->txt_出生日期);
 			this->Controls->Add(this->txt_Email);
-			this->Controls->Add(this->txt_Phone);
-			this->Controls->Add(this->txt_Name);
-			this->Controls->Add(this->txt_Gender);
-			this->Controls->Add(this->lbl_Id);
-			this->Controls->Add(this->lbl_Prompt_SearchAuth);
-			this->Controls->Add(this->lbl_Prompt_CareerStatus);
-			this->Controls->Add(this->lbl_Prompt_Program);
-			this->Controls->Add(this->lbl_Prompt_StdIl);
-			this->Controls->Add(this->lbl_Prompt_Postal);
-			this->Controls->Add(this->lbl_Prompt_City);
-			this->Controls->Add(this->lbl_Prompt_Address2);
-			this->Controls->Add(this->lbl_Prompt_Address1);
-			this->Controls->Add(this->lbl_Prompt_Country);
-			this->Controls->Add(this->lbl_Prompt_Wechat);
-			this->Controls->Add(this->lbl_Prompt_Phone);
+			this->Controls->Add(this->txt_联系电话);
+			this->Controls->Add(this->txt_姓名);
+			this->Controls->Add(this->txt_性别);
+			this->Controls->Add(this->lbl_成员编号);
+			this->Controls->Add(this->lbl_Prompt_搜索授权);
+			this->Controls->Add(this->lbl_Prompt_就业状态);
+			this->Controls->Add(this->lbl_Prompt_学术项目);
+			this->Controls->Add(this->lbl_Prompt_学生编号);
+			this->Controls->Add(this->lbl_Prompt_邮编);
+			this->Controls->Add(this->lbl_Prompt_城市);
+			this->Controls->Add(this->lbl_Prompt_地址第二行);
+			this->Controls->Add(this->lbl_Prompt_地址第一行);
+			this->Controls->Add(this->lbl_Prompt_所在国家);
+			this->Controls->Add(this->lbl_Prompt_微信号);
+			this->Controls->Add(this->lbl_Prompt_联系电话);
 			this->Controls->Add(this->lbl_Prompt_Email);
-			this->Controls->Add(this->lbl_Prompt_Birth);
-			this->Controls->Add(this->lbl_Prompt_Gender);
-			this->Controls->Add(this->lbl_Prompt_Name);
-			this->Controls->Add(this->lbl_Prompt_Type);
-			this->Controls->Add(this->lbl_Prompt_Status);
-			this->Controls->Add(this->lbl_Prompt_Id);
-			this->Controls->Add(this->lbl_Prompt_AddMemberPage);
+			this->Controls->Add(this->lbl_Prompt_出生日期);
+			this->Controls->Add(this->lbl_Prompt_性别);
+			this->Controls->Add(this->lbl_Prompt_姓名);
+			this->Controls->Add(this->lbl_Prompt_成员类型);
+			this->Controls->Add(this->lbl_Prompt_成员状态);
+			this->Controls->Add(this->lbl_Prompt_成员编号);
+			this->Controls->Add(this->lbl_Prompt_添加成员);
 			this->Name = L"MemAddPage";
-			this->Text = L"MemAddPage";
+			this->Text = L"添加成员";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

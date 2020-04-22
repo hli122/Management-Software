@@ -64,6 +64,8 @@ bool WeAlumni::DatabasePrecheck::checkFile() {
 	return System::IO::File::Exists(fileName);
 }
 
+
+
 /*
  * loginPrecheck
  * This method start login precheck process
@@ -188,3 +190,4 @@ Void WeAlumni::DatabasePrecheck::btn_Exit_Click(System::Object^ sender, System::
 	exitStatus = true;
 	this->Close();
 }
+

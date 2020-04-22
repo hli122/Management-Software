@@ -1,4 +1,4 @@
-#include "MemAddPage.h"
+﻿#include "MemAddPage.h"
 
 /*
  * MemAddPage.cpp
@@ -37,7 +37,7 @@ Void WeAlumni::MemAddPage::Initialize() {
 */
 Void WeAlumni::MemAddPage::UpdateInfo() {
 	_id = database->GetNextId(WeAlumni::Database::DatabaseTable::Member);
-	lbl_Id->Text = _id.ToString();
+	lbl_成员编号->Text = _id.ToString();
 }
 
 /*
@@ -52,19 +52,18 @@ Void WeAlumni::MemAddPage::btn_accept_Click(System::Object^ sender, System::Even
 									  "Address2, City, Postal, StdId, Program, " +
 		                              "EndDate, Degree, Major1, Major2, CareerStatus, " +
 		                              "Company, Position, SearchAuth) " + "VALUES (" +
-		                               _id + ", '" + cmb_Status->Text + "', '" +
-					
-		cmb_Type->Text + "', '" + txt_Name->Text + "', '" +
-		                               txt_Gender->Text + "', '" + txt_Birth->Text + "', '" +
-		                               txt_Email->Text + "', '" + txt_Phone->Text + "', '" +
-		                               txt_Wechat + "', '" + txt_Country->Text + "', '" +
-	                    	           txt_Address1->Text + "', '" + txt_Address2->Text + "', '" +
-		                               txt_City->Text + "', '" + txt_Postal->Text + "', '" +
-		                               txt_StdId->Text + "', '" + cmb_Program->Text + "', '" +
-		                               txt_EndDate->Text + "', '" + cmb_Degree->Text + "', '" +
-		                               txt_Major1->Text + "', '" + txt_Major2->Text + "', '" +
-		                               cmb_CareerStatus->Text + "', '" + txt_Company->Text + "', '" +
-		                               txt_Position->Text + "', '" + cmb_SearchAuth->Text + "');";
+		                               _id + ", '" + cmb_成员状态->Text + "', '" +
+		                               cmb_成员类型->Text + "', '" + txt_姓名->Text + "', '" +
+		                               txt_性别->Text + "', '" + txt_出生日期->Text + "', '" +
+		                               txt_Email->Text + "', '" + txt_联系电话->Text + "', '" +
+		                               txt_微信号->Text + "', '" + txt_所在国家->Text + "', '" +
+	                    	           txt_地址第一行->Text + "', '" + txt_地址第二行->Text + "', '" +
+		                               txt_城市->Text + "', '" + txt_邮编->Text + "', '" +
+		                               txt_学生编号->Text + "', '" + cmb_学术项目->Text + "', '" +
+		                               txt_结束日期->Text + "', '" + cmb_学位->Text + "', '" +
+		                               txt_专业一->Text + "', '" + txt_专业二->Text + "', '" +
+		                               cmb_就业状态->Text + "', '" + txt_公司->Text + "', '" +
+		                               txt_职位->Text + "', '" + cmb_搜索授权->Text + "');";
 
 	int status = -1;
 	
@@ -91,6 +90,7 @@ Void WeAlumni::MemAddPage::btn_accept_Click(System::Object^ sender, System::Even
 	} 
 	
 	if (status > 0 && status1 > 0) {
+		WeAlumni::Database::Log(_stfId, "Added Member");
 		this->Close();
 	}
 }
@@ -102,6 +102,7 @@ Void WeAlumni::MemAddPage::btn_accept_Click(System::Object^ sender, System::Even
 Void WeAlumni::MemAddPage::btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
+
 
 /*
 * insertRecord

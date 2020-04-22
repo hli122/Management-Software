@@ -1,4 +1,4 @@
-#include "TreInfoPage.h"
+﻿#include "TreInfoPage.h"
 /*
  * TreInfoPage.cpp
  *
@@ -9,6 +9,7 @@
  * Revised: 3/28/20
  *          4/4/20 Lock btn when record not found. No message if show data successfully
  *          4/12/20 Add tre DB check, authority and public user info
+ *          4/20/20 fix the bug of unable to showing Chinese. Modify language and UI.
  *
  */
 
@@ -46,13 +47,13 @@ System::Void WeAlumni::TreInfoPage::UpdateInfo(String^ Record_Id) {
             UpdateOutsideInfo(StaffId);
         }
         else {
-            lbl_Error->Text = "No Authority to view that page.";
+            lbl_Error->Text = "错误：无权访问该条财务记录.";
             lbl_Error->ForeColor = System::Drawing::Color::Red;
             UnableAllBtn();
         }
     }
     else {
-        lbl_Error->Text = "Error: Unable to find Treasury Info Page.";
+        lbl_Error->Text = "错误：财务记录信息有误或者不存在.";
         lbl_Error->ForeColor = System::Drawing::Color::Red;
         UnableAllBtn();
     }
@@ -66,6 +67,7 @@ System::Void WeAlumni::TreInfoPage::UpdateInfo(String^ Record_Id) {
  * @return None
  */
 int WeAlumni::TreInfoPage::UpdateOutsideInfo(String^ SId) {
+    _DataDB = gcnew Database(Database::DatabaseType::Data);
     int Status = -1;
     String^ cmd = "SELECT S.Dept, S.Position, M.Name "
                   "FROM Staff S, Member M "
@@ -76,6 +78,9 @@ int WeAlumni::TreInfoPage::UpdateOutsideInfo(String^ SId) {
     catch (Exception^ exception) {
         lbl_Error->Text = exception->Message;
         lbl_Error->ForeColor = System::Drawing::Color::Red;
+        if (_DataDB) {
+            _DataDB->~Database();
+        }
         return -1;
     }
     if (Status == 1) {
@@ -87,8 +92,12 @@ int WeAlumni::TreInfoPage::UpdateOutsideInfo(String^ SId) {
         lbl_Error->ForeColor = System::Drawing::Color::Green;
     }
     else {
-        lbl_Error->Text = "Error: Staff or Member Not Found, Error Status = " + Status;
+        lbl_Error->Text = "错误：成员信息有误或不存在, Error Status = " + Status;
         lbl_Error->ForeColor = System::Drawing::Color::Red;
+    }
+
+    if (_DataDB) {
+        _DataDB->~Database();
     }
 
     return Status;
@@ -219,12 +228,14 @@ System::Void WeAlumni::TreInfoPage::btn_Accpet_Click(System::Object^ sender, Sys
             SetShowLabelStatus(true);
             SetTextStatus(false);
             SetButtonStatus(false);
-            lbl_Error->Text = "Success: Modify Accepted";
+            lbl_Error->Text = "成功：更改已接受.";
             lbl_Error->ForeColor = System::Drawing::Color::Green;
+
+            _TreDB->Log(UserInfo->GetId(), L"更改财务记录 " + OrderId);
 
         }
         else {
-            lbl_Error->Text = "Error: Unable to Modify ";
+            lbl_Error->Text = "错误：更改失败.";
             lbl_Error->ForeColor = System::Drawing::Color::Red;
         }
     }
@@ -249,11 +260,13 @@ System::Void WeAlumni::TreInfoPage::btn_Delete_Click(System::Object^ sender, Sys
     }
     if (Status == 1) {
         this->Close();
-        lbl_Error->Text = "Success: Deleted";
+        lbl_Error->Text = "成功：删除成功.";
         lbl_Error->ForeColor = System::Drawing::Color::Green;
+        
+        _TreDB->Log(UserInfo->GetId(), "删除财务记录 "+OrderId);
     }
     else {
-        lbl_Error->Text = "Error: Unable to Delete ";
+        lbl_Error->Text = "错误：删除失败.";
         lbl_Error->ForeColor = System::Drawing::Color::Red;
     }
 }
@@ -297,7 +310,8 @@ void WeAlumni::TreInfoPage::CheckDB(String^ OrderId) {
         UpdateInfo(OrderId);
     }
     else {
-        lbl_Error->Text = "Unable to read treasury DB, Exit or Try again.";
+        lbl_Error->Text = "错误：无法读取数据库，请重新导入数据库或退出.";
+        lbl_Error->ForeColor = System::Drawing::Color::Red;
         UnableAllBtn();
     }
 }

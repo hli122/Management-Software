@@ -1,4 +1,4 @@
-#include "TreAddPage.h"
+﻿#include "TreAddPage.h"
 
 /*
  * TreAddPage.cpp
@@ -9,6 +9,7 @@
  * Revised: 4/1/20
  *          4/4/20 Time textbox show current date and time.Provide exit btn after add new info
  *          4/12/20 Add public user info as input
+ *          4/20/20 fix the bug of unable to showing Chinese. Modify language and UI.
  *
  */
 
@@ -19,7 +20,9 @@
   * @return None
   */
 System::Void WeAlumni::TreAddPage::UpdateInfo(String^ SId) {
-    lbl_Id->Text = Convert::ToString(_TreDB->GetNextId(Database::DatabaseTable::Treasury));
+    OrderId = Convert::ToString(_TreDB->GetNextId(Database::DatabaseTable::Treasury));
+    lbl_Id->Text = OrderId;
+     
     lbl_StfId->Text = SId;
     txt_Time->Text = _TreDB->GetSystemTime();
 }
@@ -50,14 +53,16 @@ System::Void WeAlumni::TreAddPage::btn_Confirm_Click(System::Object^ sender, Sys
     }
 
     if (status == -1) {
-        lbl_Error->Text = "Fail: Unable to Add record";
+        lbl_Error->Text = "错误：添加记录失败，Error Stage = "+ status;
         lbl_Error->ForeColor = Color::Red;
         lbl_Error->Visible = true;
     }
     else {
-        lbl_Error->Text = "Succuss: Add treasury record success";
+        lbl_Error->Text = "成功：新记录已成功添加";
         lbl_Error->ForeColor = Color::Green;
         lbl_Error->Visible = true;
+
+        _TreDB->Log(UserInfo->GetId(), "添加新财务记录 "+OrderId);
 
         btn_Confirm->Enabled = false;
         btn_Cancel->Text = "Exit";
