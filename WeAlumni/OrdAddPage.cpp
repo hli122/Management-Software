@@ -37,7 +37,7 @@ Void WeAlumni::OrdAddPage::btn_VerifyMem_Click(System::Object^ sender, System::E
     String^ command;
     int status = -1;
     if (txt_MemId->Text == "" && txt_MemName->Text == "") {
-        lbl_error->Text = "Empty ID and Name";
+        lbl_error->Text = "编号姓名为空";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -56,12 +56,12 @@ Void WeAlumni::OrdAddPage::btn_VerifyMem_Click(System::Object^ sender, System::E
         }
 
         if (status == -1) {
-            lbl_error->Text = "Mem ID not exist";
+            lbl_error->Text = "成员编号不存在";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
         else {
-            lbl_error->Text = "MemInfo Verified";
+            lbl_error->Text = "成员信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             txt_MemName->Text = database->dataReader[0]->ToString();
@@ -83,12 +83,12 @@ Void WeAlumni::OrdAddPage::btn_VerifyMem_Click(System::Object^ sender, System::E
         }
 
         if (status == -1) {
-            lbl_error->Text = "Mem Name not exist";
+            lbl_error->Text = "成员姓名不存在";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
         else {
-            lbl_error->Text = "MemInfo Verified";
+            lbl_error->Text = "成员信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             txt_MemId->Text = database->dataReader[0]->ToString();
@@ -110,13 +110,13 @@ Void WeAlumni::OrdAddPage::btn_VerifyMem_Click(System::Object^ sender, System::E
         }
 
         if (database->dataReader[0]->ToString() == txt_MemName->Text) {
-            lbl_error->Text = "MemInfo Verified";
+            lbl_error->Text = "成员信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             success = true;
         }
         else {
-            lbl_error->Text = "MemInfo not match";
+            lbl_error->Text = "成员信息不匹配";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
@@ -138,7 +138,7 @@ Void WeAlumni::OrdAddPage::btn_VerifyItm_Click(System::Object^ sender, System::E
     String^ command;
     int status = -1;
     if (txt_ItemId->Text == "" && txt_ItemName->Text == "") {
-        lbl_error->Text = "Empty ID and Name";
+        lbl_error->Text = "编号姓名为空";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -157,12 +157,12 @@ Void WeAlumni::OrdAddPage::btn_VerifyItm_Click(System::Object^ sender, System::E
         }
 
         if (status == -1) {
-            lbl_error->Text = "Item ID not exist";
+            lbl_error->Text = "商品编号不存在";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
         else {
-            lbl_error->Text = "Item Verified";
+            lbl_error->Text = "商品信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             txt_ItemName->Text = database->dataReader[0]->ToString();
@@ -185,12 +185,12 @@ Void WeAlumni::OrdAddPage::btn_VerifyItm_Click(System::Object^ sender, System::E
         }
 
         if (status == -1) {
-            lbl_error->Text = "Item Name not exist";
+            lbl_error->Text = "商品名称不存在";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
         else {
-            lbl_error->Text = "ItmInfo Verified";
+            lbl_error->Text = "商品信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             txt_ItemId->Text = database->dataReader[0]->ToString();
@@ -213,14 +213,14 @@ Void WeAlumni::OrdAddPage::btn_VerifyItm_Click(System::Object^ sender, System::E
         }
 
         if (database->dataReader[0]->ToString() == txt_ItemName->Text) {
-            lbl_error->Text = "ItmInfo Verified";
+            lbl_error->Text = "商品信息已验证";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             lbl_ItemPrice->Text = database->dataReader[1]->ToString();
             success = true;
         }
         else {
-            lbl_error->Text = "ItmInfo not match";
+            lbl_error->Text = "商品信息不匹配";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
@@ -241,7 +241,7 @@ Void WeAlumni::OrdAddPage::btn_Confirm_Click(System::Object^ sender, System::Eve
     bool finish = false;
     double order_price;
     if (btn_VerifyMem->Enabled == true || btn_VerifyItm->Enabled == true || txt_OrdAmt->Text == "") {
-        lbl_error->Text = "Wrong or Lack Info";
+        lbl_error->Text = "错误或缺失信息";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -285,12 +285,12 @@ Void WeAlumni::OrdAddPage::btn_Confirm_Click(System::Object^ sender, System::Eve
         }
 
         if (status == -1) {
-            lbl_error->Text = "Fail to Add Page";
+            lbl_error->Text = "无法新建页面";
             lbl_error->ForeColor = Color::Red;
             lbl_error->Visible = true;
         }
         else {
-            lbl_error->Text = "Succuss: Add Page";
+            lbl_error->Text = "新建页面成功";
             lbl_error->ForeColor = Color::Green;
             lbl_error->Visible = true;
             finish = true;
@@ -308,6 +308,9 @@ Void WeAlumni::OrdAddPage::btn_Confirm_Click(System::Object^ sender, System::Eve
         txt_ItemId->Enabled = false;
         txt_ItemName->Enabled = false;
         txt_OrdAmt->Enabled = false;
+        String^ action = "Added a new Ord record";
+        Database::Log(_PublicUserInfo->GetId(), action);
+        InsertRecord();
     }
 }
 
@@ -319,4 +322,35 @@ Void WeAlumni::OrdAddPage::btn_Confirm_Click(System::Object^ sender, System::Eve
  */
 Void WeAlumni::OrdAddPage::btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e) {
     this->Close();
+}
+
+/*
+ * InsertRecord
+ * Insert a new item in record after add new Ord
+ * @param None
+ * @return None
+ */
+Void WeAlumni::OrdAddPage::InsertRecord() {
+    int recId = database->GetNextId(WeAlumni::Database::DatabaseTable::Record);
+    String^ currTime = database->GetSystemTime();
+    String^ cmd = "INSERT INTO Record (Id, StfId, MemId, MemName, Time, Action)" +
+        "VALUES (" + recId + "," +
+        _PublicUserInfo->GetId() + "," +
+        Convert::ToInt32(txt_MemId->Text) + "," +
+        "'" + txt_MemName->Text + "'," +
+        "'" + currTime + "'," +
+        "'Add Ord '" +
+        "'" + txt_MemId->Text + "'" +
+        "'Status '" +
+        "'" + cmb_OrdStat->Text + "'" + ");";
+    int status = -1;
+
+    try {
+        status = database->InsertData(cmd);
+    }
+    catch (Exception^ exception) {
+        lbl_error->ForeColor = System::Drawing::Color::Red;
+        lbl_error->Text = exception->Message;
+        lbl_error->Visible = true;
+    }
 }

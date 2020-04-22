@@ -156,21 +156,21 @@ namespace WeAlumni {
 			// lbl_Promt_OrdId
 			// 
 			this->lbl_Promt_OrdId->AutoSize = true;
-			this->lbl_Promt_OrdId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Promt_OrdId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_Promt_OrdId->Location = System::Drawing::Point(39, 67);
 			this->lbl_Promt_OrdId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbl_Promt_OrdId->Name = L"lbl_Promt_OrdId";
-			this->lbl_Promt_OrdId->Size = System::Drawing::Size(27, 24);
+			this->lbl_Promt_OrdId->Size = System::Drawing::Size(90, 24);
 			this->lbl_Promt_OrdId->TabIndex = 1;
-			this->lbl_Promt_OrdId->Text = L"ID";
+			this->lbl_Promt_OrdId->Text = L"订单编号";
 			// 
 			// lbl_OrdId
 			// 
 			this->lbl_OrdId->AutoSize = true;
 			this->lbl_OrdId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_OrdId->Location = System::Drawing::Point(71, 67);
+			this->lbl_OrdId->Location = System::Drawing::Point(160, 65);
 			this->lbl_OrdId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbl_OrdId->Name = L"lbl_OrdId";
 			this->lbl_OrdId->Size = System::Drawing::Size(42, 24);
@@ -180,12 +180,12 @@ namespace WeAlumni {
 			// lbl_Prompt_OrdStat
 			// 
 			this->lbl_Prompt_OrdStat->AutoSize = true;
-			this->lbl_Prompt_OrdStat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_OrdStat->Location = System::Drawing::Point(160, 67);
+			this->lbl_Prompt_OrdStat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_OrdStat->Location = System::Drawing::Point(300, 67);
 			this->lbl_Prompt_OrdStat->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lbl_Prompt_OrdStat->Name = L"lbl_Prompt_OrdStat";
-			this->lbl_Prompt_OrdStat->Size = System::Drawing::Size(86, 24);
+			this->lbl_Prompt_OrdStat->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_OrdStat->TabIndex = 3;
 			this->lbl_Prompt_OrdStat->Text = L"订单状态";
 			// 
@@ -195,7 +195,7 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->cmb_OrdStat->FormattingEnabled = true;
 			this->cmb_OrdStat->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Complete", L"In Process" });
-			this->cmb_OrdStat->Location = System::Drawing::Point(264, 67);
+			this->cmb_OrdStat->Location = System::Drawing::Point(456, 69);
 			this->cmb_OrdStat->Margin = System::Windows::Forms::Padding(2);
 			this->cmb_OrdStat->Name = L"cmb_OrdStat";
 			this->cmb_OrdStat->Size = System::Drawing::Size(127, 24);
@@ -204,24 +204,24 @@ namespace WeAlumni {
 			// lbl_Prompt_SubmitTime
 			// 
 			this->lbl_Prompt_SubmitTime->AutoSize = true;
-			this->lbl_Prompt_SubmitTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular,
+			this->lbl_Prompt_SubmitTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->lbl_Prompt_SubmitTime->Location = System::Drawing::Point(452, 67);
+			this->lbl_Prompt_SubmitTime->Location = System::Drawing::Point(605, 67);
 			this->lbl_Prompt_SubmitTime->Name = L"lbl_Prompt_SubmitTime";
-			this->lbl_Prompt_SubmitTime->Size = System::Drawing::Size(116, 24);
+			this->lbl_Prompt_SubmitTime->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_SubmitTime->TabIndex = 5;
-			this->lbl_Prompt_SubmitTime->Text = L"Submit Time";
+			this->lbl_Prompt_SubmitTime->Text = L"提交时间";
 			// 
 			// lbl_MemId
 			// 
 			this->lbl_MemId->AutoSize = true;
-			this->lbl_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbl_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_MemId->Location = System::Drawing::Point(39, 130);
 			this->lbl_MemId->Name = L"lbl_MemId";
-			this->lbl_MemId->Size = System::Drawing::Size(103, 24);
+			this->lbl_MemId->Size = System::Drawing::Size(90, 24);
 			this->lbl_MemId->TabIndex = 7;
-			this->lbl_MemId->Text = L"Member ID";
+			this->lbl_MemId->Text = L"成员编号";
 			// 
 			// txt_MemId
 			// 
@@ -235,11 +235,13 @@ namespace WeAlumni {
 			// lbl_MemName
 			// 
 			this->lbl_MemName->AutoSize = true;
+			this->lbl_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_MemName->Location = System::Drawing::Point(300, 129);
 			this->lbl_MemName->Name = L"lbl_MemName";
-			this->lbl_MemName->Size = System::Drawing::Size(137, 24);
+			this->lbl_MemName->Size = System::Drawing::Size(90, 24);
 			this->lbl_MemName->TabIndex = 9;
-			this->lbl_MemName->Text = L"Member Name";
+			this->lbl_MemName->Text = L"成员姓名";
 			// 
 			// txt_MemName
 			// 
@@ -252,24 +254,26 @@ namespace WeAlumni {
 			// 
 			// btn_VerifyMem
 			// 
-			this->btn_VerifyMem->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btn_VerifyMem->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btn_VerifyMem->Location = System::Drawing::Point(795, 125);
 			this->btn_VerifyMem->Name = L"btn_VerifyMem";
 			this->btn_VerifyMem->Size = System::Drawing::Size(112, 37);
 			this->btn_VerifyMem->TabIndex = 11;
-			this->btn_VerifyMem->Text = L"Verify Mem";
+			this->btn_VerifyMem->Text = L"成员验证";
 			this->btn_VerifyMem->UseVisualStyleBackColor = true;
 			this->btn_VerifyMem->Click += gcnew System::EventHandler(this, &OrdAddPage::btn_VerifyMem_Click);
 			// 
 			// lbl_Prompt_StfId
 			// 
 			this->lbl_Prompt_StfId->AutoSize = true;
+			this->lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_StfId->Location = System::Drawing::Point(39, 193);
 			this->lbl_Prompt_StfId->Name = L"lbl_Prompt_StfId";
-			this->lbl_Prompt_StfId->Size = System::Drawing::Size(66, 24);
+			this->lbl_Prompt_StfId->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_StfId->TabIndex = 12;
-			this->lbl_Prompt_StfId->Text = L"Staff ID";
+			this->lbl_Prompt_StfId->Text = L"员工编号";
 			// 
 			// lbl_StfId
 			// 
@@ -283,11 +287,13 @@ namespace WeAlumni {
 			// lbl_Prompt_StfName
 			// 
 			this->lbl_Prompt_StfName->AutoSize = true;
+			this->lbl_Prompt_StfName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_StfName->Location = System::Drawing::Point(300, 193);
 			this->lbl_Prompt_StfName->Name = L"lbl_Prompt_StfName";
-			this->lbl_Prompt_StfName->Size = System::Drawing::Size(100, 24);
+			this->lbl_Prompt_StfName->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_StfName->TabIndex = 14;
-			this->lbl_Prompt_StfName->Text = L"Staff Name";
+			this->lbl_Prompt_StfName->Text = L"员工姓名";
 			// 
 			// lbl_StfName
 			// 
@@ -301,11 +307,13 @@ namespace WeAlumni {
 			// lbl_ItemId
 			// 
 			this->lbl_ItemId->AutoSize = true;
+			this->lbl_ItemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_ItemId->Location = System::Drawing::Point(39, 256);
 			this->lbl_ItemId->Name = L"lbl_ItemId";
-			this->lbl_ItemId->Size = System::Drawing::Size(67, 24);
+			this->lbl_ItemId->Size = System::Drawing::Size(90, 24);
 			this->lbl_ItemId->TabIndex = 16;
-			this->lbl_ItemId->Text = L"Item ID";
+			this->lbl_ItemId->Text = L"商品编号";
 			// 
 			// txt_ItemId
 			// 
@@ -319,11 +327,13 @@ namespace WeAlumni {
 			// lbl_ItemName
 			// 
 			this->lbl_ItemName->AutoSize = true;
+			this->lbl_ItemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_ItemName->Location = System::Drawing::Point(300, 256);
 			this->lbl_ItemName->Name = L"lbl_ItemName";
-			this->lbl_ItemName->Size = System::Drawing::Size(101, 24);
+			this->lbl_ItemName->Size = System::Drawing::Size(90, 24);
 			this->lbl_ItemName->TabIndex = 18;
-			this->lbl_ItemName->Text = L"Item Name";
+			this->lbl_ItemName->Text = L"商品名称";
 			// 
 			// txt_ItemName
 			// 
@@ -337,11 +347,13 @@ namespace WeAlumni {
 			// lbl_Prompt_ItemPrice
 			// 
 			this->lbl_Prompt_ItemPrice->AutoSize = true;
+			this->lbl_Prompt_ItemPrice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->lbl_Prompt_ItemPrice->Location = System::Drawing::Point(605, 256);
 			this->lbl_Prompt_ItemPrice->Name = L"lbl_Prompt_ItemPrice";
-			this->lbl_Prompt_ItemPrice->Size = System::Drawing::Size(93, 24);
+			this->lbl_Prompt_ItemPrice->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_ItemPrice->TabIndex = 20;
-			this->lbl_Prompt_ItemPrice->Text = L"Item Price";
+			this->lbl_Prompt_ItemPrice->Text = L"商品单价";
 			// 
 			// lbl_ItemPrice
 			// 
@@ -354,33 +366,37 @@ namespace WeAlumni {
 			// 
 			// btn_VerifyItm
 			// 
-			this->btn_VerifyItm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btn_VerifyItm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btn_VerifyItm->Location = System::Drawing::Point(795, 251);
 			this->btn_VerifyItm->Name = L"btn_VerifyItm";
 			this->btn_VerifyItm->Size = System::Drawing::Size(112, 37);
 			this->btn_VerifyItm->TabIndex = 22;
-			this->btn_VerifyItm->Text = L"Verify Item";
+			this->btn_VerifyItm->Text = L"商品验证";
 			this->btn_VerifyItm->UseVisualStyleBackColor = true;
 			this->btn_VerifyItm->Click += gcnew System::EventHandler(this, &OrdAddPage::btn_VerifyItm_Click);
 			// 
 			// lbl_Prompt_OrdAmt
 			// 
 			this->lbl_Prompt_OrdAmt->AutoSize = true;
+			this->lbl_Prompt_OrdAmt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_OrdAmt->Location = System::Drawing::Point(38, 321);
 			this->lbl_Prompt_OrdAmt->Name = L"lbl_Prompt_OrdAmt";
-			this->lbl_Prompt_OrdAmt->Size = System::Drawing::Size(80, 24);
+			this->lbl_Prompt_OrdAmt->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_OrdAmt->TabIndex = 23;
-			this->lbl_Prompt_OrdAmt->Text = L"Ord Amt";
+			this->lbl_Prompt_OrdAmt->Text = L"商品数量";
 			// 
 			// lbl_Prompt_OrdPrice
 			// 
 			this->lbl_Prompt_OrdPrice->AutoSize = true;
+			this->lbl_Prompt_OrdPrice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->lbl_Prompt_OrdPrice->Location = System::Drawing::Point(300, 321);
 			this->lbl_Prompt_OrdPrice->Name = L"lbl_Prompt_OrdPrice";
 			this->lbl_Prompt_OrdPrice->Size = System::Drawing::Size(90, 24);
 			this->lbl_Prompt_OrdPrice->TabIndex = 25;
-			this->lbl_Prompt_OrdPrice->Text = L"Ord Price";
+			this->lbl_Prompt_OrdPrice->Text = L"商品总价";
 			// 
 			// lbl_OrdPrice
 			// 
@@ -393,21 +409,25 @@ namespace WeAlumni {
 			// 
 			// btn_Confirm
 			// 
+			this->btn_Confirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btn_Confirm->Location = System::Drawing::Point(42, 431);
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(112, 37);
 			this->btn_Confirm->TabIndex = 27;
-			this->btn_Confirm->Text = L"Confirm";
+			this->btn_Confirm->Text = L"确认";
 			this->btn_Confirm->UseVisualStyleBackColor = true;
 			this->btn_Confirm->Click += gcnew System::EventHandler(this, &OrdAddPage::btn_Confirm_Click);
 			// 
 			// btn_Cancel
 			// 
+			this->btn_Cancel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btn_Cancel->Location = System::Drawing::Point(304, 431);
 			this->btn_Cancel->Name = L"btn_Cancel";
 			this->btn_Cancel->Size = System::Drawing::Size(112, 37);
 			this->btn_Cancel->TabIndex = 28;
-			this->btn_Cancel->Text = L"Cancel";
+			this->btn_Cancel->Text = L"取消";
 			this->btn_Cancel->UseVisualStyleBackColor = true;
 			this->btn_Cancel->Click += gcnew System::EventHandler(this, &OrdAddPage::btn_Cancel_Click);
 			// 
@@ -419,9 +439,9 @@ namespace WeAlumni {
 			this->lbl_error->ForeColor = System::Drawing::Color::Red;
 			this->lbl_error->Location = System::Drawing::Point(609, 431);
 			this->lbl_error->Name = L"lbl_error";
-			this->lbl_error->Size = System::Drawing::Size(152, 29);
+			this->lbl_error->Size = System::Drawing::Size(109, 29);
 			this->lbl_error->TabIndex = 29;
-			this->lbl_error->Text = L"System Error";
+			this->lbl_error->Text = L"系统错误";
 			// 
 			// txt_OrdAmt
 			// 
@@ -443,7 +463,7 @@ namespace WeAlumni {
 			// 
 			this->txt_SubmitTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txt_SubmitTime->Location = System::Drawing::Point(609, 67);
+			this->txt_SubmitTime->Location = System::Drawing::Point(795, 65);
 			this->txt_SubmitTime->Name = L"txt_SubmitTime";
 			this->txt_SubmitTime->Size = System::Drawing::Size(100, 24);
 			this->txt_SubmitTime->TabIndex = 31;
@@ -451,7 +471,7 @@ namespace WeAlumni {
 			// lbl_SubmitTime
 			// 
 			this->lbl_SubmitTime->AutoSize = true;
-			this->lbl_SubmitTime->Location = System::Drawing::Point(605, 67);
+			this->lbl_SubmitTime->Location = System::Drawing::Point(791, 65);
 			this->lbl_SubmitTime->Name = L"lbl_SubmitTime";
 			this->lbl_SubmitTime->Size = System::Drawing::Size(42, 24);
 			this->lbl_SubmitTime->TabIndex = 6;
@@ -510,6 +530,7 @@ namespace WeAlumni {
 
 	private:
 		System::Void Initialize();
+		System::Void InsertRecord();
 		System::Void btn_VerifyMem_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_VerifyItm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
