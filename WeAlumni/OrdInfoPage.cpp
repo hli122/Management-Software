@@ -7,6 +7,7 @@
  *
  * @author: Haoran Li
  * Revised: 4/12/20
+ * Revised: 4/22/20
  *
  */
 
@@ -21,7 +22,7 @@ using namespace System;
 Void WeAlumni::OrdInfoPage::UpdateInfo() {
     String^ command = "SELECT Orders.Id, Orders.Status, Orders.Time, Orders.MemId, Member.Name, Member.Email, Member.Country, Member.Address1, Member.Address2, Member.City, Member.Postal, Orders.StfId, Orders.ItemId, Item.Name, Orders.Amount, Orders.Price, Orders.Comment, Item.Price FROM (Item Join (Orders, Member) ON Item.Id = Orders.ItemId AND Orders.MemId = Member.Id AND Orders.Id = " + _ordId + ");";
     int status = -1;
-    database->Log(_publicUserInfo->GetId(), "Operate on Order "+ _ordId +"");
+    //database->Log(_publicUserInfo->GetId(), "Operate on Order "+ _ordId +"");
 
     try {
         status = database->ReadData(command);
@@ -34,11 +35,11 @@ Void WeAlumni::OrdInfoPage::UpdateInfo() {
 
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Failed to read from Database! ";
+        lbl_DBError->Text = "读入数据失败";
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Read nothing from Database. ";
+        lbl_DBError->Text = "读入数据为空";
     }
     else {
         lbl_OdrId->Text = database->dataReader[0]->ToString();
@@ -60,7 +61,6 @@ Void WeAlumni::OrdInfoPage::UpdateInfo() {
         lbl_OrdPrice->Text = database->dataReader[15]->ToString();
         lbl_Content->Text = database->dataReader[16]->ToString();
         item_price = Convert::ToDouble(database->dataReader[17]);
-        btn_Check->Visible = false;
         btn_Confirm->Visible = false;
         btn_Cancel->Visible = false;
         txt_OdrStat->Visible = false;
@@ -77,7 +77,6 @@ Void WeAlumni::OrdInfoPage::UpdateInfo() {
  */
 Void WeAlumni::OrdInfoPage::btn_Change_Click(System::Object^ sender, System::EventArgs^ e) {
     btn_Delete->Visible = false;
-    btn_Check->Visible = true;
     btn_Confirm->Visible = true;
     btn_DelConfirm->Visible = false;
     btn_Cancel->Visible = true;
@@ -94,51 +93,6 @@ Void WeAlumni::OrdInfoPage::btn_Change_Click(System::Object^ sender, System::Eve
 }
 
 /*
- * btn_Check_Click
- * This method will check if item id or name exist
- */
-Void WeAlumni::OrdInfoPage::btn_Check_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ command = "SELECT Id, Name FROM Item WHERE Id = '" + txt_ItemId->Text + "';";
-    String^ command1 = "SELECT Id, Name FROM Item WHERE Name = '" + txt_ItemName->Text + "';";
-    txt_ItemId->Visible = false;
-    txt_ItemName->Visible = false;
-    int status = -1;
-    if (txt_ItemId->Text) {
-        try {
-            status = database->ReadData(command);
-            lbl_ItemId->Text = database->dataReader[0]->ToString();
-            lbl_ItemName->Text = database->dataReader[1]->ToString();
-        }
-        catch (Exception^ exception) {
-            lbl_DBError->Visible = true;
-            lbl_DBError->Text = exception->Message;
-            return;
-        }
-    }else if (txt_ItemName->Text) {
-        try {
-            status = database->ReadData(command1);
-            lbl_ItemId->Text = database->dataReader[0]->ToString();
-            lbl_ItemName->Text = database->dataReader[1]->ToString();
-        }
-        catch (Exception^ exception) {
-            lbl_DBError->Visible = true;
-            lbl_DBError->Text = exception->Message;
-            return;
-        }
-    }
-    lbl_DBError->Visible = true;
-    lbl_DBError->Text = "Item Found";
-    if (status == -1) {
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Error -1 ";
-    }
-    else if (status == 0) {
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "nonexist Id or Name";
-    }
-}
-
-/*
  * btn_Confirm_Click
  * This method will update user input to database 
  */
@@ -146,10 +100,11 @@ Void WeAlumni::OrdInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
     btn_Confirm->Visible = false;
     btn_Cancel->Visible = false;
     btn_Delete->Visible = true;
-    double order_price = Convert::ToDouble(txt_OdrAmt->Text) * Convert::ToDouble(item_price);
+    int order_price = Convert::ToInt32(txt_OdrAmt->Text) * Convert::ToInt32(item_price);
     String^ command = "UPDATE Orders " +
                           "SET Status = '" + txt_OdrStat->Text + "', " +
                               "Amount = '" + txt_OdrAmt->Text + "', " +
+                              "ItemId = '" + Convert::ToInt32(txt_ItemId->Text) + "', " +
                               "Comment = '" + rtxt_Content->Text + "', " +
                               "Price = '" + Convert::ToString(order_price) + "' " +
                           "WHERE Id = " + _ordId + ";";
@@ -166,11 +121,15 @@ Void WeAlumni::OrdInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
 
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Change to Orders failed ";
+        lbl_DBError->Text = "修改订单失败";
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Change to Orders ";
+        lbl_DBError->Text = "订单未修改";
+    }
+    else {
+        String^ action = "Changed Ord " + _ordId;
+        Database::Log(_publicUserInfo->GetId(), action);
     }
     UpdateInfo();
 }
@@ -181,7 +140,6 @@ Void WeAlumni::OrdInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
  */
 Void WeAlumni::OrdInfoPage::btn_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
     btn_Confirm->Visible = false;
-    btn_Check->Visible = false;
     btn_DelConfirm->Visible = true;
     btn_Cancel->Visible = true;
 }
@@ -194,7 +152,6 @@ Void WeAlumni::OrdInfoPage::btn_Cancel_Click(System::Object^ sender, System::Eve
     btn_Confirm->Visible = false;
     btn_DelConfirm->Visible = false;
     btn_Cancel->Visible = false;
-    btn_Check->Visible = false;
     btn_Delete->Visible = true;
     btn_ChangeInfo->Visible = true;
     UpdateInfo();
@@ -226,7 +183,7 @@ Void WeAlumni::OrdInfoPage::btn_DelConfirm_Click(System::Object^ sender, System:
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Such Id";
+        lbl_DBError->Text = "订单编号不存在";
     }
     else {
         this->Close();

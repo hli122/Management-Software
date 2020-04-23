@@ -22,7 +22,7 @@ namespace WeAlumni {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// OrdInfoPage æ‘˜è¦
+	/// OrdInfoPage ÕªÒª
 	/// </summary>
 	public ref class OrdInfoPage : public System::Windows::Forms::Form
 	{
@@ -31,7 +31,7 @@ namespace WeAlumni {
 		{
 			InitializeComponent();
 			//
-			//TODO:  åœ¨æ­¤å¤„æ·»åŠ æ„é€ å‡½æ•°ä»£ç 
+			//TODO:  ÔÚ´Ë´¦Ìí¼Ó¹¹Ôìº¯Êı´úÂë
 			//
 			_publicUserInfo = pui;
 			_ordId = inputId;
@@ -49,7 +49,7 @@ namespace WeAlumni {
 
 	protected:
 		/// <summary>
-		/// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+		/// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
 		/// </summary>
 		~OrdInfoPage()
 		{
@@ -104,7 +104,6 @@ namespace WeAlumni {
 	private: System::Windows::Forms::RichTextBox^ rtxt_Content;
 	private: System::Windows::Forms::Button^ btn_ChangeInfo;
 	private: System::Windows::Forms::Button^ btn_Delete;
-	private: System::Windows::Forms::Button^ btn_Check;
 	private: System::Windows::Forms::Button^ btn_Confirm;
 	private: System::Windows::Forms::Button^ btn_Cancel;
 	private: System::Windows::Forms::Label^ lbl_DBError;
@@ -119,14 +118,14 @@ namespace WeAlumni {
 
 	private:
 		/// <summary>
-		/// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+		/// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦ä¿®æ”¹
-		/// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+		/// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»ÒªĞŞ¸Ä
+		/// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -172,7 +171,6 @@ namespace WeAlumni {
 			this->rtxt_Content = (gcnew System::Windows::Forms::RichTextBox());
 			this->btn_ChangeInfo = (gcnew System::Windows::Forms::Button());
 			this->btn_Delete = (gcnew System::Windows::Forms::Button());
-			this->btn_Check = (gcnew System::Windows::Forms::Button());
 			this->btn_Confirm = (gcnew System::Windows::Forms::Button());
 			this->btn_Cancel = (gcnew System::Windows::Forms::Button());
 			this->lbl_DBError = (gcnew System::Windows::Forms::Label());
@@ -197,9 +195,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_OdrId->Location = System::Drawing::Point(22, 42);
 			this->lbl_Prompt_OdrId->Name = L"lbl_Prompt_OdrId";
-			this->lbl_Prompt_OdrId->Size = System::Drawing::Size(70, 17);
+			this->lbl_Prompt_OdrId->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_OdrId->TabIndex = 0;
-			this->lbl_Prompt_OdrId->Text = L"Order ID";
+			this->lbl_Prompt_OdrId->Text = L"¶©µ¥±àºÅ";
 			// 
 			// lbl_OdrId
 			// 
@@ -213,11 +211,13 @@ namespace WeAlumni {
 			// lbl_Prompt_OdrStat
 			// 
 			this->lbl_Prompt_OdrStat->AutoSize = true;
+			this->lbl_Prompt_OdrStat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_OdrStat->Location = System::Drawing::Point(147, 42);
 			this->lbl_Prompt_OdrStat->Name = L"lbl_Prompt_OdrStat";
-			this->lbl_Prompt_OdrStat->Size = System::Drawing::Size(89, 17);
+			this->lbl_Prompt_OdrStat->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_OdrStat->TabIndex = 2;
-			this->lbl_Prompt_OdrStat->Text = L"Order Status";
+			this->lbl_Prompt_OdrStat->Text = L"¶©µ¥×´Ì¬";
 			// 
 			// lbl_OdrStat
 			// 
@@ -230,7 +230,7 @@ namespace WeAlumni {
 			// 
 			// txt_OdrStat
 			// 
-			this->txt_OdrStat->Location = System::Drawing::Point(246, 42);
+			this->txt_OdrStat->Location = System::Drawing::Point(246, 39);
 			this->txt_OdrStat->Name = L"txt_OdrStat";
 			this->txt_OdrStat->Size = System::Drawing::Size(100, 22);
 			this->txt_OdrStat->TabIndex = 4;
@@ -242,14 +242,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_SbmTime->Location = System::Drawing::Point(362, 42);
 			this->lbl_Prompt_SbmTime->Name = L"lbl_Prompt_SbmTime";
-			this->lbl_Prompt_SbmTime->Size = System::Drawing::Size(97, 17);
+			this->lbl_Prompt_SbmTime->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_SbmTime->TabIndex = 5;
-			this->lbl_Prompt_SbmTime->Text = L"Submit Time";
+			this->lbl_Prompt_SbmTime->Text = L"Ìá½»Ê±¼ä";
 			// 
 			// lbl_Sbmtime
 			// 
 			this->lbl_Sbmtime->AutoSize = true;
-			this->lbl_Sbmtime->Location = System::Drawing::Point(455, 42);
+			this->lbl_Sbmtime->Location = System::Drawing::Point(465, 42);
 			this->lbl_Sbmtime->Name = L"lbl_Sbmtime";
 			this->lbl_Sbmtime->Size = System::Drawing::Size(31, 17);
 			this->lbl_Sbmtime->TabIndex = 6;
@@ -262,9 +262,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_MemID->Location = System::Drawing::Point(21, 77);
 			this->lbl_Prompt_MemID->Name = L"lbl_Prompt_MemID";
-			this->lbl_Prompt_MemID->Size = System::Drawing::Size(85, 17);
+			this->lbl_Prompt_MemID->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_MemID->TabIndex = 7;
-			this->lbl_Prompt_MemID->Text = L"Member ID";
+			this->lbl_Prompt_MemID->Text = L"³ÉÔ±±àºÅ";
 			// 
 			// lbl_MemID
 			// 
@@ -278,11 +278,13 @@ namespace WeAlumni {
 			// lbl_Prompt_MemName
 			// 
 			this->lbl_Prompt_MemName->AutoSize = true;
+			this->lbl_Prompt_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_MemName->Location = System::Drawing::Point(147, 77);
 			this->lbl_Prompt_MemName->Name = L"lbl_Prompt_MemName";
-			this->lbl_Prompt_MemName->Size = System::Drawing::Size(100, 17);
+			this->lbl_Prompt_MemName->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_MemName->TabIndex = 9;
-			this->lbl_Prompt_MemName->Text = L"Member Name";
+			this->lbl_Prompt_MemName->Text = L"³ÉÔ±ĞÕÃû";
 			// 
 			// lbl_MemName
 			// 
@@ -300,14 +302,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Email->Location = System::Drawing::Point(362, 77);
 			this->lbl_Prompt_Email->Name = L"lbl_Prompt_Email";
-			this->lbl_Prompt_Email->Size = System::Drawing::Size(47, 17);
+			this->lbl_Prompt_Email->Size = System::Drawing::Size(38, 17);
 			this->lbl_Prompt_Email->TabIndex = 11;
-			this->lbl_Prompt_Email->Text = L"Email";
+			this->lbl_Prompt_Email->Text = L"ÓÊÏä";
 			// 
 			// lbl_Email
 			// 
 			this->lbl_Email->AutoSize = true;
-			this->lbl_Email->Location = System::Drawing::Point(455, 77);
+			this->lbl_Email->Location = System::Drawing::Point(465, 77);
 			this->lbl_Email->Name = L"lbl_Email";
 			this->lbl_Email->Size = System::Drawing::Size(31, 17);
 			this->lbl_Email->TabIndex = 12;
@@ -320,9 +322,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Country->Location = System::Drawing::Point(561, 77);
 			this->lbl_Prompt_Country->Name = L"lbl_Prompt_Country";
-			this->lbl_Prompt_Country->Size = System::Drawing::Size(64, 17);
+			this->lbl_Prompt_Country->Size = System::Drawing::Size(38, 17);
 			this->lbl_Prompt_Country->TabIndex = 13;
-			this->lbl_Prompt_Country->Text = L"Country";
+			this->lbl_Prompt_Country->Text = L"¹ú¼Ò";
 			// 
 			// lbl_Country
 			// 
@@ -340,9 +342,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_City->Location = System::Drawing::Point(674, 77);
 			this->lbl_Prompt_City->Name = L"lbl_Prompt_City";
-			this->lbl_Prompt_City->Size = System::Drawing::Size(35, 17);
+			this->lbl_Prompt_City->Size = System::Drawing::Size(38, 17);
 			this->lbl_Prompt_City->TabIndex = 15;
-			this->lbl_Prompt_City->Text = L"City";
+			this->lbl_Prompt_City->Text = L"³ÇÊĞ";
 			// 
 			// lbl_City
 			// 
@@ -360,9 +362,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Postal->Location = System::Drawing::Point(792, 77);
 			this->lbl_Prompt_Postal->Name = L"lbl_Prompt_Postal";
-			this->lbl_Prompt_Postal->Size = System::Drawing::Size(53, 17);
+			this->lbl_Prompt_Postal->Size = System::Drawing::Size(38, 17);
 			this->lbl_Prompt_Postal->TabIndex = 17;
-			this->lbl_Prompt_Postal->Text = L"Postal";
+			this->lbl_Prompt_Postal->Text = L"ÓÊ±à";
 			// 
 			// lbl_Postal
 			// 
@@ -380,9 +382,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Address1->Location = System::Drawing::Point(21, 113);
 			this->lbl_Prompt_Address1->Name = L"lbl_Prompt_Address1";
-			this->lbl_Prompt_Address1->Size = System::Drawing::Size(76, 17);
+			this->lbl_Prompt_Address1->Size = System::Drawing::Size(47, 17);
 			this->lbl_Prompt_Address1->TabIndex = 19;
-			this->lbl_Prompt_Address1->Text = L"Address1";
+			this->lbl_Prompt_Address1->Text = L"µØÖ·1";
 			// 
 			// lbl_Address1
 			// 
@@ -400,14 +402,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Address2->Location = System::Drawing::Point(362, 113);
 			this->lbl_Prompt_Address2->Name = L"lbl_Prompt_Address2";
-			this->lbl_Prompt_Address2->Size = System::Drawing::Size(76, 17);
+			this->lbl_Prompt_Address2->Size = System::Drawing::Size(47, 17);
 			this->lbl_Prompt_Address2->TabIndex = 21;
-			this->lbl_Prompt_Address2->Text = L"Address2";
+			this->lbl_Prompt_Address2->Text = L"µØÖ·2";
 			// 
 			// lbl_Address2
 			// 
 			this->lbl_Address2->AutoSize = true;
-			this->lbl_Address2->Location = System::Drawing::Point(455, 113);
+			this->lbl_Address2->Location = System::Drawing::Point(465, 113);
 			this->lbl_Address2->Name = L"lbl_Address2";
 			this->lbl_Address2->Size = System::Drawing::Size(31, 17);
 			this->lbl_Address2->TabIndex = 22;
@@ -420,9 +422,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_StfID->Location = System::Drawing::Point(22, 146);
 			this->lbl_Prompt_StfID->Name = L"lbl_Prompt_StfID";
-			this->lbl_Prompt_StfID->Size = System::Drawing::Size(62, 17);
+			this->lbl_Prompt_StfID->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_StfID->TabIndex = 23;
-			this->lbl_Prompt_StfID->Text = L"Staff ID";
+			this->lbl_Prompt_StfID->Text = L"Ô±¹¤±àºÅ";
 			// 
 			// lbl_StfID
 			// 
@@ -440,14 +442,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_StfName->Location = System::Drawing::Point(362, 146);
 			this->lbl_Prompt_StfName->Name = L"lbl_Prompt_StfName";
-			this->lbl_Prompt_StfName->Size = System::Drawing::Size(88, 17);
+			this->lbl_Prompt_StfName->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_StfName->TabIndex = 25;
-			this->lbl_Prompt_StfName->Text = L"Staff Name";
+			this->lbl_Prompt_StfName->Text = L"Ô±¹¤ĞÕÃû";
 			// 
 			// lbl_StfName
 			// 
 			this->lbl_StfName->AutoSize = true;
-			this->lbl_StfName->Location = System::Drawing::Point(455, 146);
+			this->lbl_StfName->Location = System::Drawing::Point(465, 146);
 			this->lbl_StfName->Name = L"lbl_StfName";
 			this->lbl_StfName->Size = System::Drawing::Size(31, 17);
 			this->lbl_StfName->TabIndex = 26;
@@ -460,9 +462,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_ItemId->Location = System::Drawing::Point(22, 180);
 			this->lbl_Prompt_ItemId->Name = L"lbl_Prompt_ItemId";
-			this->lbl_Prompt_ItemId->Size = System::Drawing::Size(58, 17);
+			this->lbl_Prompt_ItemId->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_ItemId->TabIndex = 27;
-			this->lbl_Prompt_ItemId->Text = L"Item ID";
+			this->lbl_Prompt_ItemId->Text = L"ÉÌÆ·±àºÅ";
 			// 
 			// lbl_ItemId
 			// 
@@ -480,14 +482,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_ItemName->Location = System::Drawing::Point(362, 181);
 			this->lbl_Prompt_ItemName->Name = L"lbl_Prompt_ItemName";
-			this->lbl_Prompt_ItemName->Size = System::Drawing::Size(84, 17);
+			this->lbl_Prompt_ItemName->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_ItemName->TabIndex = 29;
-			this->lbl_Prompt_ItemName->Text = L"Item Name";
+			this->lbl_Prompt_ItemName->Text = L"ÉÌÆ·Ãû³Æ";
 			// 
 			// lbl_ItemName
 			// 
 			this->lbl_ItemName->AutoSize = true;
-			this->lbl_ItemName->Location = System::Drawing::Point(455, 181);
+			this->lbl_ItemName->Location = System::Drawing::Point(465, 180);
 			this->lbl_ItemName->Name = L"lbl_ItemName";
 			this->lbl_ItemName->Size = System::Drawing::Size(31, 17);
 			this->lbl_ItemName->TabIndex = 30;
@@ -502,7 +504,7 @@ namespace WeAlumni {
 			// 
 			// txt_ItemName
 			// 
-			this->txt_ItemName->Location = System::Drawing::Point(452, 180);
+			this->txt_ItemName->Location = System::Drawing::Point(468, 178);
 			this->txt_ItemName->Name = L"txt_ItemName";
 			this->txt_ItemName->Size = System::Drawing::Size(100, 22);
 			this->txt_ItemName->TabIndex = 32;
@@ -514,9 +516,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_ItemAmt->Location = System::Drawing::Point(21, 221);
 			this->lbl_Prompt_ItemAmt->Name = L"lbl_Prompt_ItemAmt";
-			this->lbl_Prompt_ItemAmt->Size = System::Drawing::Size(62, 17);
+			this->lbl_Prompt_ItemAmt->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_ItemAmt->TabIndex = 33;
-			this->lbl_Prompt_ItemAmt->Text = L"Amount";
+			this->lbl_Prompt_ItemAmt->Text = L"ÉÌÆ·ÊıÁ¿";
 			// 
 			// lbl_OdrAmt
 			// 
@@ -541,14 +543,14 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_OrdPrice->Location = System::Drawing::Point(362, 221);
 			this->lbl_Prompt_OrdPrice->Name = L"lbl_Prompt_OrdPrice";
-			this->lbl_Prompt_OrdPrice->Size = System::Drawing::Size(92, 17);
+			this->lbl_Prompt_OrdPrice->Size = System::Drawing::Size(68, 17);
 			this->lbl_Prompt_OrdPrice->TabIndex = 36;
-			this->lbl_Prompt_OrdPrice->Text = L"Order Price";
+			this->lbl_Prompt_OrdPrice->Text = L"ÉÌÆ·×Ü¼Û";
 			// 
 			// lbl_OrdPrice
 			// 
 			this->lbl_OrdPrice->AutoSize = true;
-			this->lbl_OrdPrice->Location = System::Drawing::Point(458, 221);
+			this->lbl_OrdPrice->Location = System::Drawing::Point(465, 221);
 			this->lbl_OrdPrice->Name = L"lbl_OrdPrice";
 			this->lbl_OrdPrice->Size = System::Drawing::Size(31, 17);
 			this->lbl_OrdPrice->TabIndex = 37;
@@ -561,9 +563,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Content->Location = System::Drawing::Point(22, 257);
 			this->lbl_Prompt_Content->Name = L"lbl_Prompt_Content";
-			this->lbl_Prompt_Content->Size = System::Drawing::Size(74, 17);
+			this->lbl_Prompt_Content->Size = System::Drawing::Size(38, 17);
 			this->lbl_Prompt_Content->TabIndex = 38;
-			this->lbl_Prompt_Content->Text = L"Comment";
+			this->lbl_Prompt_Content->Text = L"±¸×¢";
 			// 
 			// rtxt_Content
 			// 
@@ -579,7 +581,7 @@ namespace WeAlumni {
 			this->btn_ChangeInfo->Name = L"btn_ChangeInfo";
 			this->btn_ChangeInfo->Size = System::Drawing::Size(75, 41);
 			this->btn_ChangeInfo->TabIndex = 40;
-			this->btn_ChangeInfo->Text = L"Change";
+			this->btn_ChangeInfo->Text = L"ĞŞ¸Ä";
 			this->btn_ChangeInfo->UseVisualStyleBackColor = true;
 			this->btn_ChangeInfo->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_Change_Click);
 			// 
@@ -589,39 +591,28 @@ namespace WeAlumni {
 			this->btn_Delete->Name = L"btn_Delete";
 			this->btn_Delete->Size = System::Drawing::Size(75, 41);
 			this->btn_Delete->TabIndex = 41;
-			this->btn_Delete->Text = L"Delete";
+			this->btn_Delete->Text = L"É¾³ı";
 			this->btn_Delete->UseVisualStyleBackColor = true;
 			this->btn_Delete->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_Delete_Click);
 			// 
-			// btn_Check
-			// 
-			this->btn_Check->Location = System::Drawing::Point(365, 346);
-			this->btn_Check->Name = L"btn_Check";
-			this->btn_Check->Size = System::Drawing::Size(75, 41);
-			this->btn_Check->TabIndex = 42;
-			this->btn_Check->Text = L"Check";
-			this->btn_Check->UseVisualStyleBackColor = true;
-			this->btn_Check->Visible = false;
-			this->btn_Check->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_Check_Click);
-			// 
 			// btn_Confirm
 			// 
-			this->btn_Confirm->Location = System::Drawing::Point(512, 346);
+			this->btn_Confirm->Location = System::Drawing::Point(365, 357);
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(75, 41);
 			this->btn_Confirm->TabIndex = 43;
-			this->btn_Confirm->Text = L"Confirm";
+			this->btn_Confirm->Text = L"È·ÈÏ";
 			this->btn_Confirm->UseVisualStyleBackColor = true;
 			this->btn_Confirm->Visible = false;
 			this->btn_Confirm->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_Confirm_Click);
 			// 
 			// btn_Cancel
 			// 
-			this->btn_Cancel->Location = System::Drawing::Point(634, 346);
+			this->btn_Cancel->Location = System::Drawing::Point(634, 357);
 			this->btn_Cancel->Name = L"btn_Cancel";
 			this->btn_Cancel->Size = System::Drawing::Size(75, 41);
 			this->btn_Cancel->TabIndex = 44;
-			this->btn_Cancel->Text = L"Cancel";
+			this->btn_Cancel->Text = L"È¡Ïû";
 			this->btn_Cancel->UseVisualStyleBackColor = true;
 			this->btn_Cancel->Visible = false;
 			this->btn_Cancel->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_Cancel_Click);
@@ -640,11 +631,11 @@ namespace WeAlumni {
 			// 
 			// btn_DelConfirm
 			// 
-			this->btn_DelConfirm->Location = System::Drawing::Point(512, 346);
+			this->btn_DelConfirm->Location = System::Drawing::Point(512, 357);
 			this->btn_DelConfirm->Name = L"btn_DelConfirm";
 			this->btn_DelConfirm->Size = System::Drawing::Size(75, 41);
 			this->btn_DelConfirm->TabIndex = 46;
-			this->btn_DelConfirm->Text = L"Confirm";
+			this->btn_DelConfirm->Text = L"È·ÈÏ";
 			this->btn_DelConfirm->UseVisualStyleBackColor = true;
 			this->btn_DelConfirm->Visible = false;
 			this->btn_DelConfirm->Click += gcnew System::EventHandler(this, &OrdInfoPage::btn_DelConfirm_Click);
@@ -691,9 +682,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->lbl_Prompt_Page->Location = System::Drawing::Point(370, 9);
 			this->lbl_Prompt_Page->Name = L"lbl_Prompt_Page";
-			this->lbl_Prompt_Page->Size = System::Drawing::Size(165, 25);
+			this->lbl_Prompt_Page->Size = System::Drawing::Size(96, 25);
 			this->lbl_Prompt_Page->TabIndex = 50;
-			this->lbl_Prompt_Page->Text = L"Order Info Page";
+			this->lbl_Prompt_Page->Text = L"¶©µ¥ĞÅÏ¢";
 			this->lbl_Prompt_Page->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// dataGridView3
@@ -725,11 +716,12 @@ namespace WeAlumni {
 			this->lbl_Prompt_ErrMsg->AutoSize = true;
 			this->lbl_Prompt_ErrMsg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->lbl_Prompt_ErrMsg->ForeColor = System::Drawing::Color::Red;
 			this->lbl_Prompt_ErrMsg->Location = System::Drawing::Point(382, 447);
 			this->lbl_Prompt_ErrMsg->Name = L"lbl_Prompt_ErrMsg";
-			this->lbl_Prompt_ErrMsg->Size = System::Drawing::Size(153, 25);
+			this->lbl_Prompt_ErrMsg->Size = System::Drawing::Size(96, 25);
 			this->lbl_Prompt_ErrMsg->TabIndex = 53;
-			this->lbl_Prompt_ErrMsg->Text = L"Error Message";
+			this->lbl_Prompt_ErrMsg->Text = L"´íÎóĞÅÏ¢";
 			this->lbl_Prompt_ErrMsg->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// OrdInfoPage
@@ -745,7 +737,6 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_DBError);
 			this->Controls->Add(this->btn_Cancel);
 			this->Controls->Add(this->btn_Confirm);
-			this->Controls->Add(this->btn_Check);
 			this->Controls->Add(this->btn_Delete);
 			this->Controls->Add(this->btn_ChangeInfo);
 			this->Controls->Add(this->lbl_Prompt_Content);
@@ -802,18 +793,17 @@ namespace WeAlumni {
 
 		}
 #pragma endregion
-		private:
-			Database^ database;
-			PublicUserInfo^ _publicUserInfo;
-			int^ _ordId;
-			double^ item_price;
-		private:
-			Void UpdateInfo();
-			Void btn_Change_Click(System::Object^ sender, System::EventArgs^ e);
-			Void btn_Check_Click(System::Object^ sender, System::EventArgs^ e);
-			Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
-			Void btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e);
-			Void btn_Delete_Click(System::Object^ sender, System::EventArgs^ e);
-			Void btn_DelConfirm_Click(System::Object^ sender, System::EventArgs^ e);
+	private:
+		Database^ database;
+		PublicUserInfo^ _publicUserInfo;
+		int^ _ordId;
+		double^ item_price;
+	private:
+		Void UpdateInfo();
+		Void btn_Change_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_Delete_Click(System::Object^ sender, System::EventArgs^ e);
+		Void btn_DelConfirm_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
