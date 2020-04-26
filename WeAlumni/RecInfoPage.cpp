@@ -7,7 +7,7 @@
  *
  * @author: Sen Ma
  * Revised: 3/28/20
- *
+ * Revised: 4/25/20 chinese
  */
 
 using namespace System;
@@ -37,7 +37,7 @@ Void WeAlumni::RecInfoPage::UpdateInfo() {
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Record Id Found";
+        lbl_DBError->Text = "找不到记录";
     }
     else {
         lbl_RcdId->Text = database->dataReader[4]->ToString();
@@ -78,7 +78,7 @@ Void WeAlumni::RecInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Update";
+        lbl_DBError->Text = "无更改";
     }
     UpdateInfo();
 }
@@ -106,11 +106,11 @@ Void WeAlumni::RecInfoPage::btn_DelConfirm_Click(System::Object^ sender, System:
 
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Error -1";
+        lbl_DBError->Text = "无法删除不存在的记录";
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No such Id";
+        lbl_DBError->Text = "无法删除不存在的记录";
     }
     else {
         this->Close();

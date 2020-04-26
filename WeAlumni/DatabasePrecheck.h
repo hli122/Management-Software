@@ -9,7 +9,8 @@
  * @author: Xiangdong Che, Yiyun Zheng
  * Revised: 04/09/20
  *          04/11/20 Add check treasury database
- *	    04/12/20 Combine Prompt file and Precheck file together
+ *			04/12/20 Combine Prompt file and Precheck file together
+ *			04/25/20 Translation
  *
  */
 
@@ -97,20 +98,20 @@ namespace WeAlumni {
 			this->btn_Import->Name = L"btn_Import";
 			this->btn_Import->Size = System::Drawing::Size(114, 90);
 			this->btn_Import->TabIndex = 0;
-			this->btn_Import->Text = L"Import ";
+			this->btn_Import->Text = L"导入";
 			this->btn_Import->UseVisualStyleBackColor = true;
 			this->btn_Import->Click += gcnew System::EventHandler(this, &DatabasePrecheck::btn_Import_Click);
 			// 
 			// btn_New
 			// 
 			this->btn_New->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btn_New->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_New->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btn_New->Location = System::Drawing::Point(266, 107);
 			this->btn_New->Name = L"btn_New";
 			this->btn_New->Size = System::Drawing::Size(114, 90);
 			this->btn_New->TabIndex = 1;
-			this->btn_New->Text = L"New";
+			this->btn_New->Text = L"新建";
 			this->btn_New->UseVisualStyleBackColor = true;
 			this->btn_New->Click += gcnew System::EventHandler(this, &DatabasePrecheck::btn_New_Click);
 			// 
@@ -134,11 +135,11 @@ namespace WeAlumni {
 			this->btn_Exit->Name = L"btn_Exit";
 			this->btn_Exit->Size = System::Drawing::Size(111, 57);
 			this->btn_Exit->TabIndex = 4;
-			this->btn_Exit->Text = L"Exit";
+			this->btn_Exit->Text = L"退出";
 			this->btn_Exit->UseVisualStyleBackColor = true;
 			this->btn_Exit->Click += gcnew System::EventHandler(this, &DatabasePrecheck::btn_Exit_Click);
 			// 
-			// DatabasePrecheckPrompt
+			// DatabasePrecheck
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -147,9 +148,9 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_Prompt);
 			this->Controls->Add(this->btn_New);
 			this->Controls->Add(this->btn_Import);
-			this->MinimumSize = System::Drawing::Size(0, 350);
+			this->MinimumSize = System::Drawing::Size(16, 350);
 			this->Name = L"DatabasePrecheck";
-			this->Text = L"DatabasePrecheck";
+			this->Text = L"数据库检查";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

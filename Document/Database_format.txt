@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS Orders (
 CREATE TABLE IF NOT EXISTS Treasury (
   Id INT PRIMARY KEY,
   StfId INT NOT NULL,
+  StfName TEXT,
   Time TEXT,
   Type TEXT,
   Amount INT,

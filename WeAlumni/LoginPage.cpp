@@ -7,7 +7,7 @@
  *
  * @author: Sen Ma
  * Revised: 04/11/2020 
- *
+ * Revised: 04/25/2020 chinese translation
  */
 
 using namespace System;
@@ -50,21 +50,14 @@ Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^
 
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Error -1 ";
+        lbl_DBError->Text = "找不到用户，请再次尝试";
         return;
     }
-    else if (status == 0) {
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No such Username";
-        txt_Password->Text = "";
-    }
-
     if (txt_Password->Text == _database->dataReader[1]->ToString()) {
         JumpToMain();
-    }
-    else {
+    }else {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Password not match, Please try again";
+        lbl_DBError->Text = "用户名和密码不匹配，请再次尝试";
     }
 }
 
@@ -73,13 +66,11 @@ Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^
   * this method remembers username and password
   */
 Void WeAlumni::LoginPage::Check_Remember() {
-    String^ command = "Update Admin SET IsDefault = 0 Where IsDefault = 1;";
-    String^ command1 = "Update Admin SET IsDefault = 1 Where Username  = '" + txt_Username->Text + "';";
-    int status1 = -1;
+    String^ command = "Update Admin SET IsDefault = 1 Where Username  = '" + txt_Username->Text + "';";
+    int status = -1;
 
     try {
-        _database->UpdateData(command);
-        status1 = _database->UpdateData(command1);
+        status = _database->UpdateData(command);
     }
     catch (Exception^ exception) {
         lbl_DBError->Visible = true;
@@ -87,9 +78,32 @@ Void WeAlumni::LoginPage::Check_Remember() {
         return;
     }
 
-    if (status1 == -1) {
+    if (status == -1) {
         lbl_DBError->Visible = true;
         lbl_DBError->Text = "remember Error -1 ";
+    }
+}
+
+/*
+  * Clear_User
+  * this method Clears All Isdefault to 0 in database
+  */
+Void WeAlumni::LoginPage::Clear_User() {
+    String^ command = "Update Admin SET IsDefault = 0 Where IsDefault = 1;";
+    int status = -1;
+
+    try {
+        status = _database->UpdateData(command);
+    }
+    catch (Exception^ exception) {
+        lbl_DBError->Visible = true;
+        lbl_DBError->Text = exception->Message;
+        return;
+    }
+
+    if (status == -1) {
+        lbl_DBError->Visible = true;
+        lbl_DBError->Text = "clear Error -1 ";
     }
 }
 
@@ -113,16 +127,9 @@ Void WeAlumni::LoginPage::ShowDefault() {
     }
     
     if (status == -1) {
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "found no defaut";
         return;
     }
-    else if (status == 0) {
-        lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No such Username";
-        txt_Password->Text = "";
-        return;
-    }
+    cbox_Remember->Checked = true;
     txt_Username->Text = _database->dataReader[0]->ToString();
     txt_Password->Text = _database->dataReader[1]->ToString();
 }
@@ -149,9 +156,13 @@ Void WeAlumni::LoginPage::JumpToMain() {
     PublicUserInfo^ pui = gcnew PublicUserInfo(Convert::ToInt32(_database->dataReader[2]->ToString()), 
                                                _databaseData->dataReader[0]->ToString(),
                                                PublicUserInfo::Auth(Convert::ToInt32(_database->dataReader[3]->ToString())));
-   if (cbox_Remember->Checked) {
+    if (cbox_Remember->Checked) {
+        Clear_User();
         Check_Remember();
-   }
+    }
+    else {
+        Clear_User();
+    }
     MainWindow^ mw = gcnew MainWindow(pui);
     mw->Show();
 }

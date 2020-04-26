@@ -83,7 +83,7 @@ namespace WeAlumni {
 			this->ClientSize = System::Drawing::Size(363, 286);
 			this->Controls->Add(this->textBox1);
 			this->Name = L"SysForgotPassword";
-			this->Text = L"SysForgotPassword";
+			this->Text = L"Íü¼ÇÃÜÂë";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

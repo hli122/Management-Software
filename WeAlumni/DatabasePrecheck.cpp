@@ -22,13 +22,13 @@ using namespace System;
 Void WeAlumni::DatabasePrecheck::Initialize() {
 	exitStatus = false;
 	if (_databaseType == DatabaseType::admin) {
-		lbl_Prompt->Text = "Import Or Create An admin.db";
+		lbl_Prompt->Text = "导入或新建 admin.db 文件";
 	}
 	else if (_databaseType == DatabaseType::treasury) {
-		lbl_Prompt->Text = "Import Or Create An treasury.db";
+		lbl_Prompt->Text = "导入或新建 treasury.db 文件";
 	}
 	else {
-		lbl_Prompt->Text = "Import Or Create An data.db";
+		lbl_Prompt->Text = "导入或新建 data.db 文件";
 	}
 }
 

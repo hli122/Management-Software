@@ -74,17 +74,20 @@
   Xiangdong | DB Precheck
   Rui              | ChangePassword/SysInfo
 ----Testing----
-  Jiaying        | Order, Treasury
+  Jiaying        | Order, OPT
   Haoran       | Member, Staff
 
 4/25 - S8
 ----Main Window----
   Jiaying       | Member Translation
   Rui             | Staff Transaltion
+----Treasury----
+  Yiyun          | 更改因数据库变更需要修正的逻辑
 ----Testing----
-  
+  Haoran       | Member, Record
+  Sen             | Treasury, Staff
 ----None----
-  Yiyun
-  Sen
   Xiangdong
-  Haoran
+
+4/29 - S9
+MainWindow: Record, Orders, Button
