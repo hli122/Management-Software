@@ -210,6 +210,9 @@
     <EmbeddedResource Include="DatabasePrecheck.resx">
       <DependentUpon>DatabasePrecheck.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MemInfoPage.resx">
       <DependentUpon>MemInfoPage.h</DependentUpon>
     </EmbeddedResource>

@@ -57,11 +57,34 @@
 
 4/18 - S6
 ----Main Window----
-  Xiangdong | OPT
+  Xiangdong | OPT (C)
 ----翻译中文----
-  Jiaying        | Member
-  Haoran       | Order
-  Yiyun          | Treasury
+  Jiaying        | Member (C)
+  Haoran       | Order (C)
+  Yiyun          | Treasury (C)
   Sen             | Record
 ----  NONE  ----
   Rui
+
+4/22 - S7
+----Main Window----
+  Yiyun          | Treasury
+----Translation----
+  Sen             | Login/Record
+  Xiangdong | DB Precheck
+  Rui              | ChangePassword/SysInfo
+----Testing----
+  Jiaying        | Order, Treasury
+  Haoran       | Member, Staff
+
+4/25 - S8
+----Main Window----
+  Jiaying       | Member Translation
+  Rui             | Staff Transaltion
+----Testing----
+  
+----None----
+  Yiyun
+  Sen
+  Xiangdong
+  Haoran

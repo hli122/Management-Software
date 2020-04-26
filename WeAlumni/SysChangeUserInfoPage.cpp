@@ -56,7 +56,7 @@ Void WeAlumni::SysChangeUserInfoPage::UpdateInfo() {
         txt_changePass->Text = _database->dataReader->GetString(1);
     }
     else {
-        lbl_Error->Text = "Can't find the data";
+        lbl_Error->Text = "找不到用户";
         lbl_Error->Visible = true;
     }
 }
@@ -70,9 +70,9 @@ Void WeAlumni::SysChangeUserInfoPage::UpdateInfo() {
 Void WeAlumni::SysChangeUserInfoPage::btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e) {
     int status = -1;
     String^ command = "UPDATE Admin " +
-                      "SET    Username = '" + txt_changeUser->Text + "', " +
-                             "Password = '" + txt_changePass->Text + "' " +
-                      "WHERE  StfId = '" + _stfId + "';";
+        "SET    Username = '" + txt_changeUser->Text + "', " +
+        "Password = '" + txt_changePass->Text + "' " +
+        "WHERE  StfId = '" + _stfId + "';";
     try {
         status = _database->UpdateData(command);
     }
@@ -93,7 +93,7 @@ Void WeAlumni::SysChangeUserInfoPage::btn_Confirm_Click(System::Object^ sender, 
         btn_Cancle->Text = "Close";
     }
     else {
-        lbl_Error->Text = "ERROR";
+        lbl_Error->Text = "错误，无法更改用户名/密码";
         lbl_Error->Visible = true;
     }
 }
@@ -109,6 +109,7 @@ Void WeAlumni::SysChangeUserInfoPage::btn_Confirm_Click(System::Object^ sender, 
 Void WeAlumni::SysChangeUserInfoPage::btn_Cancle_Click(System::Object^ sender, System::EventArgs^ e) {
     UpdateInfo();
     if (btn_Cancle->Text == "Close") {
+        _database->dataReader->Close();
         this->Close();
     }
 }

@@ -9,6 +9,7 @@
  *
  * @author: Rui Jia
  * Revised: 4/12/20
+			4/25/20 changed English to Chinese
  *
  */
 
@@ -96,9 +97,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(134)));
 			this->lbl_prompt_changeUser->Location = System::Drawing::Point(29, 94);
 			this->lbl_prompt_changeUser->Name = L"lbl_prompt_changeUser";
-			this->lbl_prompt_changeUser->Size = System::Drawing::Size(185, 19);
+			this->lbl_prompt_changeUser->Size = System::Drawing::Size(149, 19);
 			this->lbl_prompt_changeUser->TabIndex = 0;
-			this->lbl_prompt_changeUser->Text = L"Change User Name";
+			this->lbl_prompt_changeUser->Text = L"（更改）用户名";
 			// 
 			// lbl_prompt_changePass
 			// 
@@ -108,9 +109,9 @@ namespace WeAlumni {
 				static_cast<System::Byte>(134)));
 			this->lbl_prompt_changePass->Location = System::Drawing::Point(29, 163);
 			this->lbl_prompt_changePass->Name = L"lbl_prompt_changePass";
-			this->lbl_prompt_changePass->Size = System::Drawing::Size(174, 19);
+			this->lbl_prompt_changePass->Size = System::Drawing::Size(129, 19);
 			this->lbl_prompt_changePass->TabIndex = 1;
-			this->lbl_prompt_changePass->Text = L"Change Password";
+			this->lbl_prompt_changePass->Text = L"（更改）密码";
 			// 
 			// txt_changeUser
 			// 
@@ -137,7 +138,7 @@ namespace WeAlumni {
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(223, 64);
 			this->btn_Confirm->TabIndex = 4;
-			this->btn_Confirm->Text = L"Confirm";
+			this->btn_Confirm->Text = L"确认更改";
 			this->btn_Confirm->UseVisualStyleBackColor = true;
 			this->btn_Confirm->Click += gcnew System::EventHandler(this, &SysChangeUserInfoPage::btn_Confirm_Click);
 			// 
@@ -150,7 +151,7 @@ namespace WeAlumni {
 			this->btn_Cancle->Name = L"btn_Cancle";
 			this->btn_Cancle->Size = System::Drawing::Size(223, 64);
 			this->btn_Cancle->TabIndex = 5;
-			this->btn_Cancle->Text = L"Cancle";
+			this->btn_Cancle->Text = L"取消更改";
 			this->btn_Cancle->UseVisualStyleBackColor = true;
 			this->btn_Cancle->Click += gcnew System::EventHandler(this, &SysChangeUserInfoPage::btn_Cancle_Click);
 			// 
@@ -163,9 +164,9 @@ namespace WeAlumni {
 			this->lbl_Error->ForeColor = System::Drawing::Color::Red;
 			this->lbl_Error->Location = System::Drawing::Point(238, 227);
 			this->lbl_Error->Name = L"lbl_Error";
-			this->lbl_Error->Size = System::Drawing::Size(64, 19);
+			this->lbl_Error->Size = System::Drawing::Size(49, 19);
 			this->lbl_Error->TabIndex = 6;
-			this->lbl_Error->Text = L"ERROR";
+			this->lbl_Error->Text = L"错误";
 			this->lbl_Error->Visible = false;
 			// 
 			// label1
@@ -174,11 +175,11 @@ namespace WeAlumni {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"SimSun", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(134)));
-			this->label1->Location = System::Drawing::Point(157, 29);
+			this->label1->Location = System::Drawing::Point(205, 26);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(264, 25);
+			this->label1->Size = System::Drawing::Size(116, 25);
 			this->label1->TabIndex = 7;
-			this->label1->Text = L"Change Information";
+			this->label1->Text = L"修改信息";
 			// 
 			// SysChangeUserInfoPage
 			// 
@@ -194,10 +195,11 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_prompt_changePass);
 			this->Controls->Add(this->lbl_prompt_changeUser);
 			this->Name = L"SysChangeUserInfoPage";
-			this->Text = L"SysChangeUserInfoPage";
+			this->Text = L"修改用户信息页面";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 		}
+
 	private:
 		int _stfId;
 		Database^ _database;
