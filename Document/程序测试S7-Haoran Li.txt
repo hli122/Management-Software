@@ -1,0 +1,14 @@
+MemInfoPage
+未测出问题
+
+MemAddPage
+功能正常
+
+StfInfoPage
+打开时按钮未显示，或者显示但不可用
+
+StfAddPage
+功能正常
+
+注：MemInfoPage，StfInfoPage第一次打开时均出现按钮未显示的情况，但MemInfopage此后正常
+    可能是我电脑的问题
