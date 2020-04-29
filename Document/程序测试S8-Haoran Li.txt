@@ -1,0 +1,21 @@
+Member MainWindow
+功能正常
+1. 双击显示Infopage没问题，但有时反应会很慢，此情况其他的MainWindow也会出现
+
+MemInfoPage
+功能正常
+1.成员一行与姓名一行可以lbl_prompt_xx, lbl_xx 的内容可以调整至处于同一水平线上
+
+MemAddPage
+功能正常
+
+Record MainWindow
+1. 未能实现：双击数据区数据显示对应RecInfoPage。
+	      1)RecInfoPage^ rip = gcnew RecInfoPage(...(ord_dataGridView->...)); 改为：
+		RecInfoPage^ rip = gcnew RecInfoPage(...(Rec_dataGridView->...));
+              2) 1)处修改后，还有其他问题，没找出
+2. 没有初始化： Void WeAlumni::MainWindow::Initialize()中需加入：    
+		Rec_UpdateDataGridView(REC_SELECT_ALL);
+    		Rec_GeneralInformation();	
+3. 数据区每项title应该改成中文
+4. 最新版本下，中文为乱码。猜测是Member MainWindow改中文后产生的兼容问题
