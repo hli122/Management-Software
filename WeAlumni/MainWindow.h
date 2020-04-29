@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Database.h"
 #include "MemInfoPage.h"
 #include "MemAddPage.h"
@@ -13,7 +13,7 @@
 #define STF_SELECT_ALL "SELECT Staff.MemId AS 'ID', Member.Name As 'Name', Member.Gender AS 'Gender', Member.Email AS 'Email', Staff.Dept As 'Department', Staff.Position As 'Position', Staff.Auth As 'Auth' FROM Member, Staff WHERE Staff.MemId = Member.Id ORDER BY Staff.MemId ASC"
 #define ORD_SELECT_ALL "SELECT Orders.Id AS 'OrderId', Orders.Status As 'Status', Orders.Time AS 'Time', Member.Name AS 'MemName', Member.Email As 'Email', Item.Name As 'ItmName', Orders.Amount As 'Amount', Item.Price As 'ItmPrice', Orders.Comment As 'Comment' FROM Orders, Member, Item WHERE Orders.MemId = Member.Id AND Orders.ItemId = Item.Id ORDER BY Member.Id ASC"
 #define REC_SELECT_ALL "SELECT Record.Id AS 'RecordId', Record.Time AS 'Time', Record.StfId AS 'StfId', Record.Memname AS 'MemName', Staff.Dept AS 'Department', Staff.Position AS 'Position', Record.Action AS 'Action' FROM Record, Staff WHERE Staff.MemId = Record.StfId"
-#define OPT_SELECT_ALL "SELECT OPT.Id AS 'OPT���', OPT.Status AS '״̬', (SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS '��Ա����' , (SELECT Member.Name FROM Member INNER JOIN Staff INNER JOIN OPT WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)  AS 'Ա������', OPT.StartDate AS '��ʼ����', OPT.EndDate AS '��������', OPT.Title AS 'ͷ��', OPT.Position AS 'ְλ' FROM OPT"
+#define OPT_SELECT_ALL "SELECT OPT.Id AS 'OPT±àºÅ', OPT.Status AS '×´Ì¬', (SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS '³ÉÔ±ÐÕÃû' , (SELECT Member.Name FROM Member INNER JOIN Staff INNER JOIN OPT WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)  AS 'Ô±¹¤ÐÕÃû', OPT.StartDate AS '¿ªÊ¼ÈÕÆÚ', OPT.EndDate AS '½áÊøÈÕÆÚ', OPT.Title AS 'Í·ÏÎ', OPT.Position AS 'Ö°Î»' FROM OPT"
 
 /*
  * MainWindow.h
@@ -154,10 +154,10 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Label^ rec_lbl_prompt_total;
 	private: System::Windows::Forms::Panel^ pan_member;
 	private: System::Windows::Forms::Label^ mem_lbl_Count;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Total;
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_总数;
 	private: System::Windows::Forms::Label^ mem_Prompt_PgInfo;
 	private: System::Windows::Forms::Label^ mem_Prompt_ViewInfo;
-	private: System::Windows::Forms::Label^ mem_Prompt_Result;
+private: System::Windows::Forms::Label^ mem_Prompt_查询结果;
 	private: System::Windows::Forms::Label^ mem_lbl_error;
 	private: System::Windows::Forms::Button^ mem_btn_Import;
 	private: System::Windows::Forms::Button^ mem_btn_Add;
@@ -172,15 +172,32 @@ namespace WeAlumni {
 	private: System::Windows::Forms::TextBox^ mem_txt_Name;
 	private: System::Windows::Forms::TextBox^ mem_txt_Major;
 	private: System::Windows::Forms::TextBox^ mem_txt_Id;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_SearchAuth;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Major;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_CareerStatus;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Gender;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Name;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Type;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Status;
-	private: System::Windows::Forms::Label^ mem_lbl_Prompt_Id;
-	private: System::Windows::Forms::Splitter^ mem_splitter2;
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_SearchAuth;
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Major;
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_CareerStatus;
+
+
+
+
+
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Gender;
+
+
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Name;
+
+
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Type;
+
+
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Status;
+
+
+private: System::Windows::Forms::Label^ mem_lbl_Prompt_Id;
+
+
+
+
+
 	private: System::Windows::Forms::Splitter^ splitter2;
 	private: System::Windows::Forms::DataGridView^ OPT_dataGridView;
 	private: System::Windows::Forms::Splitter^ splitter1;
@@ -202,6 +219,10 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Button^ OPT_btn_New;
 	private: System::Windows::Forms::Button^ OPT_btn_Clear;
 	private: System::Windows::Forms::Button^ OPT_btn_Search;
+private: System::Windows::Forms::Panel^ mem_panel4;
+private: System::Windows::Forms::Panel^ mem_panel3;
+private: System::Windows::Forms::Panel^ mem_panel1;
+private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Panel^ pan_myInfo;
 
 #pragma region Windows Form Designer generated code
@@ -212,6 +233,59 @@ namespace WeAlumni {
 		   void InitializeComponent(void)
 		   {
 			   this->toolStripContainer1 = (gcnew System::Windows::Forms::ToolStripContainer());
+			   this->pan_member = (gcnew System::Windows::Forms::Panel());
+			   this->mem_panel4 = (gcnew System::Windows::Forms::Panel());
+			   this->mem_lbl_error = (gcnew System::Windows::Forms::Label());
+			   this->mem_dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			   this->mem_panel3 = (gcnew System::Windows::Forms::Panel());
+			   this->mem_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
+			   this->mem_Prompt_查询结果 = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Count = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Prompt_总数 = (gcnew System::Windows::Forms::Label());
+			   this->mem_panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->panel2 = (gcnew System::Windows::Forms::Panel());
+			   this->mem_cmb_SearchAuth = (gcnew System::Windows::Forms::ComboBox());
+			   this->mem_cmb_Status = (gcnew System::Windows::Forms::ComboBox());
+			   this->mem_txt_Gender = (gcnew System::Windows::Forms::TextBox());
+			   this->mem_Prompt_PgInfo = (gcnew System::Windows::Forms::Label());
+			   this->mem_txt_Name = (gcnew System::Windows::Forms::TextBox());
+			   this->mem_txt_Major = (gcnew System::Windows::Forms::TextBox());
+			   this->mem_btn_Import = (gcnew System::Windows::Forms::Button());
+			   this->mem_txt_Id = (gcnew System::Windows::Forms::TextBox());
+			   this->mem_btn_Add = (gcnew System::Windows::Forms::Button());
+			   this->mem_lbl_Prompt_SearchAuth = (gcnew System::Windows::Forms::Label());
+			   this->mem_btn_Clear = (gcnew System::Windows::Forms::Button());
+			   this->mem_btn_Search = (gcnew System::Windows::Forms::Button());
+			   this->mem_lbl_Prompt_Major = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Prompt_Gender = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Prompt_Type = (gcnew System::Windows::Forms::Label());
+			   this->mem_cmb_Type = (gcnew System::Windows::Forms::ComboBox());
+			   this->mem_lbl_Prompt_Status = (gcnew System::Windows::Forms::Label());
+			   this->mem_cmb_CareerStatus = (gcnew System::Windows::Forms::ComboBox());
+			   this->mem_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
+			   this->mem_lbl_Prompt_CareerStatus = (gcnew System::Windows::Forms::Label());
+			   this->pan_staff = (gcnew System::Windows::Forms::Panel());
+			   this->label1 = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_SearchResult = (gcnew System::Windows::Forms::Label());
+			   this->stf_splitter3 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_splitter2 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_dataGridView = (gcnew System::Windows::Forms::DataGridView());
+			   this->stf_splitter1 = (gcnew System::Windows::Forms::Splitter());
+			   this->stf_lbl_Count = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Count = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Error = (gcnew System::Windows::Forms::Label());
+			   this->stf_cmb_Auth = (gcnew System::Windows::Forms::ComboBox());
+			   this->stf_cmb_Dept = (gcnew System::Windows::Forms::ComboBox());
+			   this->stf_btn_Clear = (gcnew System::Windows::Forms::Button());
+			   this->stf_btn_Search = (gcnew System::Windows::Forms::Button());
+			   this->stf_txt_Name = (gcnew System::Windows::Forms::TextBox());
+			   this->stf_txt_Id = (gcnew System::Windows::Forms::TextBox());
+			   this->stf_lbl_Prompt_Auth = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Dept = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
+			   this->stf_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
+			   this->stf_btn_Add = (gcnew System::Windows::Forms::Button());
 			   this->pan_record = (gcnew System::Windows::Forms::Panel());
 			   this->rec_lbl_Count = (gcnew System::Windows::Forms::Label());
 			   this->rec_lbl_prompt_total = (gcnew System::Windows::Forms::Label());
@@ -275,60 +349,6 @@ namespace WeAlumni {
 			   this->ord_txt_ordId = (gcnew System::Windows::Forms::TextBox());
 			   this->ord_lbl_Prompt_ordId = (gcnew System::Windows::Forms::Label());
 			   this->ord_splitter = (gcnew System::Windows::Forms::Splitter());
-			   this->pan_member = (gcnew System::Windows::Forms::Panel());
-			   this->mem_lbl_Count = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Total = (gcnew System::Windows::Forms::Label());
-			   this->mem_Prompt_PgInfo = (gcnew System::Windows::Forms::Label());
-			   this->mem_Prompt_ViewInfo = (gcnew System::Windows::Forms::Label());
-			   this->mem_Prompt_Result = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_error = (gcnew System::Windows::Forms::Label());
-			   this->mem_btn_Import = (gcnew System::Windows::Forms::Button());
-			   this->mem_btn_Add = (gcnew System::Windows::Forms::Button());
-			   this->mem_btn_Clear = (gcnew System::Windows::Forms::Button());
-			   this->mem_btn_Search = (gcnew System::Windows::Forms::Button());
-			   this->mem_cmb_CareerStatus = (gcnew System::Windows::Forms::ComboBox());
-			   this->mem_dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			   this->mem_cmb_SearchAuth = (gcnew System::Windows::Forms::ComboBox());
-			   this->mem_cmb_Type = (gcnew System::Windows::Forms::ComboBox());
-			   this->mem_cmb_Status = (gcnew System::Windows::Forms::ComboBox());
-			   this->mem_txt_Gender = (gcnew System::Windows::Forms::TextBox());
-			   this->mem_txt_Name = (gcnew System::Windows::Forms::TextBox());
-			   this->mem_txt_Major = (gcnew System::Windows::Forms::TextBox());
-			   this->mem_txt_Id = (gcnew System::Windows::Forms::TextBox());
-			   this->mem_lbl_Prompt_SearchAuth = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Major = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_CareerStatus = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Gender = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Type = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Status = (gcnew System::Windows::Forms::Label());
-			   this->mem_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
-			   this->mem_splitter2 = (gcnew System::Windows::Forms::Splitter());
-			   this->pan_staff = (gcnew System::Windows::Forms::Panel());
-			   this->label1 = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_SearchResult = (gcnew System::Windows::Forms::Label());
-			   this->stf_splitter3 = (gcnew System::Windows::Forms::Splitter());
-			   this->stf_splitter2 = (gcnew System::Windows::Forms::Splitter());
-			   this->stf_dataGridView = (gcnew System::Windows::Forms::DataGridView());
-			   this->stf_splitter1 = (gcnew System::Windows::Forms::Splitter());
-			   this->stf_lbl_Count = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Count = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Error = (gcnew System::Windows::Forms::Label());
-			   this->stf_cmb_Auth = (gcnew System::Windows::Forms::ComboBox());
-			   this->stf_cmb_Dept = (gcnew System::Windows::Forms::ComboBox());
-			   this->stf_btn_Clear = (gcnew System::Windows::Forms::Button());
-			   this->stf_btn_Search = (gcnew System::Windows::Forms::Button());
-			   this->stf_txt_Name = (gcnew System::Windows::Forms::TextBox());
-			   this->stf_txt_Id = (gcnew System::Windows::Forms::TextBox());
-			   this->stf_lbl_Prompt_Auth = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Dept = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Name = (gcnew System::Windows::Forms::Label());
-			   this->stf_lbl_Prompt_Id = (gcnew System::Windows::Forms::Label());
-			   this->stf_btn_Add = (gcnew System::Windows::Forms::Button());
-			   this->pan_OPT = (gcnew System::Windows::Forms::Panel());
-			   this->pan_treasury = (gcnew System::Windows::Forms::Panel());
-			   this->pan_myInfo = (gcnew System::Windows::Forms::Panel());
-			   this->pan_record = (gcnew System::Windows::Forms::Panel());
 			   this->ms_panelOptions = (gcnew System::Windows::Forms::MenuStrip());
 			   this->tsm_member = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->tsm_staff = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -345,16 +365,19 @@ namespace WeAlumni {
 			   this->toolStripContainer1->LeftToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
 			   this->toolStripContainer1->SuspendLayout();
+			   this->pan_member->SuspendLayout();
+			   this->mem_panel4->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->BeginInit();
+			   this->mem_panel3->SuspendLayout();
+			   this->mem_panel1->SuspendLayout();
+			   this->pan_staff->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->BeginInit();
 			   this->pan_record->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Rec_dataGridView))->BeginInit();
 			   this->pan_OPT->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->OPT_dataGridView))->BeginInit();
 			   this->pan_order->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ord_dataGridView))->BeginInit();
-			   this->pan_member->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->BeginInit();
-			   this->pan_staff->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->BeginInit();
 			   this->ms_panelOptions->SuspendLayout();
 			   this->ms_systemOptions->SuspendLayout();
 			   this->SuspendLayout();
@@ -364,15 +387,15 @@ namespace WeAlumni {
 			   // 
 			   // toolStripContainer1.ContentPanel
 			   // 
+			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_member);
+			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_staff);
+			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_record);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_OPT);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_treasury);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_myInfo);
 			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_order);
-			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_member);
-			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_staff);
-			   this->toolStripContainer1->ContentPanel->Controls->Add(this->pan_record);
 			   this->toolStripContainer1->ContentPanel->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size(982, 635);
+			   this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size(982, 636);
 			   this->toolStripContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   // 
 			   // toolStripContainer1.LeftToolStripPanel
@@ -389,898 +412,304 @@ namespace WeAlumni {
 			   // 
 			   this->toolStripContainer1->TopToolStripPanel->Controls->Add(this->ms_systemOptions);
 			   // 
-			   // pan_record
-			   // 
-			   this->pan_record->Controls->Add(this->rec_lbl_Count);
-			   this->pan_record->Controls->Add(this->rec_lbl_prompt_total);
-			   this->pan_record->Controls->Add(this->Rec_lbl_Error);
-			   this->pan_record->Controls->Add(this->Rec_dataGridView);
-			   this->pan_record->Controls->Add(this->Rec_btn_Clear);
-			   this->pan_record->Controls->Add(this->Rec_btn_RecSearch);
-			   this->pan_record->Controls->Add(this->Rec_txt_department);
-			   this->pan_record->Controls->Add(this->Rec_txt_MemName);
-			   this->pan_record->Controls->Add(this->Rec_txt_StfId);
-			   this->pan_record->Controls->Add(this->Rec_txt_RecId);
-			   this->pan_record->Controls->Add(this->rec_lbl_prompt_department);
-			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_MemName);
-			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_StfId);
-			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_RecId);
-			   this->pan_record->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_record->Location = System::Drawing::Point(0, 0);
-			   this->pan_record->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			   this->pan_record->Name = L"pan_record";
-			   this->pan_record->Size = System::Drawing::Size(1359, 784);
-			   this->pan_record->TabIndex = 4;
-			   // 
-			   // rec_lbl_Count
-			   // 
-			   this->rec_lbl_Count->AutoSize = true;
-			   this->rec_lbl_Count->Location = System::Drawing::Point(138, 338);
-			   this->rec_lbl_Count->Name = L"rec_lbl_Count";
-			   this->rec_lbl_Count->Size = System::Drawing::Size(16, 17);
-			   this->rec_lbl_Count->TabIndex = 13;
-			   this->rec_lbl_Count->Text = L"0";
-			   // 
-			   // rec_lbl_prompt_total
-			   // 
-			   this->rec_lbl_prompt_total->AutoSize = true;
-			   this->rec_lbl_prompt_total->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->rec_lbl_prompt_total->Location = System::Drawing::Point(61, 335);
-			   this->rec_lbl_prompt_total->Name = L"rec_lbl_prompt_total";
-			   this->rec_lbl_prompt_total->Size = System::Drawing::Size(62, 20);
-			   this->rec_lbl_prompt_total->TabIndex = 12;
-			   this->rec_lbl_prompt_total->Text = L"�ܼ�:";
-			   // 
-			   // Rec_lbl_Error
-			   // 
-			   this->Rec_lbl_Error->AutoSize = true;
-			   this->Rec_lbl_Error->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_lbl_Error->ForeColor = System::Drawing::Color::Red;
-			   this->Rec_lbl_Error->Location = System::Drawing::Point(555, 320);
-			   this->Rec_lbl_Error->Name = L"Rec_lbl_Error";
-			   this->Rec_lbl_Error->Size = System::Drawing::Size(93, 20);
-			   this->Rec_lbl_Error->TabIndex = 11;
-			   this->Rec_lbl_Error->Text = L"������Ϣ";
-			   // 
-			   // Rec_dataGridView
-			   // 
-			   this->Rec_dataGridView->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
-			   this->Rec_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->Rec_dataGridView->Location = System::Drawing::Point(53, 385);
-			   this->Rec_dataGridView->Name = L"Rec_dataGridView";
-			   this->Rec_dataGridView->RowHeadersWidth = 51;
-			   this->Rec_dataGridView->RowTemplate->Height = 24;
-			   this->Rec_dataGridView->Size = System::Drawing::Size(1121, 276);
-			   this->Rec_dataGridView->TabIndex = 10;
-			   // 
-			   // Rec_btn_Clear
-			   // 
-			   this->Rec_btn_Clear->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_btn_Clear->Location = System::Drawing::Point(837, 115);
-			   this->Rec_btn_Clear->Name = L"Rec_btn_Clear";
-			   this->Rec_btn_Clear->Size = System::Drawing::Size(79, 37);
-			   this->Rec_btn_Clear->TabIndex = 9;
-			   this->Rec_btn_Clear->Text = L"���";
-			   this->Rec_btn_Clear->UseVisualStyleBackColor = true;
-			   this->Rec_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::Rec_btn_Clear_Click);
-			   // 
-			   // Rec_btn_RecSearch
-			   // 
-			   this->Rec_btn_RecSearch->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_btn_RecSearch->Location = System::Drawing::Point(837, 50);
-			   this->Rec_btn_RecSearch->Name = L"Rec_btn_RecSearch";
-			   this->Rec_btn_RecSearch->Size = System::Drawing::Size(79, 37);
-			   this->Rec_btn_RecSearch->TabIndex = 8;
-			   this->Rec_btn_RecSearch->Text = L"��ѯ";
-			   this->Rec_btn_RecSearch->UseVisualStyleBackColor = true;
-			   this->Rec_btn_RecSearch->Click += gcnew System::EventHandler(this, &MainWindow::Rec_btn_Search_Click);
-			   // 
-			   // Rec_txt_department
-			   // 
-			   this->Rec_txt_department->Location = System::Drawing::Point(587, 111);
-			   this->Rec_txt_department->Name = L"Rec_txt_department";
-			   this->Rec_txt_department->Size = System::Drawing::Size(100, 22);
-			   this->Rec_txt_department->TabIndex = 7;
-			   // 
-			   // Rec_txt_MemName
-			   // 
-			   this->Rec_txt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_txt_MemName->Location = System::Drawing::Point(587, 56);
-			   this->Rec_txt_MemName->Name = L"Rec_txt_MemName";
-			   this->Rec_txt_MemName->Size = System::Drawing::Size(100, 22);
-			   this->Rec_txt_MemName->TabIndex = 6;
-			   // 
-			   // Rec_txt_StfId
-			   // 
-			   this->Rec_txt_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_txt_StfId->Location = System::Drawing::Point(185, 112);
-			   this->Rec_txt_StfId->Name = L"Rec_txt_StfId";
-			   this->Rec_txt_StfId->Size = System::Drawing::Size(100, 22);
-			   this->Rec_txt_StfId->TabIndex = 5;
-			   // 
-			   // Rec_txt_RecId
-			   // 
-			   this->Rec_txt_RecId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_txt_RecId->Location = System::Drawing::Point(185, 57);
-			   this->Rec_txt_RecId->Name = L"Rec_txt_RecId";
-			   this->Rec_txt_RecId->Size = System::Drawing::Size(100, 22);
-			   this->Rec_txt_RecId->TabIndex = 4;
-			   // 
-			   // rec_lbl_prompt_department
-			   // 
-			   this->rec_lbl_prompt_department->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->rec_lbl_prompt_department->AutoSize = true;
-			   this->rec_lbl_prompt_department->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->rec_lbl_prompt_department->Location = System::Drawing::Point(465, 115);
-			   this->rec_lbl_prompt_department->Name = L"rec_lbl_prompt_department";
-			   this->rec_lbl_prompt_department->Size = System::Drawing::Size(114, 20);
-			   this->rec_lbl_prompt_department->TabIndex = 3;
-			   this->rec_lbl_prompt_department->Text = L"���ڲ��ţ�";
-			   // 
-			   // Rec_lbl_Prompt_MemName
-			   // 
-			   this->Rec_lbl_Prompt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_lbl_Prompt_MemName->AutoSize = true;
-			   this->Rec_lbl_Prompt_MemName->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_lbl_Prompt_MemName->Location = System::Drawing::Point(465, 57);
-			   this->Rec_lbl_Prompt_MemName->Name = L"Rec_lbl_Prompt_MemName";
-			   this->Rec_lbl_Prompt_MemName->Size = System::Drawing::Size(114, 20);
-			   this->Rec_lbl_Prompt_MemName->TabIndex = 2;
-			   this->Rec_lbl_Prompt_MemName->Text = L"Ա��������";
-			   this->Rec_lbl_Prompt_MemName->Click += gcnew System::EventHandler(this, &MainWindow::lbl_Prompt_MemName_Click);
-			   // 
-			   // Rec_lbl_Prompt_StfId
-			   // 
-			   this->Rec_lbl_Prompt_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_lbl_Prompt_StfId->AutoSize = true;
-			   this->Rec_lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_lbl_Prompt_StfId->Location = System::Drawing::Point(72, 115);
-			   this->Rec_lbl_Prompt_StfId->Name = L"Rec_lbl_Prompt_StfId";
-			   this->Rec_lbl_Prompt_StfId->Size = System::Drawing::Size(114, 20);
-			   this->Rec_lbl_Prompt_StfId->TabIndex = 1;
-			   this->Rec_lbl_Prompt_StfId->Text = L"Ա����ţ�";
-			   // 
-			   // Rec_lbl_Prompt_RecId
-			   // 
-			   this->Rec_lbl_Prompt_RecId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->Rec_lbl_Prompt_RecId->AutoSize = true;
-			   this->Rec_lbl_Prompt_RecId->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Rec_lbl_Prompt_RecId->Location = System::Drawing::Point(72, 57);
-			   this->Rec_lbl_Prompt_RecId->Name = L"Rec_lbl_Prompt_RecId";
-			   this->Rec_lbl_Prompt_RecId->Size = System::Drawing::Size(114, 20);
-			   this->Rec_lbl_Prompt_RecId->TabIndex = 0;
-			   this->Rec_lbl_Prompt_RecId->Text = L"��¼��ţ�";
-			   // pan_OPT
-			   // 
-			   this->pan_OPT->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->pan_OPT->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			   this->pan_OPT->Controls->Add(this->OPT_btn_New);
-			   this->pan_OPT->Controls->Add(this->OPT_btn_Clear);
-			   this->pan_OPT->Controls->Add(this->OPT_btn_Search);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_default);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Count);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_count);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_result);
-			   this->pan_OPT->Controls->Add(this->OPT_cmb_Status);
-			   this->pan_OPT->Controls->Add(this->OPT_txt_MemId);
-			   this->pan_OPT->Controls->Add(this->OPT_txt_CardNumber);
-			   this->pan_OPT->Controls->Add(this->OPT_txt_MemName);
-			   this->pan_OPT->Controls->Add(this->OPT_txt_OPTId);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_error);
-			   this->pan_OPT->Controls->Add(this->splitter2);
-			   this->pan_OPT->Controls->Add(this->OPT_dataGridView);
-			   this->pan_OPT->Controls->Add(this->splitter1);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_Active);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_MemId);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_MemName);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_CardNumber);
-			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_OPTId);
-			   this->pan_OPT->Location = System::Drawing::Point(0, 0);
-			   this->pan_OPT->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_OPT->Name = L"pan_OPT";
-			   this->pan_OPT->Size = System::Drawing::Size(982, 635);
-			   this->pan_OPT->TabIndex = 3;
-			   // 
-			   // OPT_btn_New
-			   // 
-			   this->OPT_btn_New->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_btn_New->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->OPT_btn_New->Location = System::Drawing::Point(869, 130);
-			   this->OPT_btn_New->Name = L"OPT_btn_New";
-			   this->OPT_btn_New->Size = System::Drawing::Size(84, 31);
-			   this->OPT_btn_New->TabIndex = 28;
-			   this->OPT_btn_New->Text = L"����";
-			   this->OPT_btn_New->UseVisualStyleBackColor = true;
-			   this->OPT_btn_New->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_New_Click);
-			   // 
-			   // OPT_btn_Clear
-			   // 
-			   this->OPT_btn_Clear->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_btn_Clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->OPT_btn_Clear->Location = System::Drawing::Point(731, 130);
-			   this->OPT_btn_Clear->Name = L"OPT_btn_Clear";
-			   this->OPT_btn_Clear->Size = System::Drawing::Size(84, 31);
-			   this->OPT_btn_Clear->TabIndex = 27;
-			   this->OPT_btn_Clear->Text = L"���";
-			   this->OPT_btn_Clear->UseVisualStyleBackColor = true;
-			   this->OPT_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_Clear_Click);
-			   // 
-			   // OPT_btn_Search
-			   // 
-			   this->OPT_btn_Search->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_btn_Search->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->OPT_btn_Search->Location = System::Drawing::Point(593, 130);
-			   this->OPT_btn_Search->Name = L"OPT_btn_Search";
-			   this->OPT_btn_Search->Size = System::Drawing::Size(84, 31);
-			   this->OPT_btn_Search->TabIndex = 26;
-			   this->OPT_btn_Search->Text = L"��ѯ";
-			   this->OPT_btn_Search->UseVisualStyleBackColor = true;
-			   this->OPT_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_Search_Click);
-			   // 
-			   // OPT_lbl_Prompt_default
-			   // 
-			   this->OPT_lbl_Prompt_default->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_default->AutoSize = true;
-			   this->OPT_lbl_Prompt_default->BackColor = System::Drawing::Color::White;
-			   this->OPT_lbl_Prompt_default->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_default->Location = System::Drawing::Point(763, 233);
-			   this->OPT_lbl_Prompt_default->Name = L"OPT_lbl_Prompt_default";
-			   this->OPT_lbl_Prompt_default->Size = System::Drawing::Size(135, 16);
-			   this->OPT_lbl_Prompt_default->TabIndex = 25;
-			   this->OPT_lbl_Prompt_default->Text = L"��ʾĬ��OPT��Ϣ";
-			   // 
-			   // OPT_lbl_Count
-			   // 
-			   this->OPT_lbl_Count->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Count->AutoSize = true;
-			   this->OPT_lbl_Count->BackColor = System::Drawing::Color::White;
-			   this->OPT_lbl_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Count->Location = System::Drawing::Point(149, 233);
-			   this->OPT_lbl_Count->Name = L"OPT_lbl_Count";
-			   this->OPT_lbl_Count->Size = System::Drawing::Size(34, 16);
-			   this->OPT_lbl_Count->TabIndex = 24;
-			   this->OPT_lbl_Count->Text = L"N/A";
-			   // 
-			   // OPT_lbl_Prompt_count
-			   // 
-			   this->OPT_lbl_Prompt_count->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_count->AutoSize = true;
-			   this->OPT_lbl_Prompt_count->BackColor = System::Drawing::Color::White;
-			   this->OPT_lbl_Prompt_count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_count->Location = System::Drawing::Point(46, 233);
-			   this->OPT_lbl_Prompt_count->Name = L"OPT_lbl_Prompt_count";
-			   this->OPT_lbl_Prompt_count->Size = System::Drawing::Size(44, 16);
-			   this->OPT_lbl_Prompt_count->TabIndex = 23;
-			   this->OPT_lbl_Prompt_count->Text = L"�ܼ�:";
-			   // 
-			   // OPT_lbl_Prompt_result
-			   // 
-			   this->OPT_lbl_Prompt_result->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_result->AutoSize = true;
-			   this->OPT_lbl_Prompt_result->BackColor = System::Drawing::Color::White;
-			   this->OPT_lbl_Prompt_result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_result->Location = System::Drawing::Point(426, 233);
-			   this->OPT_lbl_Prompt_result->Name = L"OPT_lbl_Prompt_result";
-			   this->OPT_lbl_Prompt_result->Size = System::Drawing::Size(100, 25);
-			   this->OPT_lbl_Prompt_result->TabIndex = 22;
-			   this->OPT_lbl_Prompt_result->Text = L"�������";
-			   // 
-			   // OPT_cmb_Status
-			   // 
-			   this->OPT_cmb_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_cmb_Status->FormattingEnabled = true;
-			   this->OPT_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Active", L"Invalid" });
-			   this->OPT_cmb_Status->Location = System::Drawing::Point(418, 34);
-			   this->OPT_cmb_Status->Name = L"OPT_cmb_Status";
-			   this->OPT_cmb_Status->Size = System::Drawing::Size(121, 21);
-			   this->OPT_cmb_Status->TabIndex = 21;
-			   // 
-			   // OPT_txt_MemId
-			   // 
-			   this->OPT_txt_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_txt_MemId->Location = System::Drawing::Point(149, 95);
-			   this->OPT_txt_MemId->Name = L"OPT_txt_MemId";
-			   this->OPT_txt_MemId->Size = System::Drawing::Size(100, 20);
-			   this->OPT_txt_MemId->TabIndex = 20;
-			   // 
-			   // OPT_txt_CardNumber
-			   // 
-			   this->OPT_txt_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_txt_CardNumber->Location = System::Drawing::Point(151, 156);
-			   this->OPT_txt_CardNumber->Name = L"OPT_txt_CardNumber";
-			   this->OPT_txt_CardNumber->Size = System::Drawing::Size(100, 20);
-			   this->OPT_txt_CardNumber->TabIndex = 19;
-			   // 
-			   // OPT_txt_MemName
-			   // 
-			   this->OPT_txt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_txt_MemName->Location = System::Drawing::Point(419, 98);
-			   this->OPT_txt_MemName->Name = L"OPT_txt_MemName";
-			   this->OPT_txt_MemName->Size = System::Drawing::Size(100, 20);
-			   this->OPT_txt_MemName->TabIndex = 18;
-			   // 
-			   // OPT_txt_OPTId
-			   // 
-			   this->OPT_txt_OPTId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_txt_OPTId->Location = System::Drawing::Point(149, 34);
-			   this->OPT_txt_OPTId->Name = L"OPT_txt_OPTId";
-			   this->OPT_txt_OPTId->Size = System::Drawing::Size(100, 20);
-			   this->OPT_txt_OPTId->TabIndex = 17;
-			   // 
-			   // OPT_lbl_error
-			   // 
-			   this->OPT_lbl_error->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_error->AutoSize = true;
-			   this->OPT_lbl_error->BackColor = System::Drawing::Color::White;
-			   this->OPT_lbl_error->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->OPT_lbl_error->ForeColor = System::Drawing::Color::Red;
-			   this->OPT_lbl_error->Location = System::Drawing::Point(447, 445);
-			   this->OPT_lbl_error->Name = L"OPT_lbl_error";
-			   this->OPT_lbl_error->Size = System::Drawing::Size(94, 20);
-			   this->OPT_lbl_error->TabIndex = 16;
-			   this->OPT_lbl_error->Text = L"���������";
-			   // 
-			   // splitter2
-			   // 
-			   this->splitter2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			   this->splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->splitter2->Location = System::Drawing::Point(0, 199);
-			   this->splitter2->Name = L"splitter2";
-			   this->splitter2->Size = System::Drawing::Size(982, 84);
-			   this->splitter2->TabIndex = 15;
-			   this->splitter2->TabStop = false;
-			   // 
-			   // OPT_dataGridView
-			   // 
-			   this->OPT_dataGridView->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->OPT_dataGridView->Location = System::Drawing::Point(0, 284);
-			   this->OPT_dataGridView->Name = L"OPT_dataGridView";
-			   this->OPT_dataGridView->ReadOnly = true;
-			   this->OPT_dataGridView->Size = System::Drawing::Size(982, 352);
-			   this->OPT_dataGridView->TabIndex = 13;
-			   this->OPT_dataGridView->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::OPT_dataGridView_CellDoubleClick);
-			   // 
-			   // splitter1
-			   // 
-			   this->splitter1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->splitter1->Location = System::Drawing::Point(0, 283);
-			   this->splitter1->Name = L"splitter1";
-			   this->splitter1->Size = System::Drawing::Size(982, 352);
-			   this->splitter1->TabIndex = 14;
-			   this->splitter1->TabStop = false;
-			   // 
-			   // OPT_lbl_Prompt_Active
-			   // 
-			   this->OPT_lbl_Prompt_Active->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_Active->AutoSize = true;
-			   this->OPT_lbl_Prompt_Active->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_Active->Location = System::Drawing::Point(321, 36);
-			   this->OPT_lbl_Prompt_Active->Name = L"OPT_lbl_Prompt_Active";
-			   this->OPT_lbl_Prompt_Active->Size = System::Drawing::Size(38, 16);
-			   this->OPT_lbl_Prompt_Active->TabIndex = 12;
-			   this->OPT_lbl_Prompt_Active->Text = L"״̬";
-			   // 
-			   // OPT_lbl_Prompt_MemId
-			   // 
-			   this->OPT_lbl_Prompt_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_MemId->AutoSize = true;
-			   this->OPT_lbl_Prompt_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_MemId->Location = System::Drawing::Point(51, 97);
-			   this->OPT_lbl_Prompt_MemId->Name = L"OPT_lbl_Prompt_MemId";
-			   this->OPT_lbl_Prompt_MemId->Size = System::Drawing::Size(68, 16);
-			   this->OPT_lbl_Prompt_MemId->TabIndex = 11;
-			   this->OPT_lbl_Prompt_MemId->Text = L"��Ա���";
-			   // 
-			   // OPT_lbl_Prompt_MemName
-			   // 
-			   this->OPT_lbl_Prompt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_MemName->AutoSize = true;
-			   this->OPT_lbl_Prompt_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_MemName->Location = System::Drawing::Point(321, 100);
-			   this->OPT_lbl_Prompt_MemName->Name = L"OPT_lbl_Prompt_MemName";
-			   this->OPT_lbl_Prompt_MemName->Size = System::Drawing::Size(68, 16);
-			   this->OPT_lbl_Prompt_MemName->TabIndex = 10;
-			   this->OPT_lbl_Prompt_MemName->Text = L"��Ա����";
-			   // 
-			   // OPT_lbl_Prompt_CardNumber
-			   // 
-			   this->OPT_lbl_Prompt_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_CardNumber->AutoSize = true;
-			   this->OPT_lbl_Prompt_CardNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_CardNumber->Location = System::Drawing::Point(51, 158);
-			   this->OPT_lbl_Prompt_CardNumber->Name = L"OPT_lbl_Prompt_CardNumber";
-			   this->OPT_lbl_Prompt_CardNumber->Size = System::Drawing::Size(66, 16);
-			   this->OPT_lbl_Prompt_CardNumber->TabIndex = 9;
-			   this->OPT_lbl_Prompt_CardNumber->Text = L"EAD���";
-			   // 
-			   // OPT_lbl_Prompt_OPTId
-			   // 
-			   this->OPT_lbl_Prompt_OPTId->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			   this->OPT_lbl_Prompt_OPTId->AutoSize = true;
-			   this->OPT_lbl_Prompt_OPTId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->OPT_lbl_Prompt_OPTId->Location = System::Drawing::Point(51, 36);
-			   this->OPT_lbl_Prompt_OPTId->Name = L"OPT_lbl_Prompt_OPTId";
-			   this->OPT_lbl_Prompt_OPTId->Size = System::Drawing::Size(66, 16);
-			   this->OPT_lbl_Prompt_OPTId->TabIndex = 8;
-			   this->OPT_lbl_Prompt_OPTId->Text = L"OPT���";
-			   // 
-			   // pan_treasury
-			   // 
-			   this->pan_treasury->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_treasury->Location = System::Drawing::Point(0, 0);
-			   this->pan_treasury->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_treasury->Name = L"pan_treasury";
-			   this->pan_treasury->Size = System::Drawing::Size(982, 635);
-			   this->pan_treasury->TabIndex = 1;
-			   // 
-			   // pan_myInfo
-			   // 
-			   this->pan_myInfo->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_myInfo->Location = System::Drawing::Point(0, 0);
-			   this->pan_myInfo->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_myInfo->Name = L"pan_myInfo";
-			   this->pan_myInfo->Size = System::Drawing::Size(982, 635);
-			   this->pan_myInfo->TabIndex = 0;
-			   // 
-			   // pan_order
-			   // 
-			   this->pan_order->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_ViewInfo);
-			   this->pan_order->Controls->Add(this->ord_lbl_Error);
-			   this->pan_order->Controls->Add(this->ord_splitter_Error);
-			   this->pan_order->Controls->Add(this->ord_btn_Add);
-			   this->pan_order->Controls->Add(this->ord_btn_Clear);
-			   this->pan_order->Controls->Add(this->ord_btn_Search);
-			   this->pan_order->Controls->Add(this->ord_lbl_Count);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_Count);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_SearchResult);
-			   this->pan_order->Controls->Add(this->ord_dataGridView);
-			   this->pan_order->Controls->Add(this->ord_txt_itmName);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_itmName);
-			   this->pan_order->Controls->Add(this->ord_txt_itmId);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_itmId);
-			   this->pan_order->Controls->Add(this->ord_txt_memName);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_memName);
-			   this->pan_order->Controls->Add(this->ord_txt_memId);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_memId);
-			   this->pan_order->Controls->Add(this->ord_cmb_Status);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_Status);
-			   this->pan_order->Controls->Add(this->ord_txt_ordId);
-			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_ordId);
-			   this->pan_order->Controls->Add(this->ord_splitter);
-			   this->pan_order->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_order->Location = System::Drawing::Point(0, 0);
-			   this->pan_order->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_order->Name = L"pan_order";
-			   this->pan_order->Size = System::Drawing::Size(982, 635);
-			   this->pan_order->TabIndex = 2;
-			   // 
-			   // ord_lbl_Prompt_ViewInfo
-			   // 
-			   this->ord_lbl_Prompt_ViewInfo->AutoSize = true;
-			   this->ord_lbl_Prompt_ViewInfo->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Prompt_ViewInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(752, 392);
-			   this->ord_lbl_Prompt_ViewInfo->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
-			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(137, 20);
-			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
-			   this->ord_lbl_Prompt_ViewInfo->Text = L"��ʾ����Ĭ����Ϣ";
-			   // 
-			   // ord_lbl_Error
-			   // 
-			   this->ord_lbl_Error->AutoSize = true;
-			   this->ord_lbl_Error->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Error->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
-			   this->ord_lbl_Error->Location = System::Drawing::Point(478, 313);
-			   this->ord_lbl_Error->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Error->Name = L"ord_lbl_Error";
-			   this->ord_lbl_Error->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Error->TabIndex = 21;
-			   this->ord_lbl_Error->Text = L"�˴�����";
-			   // 
-			   // ord_splitter_Error
-			   // 
-			   this->ord_splitter_Error->BackColor = System::Drawing::Color::DarkOrange;
-			   this->ord_splitter_Error->Cursor = System::Windows::Forms::Cursors::HSplit;
-			   this->ord_splitter_Error->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->ord_splitter_Error->Enabled = false;
-			   this->ord_splitter_Error->Location = System::Drawing::Point(0, 280);
-			   this->ord_splitter_Error->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_splitter_Error->Name = L"ord_splitter_Error";
-			   this->ord_splitter_Error->Size = System::Drawing::Size(982, 74);
-			   this->ord_splitter_Error->TabIndex = 20;
-			   this->ord_splitter_Error->TabStop = false;
-			   // 
-			   // ord_btn_Add
-			   // 
-			   this->ord_btn_Add->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_btn_Add->Location = System::Drawing::Point(634, 171);
-			   this->ord_btn_Add->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_btn_Add->Name = L"ord_btn_Add";
-			   this->ord_btn_Add->Size = System::Drawing::Size(75, 37);
-			   this->ord_btn_Add->TabIndex = 19;
-			   this->ord_btn_Add->Text = L"����";
-			   this->ord_btn_Add->UseVisualStyleBackColor = true;
-			   this->ord_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Add_Click);
-			   // 
-			   // ord_btn_Clear
-			   // 
-			   this->ord_btn_Clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_btn_Clear->Location = System::Drawing::Point(634, 116);
-			   this->ord_btn_Clear->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_btn_Clear->Name = L"ord_btn_Clear";
-			   this->ord_btn_Clear->Size = System::Drawing::Size(75, 37);
-			   this->ord_btn_Clear->TabIndex = 18;
-			   this->ord_btn_Clear->Text = L"���";
-			   this->ord_btn_Clear->UseVisualStyleBackColor = true;
-			   this->ord_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Clear_Click);
-			   // 
-			   // ord_btn_Search
-			   // 
-			   this->ord_btn_Search->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_btn_Search->Location = System::Drawing::Point(634, 63);
-			   this->ord_btn_Search->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_btn_Search->Name = L"ord_btn_Search";
-			   this->ord_btn_Search->Size = System::Drawing::Size(75, 37);
-			   this->ord_btn_Search->TabIndex = 17;
-			   this->ord_btn_Search->Text = L"��ѯ";
-			   this->ord_btn_Search->UseVisualStyleBackColor = true;
-			   this->ord_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Search_Click);
-			   // 
-			   // ord_lbl_Count
-			   // 
-			   this->ord_lbl_Count->AutoSize = true;
-			   this->ord_lbl_Count->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Count->Location = System::Drawing::Point(135, 392);
-			   this->ord_lbl_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Count->Name = L"ord_lbl_Count";
-			   this->ord_lbl_Count->Size = System::Drawing::Size(35, 20);
-			   this->ord_lbl_Count->TabIndex = 16;
-			   this->ord_lbl_Count->Text = L"N/A";
-			   // 
-			   // ord_lbl_Prompt_Count
-			   // 
-			   this->ord_lbl_Prompt_Count->AutoSize = true;
-			   this->ord_lbl_Prompt_Count->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Prompt_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_Count->Location = System::Drawing::Point(61, 392);
-			   this->ord_lbl_Prompt_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_Count->Name = L"ord_lbl_Prompt_Count";
-			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(60, 20);
-			   this->ord_lbl_Prompt_Count->TabIndex = 15;
-			   this->ord_lbl_Prompt_Count->Text = L"�ܼƣ�";
-			   // 
-			   // ord_lbl_Prompt_SearchResult
-			   // 
-			   this->ord_lbl_Prompt_SearchResult->AutoSize = true;
-			   this->ord_lbl_Prompt_SearchResult->BackColor = System::Drawing::SystemColors::Control;
-			   this->ord_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(445, 382);
-			   this->ord_lbl_Prompt_SearchResult->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_SearchResult->Name = L"ord_lbl_Prompt_SearchResult";
-			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(126, 31);
-			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
-			   this->ord_lbl_Prompt_SearchResult->Text = L"�������";
-			   // 
-			   // ord_dataGridView
-			   // 
-			   this->ord_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->ord_dataGridView->Location = System::Drawing::Point(64, 436);
-			   this->ord_dataGridView->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_dataGridView->Name = L"ord_dataGridView";
-			   this->ord_dataGridView->RowHeadersWidth = 51;
-			   this->ord_dataGridView->RowTemplate->Height = 24;
-			   this->ord_dataGridView->Size = System::Drawing::Size(890, 180);
-			   this->ord_dataGridView->TabIndex = 12;
-			   this->ord_dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::ord_dataGridView_CellContentClick);
-			   // 
-			   // ord_txt_itmName
-			   // 
-			   this->ord_txt_itmName->Location = System::Drawing::Point(416, 175);
-			   this->ord_txt_itmName->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_txt_itmName->Name = L"ord_txt_itmName";
-			   this->ord_txt_itmName->Size = System::Drawing::Size(92, 20);
-			   this->ord_txt_itmName->TabIndex = 11;
-			   // 
-			   // ord_lbl_Prompt_itmName
-			   // 
-			   this->ord_lbl_Prompt_itmName->AutoSize = true;
-			   this->ord_lbl_Prompt_itmName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(295, 171);
-			   this->ord_lbl_Prompt_itmName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_itmName->Name = L"ord_lbl_Prompt_itmName";
-			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
-			   this->ord_lbl_Prompt_itmName->Text = L"��Ʒ����";
-			   // 
-			   // ord_txt_itmId
-			   // 
-			   this->ord_txt_itmId->Location = System::Drawing::Point(170, 173);
-			   this->ord_txt_itmId->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_txt_itmId->Name = L"ord_txt_itmId";
-			   this->ord_txt_itmId->Size = System::Drawing::Size(92, 20);
-			   this->ord_txt_itmId->TabIndex = 9;
-			   // 
-			   // ord_lbl_Prompt_itmId
-			   // 
-			   this->ord_lbl_Prompt_itmId->AutoSize = true;
-			   this->ord_lbl_Prompt_itmId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_itmId->Location = System::Drawing::Point(67, 171);
-			   this->ord_lbl_Prompt_itmId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_itmId->Name = L"ord_lbl_Prompt_itmId";
-			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_itmId->TabIndex = 8;
-			   this->ord_lbl_Prompt_itmId->Text = L"��Ʒ���";
-			   // 
-			   // ord_txt_memName
-			   // 
-			   this->ord_txt_memName->Location = System::Drawing::Point(416, 120);
-			   this->ord_txt_memName->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_txt_memName->Name = L"ord_txt_memName";
-			   this->ord_txt_memName->Size = System::Drawing::Size(92, 20);
-			   this->ord_txt_memName->TabIndex = 7;
-			   // 
-			   // ord_lbl_Prompt_memName
-			   // 
-			   this->ord_lbl_Prompt_memName->AutoSize = true;
-			   this->ord_lbl_Prompt_memName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(295, 117);
-			   this->ord_lbl_Prompt_memName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_memName->Name = L"ord_lbl_Prompt_memName";
-			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_memName->TabIndex = 6;
-			   this->ord_lbl_Prompt_memName->Text = L"��Ա����";
-			   // 
-			   // ord_txt_memId
-			   // 
-			   this->ord_txt_memId->Location = System::Drawing::Point(170, 117);
-			   this->ord_txt_memId->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_txt_memId->Name = L"ord_txt_memId";
-			   this->ord_txt_memId->Size = System::Drawing::Size(92, 20);
-			   this->ord_txt_memId->TabIndex = 5;
-			   // 
-			   // ord_lbl_Prompt_memId
-			   // 
-			   this->ord_lbl_Prompt_memId->AutoSize = true;
-			   this->ord_lbl_Prompt_memId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_memId->Location = System::Drawing::Point(67, 115);
-			   this->ord_lbl_Prompt_memId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_memId->Name = L"ord_lbl_Prompt_memId";
-			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_memId->TabIndex = 4;
-			   this->ord_lbl_Prompt_memId->Text = L"��Ա���";
-			   // 
-			   // ord_cmb_Status
-			   // 
-			   this->ord_cmb_Status->FormattingEnabled = true;
-			   this->ord_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"InvalidComplete", L"In process" });
-			   this->ord_cmb_Status->Location = System::Drawing::Point(416, 63);
-			   this->ord_cmb_Status->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_cmb_Status->Name = L"ord_cmb_Status";
-			   this->ord_cmb_Status->Size = System::Drawing::Size(92, 21);
-			   this->ord_cmb_Status->TabIndex = 3;
-			   // 
-			   // ord_lbl_Prompt_Status
-			   // 
-			   this->ord_lbl_Prompt_Status->AutoSize = true;
-			   this->ord_lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(295, 63);
-			   this->ord_lbl_Prompt_Status->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_Status->Name = L"ord_lbl_Prompt_Status";
-			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_Status->TabIndex = 2;
-			   this->ord_lbl_Prompt_Status->Text = L"����״̬";
-			   // 
-			   // ord_txt_ordId
-			   // 
-			   this->ord_txt_ordId->Location = System::Drawing::Point(170, 63);
-			   this->ord_txt_ordId->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_txt_ordId->Name = L"ord_txt_ordId";
-			   this->ord_txt_ordId->Size = System::Drawing::Size(92, 20);
-			   this->ord_txt_ordId->TabIndex = 1;
-			   // 
-			   // ord_lbl_Prompt_ordId
-			   // 
-			   this->ord_lbl_Prompt_ordId->AutoSize = true;
-			   this->ord_lbl_Prompt_ordId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_ordId->Location = System::Drawing::Point(68, 63);
-			   this->ord_lbl_Prompt_ordId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			   this->ord_lbl_Prompt_ordId->Name = L"ord_lbl_Prompt_ordId";
-			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(77, 20);
-			   this->ord_lbl_Prompt_ordId->TabIndex = 0;
-			   this->ord_lbl_Prompt_ordId->Text = L"�������";
-			   // 
-			   // ord_splitter
-			   // 
-			   this->ord_splitter->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			   this->ord_splitter->Cursor = System::Windows::Forms::Cursors::HSplit;
-			   this->ord_splitter->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->ord_splitter->Enabled = false;
-			   this->ord_splitter->Location = System::Drawing::Point(0, 354);
-			   this->ord_splitter->Margin = System::Windows::Forms::Padding(2);
-			   this->ord_splitter->Name = L"ord_splitter";
-			   this->ord_splitter->Size = System::Drawing::Size(982, 281);
-			   this->ord_splitter->TabIndex = 13;
-			   this->ord_splitter->TabStop = false;
-			   // 
 			   // pan_member
 			   // 
-			   this->pan_member->Controls->Add(this->mem_lbl_Count);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Total);
-			   this->pan_member->Controls->Add(this->mem_Prompt_PgInfo);
-			   this->pan_member->Controls->Add(this->mem_Prompt_ViewInfo);
-			   this->pan_member->Controls->Add(this->mem_Prompt_Result);
-			   this->pan_member->Controls->Add(this->mem_lbl_error);
-			   this->pan_member->Controls->Add(this->mem_btn_Import);
-			   this->pan_member->Controls->Add(this->mem_btn_Add);
-			   this->pan_member->Controls->Add(this->mem_btn_Clear);
-			   this->pan_member->Controls->Add(this->mem_btn_Search);
-			   this->pan_member->Controls->Add(this->mem_cmb_CareerStatus);
-			   this->pan_member->Controls->Add(this->mem_dataGridView1);
-			   this->pan_member->Controls->Add(this->mem_cmb_SearchAuth);
-			   this->pan_member->Controls->Add(this->mem_cmb_Type);
-			   this->pan_member->Controls->Add(this->mem_cmb_Status);
-			   this->pan_member->Controls->Add(this->mem_txt_Gender);
-			   this->pan_member->Controls->Add(this->mem_txt_Name);
-			   this->pan_member->Controls->Add(this->mem_txt_Major);
-			   this->pan_member->Controls->Add(this->mem_txt_Id);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_SearchAuth);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Major);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_CareerStatus);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Gender);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Name);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Type);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Status);
-			   this->pan_member->Controls->Add(this->mem_lbl_Prompt_Id);
-			   this->pan_member->Controls->Add(this->mem_splitter2);
+			   this->pan_member->Controls->Add(this->mem_panel4);
+			   this->pan_member->Controls->Add(this->mem_panel3);
+			   this->pan_member->Controls->Add(this->mem_panel1);
 			   this->pan_member->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->pan_member->Location = System::Drawing::Point(0, 0);
 			   this->pan_member->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->pan_member->Name = L"pan_member";
-			   this->pan_member->Size = System::Drawing::Size(982, 635);
+			   this->pan_member->Size = System::Drawing::Size(982, 636);
 			   this->pan_member->TabIndex = 6;
 			   // 
-			   // mem_lbl_Count
+			   // mem_panel4
 			   // 
-			   this->mem_lbl_Count->AccessibleDescription = L"";
-			   this->mem_lbl_Count->AutoSize = true;
-			   this->mem_lbl_Count->Location = System::Drawing::Point(86, 282);
-			   this->mem_lbl_Count->Name = L"mem_lbl_Count";
-			   this->mem_lbl_Count->Size = System::Drawing::Size(13, 13);
-			   this->mem_lbl_Count->TabIndex = 70;
-			   this->mem_lbl_Count->Text = L"0";
-			   // 
-			   // mem_lbl_Prompt_Total
-			   // 
-			   this->mem_lbl_Prompt_Total->AccessibleDescription = L"";
-			   this->mem_lbl_Prompt_Total->AutoSize = true;
-			   this->mem_lbl_Prompt_Total->Location = System::Drawing::Point(46, 282);
-			   this->mem_lbl_Prompt_Total->Name = L"mem_lbl_Prompt_Total";
-			   this->mem_lbl_Prompt_Total->Size = System::Drawing::Size(34, 13);
-			   this->mem_lbl_Prompt_Total->TabIndex = 69;
-			   this->mem_lbl_Prompt_Total->Text = L"Total:";
-			   // 
-			   // mem_Prompt_PgInfo
-			   // 
-			   this->mem_Prompt_PgInfo->AccessibleDescription = L"";
-			   this->mem_Prompt_PgInfo->AutoSize = true;
-			   this->mem_Prompt_PgInfo->Location = System::Drawing::Point(30, 201);
-			   this->mem_Prompt_PgInfo->Name = L"mem_Prompt_PgInfo";
-			   this->mem_Prompt_PgInfo->Size = System::Drawing::Size(540, 13);
-			   this->mem_Prompt_PgInfo->TabIndex = 67;
-			   this->mem_Prompt_PgInfo->Text = L"The data is accurately queried and there are no necessary items. Please provide a"
-				   L"s much information as possible.";
-			   // 
-			   // mem_Prompt_ViewInfo
-			   // 
-			   this->mem_Prompt_ViewInfo->AutoSize = true;
-			   this->mem_Prompt_ViewInfo->Location = System::Drawing::Point(652, 289);
-			   this->mem_Prompt_ViewInfo->Name = L"mem_Prompt_ViewInfo";
-			   this->mem_Prompt_ViewInfo->Size = System::Drawing::Size(193, 13);
-			   this->mem_Prompt_ViewInfo->TabIndex = 24;
-			   this->mem_Prompt_ViewInfo->Text = L"All member info will be shown by default";
-			   // 
-			   // mem_Prompt_Result
-			   // 
-			   this->mem_Prompt_Result->AutoSize = true;
-			   this->mem_Prompt_Result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->mem_Prompt_Result->Location = System::Drawing::Point(445, 282);
-			   this->mem_Prompt_Result->Name = L"mem_Prompt_Result";
-			   this->mem_Prompt_Result->Size = System::Drawing::Size(123, 20);
-			   this->mem_Prompt_Result->TabIndex = 23;
-			   this->mem_Prompt_Result->Text = L"Search Result";
+			   this->mem_panel4->Controls->Add(this->mem_lbl_error);
+			   this->mem_panel4->Controls->Add(this->mem_dataGridView1);
+			   this->mem_panel4->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->mem_panel4->Location = System::Drawing::Point(0, 335);
+			   this->mem_panel4->Name = L"mem_panel4";
+			   this->mem_panel4->Size = System::Drawing::Size(982, 301);
+			   this->mem_panel4->TabIndex = 73;
 			   // 
 			   // mem_lbl_error
 			   // 
 			   this->mem_lbl_error->AutoSize = true;
 			   this->mem_lbl_error->ForeColor = System::Drawing::Color::Red;
-			   this->mem_lbl_error->Location = System::Drawing::Point(480, 465);
+			   this->mem_lbl_error->Location = System::Drawing::Point(479, 166);
 			   this->mem_lbl_error->Name = L"mem_lbl_error";
 			   this->mem_lbl_error->Size = System::Drawing::Size(29, 13);
 			   this->mem_lbl_error->TabIndex = 22;
 			   this->mem_lbl_error->Text = L"Error";
 			   this->mem_lbl_error->Visible = false;
 			   // 
+			   // mem_dataGridView1
+			   // 
+			   this->mem_dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			   this->mem_dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->mem_dataGridView1->Location = System::Drawing::Point(0, 0);
+			   this->mem_dataGridView1->Name = L"mem_dataGridView1";
+			   this->mem_dataGridView1->RowHeadersWidth = 51;
+			   this->mem_dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			   this->mem_dataGridView1->Size = System::Drawing::Size(982, 301);
+			   this->mem_dataGridView1->TabIndex = 16;
+			   this->mem_dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::mem_dataGridView1_CellContentClick);
+			   // 
+			   // mem_panel3
+			   // 
+			   this->mem_panel3->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			   this->mem_panel3->Controls->Add(this->mem_Prompt_ViewInfo);
+			   this->mem_panel3->Controls->Add(this->mem_Prompt_查询结果);
+			   this->mem_panel3->Controls->Add(this->mem_lbl_Count);
+			   this->mem_panel3->Controls->Add(this->mem_lbl_Prompt_总数);
+			   this->mem_panel3->Dock = System::Windows::Forms::DockStyle::Top;
+			   this->mem_panel3->Location = System::Drawing::Point(0, 265);
+			   this->mem_panel3->MinimumSize = System::Drawing::Size(0, 70);
+			   this->mem_panel3->Name = L"mem_panel3";
+			   this->mem_panel3->Size = System::Drawing::Size(982, 70);
+			   this->mem_panel3->TabIndex = 72;
+			   // 
+			   // mem_Prompt_ViewInfo
+			   // 
+			   this->mem_Prompt_ViewInfo->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			   this->mem_Prompt_ViewInfo->AutoSize = true;
+			   this->mem_Prompt_ViewInfo->Location = System::Drawing::Point(783, 54);
+			   this->mem_Prompt_ViewInfo->Name = L"mem_Prompt_ViewInfo";
+			   this->mem_Prompt_ViewInfo->Size = System::Drawing::Size(187, 13);
+			   this->mem_Prompt_ViewInfo->TabIndex = 24;
+			   this->mem_Prompt_ViewInfo->Text = L"默认查找结果为显示全部成员信息";
+			   // 
+			   // mem_Prompt_查询结果
+			   // 
+			   this->mem_Prompt_查询结果->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->mem_Prompt_查询结果->AutoSize = true;
+			   this->mem_Prompt_查询结果->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->mem_Prompt_查询结果->Location = System::Drawing::Point(465, 24);
+			   this->mem_Prompt_查询结果->Name = L"mem_Prompt_查询结果";
+			   this->mem_Prompt_查询结果->Size = System::Drawing::Size(77, 20);
+			   this->mem_Prompt_查询结果->TabIndex = 23;
+			   this->mem_Prompt_查询结果->Text = L"查询结果";
+			   // 
+			   // mem_lbl_Count
+			   // 
+			   this->mem_lbl_Count->AccessibleDescription = L"";
+			   this->mem_lbl_Count->AutoSize = true;
+			   this->mem_lbl_Count->Location = System::Drawing::Point(52, 26);
+			   this->mem_lbl_Count->Name = L"mem_lbl_Count";
+			   this->mem_lbl_Count->Size = System::Drawing::Size(13, 13);
+			   this->mem_lbl_Count->TabIndex = 70;
+			   this->mem_lbl_Count->Text = L"0";
+			   // 
+			   // mem_lbl_Prompt_总数
+			   // 
+			   this->mem_lbl_Prompt_总数->AccessibleDescription = L"";
+			   this->mem_lbl_Prompt_总数->AutoSize = true;
+			   this->mem_lbl_Prompt_总数->Location = System::Drawing::Point(12, 26);
+			   this->mem_lbl_Prompt_总数->Name = L"mem_lbl_Prompt_总数";
+			   this->mem_lbl_Prompt_总数->Size = System::Drawing::Size(34, 13);
+			   this->mem_lbl_Prompt_总数->TabIndex = 69;
+			   this->mem_lbl_Prompt_总数->Text = L"总计:";
+			   // 
+			   // mem_panel1
+			   // 
+			   this->mem_panel1->Controls->Add(this->panel2);
+			   this->mem_panel1->Controls->Add(this->mem_cmb_SearchAuth);
+			   this->mem_panel1->Controls->Add(this->mem_cmb_Status);
+			   this->mem_panel1->Controls->Add(this->mem_txt_Gender);
+			   this->mem_panel1->Controls->Add(this->mem_Prompt_PgInfo);
+			   this->mem_panel1->Controls->Add(this->mem_txt_Name);
+			   this->mem_panel1->Controls->Add(this->mem_txt_Major);
+			   this->mem_panel1->Controls->Add(this->mem_btn_Import);
+			   this->mem_panel1->Controls->Add(this->mem_txt_Id);
+			   this->mem_panel1->Controls->Add(this->mem_btn_Add);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_SearchAuth);
+			   this->mem_panel1->Controls->Add(this->mem_btn_Clear);
+			   this->mem_panel1->Controls->Add(this->mem_btn_Search);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Major);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Gender);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Type);
+			   this->mem_panel1->Controls->Add(this->mem_cmb_Type);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Status);
+			   this->mem_panel1->Controls->Add(this->mem_cmb_CareerStatus);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Id);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_Name);
+			   this->mem_panel1->Controls->Add(this->mem_lbl_Prompt_CareerStatus);
+			   this->mem_panel1->Dock = System::Windows::Forms::DockStyle::Top;
+			   this->mem_panel1->Location = System::Drawing::Point(0, 0);
+			   this->mem_panel1->MinimumSize = System::Drawing::Size(0, 265);
+			   this->mem_panel1->Name = L"mem_panel1";
+			   this->mem_panel1->Size = System::Drawing::Size(982, 265);
+			   this->mem_panel1->TabIndex = 71;
+			   // 
+			   // panel2
+			   // 
+			   this->panel2->Location = System::Drawing::Point(323, 274);
+			   this->panel2->Name = L"panel2";
+			   this->panel2->Size = System::Drawing::Size(630, 45);
+			   this->panel2->TabIndex = 68;
+			   // 
+			   // mem_cmb_SearchAuth
+			   // 
+			   this->mem_cmb_SearchAuth->FormattingEnabled = true;
+			   this->mem_cmb_SearchAuth->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Yes", L"No" });
+			   this->mem_cmb_SearchAuth->Location = System::Drawing::Point(559, 102);
+			   this->mem_cmb_SearchAuth->Name = L"mem_cmb_SearchAuth";
+			   this->mem_cmb_SearchAuth->Size = System::Drawing::Size(132, 21);
+			   this->mem_cmb_SearchAuth->TabIndex = 15;
+			   // 
+			   // mem_cmb_Status
+			   // 
+			   this->mem_cmb_Status->FormattingEnabled = true;
+			   this->mem_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"Review", L"Invalid" });
+			   this->mem_cmb_Status->Location = System::Drawing::Point(321, 51);
+			   this->mem_cmb_Status->Name = L"mem_cmb_Status";
+			   this->mem_cmb_Status->Size = System::Drawing::Size(132, 21);
+			   this->mem_cmb_Status->TabIndex = 13;
+			   // 
+			   // mem_txt_Gender
+			   // 
+			   this->mem_txt_Gender->Location = System::Drawing::Point(321, 102);
+			   this->mem_txt_Gender->Name = L"mem_txt_Gender";
+			   this->mem_txt_Gender->Size = System::Drawing::Size(132, 20);
+			   this->mem_txt_Gender->TabIndex = 11;
+			   // 
+			   // mem_Prompt_PgInfo
+			   // 
+			   this->mem_Prompt_PgInfo->AccessibleDescription = L"";
+			   this->mem_Prompt_PgInfo->AutoSize = true;
+			   this->mem_Prompt_PgInfo->Location = System::Drawing::Point(39, 238);
+			   this->mem_Prompt_PgInfo->Name = L"mem_Prompt_PgInfo";
+			   this->mem_Prompt_PgInfo->Size = System::Drawing::Size(323, 13);
+			   this->mem_Prompt_PgInfo->TabIndex = 67;
+			   this->mem_Prompt_PgInfo->Text = L"数据使用精准查询，没有必填项目。请尽量提供详细信息即可";
+			   // 
+			   // mem_txt_Name
+			   // 
+			   this->mem_txt_Name->Location = System::Drawing::Point(106, 101);
+			   this->mem_txt_Name->Name = L"mem_txt_Name";
+			   this->mem_txt_Name->Size = System::Drawing::Size(132, 20);
+			   this->mem_txt_Name->TabIndex = 10;
+			   // 
+			   // mem_txt_Major
+			   // 
+			   this->mem_txt_Major->Location = System::Drawing::Point(106, 147);
+			   this->mem_txt_Major->Name = L"mem_txt_Major";
+			   this->mem_txt_Major->Size = System::Drawing::Size(132, 20);
+			   this->mem_txt_Major->TabIndex = 9;
+			   // 
 			   // mem_btn_Import
 			   // 
-			   this->mem_btn_Import->Location = System::Drawing::Point(793, 220);
+			   this->mem_btn_Import->Location = System::Drawing::Point(792, 206);
 			   this->mem_btn_Import->Name = L"mem_btn_Import";
 			   this->mem_btn_Import->Size = System::Drawing::Size(70, 28);
 			   this->mem_btn_Import->TabIndex = 21;
-			   this->mem_btn_Import->Text = L"Import";
+			   this->mem_btn_Import->Text = L"导入";
 			   this->mem_btn_Import->UseVisualStyleBackColor = true;
 			   this->mem_btn_Import->Click += gcnew System::EventHandler(this, &MainWindow::mem_btn_Import_Click);
 			   // 
+			   // mem_txt_Id
+			   // 
+			   this->mem_txt_Id->Location = System::Drawing::Point(106, 52);
+			   this->mem_txt_Id->Name = L"mem_txt_Id";
+			   this->mem_txt_Id->Size = System::Drawing::Size(132, 20);
+			   this->mem_txt_Id->TabIndex = 8;
+			   // 
 			   // mem_btn_Add
 			   // 
-			   this->mem_btn_Add->Location = System::Drawing::Point(793, 162);
+			   this->mem_btn_Add->Location = System::Drawing::Point(792, 148);
 			   this->mem_btn_Add->Name = L"mem_btn_Add";
 			   this->mem_btn_Add->Size = System::Drawing::Size(70, 28);
 			   this->mem_btn_Add->TabIndex = 20;
-			   this->mem_btn_Add->Text = L"Add";
+			   this->mem_btn_Add->Text = L"添加";
 			   this->mem_btn_Add->UseVisualStyleBackColor = true;
 			   this->mem_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::mem_btn_Add_Click);
 			   // 
+			   // mem_lbl_Prompt_SearchAuth
+			   // 
+			   this->mem_lbl_Prompt_SearchAuth->AutoSize = true;
+			   this->mem_lbl_Prompt_SearchAuth->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_SearchAuth->Location = System::Drawing::Point(495, 103);
+			   this->mem_lbl_Prompt_SearchAuth->Name = L"mem_lbl_Prompt_SearchAuth";
+			   this->mem_lbl_Prompt_SearchAuth->Size = System::Drawing::Size(64, 18);
+			   this->mem_lbl_Prompt_SearchAuth->TabIndex = 7;
+			   this->mem_lbl_Prompt_SearchAuth->Text = L"搜索授权";
+			   // 
 			   // mem_btn_Clear
 			   // 
-			   this->mem_btn_Clear->Location = System::Drawing::Point(793, 101);
+			   this->mem_btn_Clear->Location = System::Drawing::Point(792, 87);
 			   this->mem_btn_Clear->Name = L"mem_btn_Clear";
 			   this->mem_btn_Clear->Size = System::Drawing::Size(70, 28);
 			   this->mem_btn_Clear->TabIndex = 19;
-			   this->mem_btn_Clear->Text = L"Clear";
+			   this->mem_btn_Clear->Text = L"清空";
 			   this->mem_btn_Clear->UseVisualStyleBackColor = true;
 			   this->mem_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::mem_btn_Clear_Click);
 			   // 
 			   // mem_btn_Search
 			   // 
-			   this->mem_btn_Search->Location = System::Drawing::Point(793, 42);
+			   this->mem_btn_Search->Location = System::Drawing::Point(792, 28);
 			   this->mem_btn_Search->Name = L"mem_btn_Search";
 			   this->mem_btn_Search->Size = System::Drawing::Size(70, 28);
 			   this->mem_btn_Search->TabIndex = 18;
-			   this->mem_btn_Search->Text = L"Search";
+			   this->mem_btn_Search->Text = L"查询";
 			   this->mem_btn_Search->UseVisualStyleBackColor = true;
 			   this->mem_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::mem_btn_Search_Click);
+			   // 
+			   // mem_lbl_Prompt_Major
+			   // 
+			   this->mem_lbl_Prompt_Major->AutoSize = true;
+			   this->mem_lbl_Prompt_Major->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Major->Location = System::Drawing::Point(62, 147);
+			   this->mem_lbl_Prompt_Major->Name = L"mem_lbl_Prompt_Major";
+			   this->mem_lbl_Prompt_Major->Size = System::Drawing::Size(38, 18);
+			   this->mem_lbl_Prompt_Major->TabIndex = 6;
+			   this->mem_lbl_Prompt_Major->Text = L"专业";
+			   // 
+			   // mem_lbl_Prompt_Gender
+			   // 
+			   this->mem_lbl_Prompt_Gender->AutoSize = true;
+			   this->mem_lbl_Prompt_Gender->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Gender->Location = System::Drawing::Point(281, 101);
+			   this->mem_lbl_Prompt_Gender->Name = L"mem_lbl_Prompt_Gender";
+			   this->mem_lbl_Prompt_Gender->Size = System::Drawing::Size(34, 18);
+			   this->mem_lbl_Prompt_Gender->TabIndex = 4;
+			   this->mem_lbl_Prompt_Gender->Text = L"性别";
+			   // 
+			   // mem_lbl_Prompt_Type
+			   // 
+			   this->mem_lbl_Prompt_Type->AutoSize = true;
+			   this->mem_lbl_Prompt_Type->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Type->Location = System::Drawing::Point(495, 54);
+			   this->mem_lbl_Prompt_Type->Name = L"mem_lbl_Prompt_Type";
+			   this->mem_lbl_Prompt_Type->Size = System::Drawing::Size(64, 18);
+			   this->mem_lbl_Prompt_Type->TabIndex = 2;
+			   this->mem_lbl_Prompt_Type->Text = L"成员类型";
+			   // 
+			   // mem_cmb_Type
+			   // 
+			   this->mem_cmb_Type->FormattingEnabled = true;
+			   this->mem_cmb_Type->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Normal", L"DivHead", L"Staff", L"Head" });
+			   this->mem_cmb_Type->Location = System::Drawing::Point(559, 50);
+			   this->mem_cmb_Type->Name = L"mem_cmb_Type";
+			   this->mem_cmb_Type->Size = System::Drawing::Size(132, 21);
+			   this->mem_cmb_Type->TabIndex = 14;
+			   // 
+			   // mem_lbl_Prompt_Status
+			   // 
+			   this->mem_lbl_Prompt_Status->AutoSize = true;
+			   this->mem_lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Status->Location = System::Drawing::Point(248, 51);
+			   this->mem_lbl_Prompt_Status->Name = L"mem_lbl_Prompt_Status";
+			   this->mem_lbl_Prompt_Status->Size = System::Drawing::Size(68, 18);
+			   this->mem_lbl_Prompt_Status->TabIndex = 1;
+			   this->mem_lbl_Prompt_Status->Text = L"成员状态";
 			   // 
 			   // mem_cmb_CareerStatus
 			   // 
@@ -1289,162 +718,43 @@ namespace WeAlumni {
 				   L"GradProgram", L"Unemployed", L"Employed",
 					   L"StartBusiness"
 			   });
-			   this->mem_cmb_CareerStatus->Location = System::Drawing::Point(120, 113);
+			   this->mem_cmb_CareerStatus->Location = System::Drawing::Point(321, 147);
 			   this->mem_cmb_CareerStatus->Name = L"mem_cmb_CareerStatus";
-			   this->mem_cmb_CareerStatus->Size = System::Drawing::Size(104, 21);
+			   this->mem_cmb_CareerStatus->Size = System::Drawing::Size(132, 21);
 			   this->mem_cmb_CareerStatus->TabIndex = 17;
-			   // 
-			   // mem_dataGridView1
-			   // 
-			   this->mem_dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->mem_dataGridView1->Location = System::Drawing::Point(0, 305);
-			   this->mem_dataGridView1->Name = L"mem_dataGridView1";
-			   this->mem_dataGridView1->RowHeadersWidth = 51;
-			   this->mem_dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			   this->mem_dataGridView1->Size = System::Drawing::Size(982, 331);
-			   this->mem_dataGridView1->TabIndex = 16;
-			   this->mem_dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::mem_dataGridView1_CellContentClick);
-			   // 
-			   // mem_cmb_SearchAuth
-			   // 
-			   this->mem_cmb_SearchAuth->FormattingEnabled = true;
-			   this->mem_cmb_SearchAuth->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Yes", L"No" });
-			   this->mem_cmb_SearchAuth->Location = System::Drawing::Point(532, 112);
-			   this->mem_cmb_SearchAuth->Name = L"mem_cmb_SearchAuth";
-			   this->mem_cmb_SearchAuth->Size = System::Drawing::Size(75, 21);
-			   this->mem_cmb_SearchAuth->TabIndex = 15;
-			   // 
-			   // mem_cmb_Type
-			   // 
-			   this->mem_cmb_Type->FormattingEnabled = true;
-			   this->mem_cmb_Type->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Normal", L"DivHead", L"Staff", L"Head" });
-			   this->mem_cmb_Type->Location = System::Drawing::Point(188, 55);
-			   this->mem_cmb_Type->Name = L"mem_cmb_Type";
-			   this->mem_cmb_Type->Size = System::Drawing::Size(102, 21);
-			   this->mem_cmb_Type->TabIndex = 14;
-			   // 
-			   // mem_cmb_Status
-			   // 
-			   this->mem_cmb_Status->FormattingEnabled = true;
-			   this->mem_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"Review", L"Invalid" });
-			   this->mem_cmb_Status->Location = System::Drawing::Point(333, 54);
-			   this->mem_cmb_Status->Name = L"mem_cmb_Status";
-			   this->mem_cmb_Status->Size = System::Drawing::Size(102, 21);
-			   this->mem_cmb_Status->TabIndex = 13;
-			   // 
-			   // mem_txt_Gender
-			   // 
-			   this->mem_txt_Gender->Location = System::Drawing::Point(628, 54);
-			   this->mem_txt_Gender->Name = L"mem_txt_Gender";
-			   this->mem_txt_Gender->Size = System::Drawing::Size(75, 20);
-			   this->mem_txt_Gender->TabIndex = 11;
-			   // 
-			   // mem_txt_Name
-			   // 
-			   this->mem_txt_Name->Location = System::Drawing::Point(487, 54);
-			   this->mem_txt_Name->Name = L"mem_txt_Name";
-			   this->mem_txt_Name->Size = System::Drawing::Size(75, 20);
-			   this->mem_txt_Name->TabIndex = 10;
-			   // 
-			   // mem_txt_Major
-			   // 
-			   this->mem_txt_Major->Location = System::Drawing::Point(308, 113);
-			   this->mem_txt_Major->Name = L"mem_txt_Major";
-			   this->mem_txt_Major->Size = System::Drawing::Size(115, 20);
-			   this->mem_txt_Major->TabIndex = 9;
-			   // 
-			   // mem_txt_Id
-			   // 
-			   this->mem_txt_Id->Location = System::Drawing::Point(64, 57);
-			   this->mem_txt_Id->Name = L"mem_txt_Id";
-			   this->mem_txt_Id->Size = System::Drawing::Size(75, 20);
-			   this->mem_txt_Id->TabIndex = 8;
-			   // 
-			   // mem_lbl_Prompt_SearchAuth
-			   // 
-			   this->mem_lbl_Prompt_SearchAuth->AutoSize = true;
-			   this->mem_lbl_Prompt_SearchAuth->Location = System::Drawing::Point(463, 116);
-			   this->mem_lbl_Prompt_SearchAuth->Name = L"mem_lbl_Prompt_SearchAuth";
-			   this->mem_lbl_Prompt_SearchAuth->Size = System::Drawing::Size(63, 13);
-			   this->mem_lbl_Prompt_SearchAuth->TabIndex = 7;
-			   this->mem_lbl_Prompt_SearchAuth->Text = L"SearchAuth";
-			   // 
-			   // mem_lbl_Prompt_Major
-			   // 
-			   this->mem_lbl_Prompt_Major->AutoSize = true;
-			   this->mem_lbl_Prompt_Major->Location = System::Drawing::Point(257, 116);
-			   this->mem_lbl_Prompt_Major->Name = L"mem_lbl_Prompt_Major";
-			   this->mem_lbl_Prompt_Major->Size = System::Drawing::Size(33, 13);
-			   this->mem_lbl_Prompt_Major->TabIndex = 6;
-			   this->mem_lbl_Prompt_Major->Text = L"Major";
-			   // 
-			   // mem_lbl_Prompt_CareerStatus
-			   // 
-			   this->mem_lbl_Prompt_CareerStatus->AutoSize = true;
-			   this->mem_lbl_Prompt_CareerStatus->Location = System::Drawing::Point(46, 116);
-			   this->mem_lbl_Prompt_CareerStatus->Name = L"mem_lbl_Prompt_CareerStatus";
-			   this->mem_lbl_Prompt_CareerStatus->Size = System::Drawing::Size(68, 13);
-			   this->mem_lbl_Prompt_CareerStatus->TabIndex = 5;
-			   this->mem_lbl_Prompt_CareerStatus->Text = L"CareerStatus";
-			   // 
-			   // mem_lbl_Prompt_Gender
-			   // 
-			   this->mem_lbl_Prompt_Gender->AutoSize = true;
-			   this->mem_lbl_Prompt_Gender->Location = System::Drawing::Point(580, 57);
-			   this->mem_lbl_Prompt_Gender->Name = L"mem_lbl_Prompt_Gender";
-			   this->mem_lbl_Prompt_Gender->Size = System::Drawing::Size(42, 13);
-			   this->mem_lbl_Prompt_Gender->TabIndex = 4;
-			   this->mem_lbl_Prompt_Gender->Text = L"Gender";
-			   // 
-			   // mem_lbl_Prompt_Name
-			   // 
-			   this->mem_lbl_Prompt_Name->AutoSize = true;
-			   this->mem_lbl_Prompt_Name->Location = System::Drawing::Point(446, 58);
-			   this->mem_lbl_Prompt_Name->Name = L"mem_lbl_Prompt_Name";
-			   this->mem_lbl_Prompt_Name->Size = System::Drawing::Size(35, 13);
-			   this->mem_lbl_Prompt_Name->TabIndex = 3;
-			   this->mem_lbl_Prompt_Name->Text = L"Name";
-			   // 
-			   // mem_lbl_Prompt_Type
-			   // 
-			   this->mem_lbl_Prompt_Type->AutoSize = true;
-			   this->mem_lbl_Prompt_Type->Location = System::Drawing::Point(296, 57);
-			   this->mem_lbl_Prompt_Type->Name = L"mem_lbl_Prompt_Type";
-			   this->mem_lbl_Prompt_Type->Size = System::Drawing::Size(31, 13);
-			   this->mem_lbl_Prompt_Type->TabIndex = 2;
-			   this->mem_lbl_Prompt_Type->Text = L"Type";
-			   // 
-			   // mem_lbl_Prompt_Status
-			   // 
-			   this->mem_lbl_Prompt_Status->AutoSize = true;
-			   this->mem_lbl_Prompt_Status->Location = System::Drawing::Point(145, 57);
-			   this->mem_lbl_Prompt_Status->Name = L"mem_lbl_Prompt_Status";
-			   this->mem_lbl_Prompt_Status->Size = System::Drawing::Size(37, 13);
-			   this->mem_lbl_Prompt_Status->TabIndex = 1;
-			   this->mem_lbl_Prompt_Status->Text = L"Status";
 			   // 
 			   // mem_lbl_Prompt_Id
 			   // 
 			   this->mem_lbl_Prompt_Id->AutoSize = true;
-			   this->mem_lbl_Prompt_Id->Location = System::Drawing::Point(46, 57);
+			   this->mem_lbl_Prompt_Id->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Id->Location = System::Drawing::Point(35, 51);
 			   this->mem_lbl_Prompt_Id->Name = L"mem_lbl_Prompt_Id";
-			   this->mem_lbl_Prompt_Id->Size = System::Drawing::Size(16, 13);
+			   this->mem_lbl_Prompt_Id->Size = System::Drawing::Size(68, 18);
 			   this->mem_lbl_Prompt_Id->TabIndex = 0;
-			   this->mem_lbl_Prompt_Id->Text = L"Id";
+			   this->mem_lbl_Prompt_Id->Text = L"成员编号";
 			   // 
-			   // mem_splitter2
+			   // mem_lbl_Prompt_Name
 			   // 
-			   this->mem_splitter2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			   this->mem_splitter2->Cursor = System::Windows::Forms::Cursors::HSplit;
-			   this->mem_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->mem_splitter2->Enabled = false;
-			   this->mem_splitter2->Location = System::Drawing::Point(0, 253);
-			   this->mem_splitter2->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->mem_splitter2->MinimumSize = System::Drawing::Size(0, 43);
-			   this->mem_splitter2->Name = L"mem_splitter2";
-			   this->mem_splitter2->Size = System::Drawing::Size(982, 382);
-			   this->mem_splitter2->TabIndex = 66;
-			   this->mem_splitter2->TabStop = false;
+			   this->mem_lbl_Prompt_Name->AutoSize = true;
+			   this->mem_lbl_Prompt_Name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_Name->Location = System::Drawing::Point(62, 101);
+			   this->mem_lbl_Prompt_Name->Name = L"mem_lbl_Prompt_Name";
+			   this->mem_lbl_Prompt_Name->Size = System::Drawing::Size(38, 18);
+			   this->mem_lbl_Prompt_Name->TabIndex = 3;
+			   this->mem_lbl_Prompt_Name->Text = L"姓名";
+			   // 
+			   // mem_lbl_Prompt_CareerStatus
+			   // 
+			   this->mem_lbl_Prompt_CareerStatus->AutoSize = true;
+			   this->mem_lbl_Prompt_CareerStatus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->mem_lbl_Prompt_CareerStatus->Location = System::Drawing::Point(248, 147);
+			   this->mem_lbl_Prompt_CareerStatus->Name = L"mem_lbl_Prompt_CareerStatus";
+			   this->mem_lbl_Prompt_CareerStatus->Size = System::Drawing::Size(68, 18);
+			   this->mem_lbl_Prompt_CareerStatus->TabIndex = 5;
+			   this->mem_lbl_Prompt_CareerStatus->Text = L"就业状态";
 			   // 
 			   // pan_staff
 			   // 
@@ -1472,7 +782,7 @@ namespace WeAlumni {
 			   this->pan_staff->Location = System::Drawing::Point(0, 0);
 			   this->pan_staff->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->pan_staff->Name = L"pan_staff";
-			   this->pan_staff->Size = System::Drawing::Size(982, 635);
+			   this->pan_staff->Size = System::Drawing::Size(982, 636);
 			   this->pan_staff->TabIndex = 5;
 			   // 
 			   // label1
@@ -1480,12 +790,12 @@ namespace WeAlumni {
 			   this->label1->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			   this->label1->AutoSize = true;
 			   this->label1->BackColor = System::Drawing::SystemColors::Control;
-			   this->label1->Font = (gcnew System::Drawing::Font(L"����", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(134)));
 			   this->label1->Location = System::Drawing::Point(691, 269);
 			   this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(245, 12);
+			   this->label1->Size = System::Drawing::Size(225, 15);
 			   this->label1->TabIndex = 23;
 			   this->label1->Text = L"All member info will be shown by default";
 			   // 
@@ -1494,12 +804,12 @@ namespace WeAlumni {
 			   this->stf_lbl_Prompt_SearchResult->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			   this->stf_lbl_Prompt_SearchResult->AutoSize = true;
 			   this->stf_lbl_Prompt_SearchResult->BackColor = System::Drawing::SystemColors::Control;
-			   this->stf_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"����", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(134)));
+			   this->stf_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(134)));
 			   this->stf_lbl_Prompt_SearchResult->Location = System::Drawing::Point(436, 264);
 			   this->stf_lbl_Prompt_SearchResult->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->stf_lbl_Prompt_SearchResult->Name = L"stf_lbl_Prompt_SearchResult";
-			   this->stf_lbl_Prompt_SearchResult->Size = System::Drawing::Size(125, 16);
+			   this->stf_lbl_Prompt_SearchResult->Size = System::Drawing::Size(123, 20);
 			   this->stf_lbl_Prompt_SearchResult->TabIndex = 22;
 			   this->stf_lbl_Prompt_SearchResult->Text = L"Search Result";
 			   // 
@@ -1508,7 +818,7 @@ namespace WeAlumni {
 			   this->stf_splitter3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			   this->stf_splitter3->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter3->Location = System::Drawing::Point(0, 221);
+			   this->stf_splitter3->Location = System::Drawing::Point(0, 222);
 			   this->stf_splitter3->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->stf_splitter3->Name = L"stf_splitter3";
 			   this->stf_splitter3->Size = System::Drawing::Size(982, 30);
@@ -1519,7 +829,7 @@ namespace WeAlumni {
 			   // 
 			   this->stf_splitter2->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			   this->stf_splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter2->Location = System::Drawing::Point(0, 251);
+			   this->stf_splitter2->Location = System::Drawing::Point(0, 252);
 			   this->stf_splitter2->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->stf_splitter2->Name = L"stf_splitter2";
 			   this->stf_splitter2->Size = System::Drawing::Size(982, 36);
@@ -1543,7 +853,7 @@ namespace WeAlumni {
 			   // 
 			   this->stf_splitter1->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			   this->stf_splitter1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			   this->stf_splitter1->Location = System::Drawing::Point(0, 287);
+			   this->stf_splitter1->Location = System::Drawing::Point(0, 288);
 			   this->stf_splitter1->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			   this->stf_splitter1->Name = L"stf_splitter1";
 			   this->stf_splitter1->Size = System::Drawing::Size(982, 348);
@@ -1709,14 +1019,445 @@ namespace WeAlumni {
 			   this->stf_btn_Add->UseVisualStyleBackColor = true;
 			   this->stf_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::stf_btn_Add_Click);
 			   // 
+			   // pan_record
+			   // 
+			   this->pan_record->BackColor = System::Drawing::SystemColors::Control;
+			   this->pan_record->Controls->Add(this->rec_lbl_Count);
+			   this->pan_record->Controls->Add(this->rec_lbl_prompt_total);
+			   this->pan_record->Controls->Add(this->Rec_lbl_Error);
+			   this->pan_record->Controls->Add(this->Rec_dataGridView);
+			   this->pan_record->Controls->Add(this->Rec_btn_Clear);
+			   this->pan_record->Controls->Add(this->Rec_btn_RecSearch);
+			   this->pan_record->Controls->Add(this->Rec_txt_department);
+			   this->pan_record->Controls->Add(this->Rec_txt_MemName);
+			   this->pan_record->Controls->Add(this->Rec_txt_StfId);
+			   this->pan_record->Controls->Add(this->Rec_txt_RecId);
+			   this->pan_record->Controls->Add(this->rec_lbl_prompt_department);
+			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_MemName);
+			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_StfId);
+			   this->pan_record->Controls->Add(this->Rec_lbl_Prompt_RecId);
+			   this->pan_record->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->pan_record->Location = System::Drawing::Point(0, 0);
+			   this->pan_record->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->pan_record->Name = L"pan_record";
+			   this->pan_record->Size = System::Drawing::Size(982, 636);
+			   this->pan_record->TabIndex = 4;
+			   // 
+			   // rec_lbl_Count
+			   // 
+			   this->rec_lbl_Count->AutoSize = true;
+			   this->rec_lbl_Count->Location = System::Drawing::Point(138, 338);
+			   this->rec_lbl_Count->Name = L"rec_lbl_Count";
+			   this->rec_lbl_Count->Size = System::Drawing::Size(13, 13);
+			   this->rec_lbl_Count->TabIndex = 13;
+			   this->rec_lbl_Count->Text = L"0";
+			   // 
+			   // rec_lbl_prompt_total
+			   // 
+			   this->rec_lbl_prompt_total->AutoSize = true;
+			   this->rec_lbl_prompt_total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->rec_lbl_prompt_total->Location = System::Drawing::Point(61, 335);
+			   this->rec_lbl_prompt_total->Name = L"rec_lbl_prompt_total";
+			   this->rec_lbl_prompt_total->Size = System::Drawing::Size(67, 20);
+			   this->rec_lbl_prompt_total->TabIndex = 12;
+			   this->rec_lbl_prompt_total->Text = L"×Ü¼Æ:";
+			   // 
+			   // Rec_lbl_Error
+			   // 
+			   this->Rec_lbl_Error->AutoSize = true;
+			   this->Rec_lbl_Error->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Rec_lbl_Error->ForeColor = System::Drawing::Color::Red;
+			   this->Rec_lbl_Error->Location = System::Drawing::Point(555, 320);
+			   this->Rec_lbl_Error->Name = L"Rec_lbl_Error";
+			   this->Rec_lbl_Error->Size = System::Drawing::Size(76, 20);
+			   this->Rec_lbl_Error->TabIndex = 11;
+			   this->Rec_lbl_Error->Text = L"´íÎóÐÅÏ¢";
+			   // 
+			   // Rec_dataGridView
+			   // 
+			   this->Rec_dataGridView->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			   this->Rec_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			   this->Rec_dataGridView->Location = System::Drawing::Point(53, 386);
+			   this->Rec_dataGridView->Name = L"Rec_dataGridView";
+			   this->Rec_dataGridView->RowHeadersWidth = 51;
+			   this->Rec_dataGridView->RowTemplate->Height = 24;
+			   this->Rec_dataGridView->Size = System::Drawing::Size(1121, 276);
+			   this->Rec_dataGridView->TabIndex = 10;
+			   // 
+			   // Rec_btn_Clear
+			   // 
+			   this->Rec_btn_Clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Rec_btn_Clear->Location = System::Drawing::Point(837, 115);
+			   this->Rec_btn_Clear->Name = L"Rec_btn_Clear";
+			   this->Rec_btn_Clear->Size = System::Drawing::Size(79, 37);
+			   this->Rec_btn_Clear->TabIndex = 9;
+			   this->Rec_btn_Clear->Text = L"Çå¿Õ";
+			   this->Rec_btn_Clear->UseVisualStyleBackColor = true;
+			   this->Rec_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::Rec_btn_Clear_Click);
+			   // 
+			   // Rec_btn_RecSearch
+			   // 
+			   this->Rec_btn_RecSearch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Rec_btn_RecSearch->Location = System::Drawing::Point(837, 50);
+			   this->Rec_btn_RecSearch->Name = L"Rec_btn_RecSearch";
+			   this->Rec_btn_RecSearch->Size = System::Drawing::Size(79, 37);
+			   this->Rec_btn_RecSearch->TabIndex = 8;
+			   this->Rec_btn_RecSearch->Text = L"²éÑ¯";
+			   this->Rec_btn_RecSearch->UseVisualStyleBackColor = true;
+			   this->Rec_btn_RecSearch->Click += gcnew System::EventHandler(this, &MainWindow::Rec_btn_Search_Click);
+			   // 
+			   // Rec_txt_department
+			   // 
+			   this->Rec_txt_department->Location = System::Drawing::Point(587, 111);
+			   this->Rec_txt_department->Name = L"Rec_txt_department";
+			   this->Rec_txt_department->Size = System::Drawing::Size(100, 20);
+			   this->Rec_txt_department->TabIndex = 7;
+			   // 
+			   // Rec_txt_MemName
+			   // 
+			   this->Rec_txt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_txt_MemName->Location = System::Drawing::Point(587, 56);
+			   this->Rec_txt_MemName->Name = L"Rec_txt_MemName";
+			   this->Rec_txt_MemName->Size = System::Drawing::Size(100, 20);
+			   this->Rec_txt_MemName->TabIndex = 6;
+			   // 
+			   // Rec_txt_StfId
+			   // 
+			   this->Rec_txt_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_txt_StfId->Location = System::Drawing::Point(185, 112);
+			   this->Rec_txt_StfId->Name = L"Rec_txt_StfId";
+			   this->Rec_txt_StfId->Size = System::Drawing::Size(100, 20);
+			   this->Rec_txt_StfId->TabIndex = 5;
+			   // 
+			   // Rec_txt_RecId
+			   // 
+			   this->Rec_txt_RecId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_txt_RecId->Location = System::Drawing::Point(185, 57);
+			   this->Rec_txt_RecId->Name = L"Rec_txt_RecId";
+			   this->Rec_txt_RecId->Size = System::Drawing::Size(100, 20);
+			   this->Rec_txt_RecId->TabIndex = 4;
+			   // 
+			   // rec_lbl_prompt_department
+			   // 
+			   this->rec_lbl_prompt_department->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->rec_lbl_prompt_department->AutoSize = true;
+			   this->rec_lbl_prompt_department->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->rec_lbl_prompt_department->Location = System::Drawing::Point(465, 115);
+			   this->rec_lbl_prompt_department->Name = L"rec_lbl_prompt_department";
+			   this->rec_lbl_prompt_department->Size = System::Drawing::Size(114, 20);
+			   this->rec_lbl_prompt_department->TabIndex = 3;
+			   this->rec_lbl_prompt_department->Text = L"ËùÔÚ²¿ÃÅ£º";
+			   // 
+			   // Rec_lbl_Prompt_MemName
+			   // 
+			   this->Rec_lbl_Prompt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_lbl_Prompt_MemName->AutoSize = true;
+			   this->Rec_lbl_Prompt_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->Rec_lbl_Prompt_MemName->Location = System::Drawing::Point(465, 57);
+			   this->Rec_lbl_Prompt_MemName->Name = L"Rec_lbl_Prompt_MemName";
+			   this->Rec_lbl_Prompt_MemName->Size = System::Drawing::Size(113, 20);
+			   this->Rec_lbl_Prompt_MemName->TabIndex = 2;
+			   this->Rec_lbl_Prompt_MemName->Text = L"Ô±¹¤ÐÕÃû£º";
+			   this->Rec_lbl_Prompt_MemName->Click += gcnew System::EventHandler(this, &MainWindow::lbl_Prompt_MemName_Click);
+			   // 
+			   // Rec_lbl_Prompt_StfId
+			   // 
+			   this->Rec_lbl_Prompt_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_lbl_Prompt_StfId->AutoSize = true;
+			   this->Rec_lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Rec_lbl_Prompt_StfId->Location = System::Drawing::Point(72, 115);
+			   this->Rec_lbl_Prompt_StfId->Name = L"Rec_lbl_Prompt_StfId";
+			   this->Rec_lbl_Prompt_StfId->Size = System::Drawing::Size(104, 20);
+			   this->Rec_lbl_Prompt_StfId->TabIndex = 1;
+			   this->Rec_lbl_Prompt_StfId->Text = L"Ô±¹¤±àºÅ£º";
+			   // 
+			   // Rec_lbl_Prompt_RecId
+			   // 
+			   this->Rec_lbl_Prompt_RecId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->Rec_lbl_Prompt_RecId->AutoSize = true;
+			   this->Rec_lbl_Prompt_RecId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Rec_lbl_Prompt_RecId->Location = System::Drawing::Point(72, 57);
+			   this->Rec_lbl_Prompt_RecId->Name = L"Rec_lbl_Prompt_RecId";
+			   this->Rec_lbl_Prompt_RecId->Size = System::Drawing::Size(115, 20);
+			   this->Rec_lbl_Prompt_RecId->TabIndex = 0;
+			   this->Rec_lbl_Prompt_RecId->Text = L"¼ÇÂ¼±àºÅ£º";
+			   // 
 			   // pan_OPT
 			   // 
+			   this->pan_OPT->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			   this->pan_OPT->Controls->Add(this->OPT_btn_New);
+			   this->pan_OPT->Controls->Add(this->OPT_btn_Clear);
+			   this->pan_OPT->Controls->Add(this->OPT_btn_Search);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_default);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Count);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_count);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_result);
+			   this->pan_OPT->Controls->Add(this->OPT_cmb_Status);
+			   this->pan_OPT->Controls->Add(this->OPT_txt_MemId);
+			   this->pan_OPT->Controls->Add(this->OPT_txt_CardNumber);
+			   this->pan_OPT->Controls->Add(this->OPT_txt_MemName);
+			   this->pan_OPT->Controls->Add(this->OPT_txt_OPTId);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_error);
+			   this->pan_OPT->Controls->Add(this->splitter2);
+			   this->pan_OPT->Controls->Add(this->OPT_dataGridView);
+			   this->pan_OPT->Controls->Add(this->splitter1);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_Active);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_MemId);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_MemName);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_CardNumber);
+			   this->pan_OPT->Controls->Add(this->OPT_lbl_Prompt_OPTId);
 			   this->pan_OPT->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->pan_OPT->Location = System::Drawing::Point(0, 0);
 			   this->pan_OPT->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_OPT->Name = L"pan_OPT";
-			   this->pan_OPT->Size = System::Drawing::Size(1359, 784);
+			   this->pan_OPT->Size = System::Drawing::Size(982, 636);
 			   this->pan_OPT->TabIndex = 3;
+			   // 
+			   // OPT_btn_New
+			   // 
+			   this->OPT_btn_New->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_btn_New->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->OPT_btn_New->Location = System::Drawing::Point(681, 130);
+			   this->OPT_btn_New->Name = L"OPT_btn_New";
+			   this->OPT_btn_New->Size = System::Drawing::Size(84, 31);
+			   this->OPT_btn_New->TabIndex = 28;
+			   this->OPT_btn_New->Text = L"ÐÂÔö";
+			   this->OPT_btn_New->UseVisualStyleBackColor = true;
+			   this->OPT_btn_New->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_New_Click);
+			   // 
+			   // OPT_btn_Clear
+			   // 
+			   this->OPT_btn_Clear->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_btn_Clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->OPT_btn_Clear->Location = System::Drawing::Point(543, 130);
+			   this->OPT_btn_Clear->Name = L"OPT_btn_Clear";
+			   this->OPT_btn_Clear->Size = System::Drawing::Size(84, 31);
+			   this->OPT_btn_Clear->TabIndex = 27;
+			   this->OPT_btn_Clear->Text = L"Çå¿Õ";
+			   this->OPT_btn_Clear->UseVisualStyleBackColor = true;
+			   this->OPT_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_Clear_Click);
+			   // 
+			   // OPT_btn_Search
+			   // 
+			   this->OPT_btn_Search->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_btn_Search->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->OPT_btn_Search->Location = System::Drawing::Point(405, 130);
+			   this->OPT_btn_Search->Name = L"OPT_btn_Search";
+			   this->OPT_btn_Search->Size = System::Drawing::Size(84, 31);
+			   this->OPT_btn_Search->TabIndex = 26;
+			   this->OPT_btn_Search->Text = L"²éÑ¯";
+			   this->OPT_btn_Search->UseVisualStyleBackColor = true;
+			   this->OPT_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::OPT_btn_Search_Click);
+			   // 
+			   // OPT_lbl_Prompt_default
+			   // 
+			   this->OPT_lbl_Prompt_default->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_default->AutoSize = true;
+			   this->OPT_lbl_Prompt_default->BackColor = System::Drawing::Color::White;
+			   this->OPT_lbl_Prompt_default->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_default->Location = System::Drawing::Point(575, 233);
+			   this->OPT_lbl_Prompt_default->Name = L"OPT_lbl_Prompt_default";
+			   this->OPT_lbl_Prompt_default->Size = System::Drawing::Size(138, 16);
+			   this->OPT_lbl_Prompt_default->TabIndex = 25;
+			   this->OPT_lbl_Prompt_default->Text = L"ÏÔÊ¾Ä¬ÈÏOPTÐÅÏ¢";
+			   // 
+			   // OPT_lbl_Count
+			   // 
+			   this->OPT_lbl_Count->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Count->AutoSize = true;
+			   this->OPT_lbl_Count->BackColor = System::Drawing::Color::White;
+			   this->OPT_lbl_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Count->Location = System::Drawing::Point(-39, 233);
+			   this->OPT_lbl_Count->Name = L"OPT_lbl_Count";
+			   this->OPT_lbl_Count->Size = System::Drawing::Size(34, 16);
+			   this->OPT_lbl_Count->TabIndex = 24;
+			   this->OPT_lbl_Count->Text = L"N/A";
+			   // 
+			   // OPT_lbl_Prompt_count
+			   // 
+			   this->OPT_lbl_Prompt_count->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_count->AutoSize = true;
+			   this->OPT_lbl_Prompt_count->BackColor = System::Drawing::Color::White;
+			   this->OPT_lbl_Prompt_count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_count->Location = System::Drawing::Point(-142, 233);
+			   this->OPT_lbl_Prompt_count->Name = L"OPT_lbl_Prompt_count";
+			   this->OPT_lbl_Prompt_count->Size = System::Drawing::Size(55, 16);
+			   this->OPT_lbl_Prompt_count->TabIndex = 23;
+			   this->OPT_lbl_Prompt_count->Text = L"×Ü¼Æ:";
+			   // 
+			   // OPT_lbl_Prompt_result
+			   // 
+			   this->OPT_lbl_Prompt_result->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_result->AutoSize = true;
+			   this->OPT_lbl_Prompt_result->BackColor = System::Drawing::Color::White;
+			   this->OPT_lbl_Prompt_result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_result->Location = System::Drawing::Point(238, 233);
+			   this->OPT_lbl_Prompt_result->Name = L"OPT_lbl_Prompt_result";
+			   this->OPT_lbl_Prompt_result->Size = System::Drawing::Size(124, 25);
+			   this->OPT_lbl_Prompt_result->TabIndex = 22;
+			   this->OPT_lbl_Prompt_result->Text = L"ËÑË÷½á¹û";
+			   // 
+			   // OPT_cmb_Status
+			   // 
+			   this->OPT_cmb_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_cmb_Status->FormattingEnabled = true;
+			   this->OPT_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Active", L"Invalid" });
+			   this->OPT_cmb_Status->Location = System::Drawing::Point(230, 34);
+			   this->OPT_cmb_Status->Name = L"OPT_cmb_Status";
+			   this->OPT_cmb_Status->Size = System::Drawing::Size(121, 21);
+			   this->OPT_cmb_Status->TabIndex = 21;
+			   // 
+			   // OPT_txt_MemId
+			   // 
+			   this->OPT_txt_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_txt_MemId->Location = System::Drawing::Point(-39, 95);
+			   this->OPT_txt_MemId->Name = L"OPT_txt_MemId";
+			   this->OPT_txt_MemId->Size = System::Drawing::Size(100, 20);
+			   this->OPT_txt_MemId->TabIndex = 20;
+			   // 
+			   // OPT_txt_CardNumber
+			   // 
+			   this->OPT_txt_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_txt_CardNumber->Location = System::Drawing::Point(-37, 156);
+			   this->OPT_txt_CardNumber->Name = L"OPT_txt_CardNumber";
+			   this->OPT_txt_CardNumber->Size = System::Drawing::Size(100, 20);
+			   this->OPT_txt_CardNumber->TabIndex = 19;
+			   // 
+			   // OPT_txt_MemName
+			   // 
+			   this->OPT_txt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_txt_MemName->Location = System::Drawing::Point(231, 98);
+			   this->OPT_txt_MemName->Name = L"OPT_txt_MemName";
+			   this->OPT_txt_MemName->Size = System::Drawing::Size(100, 20);
+			   this->OPT_txt_MemName->TabIndex = 18;
+			   // 
+			   // OPT_txt_OPTId
+			   // 
+			   this->OPT_txt_OPTId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_txt_OPTId->Location = System::Drawing::Point(-39, 34);
+			   this->OPT_txt_OPTId->Name = L"OPT_txt_OPTId";
+			   this->OPT_txt_OPTId->Size = System::Drawing::Size(100, 20);
+			   this->OPT_txt_OPTId->TabIndex = 17;
+			   // 
+			   // OPT_lbl_error
+			   // 
+			   this->OPT_lbl_error->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_error->AutoSize = true;
+			   this->OPT_lbl_error->BackColor = System::Drawing::Color::White;
+			   this->OPT_lbl_error->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->OPT_lbl_error->ForeColor = System::Drawing::Color::Red;
+			   this->OPT_lbl_error->Location = System::Drawing::Point(259, 445);
+			   this->OPT_lbl_error->Name = L"OPT_lbl_error";
+			   this->OPT_lbl_error->Size = System::Drawing::Size(111, 20);
+			   this->OPT_lbl_error->TabIndex = 16;
+			   this->OPT_lbl_error->Text = L"ÎÞËÑË÷½á¹û";
+			   // 
+			   // splitter2
+			   // 
+			   this->splitter2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			   this->splitter2->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->splitter2->Location = System::Drawing::Point(0, 200);
+			   this->splitter2->Name = L"splitter2";
+			   this->splitter2->Size = System::Drawing::Size(982, 84);
+			   this->splitter2->TabIndex = 15;
+			   this->splitter2->TabStop = false;
+			   // 
+			   // OPT_dataGridView
+			   // 
+			   this->OPT_dataGridView->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			   this->OPT_dataGridView->Location = System::Drawing::Point(-188, 284);
+			   this->OPT_dataGridView->Name = L"OPT_dataGridView";
+			   this->OPT_dataGridView->ReadOnly = true;
+			   this->OPT_dataGridView->Size = System::Drawing::Size(982, 352);
+			   this->OPT_dataGridView->TabIndex = 13;
+			   this->OPT_dataGridView->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::OPT_dataGridView_CellDoubleClick);
+			   // 
+			   // splitter1
+			   // 
+			   this->splitter1->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->splitter1->Location = System::Drawing::Point(0, 284);
+			   this->splitter1->Name = L"splitter1";
+			   this->splitter1->Size = System::Drawing::Size(982, 352);
+			   this->splitter1->TabIndex = 14;
+			   this->splitter1->TabStop = false;
+			   // 
+			   // OPT_lbl_Prompt_Active
+			   // 
+			   this->OPT_lbl_Prompt_Active->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_Active->AutoSize = true;
+			   this->OPT_lbl_Prompt_Active->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_Active->Location = System::Drawing::Point(133, 36);
+			   this->OPT_lbl_Prompt_Active->Name = L"OPT_lbl_Prompt_Active";
+			   this->OPT_lbl_Prompt_Active->Size = System::Drawing::Size(29, 16);
+			   this->OPT_lbl_Prompt_Active->TabIndex = 12;
+			   this->OPT_lbl_Prompt_Active->Text = L"×´Ì¬";
+			   // 
+			   // OPT_lbl_Prompt_MemId
+			   // 
+			   this->OPT_lbl_Prompt_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_MemId->AutoSize = true;
+			   this->OPT_lbl_Prompt_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_MemId->Location = System::Drawing::Point(-137, 97);
+			   this->OPT_lbl_Prompt_MemId->Name = L"OPT_lbl_Prompt_MemId";
+			   this->OPT_lbl_Prompt_MemId->Size = System::Drawing::Size(67, 16);
+			   this->OPT_lbl_Prompt_MemId->TabIndex = 11;
+			   this->OPT_lbl_Prompt_MemId->Text = L"³ÉÔ±±àºÅ";
+			   // 
+			   // OPT_lbl_Prompt_MemName
+			   // 
+			   this->OPT_lbl_Prompt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_MemName->AutoSize = true;
+			   this->OPT_lbl_Prompt_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_MemName->Location = System::Drawing::Point(133, 100);
+			   this->OPT_lbl_Prompt_MemName->Name = L"OPT_lbl_Prompt_MemName";
+			   this->OPT_lbl_Prompt_MemName->Size = System::Drawing::Size(73, 16);
+			   this->OPT_lbl_Prompt_MemName->TabIndex = 10;
+			   this->OPT_lbl_Prompt_MemName->Text = L"³ÉÔ±ÐÕÃû";
+			   // 
+			   // OPT_lbl_Prompt_CardNumber
+			   // 
+			   this->OPT_lbl_Prompt_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_CardNumber->AutoSize = true;
+			   this->OPT_lbl_Prompt_CardNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_CardNumber->Location = System::Drawing::Point(-137, 158);
+			   this->OPT_lbl_Prompt_CardNumber->Name = L"OPT_lbl_Prompt_CardNumber";
+			   this->OPT_lbl_Prompt_CardNumber->Size = System::Drawing::Size(65, 16);
+			   this->OPT_lbl_Prompt_CardNumber->TabIndex = 9;
+			   this->OPT_lbl_Prompt_CardNumber->Text = L"EAD±àºÅ";
+			   // 
+			   // OPT_lbl_Prompt_OPTId
+			   // 
+			   this->OPT_lbl_Prompt_OPTId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			   this->OPT_lbl_Prompt_OPTId->AutoSize = true;
+			   this->OPT_lbl_Prompt_OPTId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->OPT_lbl_Prompt_OPTId->Location = System::Drawing::Point(-137, 36);
+			   this->OPT_lbl_Prompt_OPTId->Name = L"OPT_lbl_Prompt_OPTId";
+			   this->OPT_lbl_Prompt_OPTId->Size = System::Drawing::Size(65, 16);
+			   this->OPT_lbl_Prompt_OPTId->TabIndex = 8;
+			   this->OPT_lbl_Prompt_OPTId->Text = L"OPT±àºÅ";
 			   // 
 			   // pan_treasury
 			   // 
@@ -1724,7 +1465,7 @@ namespace WeAlumni {
 			   this->pan_treasury->Location = System::Drawing::Point(0, 0);
 			   this->pan_treasury->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_treasury->Name = L"pan_treasury";
-			   this->pan_treasury->Size = System::Drawing::Size(1359, 784);
+			   this->pan_treasury->Size = System::Drawing::Size(982, 636);
 			   this->pan_treasury->TabIndex = 1;
 			   // 
 			   // pan_myInfo
@@ -1733,17 +1474,306 @@ namespace WeAlumni {
 			   this->pan_myInfo->Location = System::Drawing::Point(0, 0);
 			   this->pan_myInfo->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			   this->pan_myInfo->Name = L"pan_myInfo";
-			   this->pan_myInfo->Size = System::Drawing::Size(1359, 784);
+			   this->pan_myInfo->Size = System::Drawing::Size(982, 636);
 			   this->pan_myInfo->TabIndex = 0;
-			   // pan_record
 			   // 
-			   this->pan_record->BackColor = System::Drawing::SystemColors::Control;
-			   this->pan_record->Dock = System::Windows::Forms::DockStyle::Fill;
-			   this->pan_record->Location = System::Drawing::Point(0, 0);
-			   this->pan_record->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
-			   this->pan_record->Name = L"pan_record";
-			   this->pan_record->Size = System::Drawing::Size(982, 635);
-			   this->pan_record->TabIndex = 4;
+			   // pan_order
+			   // 
+			   this->pan_order->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_ViewInfo);
+			   this->pan_order->Controls->Add(this->ord_lbl_Error);
+			   this->pan_order->Controls->Add(this->ord_splitter_Error);
+			   this->pan_order->Controls->Add(this->ord_btn_Add);
+			   this->pan_order->Controls->Add(this->ord_btn_Clear);
+			   this->pan_order->Controls->Add(this->ord_btn_Search);
+			   this->pan_order->Controls->Add(this->ord_lbl_Count);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_Count);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_SearchResult);
+			   this->pan_order->Controls->Add(this->ord_dataGridView);
+			   this->pan_order->Controls->Add(this->ord_txt_itmName);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_itmName);
+			   this->pan_order->Controls->Add(this->ord_txt_itmId);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_itmId);
+			   this->pan_order->Controls->Add(this->ord_txt_memName);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_memName);
+			   this->pan_order->Controls->Add(this->ord_txt_memId);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_memId);
+			   this->pan_order->Controls->Add(this->ord_cmb_Status);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_Status);
+			   this->pan_order->Controls->Add(this->ord_txt_ordId);
+			   this->pan_order->Controls->Add(this->ord_lbl_Prompt_ordId);
+			   this->pan_order->Controls->Add(this->ord_splitter);
+			   this->pan_order->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->pan_order->Location = System::Drawing::Point(0, 0);
+			   this->pan_order->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
+			   this->pan_order->Name = L"pan_order";
+			   this->pan_order->Size = System::Drawing::Size(982, 636);
+			   this->pan_order->TabIndex = 2;
+			   // 
+			   // ord_lbl_Prompt_ViewInfo
+			   // 
+			   this->ord_lbl_Prompt_ViewInfo->AutoSize = true;
+			   this->ord_lbl_Prompt_ViewInfo->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Prompt_ViewInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(752, 392);
+			   this->ord_lbl_Prompt_ViewInfo->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
+			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(158, 20);
+			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
+			   this->ord_lbl_Prompt_ViewInfo->Text = L"ÏÔÊ¾¶©µ¥Ä¬ÈÏÐÅÏ¢";
+			   // 
+			   // ord_lbl_Error
+			   // 
+			   this->ord_lbl_Error->AutoSize = true;
+			   this->ord_lbl_Error->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Error->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
+			   this->ord_lbl_Error->Location = System::Drawing::Point(478, 313);
+			   this->ord_lbl_Error->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Error->Name = L"ord_lbl_Error";
+			   this->ord_lbl_Error->Size = System::Drawing::Size(65, 20);
+			   this->ord_lbl_Error->TabIndex = 21;
+			   this->ord_lbl_Error->Text = L"´Ë´¦±¨´í";
+			   // 
+			   // ord_splitter_Error
+			   // 
+			   this->ord_splitter_Error->BackColor = System::Drawing::Color::DarkOrange;
+			   this->ord_splitter_Error->Cursor = System::Windows::Forms::Cursors::HSplit;
+			   this->ord_splitter_Error->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->ord_splitter_Error->Enabled = false;
+			   this->ord_splitter_Error->Location = System::Drawing::Point(0, 281);
+			   this->ord_splitter_Error->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_splitter_Error->Name = L"ord_splitter_Error";
+			   this->ord_splitter_Error->Size = System::Drawing::Size(982, 74);
+			   this->ord_splitter_Error->TabIndex = 20;
+			   this->ord_splitter_Error->TabStop = false;
+			   // 
+			   // ord_btn_Add
+			   // 
+			   this->ord_btn_Add->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_btn_Add->Location = System::Drawing::Point(634, 171);
+			   this->ord_btn_Add->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_btn_Add->Name = L"ord_btn_Add";
+			   this->ord_btn_Add->Size = System::Drawing::Size(75, 37);
+			   this->ord_btn_Add->TabIndex = 19;
+			   this->ord_btn_Add->Text = L"Ìí¼Ó";
+			   this->ord_btn_Add->UseVisualStyleBackColor = true;
+			   this->ord_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Add_Click);
+			   // 
+			   // ord_btn_Clear
+			   // 
+			   this->ord_btn_Clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_btn_Clear->Location = System::Drawing::Point(634, 116);
+			   this->ord_btn_Clear->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_btn_Clear->Name = L"ord_btn_Clear";
+			   this->ord_btn_Clear->Size = System::Drawing::Size(75, 37);
+			   this->ord_btn_Clear->TabIndex = 18;
+			   this->ord_btn_Clear->Text = L"Çå¿Õ";
+			   this->ord_btn_Clear->UseVisualStyleBackColor = true;
+			   this->ord_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Clear_Click);
+			   // 
+			   // ord_btn_Search
+			   // 
+			   this->ord_btn_Search->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_btn_Search->Location = System::Drawing::Point(634, 63);
+			   this->ord_btn_Search->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_btn_Search->Name = L"ord_btn_Search";
+			   this->ord_btn_Search->Size = System::Drawing::Size(75, 37);
+			   this->ord_btn_Search->TabIndex = 17;
+			   this->ord_btn_Search->Text = L"²éÑ¯";
+			   this->ord_btn_Search->UseVisualStyleBackColor = true;
+			   this->ord_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Search_Click);
+			   // 
+			   // ord_lbl_Count
+			   // 
+			   this->ord_lbl_Count->AutoSize = true;
+			   this->ord_lbl_Count->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Count->Location = System::Drawing::Point(135, 392);
+			   this->ord_lbl_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Count->Name = L"ord_lbl_Count";
+			   this->ord_lbl_Count->Size = System::Drawing::Size(35, 20);
+			   this->ord_lbl_Count->TabIndex = 16;
+			   this->ord_lbl_Count->Text = L"N/A";
+			   // 
+			   // ord_lbl_Prompt_Count
+			   // 
+			   this->ord_lbl_Prompt_Count->AutoSize = true;
+			   this->ord_lbl_Prompt_Count->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Prompt_Count->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_Count->Location = System::Drawing::Point(61, 392);
+			   this->ord_lbl_Prompt_Count->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_Count->Name = L"ord_lbl_Prompt_Count";
+			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(79, 20);
+			   this->ord_lbl_Prompt_Count->TabIndex = 15;
+			   this->ord_lbl_Prompt_Count->Text = L"×Ü¼Æ£º";
+			   // 
+			   // ord_lbl_Prompt_SearchResult
+			   // 
+			   this->ord_lbl_Prompt_SearchResult->AutoSize = true;
+			   this->ord_lbl_Prompt_SearchResult->BackColor = System::Drawing::SystemColors::Control;
+			   this->ord_lbl_Prompt_SearchResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(445, 382);
+			   this->ord_lbl_Prompt_SearchResult->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_SearchResult->Name = L"ord_lbl_Prompt_SearchResult";
+			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(156, 31);
+			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
+			   this->ord_lbl_Prompt_SearchResult->Text = L"ËÑË÷½á¹û";
+			   // 
+			   // ord_dataGridView
+			   // 
+			   this->ord_dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			   this->ord_dataGridView->Location = System::Drawing::Point(64, 436);
+			   this->ord_dataGridView->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_dataGridView->Name = L"ord_dataGridView";
+			   this->ord_dataGridView->RowHeadersWidth = 51;
+			   this->ord_dataGridView->RowTemplate->Height = 24;
+			   this->ord_dataGridView->Size = System::Drawing::Size(890, 180);
+			   this->ord_dataGridView->TabIndex = 12;
+			   this->ord_dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MainWindow::ord_dataGridView_CellContentClick);
+			   // 
+			   // ord_txt_itmName
+			   // 
+			   this->ord_txt_itmName->Location = System::Drawing::Point(416, 175);
+			   this->ord_txt_itmName->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_txt_itmName->Name = L"ord_txt_itmName";
+			   this->ord_txt_itmName->Size = System::Drawing::Size(92, 20);
+			   this->ord_txt_itmName->TabIndex = 11;
+			   // 
+			   // ord_lbl_Prompt_itmName
+			   // 
+			   this->ord_lbl_Prompt_itmName->AutoSize = true;
+			   this->ord_lbl_Prompt_itmName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(295, 171);
+			   this->ord_lbl_Prompt_itmName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_itmName->Name = L"ord_lbl_Prompt_itmName";
+			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(94, 20);
+			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
+			   this->ord_lbl_Prompt_itmName->Text = L"ÉÌÆ·Ãû³Æ";
+			   // 
+			   // ord_txt_itmId
+			   // 
+			   this->ord_txt_itmId->Location = System::Drawing::Point(170, 173);
+			   this->ord_txt_itmId->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_txt_itmId->Name = L"ord_txt_itmId";
+			   this->ord_txt_itmId->Size = System::Drawing::Size(92, 20);
+			   this->ord_txt_itmId->TabIndex = 9;
+			   // 
+			   // ord_lbl_Prompt_itmId
+			   // 
+			   this->ord_lbl_Prompt_itmId->AutoSize = true;
+			   this->ord_lbl_Prompt_itmId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_itmId->Location = System::Drawing::Point(67, 171);
+			   this->ord_lbl_Prompt_itmId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_itmId->Name = L"ord_lbl_Prompt_itmId";
+			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(88, 20);
+			   this->ord_lbl_Prompt_itmId->TabIndex = 8;
+			   this->ord_lbl_Prompt_itmId->Text = L"ÉÌÆ·±àºÅ";
+			   // 
+			   // ord_txt_memName
+			   // 
+			   this->ord_txt_memName->Location = System::Drawing::Point(416, 120);
+			   this->ord_txt_memName->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_txt_memName->Name = L"ord_txt_memName";
+			   this->ord_txt_memName->Size = System::Drawing::Size(92, 20);
+			   this->ord_txt_memName->TabIndex = 7;
+			   // 
+			   // ord_lbl_Prompt_memName
+			   // 
+			   this->ord_lbl_Prompt_memName->AutoSize = true;
+			   this->ord_lbl_Prompt_memName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
+				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(295, 117);
+			   this->ord_lbl_Prompt_memName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_memName->Name = L"ord_lbl_Prompt_memName";
+			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(98, 20);
+			   this->ord_lbl_Prompt_memName->TabIndex = 6;
+			   this->ord_lbl_Prompt_memName->Text = L"³ÉÔ±ÐÕÃû";
+			   // 
+			   // ord_txt_memId
+			   // 
+			   this->ord_txt_memId->Location = System::Drawing::Point(170, 117);
+			   this->ord_txt_memId->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_txt_memId->Name = L"ord_txt_memId";
+			   this->ord_txt_memId->Size = System::Drawing::Size(92, 20);
+			   this->ord_txt_memId->TabIndex = 5;
+			   // 
+			   // ord_lbl_Prompt_memId
+			   // 
+			   this->ord_lbl_Prompt_memId->AutoSize = true;
+			   this->ord_lbl_Prompt_memId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_memId->Location = System::Drawing::Point(67, 115);
+			   this->ord_lbl_Prompt_memId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_memId->Name = L"ord_lbl_Prompt_memId";
+			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(89, 20);
+			   this->ord_lbl_Prompt_memId->TabIndex = 4;
+			   this->ord_lbl_Prompt_memId->Text = L"³ÉÔ±±àºÅ";
+			   // 
+			   // ord_cmb_Status
+			   // 
+			   this->ord_cmb_Status->FormattingEnabled = true;
+			   this->ord_cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Active", L"InvalidComplete", L"In process" });
+			   this->ord_cmb_Status->Location = System::Drawing::Point(416, 63);
+			   this->ord_cmb_Status->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_cmb_Status->Name = L"ord_cmb_Status";
+			   this->ord_cmb_Status->Size = System::Drawing::Size(92, 21);
+			   this->ord_cmb_Status->TabIndex = 3;
+			   // 
+			   // ord_lbl_Prompt_Status
+			   // 
+			   this->ord_lbl_Prompt_Status->AutoSize = true;
+			   this->ord_lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(295, 63);
+			   this->ord_lbl_Prompt_Status->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_Status->Name = L"ord_lbl_Prompt_Status";
+			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(81, 20);
+			   this->ord_lbl_Prompt_Status->TabIndex = 2;
+			   this->ord_lbl_Prompt_Status->Text = L"¶©µ¥×´Ì¬";
+			   // 
+			   // ord_txt_ordId
+			   // 
+			   this->ord_txt_ordId->Location = System::Drawing::Point(170, 63);
+			   this->ord_txt_ordId->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_txt_ordId->Name = L"ord_txt_ordId";
+			   this->ord_txt_ordId->Size = System::Drawing::Size(92, 20);
+			   this->ord_txt_ordId->TabIndex = 1;
+			   // 
+			   // ord_lbl_Prompt_ordId
+			   // 
+			   this->ord_lbl_Prompt_ordId->AutoSize = true;
+			   this->ord_lbl_Prompt_ordId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ord_lbl_Prompt_ordId->Location = System::Drawing::Point(68, 63);
+			   this->ord_lbl_Prompt_ordId->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			   this->ord_lbl_Prompt_ordId->Name = L"ord_lbl_Prompt_ordId";
+			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(88, 20);
+			   this->ord_lbl_Prompt_ordId->TabIndex = 0;
+			   this->ord_lbl_Prompt_ordId->Text = L"¶©µ¥±àºÅ";
+			   // 
+			   // ord_splitter
+			   // 
+			   this->ord_splitter->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			   this->ord_splitter->Cursor = System::Windows::Forms::Cursors::HSplit;
+			   this->ord_splitter->Dock = System::Windows::Forms::DockStyle::Bottom;
+			   this->ord_splitter->Enabled = false;
+			   this->ord_splitter->Location = System::Drawing::Point(0, 355);
+			   this->ord_splitter->Margin = System::Windows::Forms::Padding(2);
+			   this->ord_splitter->Name = L"ord_splitter";
+			   this->ord_splitter->Size = System::Drawing::Size(982, 281);
+			   this->ord_splitter->TabIndex = 13;
+			   this->ord_splitter->TabStop = false;
 			   // 
 			   // ms_panelOptions
 			   // 
@@ -1757,7 +1787,7 @@ namespace WeAlumni {
 			   this->ms_panelOptions->Margin = System::Windows::Forms::Padding(50, 0, 50, 0);
 			   this->ms_panelOptions->MinimumSize = System::Drawing::Size(150, 0);
 			   this->ms_panelOptions->Name = L"ms_panelOptions";
-			   this->ms_panelOptions->Size = System::Drawing::Size(150, 635);
+			   this->ms_panelOptions->Size = System::Drawing::Size(150, 636);
 			   this->ms_panelOptions->TabIndex = 0;
 			   this->ms_panelOptions->Text = L"ms_leftBar";
 			   // 
@@ -1765,7 +1795,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_member->Name = L"tsm_member";
 			   this->tsm_member->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_member->Size = System::Drawing::Size(143, 71);
+			   this->tsm_member->Size = System::Drawing::Size(143, 69);
 			   this->tsm_member->Text = L"Member";
 			   this->tsm_member->Click += gcnew System::EventHandler(this, &MainWindow::tsm_member_Click);
 			   // 
@@ -1773,7 +1803,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_staff->Name = L"tsm_staff";
 			   this->tsm_staff->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_staff->Size = System::Drawing::Size(143, 71);
+			   this->tsm_staff->Size = System::Drawing::Size(143, 69);
 			   this->tsm_staff->Text = L"Staff";
 			   this->tsm_staff->Click += gcnew System::EventHandler(this, &MainWindow::tsm_staff_Click);
 			   // 
@@ -1781,7 +1811,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_record->Name = L"tsm_record";
 			   this->tsm_record->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_record->Size = System::Drawing::Size(143, 71);
+			   this->tsm_record->Size = System::Drawing::Size(143, 69);
 			   this->tsm_record->Text = L"Record";
 			   this->tsm_record->Click += gcnew System::EventHandler(this, &MainWindow::tsm_record_Click);
 			   // 
@@ -1789,7 +1819,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_OPT->Name = L"tsm_OPT";
 			   this->tsm_OPT->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_OPT->Size = System::Drawing::Size(143, 71);
+			   this->tsm_OPT->Size = System::Drawing::Size(143, 69);
 			   this->tsm_OPT->Text = L"OPT";
 			   this->tsm_OPT->Click += gcnew System::EventHandler(this, &MainWindow::tsm_OPT_Click);
 			   // 
@@ -1797,7 +1827,7 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_order->Name = L"tsm_order";
 			   this->tsm_order->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_order->Size = System::Drawing::Size(143, 71);
+			   this->tsm_order->Size = System::Drawing::Size(143, 69);
 			   this->tsm_order->Text = L"Order";
 			   this->tsm_order->Click += gcnew System::EventHandler(this, &MainWindow::tsm_order_Click);
 			   // 
@@ -1805,14 +1835,14 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_treasury->Name = L"tsm_treasury";
 			   this->tsm_treasury->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_treasury->Size = System::Drawing::Size(143, 71);
+			   this->tsm_treasury->Size = System::Drawing::Size(143, 69);
 			   this->tsm_treasury->Text = L"Treasury";
 			   // 
 			   // tsm_myInfo
 			   // 
 			   this->tsm_myInfo->Name = L"tsm_myInfo";
 			   this->tsm_myInfo->Padding = System::Windows::Forms::Padding(5, 25, 5, 25);
-			   this->tsm_myInfo->Size = System::Drawing::Size(143, 71);
+			   this->tsm_myInfo->Size = System::Drawing::Size(143, 69);
 			   this->tsm_myInfo->Text = L"My Info";
 			   // 
 			   // ms_systemOptions
@@ -1826,7 +1856,7 @@ namespace WeAlumni {
 			   });
 			   this->ms_systemOptions->Location = System::Drawing::Point(0, 0);
 			   this->ms_systemOptions->Name = L"ms_systemOptions";
-			   this->ms_systemOptions->Size = System::Drawing::Size(1132, 25);
+			   this->ms_systemOptions->Size = System::Drawing::Size(1132, 24);
 			   this->ms_systemOptions->TabIndex = 0;
 			   this->ms_systemOptions->Text = L"menuStrip1";
 			   // 
@@ -1834,24 +1864,21 @@ namespace WeAlumni {
 			   // 
 			   this->tsm_system->Name = L"tsm_system";
 			   this->tsm_system->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_system->Size = System::Drawing::Size(116, 24);
-			   this->tsm_system->Size = System::Drawing::Size(103, 21);
+			   this->tsm_system->Size = System::Drawing::Size(99, 20);
 			   this->tsm_system->Text = L"System";
 			   // 
 			   // tsm_database
 			   // 
 			   this->tsm_database->Name = L"tsm_database";
 			   this->tsm_database->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_database->Size = System::Drawing::Size(130, 24);
-			   this->tsm_database->Size = System::Drawing::Size(117, 21);
+			   this->tsm_database->Size = System::Drawing::Size(109, 20);
 			   this->tsm_database->Text = L"Database";
 			   // 
 			   // tsm_help
 			   // 
 			   this->tsm_help->Name = L"tsm_help";
 			   this->tsm_help->Padding = System::Windows::Forms::Padding(25, 0, 25, 0);
-			   this->tsm_help->Size = System::Drawing::Size(98, 24);
-			   this->tsm_help->Size = System::Drawing::Size(89, 21);
+			   this->tsm_help->Size = System::Drawing::Size(86, 20);
 			   this->tsm_help->Text = L"Help";
 			   // 
 			   // MainWindow
@@ -1872,6 +1899,17 @@ namespace WeAlumni {
 			   this->toolStripContainer1->TopToolStripPanel->PerformLayout();
 			   this->toolStripContainer1->ResumeLayout(false);
 			   this->toolStripContainer1->PerformLayout();
+			   this->pan_member->ResumeLayout(false);
+			   this->mem_panel4->ResumeLayout(false);
+			   this->mem_panel4->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->EndInit();
+			   this->mem_panel3->ResumeLayout(false);
+			   this->mem_panel3->PerformLayout();
+			   this->mem_panel1->ResumeLayout(false);
+			   this->mem_panel1->PerformLayout();
+			   this->pan_staff->ResumeLayout(false);
+			   this->pan_staff->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->EndInit();
 			   this->pan_record->ResumeLayout(false);
 			   this->pan_record->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Rec_dataGridView))->EndInit();
@@ -1881,12 +1919,6 @@ namespace WeAlumni {
 			   this->pan_order->ResumeLayout(false);
 			   this->pan_order->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ord_dataGridView))->EndInit();
-			   this->pan_member->ResumeLayout(false);
-			   this->pan_member->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->mem_dataGridView1))->EndInit();
-			   this->pan_staff->ResumeLayout(false);
-			   this->pan_staff->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->stf_dataGridView))->EndInit();
 			   this->ms_panelOptions->ResumeLayout(false);
 			   this->ms_panelOptions->PerformLayout();
 			   this->ms_systemOptions->ResumeLayout(false);
