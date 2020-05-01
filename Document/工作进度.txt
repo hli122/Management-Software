@@ -85,9 +85,26 @@
   Yiyun          | 更改因数据库变更需要修正的逻辑
 ----Testing----
   Haoran       | Member, Record
-  Sen             | Treasury, Staff
+  Sen             | Treasury（未测试）, Staff
 ----None----
   Xiangdong
 
 4/29 - S9
-MainWindow: Record, Orders, Button, System functions
+----Main Window----
+   Yiyun          | Treasury
+   Sen             | Record
+   Haoran       | Orders
+   Xiangdong | OPT
+----Testing----
+   Jiaying        | Treasury
+
+5/2 - S10
+----Main Window----
+  Rui             | MyInfo
+  Rui             | Staff
+  Jiaying       | Member
+----None----
+  Sen
+  Haoran
+  Xiangdong
+  Yiyun

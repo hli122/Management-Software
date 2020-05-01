@@ -275,7 +275,7 @@ Void WeAlumni::MainWindow::stf_btn_Search_Click(System::Object^ sender, System::
     String^ Dept = stf_cmb_Dept->Text;
     String^ Auth = stf_cmb_Auth->Text;
     String^ command = "SELECT Staff.MemId    AS 'ID', " +
-        "Member.Name    As 'Name', " +
+        "Member.Name    As '姓名', " +
         "Member.Gender  AS 'Gender', " +
         "Member.Email   AS 'Email', " +
         "Staff.Dept     As 'Department', " +
@@ -764,16 +764,16 @@ Void WeAlumni::MainWindow::OPT_btn_Search_Click(System::Object^ sender, System::
     String^ CardNumber = OPT_txt_CardNumber->Text;
 
     String^ command = "SELECT OPT.Id                                                        AS 'OPT编号', " +
-                             "OPT.Status                                                    AS '状态', " +
-                             "(SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS '成员姓名', " +
-                             "(SELECT Member.Name FROM Member " +
-                                                 "INNER JOIN Staff INNER JOIN OPT " + 
-                             "WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)    AS '员工姓名', " +
-                             "OPT.StartDate                                                 AS '开始日期', " +
-                             "OPT.EndDate                                                   AS '结束日期', " +
-                             "OPT.Title                                                     AS '头衔', " +
-                             "OPT.Position                                                  AS '职位' " +
-                             "FROM OPT INNER JOIN Member WHERE ";
+        "OPT.Status                                                    AS '状态', " +
+        "(SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS '成员姓名', " +
+        "(SELECT Member.Name FROM Member " +
+        "INNER JOIN Staff INNER JOIN OPT " +
+        "WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)    AS '员工姓名', " +
+        "OPT.StartDate                                                 AS '开始日期', " +
+        "OPT.EndDate                                                   AS '结束日期', " +
+        "OPT.Title                                                     AS '头衔', " +
+        "OPT.Position                                                  AS '职位' " +
+        "FROM OPT INNER JOIN Member WHERE ";
     String^ command2 = "";
 
     std::vector<int> vec;
@@ -865,4 +865,30 @@ Void WeAlumni::MainWindow::OPT_GeneralInformation() {
     else {
         OPT_lbl_Count->Text = Convert::ToString(OPT_dataGridView->RowCount - 1);
     }
+}
+
+/*
+ *  System
+ */
+
+ /*
+  *   tmsi_ChangeUserInfo_Click()
+  *   Show change username/password page
+  *   @param None
+  *   @return None
+  */
+Void WeAlumni::MainWindow::tmsi_ChangeUserInfo_Click(System::Object^ sender, System::EventArgs^ e) {
+    SysChangeUserInfoPage^ page = gcnew SysChangeUserInfoPage(_pui);
+    page->ShowDialog();
+}
+
+/*
+ *   tsmi_VersionInfo_Click()
+ *   Show version information
+ *   @param None
+ *   @return None
+ */
+Void WeAlumni::MainWindow::tsmi_VersionInfo_Click(System::Object^ sender, System::EventArgs^ e) {
+    SysInfoPage^ page = gcnew SysInfoPage();
+    page->ShowDialog();
 }

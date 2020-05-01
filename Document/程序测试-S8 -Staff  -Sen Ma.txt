@@ -1,0 +1,11 @@
+--------测试结果---------
+
+> Staff MainWindow
+   1.中文
+   2.Department搜索时General Administration无结果，需手动输入GeneralAdmin。
+	
+> StfInfoPage
+	
+> StfAddPage
+   1.提示信息出现乱码
+   2.对同一member可重复进行添加staff的操作
