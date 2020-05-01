@@ -435,9 +435,9 @@ namespace WeAlumni {
 			   this->ord_lbl_Error->ForeColor = System::Drawing::Color::Red;
 			   this->ord_lbl_Error->Location = System::Drawing::Point(637, 158);
 			   this->ord_lbl_Error->Name = L"ord_lbl_Error";
-			   this->ord_lbl_Error->Size = System::Drawing::Size(82, 25);
+			   this->ord_lbl_Error->Size = System::Drawing::Size(54, 25);
 			   this->ord_lbl_Error->TabIndex = 21;
-			   this->ord_lbl_Error->Text = L"´Ë´¦±¨´í";
+			   this->ord_lbl_Error->Text = L"错误";
 			   // 
 			   // ord_dataGridView
 			   // 
@@ -472,9 +472,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_Count->Location = System::Drawing::Point(96, 37);
 			   this->ord_lbl_Prompt_Count->Name = L"ord_lbl_Prompt_Count";
-			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(100, 25);
+			   this->ord_lbl_Prompt_Count->Size = System::Drawing::Size(61, 25);
 			   this->ord_lbl_Prompt_Count->TabIndex = 15;
-			   this->ord_lbl_Prompt_Count->Text = L"×Ü¼Æ£º";
+			   this->ord_lbl_Prompt_Count->Text = L"总计:";
 			   // 
 			   // ord_lbl_Count
 			   // 
@@ -496,9 +496,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_SearchResult->Location = System::Drawing::Point(602, 30);
 			   this->ord_lbl_Prompt_SearchResult->Name = L"ord_lbl_Prompt_SearchResult";
-			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(161, 32);
+			   this->ord_lbl_Prompt_SearchResult->Size = System::Drawing::Size(131, 32);
 			   this->ord_lbl_Prompt_SearchResult->TabIndex = 14;
-			   this->ord_lbl_Prompt_SearchResult->Text = L"ËÑË÷½á¹û";
+			   this->ord_lbl_Prompt_SearchResult->Text = L"查询结果";
 			   // 
 			   // ord_lbl_Prompt_ViewInfo
 			   // 
@@ -508,9 +508,9 @@ namespace WeAlumni {
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_ViewInfo->Location = System::Drawing::Point(1022, 32);
 			   this->ord_lbl_Prompt_ViewInfo->Name = L"ord_lbl_Prompt_ViewInfo";
-			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(199, 25);
+			   this->ord_lbl_Prompt_ViewInfo->Size = System::Drawing::Size(92, 25);
 			   this->ord_lbl_Prompt_ViewInfo->TabIndex = 22;
-			   this->ord_lbl_Prompt_ViewInfo->Text = L"ÏÔÊ¾¶©µ¥Ä¬ÈÏÐÅÏ¢";
+			   this->ord_lbl_Prompt_ViewInfo->Text = L"订单信息";
 			   // 
 			   // ord_panel1
 			   // 
@@ -538,14 +538,15 @@ namespace WeAlumni {
 			   // 
 			   // ord_lbl_Prompt_ordId
 			   // 
+			   this->ord_lbl_Prompt_ordId->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->ord_lbl_Prompt_ordId->AutoSize = true;
 			   this->ord_lbl_Prompt_ordId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_ordId->Location = System::Drawing::Point(88, 67);
 			   this->ord_lbl_Prompt_ordId->Name = L"ord_lbl_Prompt_ordId";
-			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(112, 25);
+			   this->ord_lbl_Prompt_ordId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_ordId->TabIndex = 0;
-			   this->ord_lbl_Prompt_ordId->Text = L"¶©µ¥±àºÅ";
+			   this->ord_lbl_Prompt_ordId->Text = L"订单编号";
 			   // 
 			   // ord_txt_ordId
 			   // 
@@ -560,11 +561,11 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_Status->AutoSize = true;
 			   this->ord_lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(477, 64);
+			   this->ord_lbl_Prompt_Status->Location = System::Drawing::Point(485, 62);
 			   this->ord_lbl_Prompt_Status->Name = L"ord_lbl_Prompt_Status";
-			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(104, 25);
+			   this->ord_lbl_Prompt_Status->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_Status->TabIndex = 2;
-			   this->ord_lbl_Prompt_Status->Text = L"¶©µ¥×´Ì¬";
+			   this->ord_lbl_Prompt_Status->Text = L"订单状态";
 			   // 
 			   // ord_cmb_Status
 			   // 
@@ -585,7 +586,7 @@ namespace WeAlumni {
 			   this->ord_btn_Add->Name = L"ord_btn_Add";
 			   this->ord_btn_Add->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Add->TabIndex = 19;
-			   this->ord_btn_Add->Text = L"Ìí¼Ó";
+			   this->ord_btn_Add->Text = L"新建";
 			   this->ord_btn_Add->UseVisualStyleBackColor = true;
 			   this->ord_btn_Add->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Add_Click);
 			   // 
@@ -596,9 +597,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_memId->Location = System::Drawing::Point(88, 140);
 			   this->ord_lbl_Prompt_memId->Name = L"ord_lbl_Prompt_memId";
-			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(112, 25);
+			   this->ord_lbl_Prompt_memId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_memId->TabIndex = 4;
-			   this->ord_lbl_Prompt_memId->Text = L"³ÉÔ±±àºÅ";
+			   this->ord_lbl_Prompt_memId->Text = L"成员编号";
 			   // 
 			   // ord_btn_Clear
 			   // 
@@ -609,7 +610,7 @@ namespace WeAlumni {
 			   this->ord_btn_Clear->Name = L"ord_btn_Clear";
 			   this->ord_btn_Clear->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Clear->TabIndex = 18;
-			   this->ord_btn_Clear->Text = L"Çå¿Õ";
+			   this->ord_btn_Clear->Text = L"清除";
 			   this->ord_btn_Clear->UseVisualStyleBackColor = true;
 			   this->ord_btn_Clear->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Clear_Click);
 			   // 
@@ -630,7 +631,7 @@ namespace WeAlumni {
 			   this->ord_btn_Search->Name = L"ord_btn_Search";
 			   this->ord_btn_Search->Size = System::Drawing::Size(100, 46);
 			   this->ord_btn_Search->TabIndex = 17;
-			   this->ord_btn_Search->Text = L"²éÑ¯";
+			   this->ord_btn_Search->Text = L"查询";
 			   this->ord_btn_Search->UseVisualStyleBackColor = true;
 			   this->ord_btn_Search->Click += gcnew System::EventHandler(this, &MainWindow::ord_btn_Search_Click);
 			   // 
@@ -639,11 +640,11 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_memName->AutoSize = true;
 			   this->ord_lbl_Prompt_memName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(458, 137);
+			   this->ord_lbl_Prompt_memName->Location = System::Drawing::Point(485, 138);
 			   this->ord_lbl_Prompt_memName->Name = L"ord_lbl_Prompt_memName";
-			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(123, 25);
+			   this->ord_lbl_Prompt_memName->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_memName->TabIndex = 6;
-			   this->ord_lbl_Prompt_memName->Text = L"³ÉÔ±ÐÕÃû";
+			   this->ord_lbl_Prompt_memName->Text = L"成员姓名";
 			   // 
 			   // ord_txt_memName
 			   // 
@@ -660,9 +661,9 @@ namespace WeAlumni {
 				   static_cast<System::Byte>(0)));
 			   this->ord_lbl_Prompt_itmId->Location = System::Drawing::Point(88, 208);
 			   this->ord_lbl_Prompt_itmId->Name = L"ord_lbl_Prompt_itmId";
-			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(108, 25);
+			   this->ord_lbl_Prompt_itmId->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_itmId->TabIndex = 8;
-			   this->ord_lbl_Prompt_itmId->Text = L"ÉÌÆ·±àºÅ";
+			   this->ord_lbl_Prompt_itmId->Text = L"商品编号";
 			   // 
 			   // ord_txt_itmId
 			   // 
@@ -677,11 +678,11 @@ namespace WeAlumni {
 			   this->ord_lbl_Prompt_itmName->AutoSize = true;
 			   this->ord_lbl_Prompt_itmName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold,
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(464, 208);
+			   this->ord_lbl_Prompt_itmName->Location = System::Drawing::Point(485, 208);
 			   this->ord_lbl_Prompt_itmName->Name = L"ord_lbl_Prompt_itmName";
-			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(117, 25);
+			   this->ord_lbl_Prompt_itmName->Size = System::Drawing::Size(96, 25);
 			   this->ord_lbl_Prompt_itmName->TabIndex = 10;
-			   this->ord_lbl_Prompt_itmName->Text = L"ÉÌÆ·Ãû³Æ";
+			   this->ord_lbl_Prompt_itmName->Text = L"商品名称";
 			   // 
 			   // ord_txt_itmName
 			   // 

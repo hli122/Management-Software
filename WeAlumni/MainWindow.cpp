@@ -275,7 +275,7 @@ Void WeAlumni::MainWindow::stf_btn_Search_Click(System::Object^ sender, System::
     String^ Dept = stf_cmb_Dept->Text;
     String^ Auth = stf_cmb_Auth->Text;
     String^ command = "SELECT Staff.MemId    AS 'ID', " +
-        "Member.Name    As 'å§“å', " +
+        "Member.Name    As 'ĞÕÃû', " +
         "Member.Gender  AS 'Gender', " +
         "Member.Email   AS 'Email', " +
         "Staff.Dept     As 'Department', " +
@@ -431,13 +431,13 @@ Void WeAlumni::MainWindow::ord_CheckAuth() {
     }
 }
 
- /*
- * ord_btn_Search_Click
- *
- * This method will try to search from Record table for the record of this order
- * and related info from member and item.
- * Then update record to ord_DataGridView
- */
+/*
+* ord_btn_Search_Click
+*
+* This method will try to search from Record table for the record of this order
+* and related info from member and item.
+* Then update record to ord_DataGridView
+*/
 Void WeAlumni::MainWindow::ord_btn_Search_Click(System::Object^ sender, System::EventArgs^ e) {
     String^ o_id = ord_txt_ordId->Text;
     String^ status = ord_cmb_Status->Text;
@@ -777,16 +777,16 @@ Void WeAlumni::MainWindow::OPT_btn_Search_Click(System::Object^ sender, System::
     String^ MemName = OPT_txt_MemName->Text;
     String^ CardNumber = OPT_txt_CardNumber->Text;
 
-    String^ command = "SELECT OPT.Id                                                        AS 'OPTç¼–å·', " +
-        "OPT.Status                                                    AS 'çŠ¶æ€', " +
-        "(SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS 'æˆå‘˜å§“å', " +
+    String^ command = "SELECT OPT.Id                                                        AS 'OPT±àºÅ', " +
+        "OPT.Status                                                    AS '×´Ì¬', " +
+        "(SELECT Member.Name FROM Member WHERE Member.Id = OPT.MemId)  AS '³ÉÔ±ĞÕÃû', " +
         "(SELECT Member.Name FROM Member " +
         "INNER JOIN Staff INNER JOIN OPT " +
-        "WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)    AS 'å‘˜å·¥å§“å', " +
-        "OPT.StartDate                                                 AS 'å¼€å§‹æ—¥æœŸ', " +
-        "OPT.EndDate                                                   AS 'ç»“æŸæ—¥æœŸ', " +
-        "OPT.Title                                                     AS 'å¤´è¡”', " +
-        "OPT.Position                                                  AS 'èŒä½' " +
+        "WHERE Member.Id = Staff.MemId AND Staff.MemId = OPT.StfId)    AS 'Ô±¹¤ĞÕÃû', " +
+        "OPT.StartDate                                                 AS '¿ªÊ¼ÈÕÆÚ', " +
+        "OPT.EndDate                                                   AS '½áÊøÈÕÆÚ', " +
+        "OPT.Title                                                     AS 'Í·ÏÎ', " +
+        "OPT.Position                                                  AS 'Ö°Î»' " +
         "FROM OPT INNER JOIN Member WHERE ";
     String^ command2 = "";
 

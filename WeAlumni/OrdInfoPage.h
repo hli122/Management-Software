@@ -783,7 +783,7 @@ namespace WeAlumni {
 			this->Controls->Add(this->dataGridView3);
 			this->Controls->Add(this->dataGridView4);
 			this->Name = L"OrdInfoPage";
-			this->Text = L"OrdInfoPage";
+			this->Text = L"∂©µ•–≈œ¢";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();

@@ -148,9 +148,9 @@ namespace WeAlumni {
 			this->lbl_OrdPageName->Location = System::Drawing::Point(320, 9);
 			this->lbl_OrdPageName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lbl_OrdPageName->Name = L"lbl_OrdPageName";
-			this->lbl_OrdPageName->Size = System::Drawing::Size(164, 29);
+			this->lbl_OrdPageName->Size = System::Drawing::Size(113, 29);
 			this->lbl_OrdPageName->TabIndex = 0;
-			this->lbl_OrdPageName->Text = L"OrdAddPage";
+			this->lbl_OrdPageName->Text = L"新建订单";
 			this->lbl_OrdPageName->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lbl_Promt_OrdId
@@ -518,7 +518,8 @@ namespace WeAlumni {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"OrdAddPage";
-			this->Text = L"OrdAddPage";
+			this->Text = L"新建订单";
+			this->Load += gcnew System::EventHandler(this, &OrdAddPage::OrdAddPage_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -535,5 +536,7 @@ namespace WeAlumni {
 		System::Void btn_VerifyItm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Confirm_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void btn_Cancel_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void OrdAddPage_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
