@@ -230,7 +230,7 @@ namespace WeAlumni {
 			// 
 			// txt_OdrStat
 			// 
-			this->txt_OdrStat->Location = System::Drawing::Point(246, 39);
+			this->txt_OdrStat->Location = System::Drawing::Point(236, 42);
 			this->txt_OdrStat->Name = L"txt_OdrStat";
 			this->txt_OdrStat->Size = System::Drawing::Size(100, 22);
 			this->txt_OdrStat->TabIndex = 4;
@@ -289,7 +289,7 @@ namespace WeAlumni {
 			// lbl_MemName
 			// 
 			this->lbl_MemName->AutoSize = true;
-			this->lbl_MemName->Location = System::Drawing::Point(246, 77);
+			this->lbl_MemName->Location = System::Drawing::Point(243, 77);
 			this->lbl_MemName->Name = L"lbl_MemName";
 			this->lbl_MemName->Size = System::Drawing::Size(31, 17);
 			this->lbl_MemName->TabIndex = 10;
@@ -497,14 +497,14 @@ namespace WeAlumni {
 			// 
 			// txt_ItemId
 			// 
-			this->txt_ItemId->Location = System::Drawing::Point(115, 181);
+			this->txt_ItemId->Location = System::Drawing::Point(106, 177);
 			this->txt_ItemId->Name = L"txt_ItemId";
 			this->txt_ItemId->Size = System::Drawing::Size(100, 22);
 			this->txt_ItemId->TabIndex = 31;
 			// 
 			// txt_ItemName
 			// 
-			this->txt_ItemName->Location = System::Drawing::Point(468, 178);
+			this->txt_ItemName->Location = System::Drawing::Point(458, 177);
 			this->txt_ItemName->Name = L"txt_ItemName";
 			this->txt_ItemName->Size = System::Drawing::Size(100, 22);
 			this->txt_ItemName->TabIndex = 32;
@@ -531,7 +531,7 @@ namespace WeAlumni {
 			// 
 			// txt_OdrAmt
 			// 
-			this->txt_OdrAmt->Location = System::Drawing::Point(115, 221);
+			this->txt_OdrAmt->Location = System::Drawing::Point(106, 221);
 			this->txt_OdrAmt->Name = L"txt_OdrAmt";
 			this->txt_OdrAmt->Size = System::Drawing::Size(100, 22);
 			this->txt_OdrAmt->TabIndex = 35;

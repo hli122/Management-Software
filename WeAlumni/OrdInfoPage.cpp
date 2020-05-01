@@ -139,6 +139,7 @@ Void WeAlumni::OrdInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
  * This method will show DelConfirm and cancel button
  */
 Void WeAlumni::OrdInfoPage::btn_Delete_Click(System::Object^ sender, System::EventArgs^ e) {
+    btn_ChangeInfo->Visible = false;
     btn_Confirm->Visible = false;
     btn_DelConfirm->Visible = true;
     btn_Cancel->Visible = true;

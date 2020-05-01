@@ -417,6 +417,20 @@ Void WeAlumni::MainWindow::stf_UpdateDataGridView(String^ command) {
 /*
  *  Order
  */
+
+ /*
+  * ord_CheckAuth()
+  * Check order Auth. If Level == 1 or 2, user can't see the order mainWindow.
+  * @param None
+  * @return None
+  */
+Void WeAlumni::MainWindow::ord_CheckAuth() {
+    if (_Auth == PublicUserInfo::Auth::Level_1 || _Auth == PublicUserInfo::Auth::Level_2) {
+        tsm_order->Visible = false;
+        pan_order->Visible = false;
+    }
+}
+
  /*
  * ord_btn_Search_Click
  *
@@ -436,7 +450,7 @@ Void WeAlumni::MainWindow::ord_btn_Search_Click(System::Object^ sender, System::
         " Member.Email AS 'Email'," + "Item.Name AS 'ItmName'," +
         " Orders.Amount AS 'Amount'," + "Item.Price AS 'ItmPrice'," +
         " Orders.Comment AS 'Comment'" +
-        "FROM Orders, Member, Item WHERE ";
+        "FROM Orders, Member, Item WHERE Orders.MemId = Member.Id AND Orders.ItemId = Item.Id AND ";
     String^ cmd2 = "";
 
     std::vector<int> vec;
@@ -467,7 +481,7 @@ Void WeAlumni::MainWindow::ord_btn_Search_Click(System::Object^ sender, System::
         }
         flag = true;
     }
-    cmd += cmd2 + " ORDER BY Member.Id ASC;";
+    cmd += cmd2 + " ORDER BY Orders.Id ASC;";
     ord_UpdateDataGridView(cmd);
     ord_GeneralInformation();
 }
