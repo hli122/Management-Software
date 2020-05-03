@@ -1,12 +1,12 @@
 3/24 - S1
   ----Info Page----
-  Jiaying        | Member（Log，等pr再分配）
-  Rui              | Staff（完成，翻译Treasury中文）
+  Jiaying        | Member
+  Rui              | Staff
   Sen             | Record
-  Xiangdong | OPT（完成，OPT MainWindow）
-  Yiyun          | Treasury（中文乱码，等pr再分配）
+  Xiangdong | OPT
+  Yiyun          | Treasury
   ----  NONE  ----
-  Haoran（完成，Log，InfoPage乱码）
+  Haoran
 
 3/28 - S2
   ----Add Page----
@@ -95,16 +95,22 @@
    Sen             | Record
    Haoran       | Orders
    Xiangdong | OPT
-----Testing----
-   Jiaying        | Treasury
+----None----
+   Jiaying
 
 5/2 - S10
 ----Main Window----
-  Rui             | MyInfo
-  Rui             | Staff
-  Jiaying       | Member
-----None----
-  Sen
-  Haoran
-  Xiangdong
+  Rui              | Staff
+  Jiaying        | Member
+  Hang          | MyInfo
+----Testing----
+  Xiangdong | Treasury
+----Treasury----
   Yiyun
+----Record----
+  Sen
+----None----
+  Haoran
+
+5/6 - S11
+  
