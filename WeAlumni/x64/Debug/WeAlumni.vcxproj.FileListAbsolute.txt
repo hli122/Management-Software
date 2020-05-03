@@ -1,0 +1,15 @@
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.vcxprojAssemblyReference.cache
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.DatabasePrecheck.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.MainWindow.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.MemInfoPage.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.OPTAddPage.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.OPTInfoPage.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.StartPage.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.StartPage2.resources
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.vcxproj.GenerateResource.cache
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.vcxproj.CopyComplete
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.exe
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.pdb
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\System.Data.SQLite.dll
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\System.Data.SQLite.Linq.dll

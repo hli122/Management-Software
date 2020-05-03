@@ -1,6 +1,7 @@
 #pragma once
 #include "database.h"
 #include "MainWindow.h"
+#include "StartPage2.h"
 #include "DatabasePrecheck.h"
 #include "SysForgotPassword.h"
 #include "PublicUserInfo.h"
@@ -15,7 +16,7 @@ namespace WeAlumni {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// LoginPage æ‘˜è¦
+	/// LoginPage ÕªÒª
 	/// </summary>
 	public ref class LoginPage : public System::Windows::Forms::Form
 	{
@@ -31,7 +32,7 @@ namespace WeAlumni {
 
 	protected:
 		/// <summary>
-		/// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+		/// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
 		/// </summary>
 		~LoginPage()
 		{
@@ -58,14 +59,14 @@ namespace WeAlumni {
 
 	private:
 		/// <summary>
-		/// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+		/// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦ä¿®æ”¹
-		/// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+		/// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»ÒªĞŞ¸Ä
+		/// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -90,7 +91,7 @@ namespace WeAlumni {
 			this->lbl_Prompt_Title->Name = L"lbl_Prompt_Title";
 			this->lbl_Prompt_Title->Size = System::Drawing::Size(113, 29);
 			this->lbl_Prompt_Title->TabIndex = 0;
-			this->lbl_Prompt_Title->Text = L"ç”¨æˆ·ç™»å½•";
+			this->lbl_Prompt_Title->Text = L"ÓÃ»§µÇÂ¼";
 			// 
 			// lbl_Prompt_Username
 			// 
@@ -101,7 +102,7 @@ namespace WeAlumni {
 			this->lbl_Prompt_Username->Name = L"lbl_Prompt_Username";
 			this->lbl_Prompt_Username->Size = System::Drawing::Size(82, 25);
 			this->lbl_Prompt_Username->TabIndex = 1;
-			this->lbl_Prompt_Username->Text = L"ç”¨æˆ·å:";
+			this->lbl_Prompt_Username->Text = L"ÓÃ»§Ãû:";
 			// 
 			// lbl_Prompt_Password
 			// 
@@ -112,7 +113,7 @@ namespace WeAlumni {
 			this->lbl_Prompt_Password->Name = L"lbl_Prompt_Password";
 			this->lbl_Prompt_Password->Size = System::Drawing::Size(61, 25);
 			this->lbl_Prompt_Password->TabIndex = 2;
-			this->lbl_Prompt_Password->Text = L"å¯†ç :";
+			this->lbl_Prompt_Password->Text = L"ÃÜÂë:";
 			// 
 			// txt_Username
 			// 
@@ -132,19 +133,19 @@ namespace WeAlumni {
 			// 
 			this->btn_Login->Location = System::Drawing::Point(238, 281);
 			this->btn_Login->Name = L"btn_Login";
-			this->btn_Login->Size = System::Drawing::Size(78, 45);
+			this->btn_Login->Size = System::Drawing::Size(95, 45);
 			this->btn_Login->TabIndex = 6;
-			this->btn_Login->Text = L"ç™»å½•";
+			this->btn_Login->Text = L"µÇÂ¼";
 			this->btn_Login->UseVisualStyleBackColor = true;
 			this->btn_Login->Click += gcnew System::EventHandler(this, &LoginPage::Login_Click);
 			// 
 			// btn_forgotpswd
 			// 
-			this->btn_forgotpswd->Location = System::Drawing::Point(341, 281);
+			this->btn_forgotpswd->Location = System::Drawing::Point(357, 281);
 			this->btn_forgotpswd->Name = L"btn_forgotpswd";
-			this->btn_forgotpswd->Size = System::Drawing::Size(78, 45);
+			this->btn_forgotpswd->Size = System::Drawing::Size(95, 45);
 			this->btn_forgotpswd->TabIndex = 9;
-			this->btn_forgotpswd->Text = L"å¿˜è®°å¯†ç ";
+			this->btn_forgotpswd->Text = L"Íü¼ÇÃÜÂë";
 			this->btn_forgotpswd->UseVisualStyleBackColor = true;
 			this->btn_forgotpswd->Click += gcnew System::EventHandler(this, &LoginPage::Forgot_Click);
 			// 
@@ -165,7 +166,7 @@ namespace WeAlumni {
 			this->cbox_Remember->Name = L"cbox_Remember";
 			this->cbox_Remember->Size = System::Drawing::Size(86, 21);
 			this->cbox_Remember->TabIndex = 11;
-			this->cbox_Remember->Text = L"è®°ä½å¯†ç ";
+			this->cbox_Remember->Text = L"¼Ç×¡ÃÜÂë";
 			this->cbox_Remember->UseVisualStyleBackColor = true;
 			// 
 			// LoginPage
@@ -183,16 +184,16 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_Prompt_Username);
 			this->Controls->Add(this->lbl_Prompt_Title);
 			this->Name = L"LoginPage";
-			this->Text = L"ç™»å½•ç•Œé¢";
+			this->Text = L"µÇÂ¼½çÃæ";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: 
+	private:
 		Database^ _database;
 		int^ _stfId;
-	private:  
+	private:
 		System::Void Initialize();
 		Void WeAlumni::LoginPage::ShowDefault();
 		Void WeAlumni::LoginPage::JumpToMain();
@@ -200,6 +201,5 @@ namespace WeAlumni {
 		Void WeAlumni::LoginPage::Clear_User();
 		Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^ e);
 		Void WeAlumni::LoginPage::Forgot_Click(System::Object^ sender, System::EventArgs^ e);
-};
+	};
 }
-

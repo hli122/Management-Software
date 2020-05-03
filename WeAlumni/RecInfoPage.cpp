@@ -8,9 +8,34 @@
  * @author: Sen Ma
  * Revised: 3/28/20
  * Revised: 4/25/20 chinese
+ * Revised: 5/1/20 auth update
  */
 
 using namespace System;
+
+/*
+* Initialize
+* This method will try to initialize database.
+* @param none
+* @return none
+*/
+Void WeAlumni::RecInfoPage::Initialize() {
+    try {
+        if (auth == PublicUserInfo::Auth::Level_5) {
+            btn_Update->Enabled = true;
+            database = gcnew Database(Database::DatabaseType::Data, true);
+        }
+        else {
+            btn_Update->Enabled = false;
+            database = gcnew Database(Database::DatabaseType::Data);
+        }
+        UpdateInfo();
+    }
+    catch (System::Exception^ exception) {
+        lbl_DBError->Text = exception->Message;
+        lbl_DBError->ForeColor = System::Drawing::Color::Red;
+    }
+}
 
 /*
  * UpdateInfo

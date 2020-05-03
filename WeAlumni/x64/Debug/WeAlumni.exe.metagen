@@ -1,0 +1,180 @@
+  WeAlumni.DatabasePrecheck.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.MemInfoPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.OPTAddPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.OPTInfoPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.OrdAddPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.OrdInfoPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.StartPage.resources - Embedded, ContainedInManifestFile, 
+  WeAlumni.StartPage2.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly WeAlumni, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139: 
+	hash=None, flags=None
+Assembly System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class WeAlumni.Database: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(DatabaseType, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(DatabaseType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    System.Data.SQLite.SQLiteDataReader dataReader : Public
+    System.Data.SQLite.SQLiteDataAdapter dataAdapter : Public
+    System.Data.DataTable dataTable : Public
+  Methods:
+    SetDatabaseType(DatabaseType): PrivateScope, Public, HideBySig
+    Log(Int32, String): PrivateScope, Public, Static, HideBySig
+    CreateDatabaseFile(): PrivateScope, Public, HideBySig
+    CheckDatabaseFileExistence(): PrivateScope, Public, HideBySig
+    GetNextId(DatabaseTable): PrivateScope, Public, HideBySig
+    GetSystemTime(): PrivateScope, Public, HideBySig
+    ReadData(String): PrivateScope, Public, HideBySig
+    ReadDataAdapter(String): PrivateScope, Public, HideBySig
+    InsertData(String): PrivateScope, Public, HideBySig
+    UpdateData(String): PrivateScope, Public, HideBySig
+    DeleteData(String): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct WeAlumni.Database+DatabaseType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    DatabaseType Admin = 0 : Public, Static, Literal, HasDefault
+    DatabaseType Data = 1 : Public, Static, Literal, HasDefault
+    DatabaseType Treasury = 2 : Public, Static, Literal, HasDefault
+Struct WeAlumni.Database+DatabaseTable: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    DatabaseTable Member = 0 : Public, Static, Literal, HasDefault
+    DatabaseTable Staff = 1 : Public, Static, Literal, HasDefault
+    DatabaseTable Record = 2 : Public, Static, Literal, HasDefault
+    DatabaseTable OPT = 3 : Public, Static, Literal, HasDefault
+    DatabaseTable Log = 4 : Public, Static, Literal, HasDefault
+    DatabaseTable Item = 5 : Public, Static, Literal, HasDefault
+    DatabaseTable Orders = 6 : Public, Static, Literal, HasDefault
+    DatabaseTable Treasury = 7 : Public, Static, Literal, HasDefault
+Class WeAlumni.DatabasePrecheck: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(DatabaseType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean exitStatus : Public
+  Methods:
+    checkFile(): PrivateScope, Public, HideBySig
+    setDatabaseType(DatabaseType): PrivateScope, Public, HideBySig
+    loginPrecheck(): PrivateScope, Public, Static, HideBySig
+    TrePrecheck(): PrivateScope, Public, Static, HideBySig
+Struct WeAlumni.DatabasePrecheck+DatabaseType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    DatabaseType admin = 0 : Public, Static, Literal, HasDefault
+    DatabaseType data = 1 : Public, Static, Literal, HasDefault
+    DatabaseType treasury = 2 : Public, Static, Literal, HasDefault
+Class WeAlumni.DatabaseEncryptionAndDecryption: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.PublicUserInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, System.String, Auth): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetId(): PrivateScope, Public, HideBySig
+    GetName(): PrivateScope, Public, HideBySig
+    GetAuth(): PrivateScope, Public, HideBySig
+    SetId(Int32): PrivateScope, Public, HideBySig
+    SetName(String): PrivateScope, Public, HideBySig
+    SetAuth(Auth): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct WeAlumni.PublicUserInfo+Auth: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Auth Level_1 = 0 : Public, Static, Literal, HasDefault
+    Auth Level_2 = 1 : Public, Static, Literal, HasDefault
+    Auth Level_3 = 2 : Public, Static, Literal, HasDefault
+    Auth Level_4 = 3 : Public, Static, Literal, HasDefault
+    Auth Level_5 = 4 : Public, Static, Literal, HasDefault
+Class WeAlumni.DBImportExport: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ImportDatabase(PublicUserInfo): PrivateScope, Public, Static, HideBySig
+    ExportDatabase(PublicUserInfo): PrivateScope, Public, Static, HideBySig
+Class WeAlumni.RecInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.StartPage2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.MemInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32, WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.MemAddPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.StfInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType, WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.StfAddPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.OrdInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.OrdAddPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.MainWindow: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.SysForgotPassword: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.LoginPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.OPTAddPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.OPTInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType, WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.SysChangeUserInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.SysInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.TreInfoPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class WeAlumni.TreAddPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(WeAlumni.PublicUserInfo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

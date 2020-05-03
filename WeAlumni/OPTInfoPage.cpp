@@ -434,8 +434,8 @@ Void WeAlumni::OPTInfoPage::btn_DeleteCancel_Click(System::Object^ sender, Syste
     btn_Exit->Visible = true;
     btn_DeleteConfirm->Visible = false;
     btn_DeleteCancel->Visible = false;
-    SetBoxVisible();
-    SetLableInvisible();
+    SetBoxInvisible();
+    SetLableVisible();
     if (_auth == PublicUserInfo::Auth::Level_3) {
         lbl_CardNumber->Visible = false;
         lbl_CardStartDate->Visible = false;

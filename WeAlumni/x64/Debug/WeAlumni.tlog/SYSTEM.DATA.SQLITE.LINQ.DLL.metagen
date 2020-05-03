@@ -1,0 +1,39 @@
+  System.Data.SQLite.Properties.resources - Embedded, ContainedInManifestFile, 
+  System.Data.SQLite.SQLiteProviderServices.StoreSchemaDefinition.ssdl - Embedded, ContainedInManifestFile, 
+  System.Data.SQLite.Common.ConceptualSchemaDefinition.csdl - Embedded, ContainedInManifestFile, 
+  System.Data.SQLite.SQLiteProviderServices.ProviderManifest.xml - Embedded, ContainedInManifestFile, 
+  System.Data.SQLite.SQLiteProviderServices.StoreSchemaMapping.msl - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class System.Data.SQLite.Linq.SQLiteProviderFactory: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Data.Common.DbProviderFactory
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IServiceProvider
+    System.IDisposable
+  Fields:
+    System.Data.SQLite.Linq.SQLiteProviderFactory Instance : Public, Static, InitOnly
+  Methods:
+    CreateCommand(): PrivateScope, Public, Virtual, HideBySig
+    CreateCommandBuilder(): PrivateScope, Public, Virtual, HideBySig
+    CreateConnection(): PrivateScope, Public, Virtual, HideBySig
+    CreateConnectionStringBuilder(): PrivateScope, Public, Virtual, HideBySig
+    CreateDataAdapter(): PrivateScope, Public, Virtual, HideBySig
+    CreateParameter(): PrivateScope, Public, Virtual, HideBySig
+    GetService(Type): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask

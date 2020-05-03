@@ -1,0 +1,28 @@
+﻿  DatabasePrecheck.cpp
+  Database.cpp
+  DatabaseEncryptionAndDecryption.cpp
+  DBImportExport.cpp
+  LoginPage.cpp
+  Main.cpp
+  MainWindow.cpp
+  MemAddPage.cpp
+  MemInfoPage.cpp
+  OPTAddPage.cpp
+  OPTInfoPage.cpp
+  OrdAddPage.cpp
+  OrdInfoPage.cpp
+  RecInfoPage.cpp
+  StartPage2.cpp
+  StfAddPage.cpp
+  StfInfoPage.cpp
+  SysChangeUserInfoPage.cpp
+  SysInfoPage.cpp
+  TreAddPage.cpp
+  Generating Code...
+C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\DBImportExport.cpp(80): warning C4715: 'WeAlumni::DBImportExport::ImportDatabase': not all control paths return a value
+  Compiling...
+  TreInfoPage.cpp
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Generating Code...
+  DatabasePrecheck.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  WeAlumni.vcxproj -> C:\Users\Luke Skywalker\Desktop\WeAlumini\Management-Software\WeAlumni\x64\Debug\WeAlumni.exe

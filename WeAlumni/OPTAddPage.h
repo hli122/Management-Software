@@ -10,6 +10,7 @@
  * @author: Xiangdong Che
  * Revised:  4/04/20  Fixed insert fail bug and added Exit button
  *           4/01/20
+ *           5/02/20 Changed layout of OPT part(Xiangdong Che)
  *
  */
 
@@ -165,11 +166,11 @@ namespace WeAlumni {
 			// 
 			this->lbl_Promt_OPTID->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_Promt_OPTID->AutoSize = true;
-			this->lbl_Promt_OPTID->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Promt_OPTID->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_Promt_OPTID->Location = System::Drawing::Point(43, 62);
 			this->lbl_Promt_OPTID->Name = L"lbl_Promt_OPTID";
-			this->lbl_Promt_OPTID->Size = System::Drawing::Size(60, 15);
+			this->lbl_Promt_OPTID->Size = System::Drawing::Size(71, 16);
 			this->lbl_Promt_OPTID->TabIndex = 1;
 			this->lbl_Promt_OPTID->Text = L"OPT编号";
 			// 
@@ -177,31 +178,35 @@ namespace WeAlumni {
 			// 
 			this->lbl_OPTID->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_OPTID->AutoSize = true;
-			this->lbl_OPTID->Location = System::Drawing::Point(129, 63);
+			this->lbl_OPTID->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_OPTID->Location = System::Drawing::Point(139, 63);
 			this->lbl_OPTID->Name = L"lbl_OPTID";
-			this->lbl_OPTID->Size = System::Drawing::Size(27, 13);
+			this->lbl_OPTID->Size = System::Drawing::Size(31, 16);
 			this->lbl_OPTID->TabIndex = 2;
 			this->lbl_OPTID->Text = L"N/A";
 			// 
 			// cmb_Status
 			// 
 			this->cmb_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->cmb_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->cmb_Status->FormattingEnabled = true;
 			this->cmb_Status->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Active", L"Invalid" });
-			this->cmb_Status->Location = System::Drawing::Point(290, 59);
+			this->cmb_Status->Location = System::Drawing::Point(377, 59);
 			this->cmb_Status->Name = L"cmb_Status";
-			this->cmb_Status->Size = System::Drawing::Size(121, 21);
+			this->cmb_Status->Size = System::Drawing::Size(121, 24);
 			this->cmb_Status->TabIndex = 4;
 			// 
 			// lbl_Prompt_Status
 			// 
 			this->lbl_Prompt_Status->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_Prompt_Status->AutoSize = true;
-			this->lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_Status->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Status->Location = System::Drawing::Point(228, 62);
+			this->lbl_Prompt_Status->Location = System::Drawing::Point(314, 62);
 			this->lbl_Prompt_Status->Name = L"lbl_Prompt_Status";
-			this->lbl_Prompt_Status->Size = System::Drawing::Size(33, 15);
+			this->lbl_Prompt_Status->Size = System::Drawing::Size(40, 16);
 			this->lbl_Prompt_Status->TabIndex = 5;
 			this->lbl_Prompt_Status->Text = L"状态";
 			// 
@@ -209,46 +214,52 @@ namespace WeAlumni {
 			// 
 			this->lbl_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_MemId->AutoSize = true;
-			this->lbl_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_MemId->Location = System::Drawing::Point(43, 115);
+			this->lbl_MemId->Location = System::Drawing::Point(42, 115);
 			this->lbl_MemId->Name = L"lbl_MemId";
-			this->lbl_MemId->Size = System::Drawing::Size(59, 15);
+			this->lbl_MemId->Size = System::Drawing::Size(72, 16);
 			this->lbl_MemId->TabIndex = 6;
 			this->lbl_MemId->Text = L"成员编号";
 			// 
 			// txt_MemId
 			// 
 			this->txt_MemId->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_MemId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_MemId->Location = System::Drawing::Point(139, 112);
 			this->txt_MemId->Name = L"txt_MemId";
-			this->txt_MemId->Size = System::Drawing::Size(100, 20);
+			this->txt_MemId->Size = System::Drawing::Size(100, 22);
 			this->txt_MemId->TabIndex = 7;
 			// 
 			// lbl_MemName
 			// 
 			this->lbl_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_MemName->AutoSize = true;
-			this->lbl_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_MemName->Location = System::Drawing::Point(269, 115);
+			this->lbl_MemName->Location = System::Drawing::Point(282, 115);
 			this->lbl_MemName->Name = L"lbl_MemName";
-			this->lbl_MemName->Size = System::Drawing::Size(59, 15);
+			this->lbl_MemName->Size = System::Drawing::Size(72, 16);
 			this->lbl_MemName->TabIndex = 8;
 			this->lbl_MemName->Text = L"成员姓名";
 			// 
 			// txt_MemName
 			// 
 			this->txt_MemName->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_MemName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_MemName->Location = System::Drawing::Point(377, 112);
 			this->txt_MemName->Name = L"txt_MemName";
-			this->txt_MemName->Size = System::Drawing::Size(100, 20);
+			this->txt_MemName->Size = System::Drawing::Size(100, 22);
 			this->txt_MemName->TabIndex = 9;
 			// 
 			// btn_Verify
 			// 
 			this->btn_Verify->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btn_Verify->Location = System::Drawing::Point(501, 105);
+			this->btn_Verify->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_Verify->Location = System::Drawing::Point(544, 105);
 			this->btn_Verify->Name = L"btn_Verify";
 			this->btn_Verify->Size = System::Drawing::Size(103, 38);
 			this->btn_Verify->TabIndex = 10;
@@ -260,11 +271,11 @@ namespace WeAlumni {
 			// 
 			this->lbl_Prompt_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_Prompt_StfId->AutoSize = true;
-			this->lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Prompt_StfId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_StfId->Location = System::Drawing::Point(451, 62);
+			this->lbl_Prompt_StfId->Location = System::Drawing::Point(535, 62);
 			this->lbl_Prompt_StfId->Name = L"lbl_Prompt_StfId";
-			this->lbl_Prompt_StfId->Size = System::Drawing::Size(59, 15);
+			this->lbl_Prompt_StfId->Size = System::Drawing::Size(72, 16);
 			this->lbl_Prompt_StfId->TabIndex = 11;
 			this->lbl_Prompt_StfId->Text = L"员工编号";
 			// 
@@ -272,59 +283,65 @@ namespace WeAlumni {
 			// 
 			this->lbl_StartDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_StartDate->AutoSize = true;
-			this->lbl_StartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_StartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_StartDate->Location = System::Drawing::Point(43, 176);
+			this->lbl_StartDate->Location = System::Drawing::Point(42, 176);
 			this->lbl_StartDate->Name = L"lbl_StartDate";
-			this->lbl_StartDate->Size = System::Drawing::Size(59, 15);
+			this->lbl_StartDate->Size = System::Drawing::Size(72, 16);
 			this->lbl_StartDate->TabIndex = 12;
 			this->lbl_StartDate->Text = L"开始日期";
 			// 
 			// txt_StartDate
 			// 
 			this->txt_StartDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_StartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_StartDate->Location = System::Drawing::Point(139, 173);
 			this->txt_StartDate->Name = L"txt_StartDate";
-			this->txt_StartDate->Size = System::Drawing::Size(100, 20);
+			this->txt_StartDate->Size = System::Drawing::Size(100, 22);
 			this->txt_StartDate->TabIndex = 13;
 			// 
 			// txt_EndDate
 			// 
 			this->txt_EndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_EndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_EndDate->Location = System::Drawing::Point(377, 173);
 			this->txt_EndDate->Name = L"txt_EndDate";
-			this->txt_EndDate->Size = System::Drawing::Size(100, 20);
+			this->txt_EndDate->Size = System::Drawing::Size(100, 22);
 			this->txt_EndDate->TabIndex = 15;
 			// 
 			// lbl_EndDate
 			// 
 			this->lbl_EndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_EndDate->AutoSize = true;
-			this->lbl_EndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_EndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_EndDate->Location = System::Drawing::Point(269, 176);
+			this->lbl_EndDate->Location = System::Drawing::Point(282, 176);
 			this->lbl_EndDate->Name = L"lbl_EndDate";
-			this->lbl_EndDate->Size = System::Drawing::Size(59, 15);
+			this->lbl_EndDate->Size = System::Drawing::Size(72, 16);
 			this->lbl_EndDate->TabIndex = 14;
 			this->lbl_EndDate->Text = L"结束日期";
 			// 
 			// txt_Title
 			// 
 			this->txt_Title->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_Title->Location = System::Drawing::Point(139, 235);
 			this->txt_Title->Name = L"txt_Title";
-			this->txt_Title->Size = System::Drawing::Size(100, 20);
+			this->txt_Title->Size = System::Drawing::Size(100, 22);
 			this->txt_Title->TabIndex = 17;
 			// 
 			// lbl_Title
 			// 
 			this->lbl_Title->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_Title->AutoSize = true;
-			this->lbl_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Title->Location = System::Drawing::Point(43, 238);
+			this->lbl_Title->Location = System::Drawing::Point(74, 238);
 			this->lbl_Title->Name = L"lbl_Title";
-			this->lbl_Title->Size = System::Drawing::Size(33, 15);
+			this->lbl_Title->Size = System::Drawing::Size(40, 16);
 			this->lbl_Title->TabIndex = 16;
 			this->lbl_Title->Text = L"头衔";
 			// 
@@ -332,17 +349,19 @@ namespace WeAlumni {
 			// 
 			this->lbl_Position->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_Position->AutoSize = true;
-			this->lbl_Position->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_Position->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Position->Location = System::Drawing::Point(269, 238);
+			this->lbl_Position->Location = System::Drawing::Point(314, 238);
 			this->lbl_Position->Name = L"lbl_Position";
-			this->lbl_Position->Size = System::Drawing::Size(33, 15);
+			this->lbl_Position->Size = System::Drawing::Size(40, 16);
 			this->lbl_Position->TabIndex = 18;
 			this->lbl_Position->Text = L"职位";
 			// 
 			// txt_Position
 			// 
 			this->txt_Position->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_Position->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_Position->Location = System::Drawing::Point(377, 210);
 			this->txt_Position->Name = L"txt_Position";
 			this->txt_Position->Size = System::Drawing::Size(232, 70);
@@ -352,66 +371,74 @@ namespace WeAlumni {
 			// txt_CardNumber
 			// 
 			this->txt_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_CardNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txt_CardNumber->Location = System::Drawing::Point(139, 300);
 			this->txt_CardNumber->Name = L"txt_CardNumber";
-			this->txt_CardNumber->Size = System::Drawing::Size(100, 20);
+			this->txt_CardNumber->Size = System::Drawing::Size(100, 22);
 			this->txt_CardNumber->TabIndex = 21;
 			// 
 			// lbl_CardNumber
 			// 
 			this->lbl_CardNumber->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_CardNumber->AutoSize = true;
-			this->lbl_CardNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_CardNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_CardNumber->Location = System::Drawing::Point(43, 303);
 			this->lbl_CardNumber->Name = L"lbl_CardNumber";
-			this->lbl_CardNumber->Size = System::Drawing::Size(60, 15);
+			this->lbl_CardNumber->Size = System::Drawing::Size(71, 16);
 			this->lbl_CardNumber->TabIndex = 20;
 			this->lbl_CardNumber->Text = L"CAD编号";
 			// 
 			// txt_CardStartDate
 			// 
 			this->txt_CardStartDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txt_CardStartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->txt_CardStartDate->Location = System::Drawing::Point(377, 300);
 			this->txt_CardStartDate->Name = L"txt_CardStartDate";
-			this->txt_CardStartDate->Size = System::Drawing::Size(100, 20);
+			this->txt_CardStartDate->Size = System::Drawing::Size(100, 22);
 			this->txt_CardStartDate->TabIndex = 23;
 			// 
 			// lbl_CardStartDate
 			// 
 			this->lbl_CardStartDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_CardStartDate->AutoSize = true;
-			this->lbl_CardStartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_CardStartDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_CardStartDate->Location = System::Drawing::Point(269, 303);
+			this->lbl_CardStartDate->Location = System::Drawing::Point(251, 303);
 			this->lbl_CardStartDate->Name = L"lbl_CardStartDate";
-			this->lbl_CardStartDate->Size = System::Drawing::Size(86, 15);
+			this->lbl_CardStartDate->Size = System::Drawing::Size(103, 16);
 			this->lbl_CardStartDate->TabIndex = 22;
 			this->lbl_CardStartDate->Text = L"CAD生效日期";
 			// 
 			// txt_CardEndDate
 			// 
 			this->txt_CardEndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->txt_CardEndDate->Location = System::Drawing::Point(610, 300);
+			this->txt_CardEndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txt_CardEndDate->Location = System::Drawing::Point(636, 300);
 			this->txt_CardEndDate->Name = L"txt_CardEndDate";
-			this->txt_CardEndDate->Size = System::Drawing::Size(100, 20);
+			this->txt_CardEndDate->Size = System::Drawing::Size(100, 22);
 			this->txt_CardEndDate->TabIndex = 25;
 			// 
 			// lbl_CardEndDate
 			// 
 			this->lbl_CardEndDate->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_CardEndDate->AutoSize = true;
-			this->lbl_CardEndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->lbl_CardEndDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_CardEndDate->Location = System::Drawing::Point(510, 303);
+			this->lbl_CardEndDate->Location = System::Drawing::Point(504, 303);
 			this->lbl_CardEndDate->Name = L"lbl_CardEndDate";
-			this->lbl_CardEndDate->Size = System::Drawing::Size(86, 15);
+			this->lbl_CardEndDate->Size = System::Drawing::Size(103, 16);
 			this->lbl_CardEndDate->TabIndex = 24;
 			this->lbl_CardEndDate->Text = L"CAD失效日期";
 			// 
 			// btn_Cancel
 			// 
 			this->btn_Cancel->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_Cancel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btn_Cancel->Location = System::Drawing::Point(337, 359);
 			this->btn_Cancel->Name = L"btn_Cancel";
 			this->btn_Cancel->Size = System::Drawing::Size(109, 66);
@@ -423,6 +450,8 @@ namespace WeAlumni {
 			// btn_Confirm
 			// 
 			this->btn_Confirm->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_Confirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btn_Confirm->Location = System::Drawing::Point(151, 359);
 			this->btn_Confirm->Name = L"btn_Confirm";
 			this->btn_Confirm->Size = System::Drawing::Size(109, 66);
@@ -435,9 +464,11 @@ namespace WeAlumni {
 			// 
 			this->lbl_StfId->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->lbl_StfId->AutoSize = true;
-			this->lbl_StfId->Location = System::Drawing::Point(544, 63);
+			this->lbl_StfId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_StfId->Location = System::Drawing::Point(636, 63);
 			this->lbl_StfId->Name = L"lbl_StfId";
-			this->lbl_StfId->Size = System::Drawing::Size(27, 13);
+			this->lbl_StfId->Size = System::Drawing::Size(31, 16);
 			this->lbl_StfId->TabIndex = 29;
 			this->lbl_StfId->Text = L"N/A";
 			// 
@@ -462,7 +493,7 @@ namespace WeAlumni {
 			this->lbl_Verify->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_Verify->ForeColor = System::Drawing::Color::Red;
-			this->lbl_Verify->Location = System::Drawing::Point(501, 166);
+			this->lbl_Verify->Location = System::Drawing::Point(544, 166);
 			this->lbl_Verify->Name = L"lbl_Verify";
 			this->lbl_Verify->Size = System::Drawing::Size(54, 25);
 			this->lbl_Verify->TabIndex = 31;
@@ -473,6 +504,8 @@ namespace WeAlumni {
 			// btn_Exit
 			// 
 			this->btn_Exit->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->btn_Exit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btn_Exit->Location = System::Drawing::Point(151, 359);
 			this->btn_Exit->Name = L"btn_Exit";
 			this->btn_Exit->Size = System::Drawing::Size(109, 66);
